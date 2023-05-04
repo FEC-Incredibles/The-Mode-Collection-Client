@@ -10,7 +10,7 @@
   "scripts": {
     "client-dev": "npx webpack --watch",
     "start": "live-server --open=./client/dist/index.html --port=3000",
-    "styles-dev": "node-sass -w ./client/src/scss/styles.scss -o ./client/dist/styles/styles.css"
+    "styles-dev": "node-sass -w ./client/src/scss -o ./client/dist/styles"
   },
   "dependencies": {
     "@babel/core": "^7.14.6",
