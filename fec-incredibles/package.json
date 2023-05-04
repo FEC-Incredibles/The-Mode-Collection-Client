@@ -9,7 +9,8 @@
   },
   "scripts": {
     "client-dev": "npx webpack --watch",
-    "start": "live-server --open=./client/dist/index.html --port=3000"
+    "start": "live-server --open=./client/dist/index.html --port=3000",
+    "styles-dev": "node-sass -w ./client/src/scss/styles.scss -o ./client/dist/styles/styles.css"
   },
   "dependencies": {
     "@babel/core": "^7.14.6",
@@ -20,6 +21,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.1.4",
+    "node-sass": "^4.9.3",
     "nodemon": "^2.0.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -27,7 +29,7 @@
     "webpack-cli": "^4.7.2"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "node-sass": "^8.0.0"
   }
 }
-
