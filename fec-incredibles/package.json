@@ -8,9 +8,12 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "client-dev": "npx webpack --watch",
-    "start": "live-server --open=./client/dist/index.html --port=3000",
-    "styles-dev": "node-sass -w ./client/src/scss -o ./client/dist/styles"
+    "client-dev": "npx webpack --watch --mode=development",
+    "server-dev": "npx nodemon --watch server server/index.js",
+    "styles-dev": "node-sass -w ./client/src/scss -o ./client/dist/styles",
+    "dev": "npm run styles-dev & npm run client-dev & npm run server-dev",
+    "build": "npx webpack --mode=production",
+    "start": "node server/index.js"
   },
   "dependencies": {
     "@babel/core": "^7.14.6",
