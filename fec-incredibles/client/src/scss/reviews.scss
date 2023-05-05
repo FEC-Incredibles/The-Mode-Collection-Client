@@ -3,27 +3,35 @@
   border: 1px solid grey;
   padding: 8px;
   // margin: 10px
-  min-height: 100px;
+  height: auto;
 }
 
+/*
+ * General Module Layout
+ */
 #review-module {
-  min-height: 300px;
   width: 95%;
+  height: auto;
+  padding: 8px;
+
+  .col-25 {
+    float: left;
+    width: 23%;
+  }
+
+  .col-75 {
+    float: right;
+    width: 75%;
+  }
+
+  /* Clear floats after the columns */
+  ::after {
+    content: "";
+    // display: table;
+    clear: both;
+  }
 }
 
-.col-25 {
-  float: left;
-  width: 25%;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-}
-
-/* Clear floats after the columns */
-#review-module::after {
-  content: "";
-  // display: table;
-  clear: both;
-}
+/*
+ * Review List
+ */

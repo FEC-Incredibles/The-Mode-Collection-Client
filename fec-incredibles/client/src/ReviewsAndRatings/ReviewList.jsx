@@ -15,8 +15,13 @@ const ReviewList = ({ reviews }) => {
         <div className="review-tile review-container" key={idx}>
 
           <div>{starRating(review.rating)} </div>
+          <div></div>
           <h5>{review.summary} </h5>
           <p>{review.body}</p>
+
+          {review.recommend && (
+            <div></div>
+          ) }
         </div>
       )
     })}
