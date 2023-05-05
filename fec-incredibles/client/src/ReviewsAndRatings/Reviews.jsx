@@ -12,7 +12,7 @@ const exampleReviews =  [
     "rating": 5,
     "summary": "I think I bought the best thing ever!",
     "recommend": true,
-    "response": null,
+    "response": "There is some response",
     "body": "Mauris aliquam facilisis condimentum. Vivamus non sem eros. Nunc scelerisque, tortor in placerat auctor, arcu purus consequat erat, vel hendrerit odio mauris id leo. Praesent quis metus maximus, pellentesque ex ac, dictum nisi. In et aliquam purus, in congue nunc. Fusce ac elit massa. Praesent vitae dolor nisi. Proin mauris est, consectetur vitae varius vitae, fringilla ut tellus.",
     "date": "2023-02-09T00:00:00.000Z",
     "reviewer_name": "User3",
@@ -97,7 +97,7 @@ const exampleReviews =  [
 
 const Reviews = ({currentItemID}) => {
 
-  const [ reviews, setReviews ] = useState(exampleReviews.slice(0, 5));
+  const [ reviews, setReviews ] = useState(exampleReviews.slice(0, 2));
 
   return (
     <div className="widget" id="review-module">

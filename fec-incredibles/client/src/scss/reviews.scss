@@ -30,8 +30,46 @@
     // display: table;
     clear: both;
   }
+
+  select {
+    display: inline-block;
+  }
 }
+
+
+
 
 /*
  * Review List
  */
+
+
+ /*
+  * Single Review Tile
+  */
+.review-tile {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 4px;
+
+  .review-tile-header {
+    display: flex;
+    flex-flow: row nowrap;
+
+    div {
+      flex: 6;
+    }
+
+    i {
+      font-size: 0.8rem;
+      margin:0 5px 0 5px;
+    }
+
+  }
+
+  .review-img {
+    max-width: 80px;
+    height: auto;
+    margin: 5px;
+  }
+}

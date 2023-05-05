@@ -20,7 +20,28 @@
   #review-module ::after {
     content: "";
     clear: both; }
+  #review-module select {
+    display: inline-block; }
 
 /*
  * Review List
  */
+/*
+  * Single Review Tile
+  */
+.review-tile {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 4px; }
+  .review-tile .review-tile-header {
+    display: flex;
+    flex-flow: row nowrap; }
+    .review-tile .review-tile-header div {
+      flex: 6; }
+    .review-tile .review-tile-header i {
+      font-size: 0.8rem;
+      margin: 0 5px 0 5px; }
+  .review-tile .review-img {
+    max-width: 80px;
+    height: auto;
+    margin: 5px; }
