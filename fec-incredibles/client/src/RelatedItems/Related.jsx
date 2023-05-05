@@ -5,9 +5,9 @@ const Related = ({currentItemID}) => {
 
   return (
     <div className='relatedProducts'>
-      {relatedProducts.map((item => {
-        return 
-      }))}
+      {/* {relatedProducts.map((item => {
+        return
+      }))} */}
     </div>
   )
 }
