@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-export default function Card({ item }) {
-  const [renderStars, setRenderStars] = useState([]);
-  useEffect(() => {
-    for (var i = 0; i < 5; i++) {
-      item.stars > i
-        ? setRenderStars(() => {
-            [...renderStars, "&star;"];
-          })
-        : setRenderStars(() => {
-            [...renderStars, "&star;"];
-          });
-    }
-  }, []);
+export default function Card({ item, width }) {
+  let filledStar = '☆'
+  let emptyStar = '★'
   return (
-    <div className="Card">
+    <div className="Card" style={{ width: width }}>
       {item.starred ? (
         <h2 className="starred">⭐️</h2>
       ) : (
@@ -26,7 +16,7 @@ export default function Card({ item }) {
         <h2>{item.productData}</h2>
         <h3>{item.price}</h3>
         <div className="stars">
-          <h3>⭐️⭐️⭐️⭐️★</h3>
+          <h3>{filledStar.repeat(item.stars) + emptyStar.repeat(5 - item.stars)}</h3>
         </div>
       </div>
     </div>
