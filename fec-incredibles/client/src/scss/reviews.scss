@@ -1,0 +1,29 @@
+
+.review-container {
+  border: 1px solid grey;
+  padding: 8px;
+  // margin: 10px
+  min-height: 100px;
+}
+
+#review-module {
+  min-height: 300px;
+  width: 95%;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+#review-module::after {
+  content: "";
+  // display: table;
+  clear: both;
+}
