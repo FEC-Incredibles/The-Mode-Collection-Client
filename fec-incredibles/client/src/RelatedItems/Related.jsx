@@ -1,10 +1,13 @@
 import React from 'react'
+import relatedProducts from './ExampleData/relatedProducts.json'
 
 const Related = ({currentItemID}) => {
 
   return (
-    <div className='related'>
-      <p className='somethingBasic'>this is the Related Items section</p>
+    <div className='relatedProducts'>
+      {relatedProducts.map((item => {
+        return 
+      }))}
     </div>
   )
 }
