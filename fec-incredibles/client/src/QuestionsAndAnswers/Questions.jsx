@@ -1,5 +1,6 @@
 import React from 'react'
-import Answers from './AnswersList.jsx';
+
+import QuestionEntry from './QuestionEntry.jsx';
 
 const Questions = ({currentItemID}) => {
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Answers from './AnswersList.jsx';
 
 const QuestionEntry = () => {
   return (
@@ -7,3 +8,5 @@ const QuestionEntry = () => {
     </div>
   )
 }
+
+export default QuestionEntry;
