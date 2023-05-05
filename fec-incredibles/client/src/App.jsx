@@ -6,14 +6,14 @@ import Reviews from './ReviewsAndRatings/Reviews.jsx'
 
 
 const App = () => {
-
+  const [currentItemID, setCurrentItemID] = useState(37311);
   return (
     <div>
      <h1>Hello, The Incredibles 🤯</h1>
-     <Product/>
-     <Related/>
-     <Questions/>
-     <Reviews/>
+     <Product currentItemID={currentItemID}/>
+     <Related currentItemID={currentItemID}/>
+     <Questions currentItemID={currentItemID}/>
+     <Reviews currentItemID={currentItemID}/>
     </div>
   )
 }
