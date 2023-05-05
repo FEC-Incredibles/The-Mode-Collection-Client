@@ -1,8 +1,7 @@
 const axios = require('axios');
 const config = require('../config.js');
 
-module.exports.getProducts = () => {
-  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products'
+const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products'
 
 const options = {
   headers: {
@@ -12,8 +11,8 @@ const options = {
   }
 }
 
-module.exports.getProducts = () => {
 
+module.exports.getProducts = () => {
   return axios.get(url, options)
   .then((response) => { return response; })
   .catch((err) => { console.log('API ERROR GETTING PRODUCTS => ', err); })
