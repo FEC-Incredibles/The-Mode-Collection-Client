@@ -18,7 +18,7 @@ const App = () => {
   }, [])
 
   return (
-    <div>
+    <div id='main'>
      <h1>Hello, The Incredibles {currentItemID}🤯</h1>
      <Product currentItemID={currentItemID}/>
      <Related currentItemID={currentItemID}/>

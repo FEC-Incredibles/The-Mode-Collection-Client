@@ -1,0 +1,20 @@
+#relatedProducts {
+  display: flex;
+  flex-flow: row nowrap;
+  .Card {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 12px;
+    max-width: 200px;
+    border: 2px solid lightgrey;
+    border-radius: 6px;
+  }
+  .starred {
+    padding: 4px;
+    position: absolute;
+    align-self: end;
+  }
+  .info {
+    padding: 10px;
+  }
+}
