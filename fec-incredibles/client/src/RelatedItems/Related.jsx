@@ -3,8 +3,8 @@ import React from 'react'
 const Related = ({currentItemID}) => {
 
   return (
-    <div>
-      <p>this is the Related Items section</p>
+    <div className='related'>
+      <p className='somethingBasic'>this is the Related Items section</p>
     </div>
   )
 }
