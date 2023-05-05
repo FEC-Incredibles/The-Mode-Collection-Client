@@ -1,7 +1,8 @@
 .review-container {
   border: 1px solid grey;
   padding: 8px;
-  min-height: 100px; }
+  min-height: 100px;
+}
 
 #review-module {
   min-height: 300px;
@@ -19,3 +20,9 @@
 #review-module::after {
   content: "";
   clear: both; }
+
+/*
+ * Review List
+ */
+
+
