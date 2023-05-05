@@ -1,6 +1,8 @@
 const axios = require('axios');
 const config = require('../config.js');
-const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products'
+
+module.exports.getProducts = () => {
+  const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products'
 
 const options = {
   headers: {

@@ -1,12 +1,15 @@
-import React from 'react'
+import React from "react";
+import Card from "./Card.jsx";
+import relatedProducts from "./ExampleData/relatedProducts.json";
 
-const Related = ({currentItemID}) => {
-
+const Related = ({ currentItemID }) => {
   return (
-    <div>
-      <p>this is the Related Items section</p>
+    <div className="widget" id="relatedProducts">
+      {relatedProducts.map(((item, index) => {
+        return <Card item={item} key={index}/>
+      }))}
     </div>
-  )
-}
+  );
+};
 
-export default Related
+export default Related;
