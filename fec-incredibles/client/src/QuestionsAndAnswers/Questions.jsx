@@ -6,7 +6,7 @@ const Questions = ({currentItemID}) => {
   return (
     <div>
       <p>this is the Questions section</p>
-      <Answers />
+      <QuestionEntry />
     </div>
   )
 }
