@@ -1,6 +1,8 @@
 import React from 'react'
+import Axios from 'axios'
 
 const Product = ({currentItemID}) => {
+
 
   return (
     <div>
