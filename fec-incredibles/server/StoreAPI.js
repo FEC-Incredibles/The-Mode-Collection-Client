@@ -23,3 +23,9 @@ module.exports.getProductInfo = (productID) => {
   .then((response) => {return response})
   .catch((err) => { console.log('API ERROR GETTING PRODUCT INFO FOR ', productID, '=> ', err)})
 }
+
+module.exports.getProductStyles = (productID) => {
+  return axios.get(`${url}/${productID}/styles`, options)
+  .then((response) => { return response; })
+  .catch((err) => { console.log('API ERROR GETTING PRODUCT STYLES FOR ', productID, '=> ', err)} )
+}
