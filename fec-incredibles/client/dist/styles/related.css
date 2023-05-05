@@ -1,4 +1,16 @@
-.related {
-  color: black; }
-  .related .superBasic {
-    color: white; }
+#relatedProducts {
+  display: flex;
+  flex-flow: row nowrap; }
+  #relatedProducts .Card {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 12px;
+    max-width: 200px;
+    border: 2px solid lightgrey;
+    border-radius: 6px; }
+  #relatedProducts .starred {
+    padding: 4px;
+    position: absolute;
+    align-self: end; }
+  #relatedProducts .info {
+    padding: 10px; }

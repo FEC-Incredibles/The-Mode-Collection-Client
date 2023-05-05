@@ -4,7 +4,7 @@ import relatedProducts from "./ExampleData/relatedProducts.json";
 
 const Related = ({ currentItemID }) => {
   return (
-    <div className="relatedProducts">
+    <div className="widget" id="relatedProducts">
       {relatedProducts.map(((item, index) => {
         return <Card item={item} key={index}/>
       }))}
