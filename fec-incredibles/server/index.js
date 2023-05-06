@@ -35,7 +35,7 @@ app.get('/products/:id', (req, res) => {
 app.get('/products/:id/styles', (req, res) => {
   store.getProductStyles(req.params.id)
   .then((response) => {
-    console.log('product styles => ', response.data)
+    // console.log('product styles => ', response.data)
     res.status(200).json(response.data);
   })
   .catch((err) => {
