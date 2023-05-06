@@ -4,33 +4,55 @@ import axios from 'axios'
 const Product = ({currentItemID}) => {
 
   const [productDetails, setProductDetails] = useState()
-  const [syles, setStyles] = useState()
+  const [styles, setStyles] = useState()
 
   useEffect (() => {
     if (currentItemID) {
       axios.get(`/products/${currentItemID}`)
-        .then((response) => {
-          setProductDetails(response.data);
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+      .catch((err) => {
+        console.log('ERROR LOADING COMPONENT => ', err)
+      })
+      .then((response) => {
+        setProductDetails(response.data);
+        return axios.get(`/products/${currentItemID}/styles`)
+      })
+      .then((response) => {
+        console.log(response.data.results)
+        setStyles(response.data.results)
+      })
+
     }
   }, [currentItemID])
 
-  if (!productDetails) {
+  if (!productDetails || !styles) {
     return <div> Loading... </div>
   }
 
+
   return (
     <div className='widget' id='Product'>
-      <p>this is the Product section</p>
+      <p>Product section</p>
       <div>
-        <p>this is the product name {productDetails.name}</p>
-        <p>this is the product category {productDetails.category}</p>
-        <p>this is the product slogan {productDetails.slogan}</p>
-        <p>this is the product description {productDetails.description}</p>
-        <p>this is the product price {productDetails.default_price}</p>
+        <p>product name {productDetails.name}</p>
+        <p>product category {productDetails.category}</p>
+        <p>product slogan {productDetails.slogan}</p>
+        <p>product description {productDetails.description}</p>
+        <p>product price {productDetails.default_price}</p>
+      </div>
+      <div>
+        <ul>
+          {styles.map((style, index) => (
+            <li key={index}>
+              <p>is default style? {style.default}</p>
+              <p>style name{style.name}</p>
+              <p>style original_price{style.original_price}</p>
+              <p>style photos{JSON.stringify(style.photos[0])}</p>
+              <p>style sale_price{style.sale_price}</p>
+              <p>style skus{JSON.stringify(style.skus)}</p>
+              <p>style id{style.style_id}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )
