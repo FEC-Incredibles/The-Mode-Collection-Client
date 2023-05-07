@@ -38,7 +38,7 @@ const Product = ({currentItemID}) => {
       <ProductImages data={selectedStyle}/>
       <ProductDetails productDetails={productDetails}/>
       <StylePicker defaultStyle={selectedStyle} styles={styles} setter={setSelectedStyle}/>
-      <AddToOutfit data={selectedStyle.skus}/>
+      <AddToOutfit data={selectedStyle}/>
     </div>
   )
 }
