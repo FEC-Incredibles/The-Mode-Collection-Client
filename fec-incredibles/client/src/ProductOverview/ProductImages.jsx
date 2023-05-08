@@ -1,31 +1,37 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 
-const ProductImages = ({data}) => {
-  console.log(data.photos)
-  const [selectedImage, setSelectedImage] = useState(data.photos[0])
+const ProductImages = ({ selectedStyleData }) => {
+	const [selectedImage, setSelectedImage] = useState(
+		selectedStyleData.photos[0]
+	);
 
-  useEffect( () => {
-    setSelectedImage(data.photos[0])
-  }, [data.photos])
-  const changeImage = (index) => {
-    setSelectedImage(data.photos[index])
-  }
+	useEffect(() => {
+		setSelectedImage(selectedStyleData.photos[0]);
+	}, [selectedStyleData.photos]);
+	const changeImage = (index) => {
+		setSelectedImage(selectedStyleData.photos[index]);
+	};
 
-  return (
-    <div id='images' >
-      {/* main image */}
-      <img src={selectedImage.url}></img>
+	return (
+		<div id="imageContainer">
+			{/* main image */}
+			<img src={selectedImage.url}></img>
 
-      {/* additional row of images */}
-      <ul>
-        {data.photos.map((photo, index) => (
-          <li key={index}>
-            <img onClick={(e) => {changeImage(index)} }src={photo.thumbnail_url}></img>
-          </li>
-          ))}
-      </ul>
-    </div>
-  )
-}
+			{/* additional row of images */}
+			<ul id="extraImages">
+				{selectedStyleData.photos.map((photo, index) => (
+					<li key={index}>
+						<img
+							onClick={(e) => {
+								changeImage(index);
+							}}
+							src={photo.thumbnail_url}
+						></img>
+					</li>
+				))}
+			</ul>
+		</div>
+	);
+};
 
-export default ProductImages
+export default ProductImages;

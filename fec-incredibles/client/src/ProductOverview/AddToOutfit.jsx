@@ -1,50 +1,84 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
+import DropDownList from "./DropDownList.jsx";
 
-const AddToOutfit = ({data}) => {
+const AddToOutfit = ({ data }) => {
+	const [skus, setSkus] = useState();
+	const [selectedSize, setSelectedSize] = useState({
+		size: null,
+		quantity: null,
+	});
+	const [availableQuantity, setAvailableQuantity] = useState(["select a size"]);
 
-  console.log('skus => ', data.skus)
-  const [size, setSelectedSize] = useState('')
-  const [quantity, setSelectedQuantity] = useState('')
+	useEffect(() => {
+		setSkus(data.skus);
+	}, [data]);
 
-  const handleAdditionToOutift = (event) => {
-    event.preventDefault()
-    console.log(event)
-  }
+	const setQuantityFromSize = (size) => {
+		if (size === "select a size") {
+			return;
+		}
+		//for the camo onesie, this filter fails because for some reason there is a second size option for XL that has a different quantity and SKU id, for now the program just grabs the first option for XL and ignores the second one but may have to look into a solution later if this becomes a bigger issue
+		const [skuidForThatSize] = Object.keys(skus).filter(
+			(skuid) => skus[skuid]["size"] === size
+		);
+		setAvailableQuantity(generateList(skus[skuidForThatSize]["quantity"]));
+	};
 
-  const handleSizeChange = (event) => {
-    setSelectedSize(event.target.value)
-  }
+	const generateList = (total) => {
+		const max = 15;
+		if (total === 0 || total === undefined) {
+			return ["OUT OF STOCK"];
+		} else if (total > max) {
+			return Array.from({ length: max }, (_, i) => i + 1);
+		} else {
+			return Array.from({ length: total }, (_, i) => i + 1);
+		}
+	};
 
-  const generateList = (total) => {
-    const max = 15;
-    return total === 0 ? ['OUT OF STOCK'] : total > max ? Array.from(max, (_, i) => (i + 1)) : Array.from(total, (_, i) => (i + 1))
-  }
+	return (
+		<form
+			onSubmit={(e) => {
+				e.preventDefault();
+				console.log(e);
+			}}
+			id="AddToOutfit"
+		>
+			<label htmlFor="size">Size</label>
 
-  /**
-   * !when user selects a size
-   * i need to see that size's quantity and then update the other select drop down menu
-   * call generate list with the quantity i got from that size
-   *  generate list takes care of the logic for "if theres more than 15 then limit the user to 15 of that item, if theres less than 15 then limit the user to however many available in stock, and finally if theres nothing in stock then it should display OUT OF STOCK"
-   */
+			<select
+				id="size"
+				name="size"
+				onChange={(e) => {
+					setQuantityFromSize(e.target.value);
+				}}
+			>
+				<option value="select a size">select a size</option>
 
-  return (
-    <form onSubmit={handleAdditionToOutift} id='AddToOutfit'>
-      <label htmlFor='size'>Select a size</label>
-      <select id='size' name='size' onChange={handleSizeChange}>
-        <option value='select a size'>select a size</option>
-        {Object.keys(data.skus).map((skuid) => (
-            <option key={skuid} value={data.skus[skuid].size}>{data.skus[skuid].size}</option>
-        ))}
-      </select>
-      {/* <label htmlFor='quantity'>Select a quantity</label>
-      <select id='quantity' name='quantity'>
-        {generateList().map((val, index) => (
-          <option key={index}>{val}</option>
-        ))}
-      </select> */}
-      <button type='submit'></button>
-    </form>
-  )
-}
+				{Object.keys(data.skus).map((skuid) => (
+					<option key={skuid} value={data.skus[skuid].size}>
+						{data.skus[skuid].size}
+					</option>
+				))}
+			</select>
 
-export default AddToOutfit
+			<label htmlFor="quantity">Quantity</label>
+			<select
+				id="quantity"
+				name="quantity"
+				onChange={(e) => {
+					console.log(e);
+				}}
+			>
+				<option value="select a quantity">select a quantity</option>
+				{availableQuantity.map((val, index) => {
+					<option key={index} value={val}>
+						{val}
+					</option>;
+				})}
+			</select>
+			<button type="submit">add to outfit</button>
+		</form>
+	);
+};
+
+export default AddToOutfit;
