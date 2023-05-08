@@ -1,11 +1,11 @@
 import React from 'react';
 
-const RatingBreakdown = () => {
+const ProductBreakdown = () => {
   return (
     <div className="review-container">
-      RatingBreakdown
+      ProductBreakdown
       </div>
   )
 }
 
-export default RatingBreakdown;
+export default ProductBreakdown;
