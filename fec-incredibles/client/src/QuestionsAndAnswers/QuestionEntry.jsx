@@ -1,10 +1,13 @@
 import React from 'react';
-import Answers from './AnswersList.jsx';
+import AnswersList from './AnswersList.jsx';
 
-const QuestionEntry = () => {
+
+const QuestionEntry = ({questions}) => {
   return (
-    <div>
-      <Answers />
+    <div className='questionContainer'>
+      {questions.results.map((question, index) => {
+        return (<AnswersList question={question} key={index}/>)
+      })}
     </div>
   )
 }

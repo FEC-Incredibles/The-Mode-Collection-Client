@@ -1,0 +1,29 @@
+#QA {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%; }
+  #QA .pageTitle {
+    margin: 8px; }
+  #QA .searchBar {
+    align-self: center;
+    width: 400px; }
+  #QA .question {
+    margin: 10px;
+    font-weight: bold;
+    padding: 8px;
+    height: auto; }
+  #QA .answerContainer {
+    padding: 8px;
+    margin: 10px;
+    height: auto; }
+  #QA .buttons {
+    align-self: center; }
+  #QA .moreAnsweredBtn {
+    width: 250px; }
+  #QA .addQuestionBtn {
+    width: 250px; }
+  #QA .userDate {
+    font-size: 13px; }
+  #QA .answer {
+    padding: 8px;
+    margin: 7px; }

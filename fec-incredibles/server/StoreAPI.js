@@ -30,3 +30,4 @@ module.exports.getProductStyles = (productID) => {
   .then((response) => { return response; })
   .catch((err) => { console.log('API ERROR GETTING PRODUCT STYLES FOR ', productID, '=> ', err)} )
 }
+
