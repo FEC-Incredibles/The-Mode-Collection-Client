@@ -35,14 +35,14 @@ const exampleMeta = {
 
 const RatingBreakdown = () => {
 
-  // quantity
-  const numOfReviews = Object.values(exampleMeta.recommended)
+  const getTotalNumOfReviews = () => {
+    return Object.values(exampleMeta.recommended)
     .reduce(
       (accumulator, currentValue) => accumulator + Number(currentValue)
       , 0);
+    };
 
-
-  const avgRating1 = () => {
+  const getAvgRating = () => {
     let ratings = exampleMeta.ratings;
     let sum = Object.keys(ratings).reduce(
       (accumulator, currentKey) => {
@@ -52,36 +52,31 @@ const RatingBreakdown = () => {
       }
       , 0);
     return (sum / numOfReviews).toFixed(1);
+  };
+
+  const getPercentRecommended = () => {
+    return Math.round((exampleMeta.recommended.true / numOfReviews) * 100);
   }
-
-  const avgRating = (Object.keys(exampleMeta.ratings)
-    .reduce(
-      (accumulator, currentKey) => {
-        let currentValue = exampleMeta.ratings[currentKey];
-        accumulator += Number(currentKey) * Number(currentValue);
-        return accumulator;
-      }
-      , 0) / numOfReviews).toFixed(1);
-
-
-  const percentRecommended = Math.round((exampleMeta.recommended.true / numOfReviews) * 100);
 
   const breakdownByStar = (numString) => {
     return Math.round((Number(exampleMeta['ratings'][numString]) / numOfReviews) * 100);
   }
 
-
   const starRating = (numRating) => {
     return ('★').repeat(numRating) + ('✩').repeat(5 - numRating);
   }
+
+  const numOfReviews = getTotalNumOfReviews();
+  const avgRating = getAvgRating();
+  const percentRecommended = getPercentRecommended();
 
 
   return (
     <div className="" id="rating-breakdown">
 
       {/* TODO: partially filled stars */}
-      <div>
-        <h1>{avgRating}</h1>
+      <div className="breakdown-summary">
+        <h1 className="breakdown-heading">{avgRating}</h1>
         {starRating(Math.round(avgRating))}
       </div>
 
@@ -93,11 +88,10 @@ const RatingBreakdown = () => {
       <br />
       {Object.keys(exampleMeta.ratings).reverse().map((rating, idx) => {
         return (
-          <div key={idx}>
+          <div className={} key={idx} >
             {/* TODO: click on it will filter the displaying reviews */}
             <a>{rating} stars</a>
-            <div className="breakdown-by-star">
-
+            <div className="">
               <div className="bar" style={{ width: `${breakdownByStar(rating)}%` }}>
               </div>
             </div>

@@ -52,6 +52,14 @@
 #rating-breakdown {
   display: flex;
   flex-flow: column nowrap; }
+  #rating-breakdown .breakdown-summary {
+    display: inline-flex; }
+    #rating-breakdown .breakdown-summary .breakdown-heading {
+      font-size: 3rem;
+      margin-right: 8px; }
+  #rating-breakdown a {
+    text-decoration: underline;
+    color: #201f1f; }
   #rating-breakdown .breakdown-by-star {
     width: 70%;
     height: 10px;
