@@ -1,13 +1,20 @@
-import React from 'react'
-
+import React, {useState, useEffect} from 'react'
 import QuestionEntry from './QuestionEntry.jsx';
+import Axios from 'axios';
 
 const Questions = ({currentItemID}) => {
 
+  useEffect = () => {
+    axios.get
+  }
+
   return (
     <div>
-      <p>this is the Questions section</p>
-      <QuestionEntry />
+      <input placeholder={'search'}></input>
+      <div>
+        <p>this is the Questions section</p>
+        <QuestionEntry />
+      </div>
     </div>
   )
 }
