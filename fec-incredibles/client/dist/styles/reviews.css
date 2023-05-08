@@ -7,13 +7,13 @@
  * General Module Layout
  */
 #review-module {
-  width: 95%;
+  width: 100%;
   height: auto;
   padding: 8px;
   /* Clear floats after the columns */ }
   #review-module .col-25 {
     float: left;
-    width: 23%; }
+    width: 25%; }
   #review-module .col-75 {
     float: right;
     width: 75%; }
@@ -27,8 +27,8 @@
  * Review List
  */
 /*
-  * Single Review Tile
-  */
+ * Single Review Tile
+ */
 .review-tile {
   display: flex;
   flex-flow: column nowrap;
@@ -45,3 +45,21 @@
     max-width: 80px;
     height: auto;
     margin: 5px; }
+
+/*
+ * Rating Breakdown
+ */
+#rating-breakdown {
+  display: flex;
+  flex-flow: column nowrap; }
+  #rating-breakdown .breakdown-by-star {
+    width: 70%;
+    height: 10px;
+    display: inline-block;
+    margin: 0 5px;
+    border: 1px solid #fff;
+    box-shadow: 0 0 1px #aaa; }
+    #rating-breakdown .breakdown-by-star .bar {
+      width: 0%;
+      height: 100%;
+      background: green; }

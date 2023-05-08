@@ -8,16 +8,16 @@ const ReviewList = ({ reviews }) => {
 
 
   return (
-    <div className="review-container">
+    <div className="">
 
-    {reviews.map((review, idx) => {
-      return (
-       <ReviewTile review={review} key={idx}/>
-      )
-    })}
+      {reviews.map((review, idx) => {
+        return (
+          <ReviewTile review={review} key={idx} />
+        )
+      })}
 
-    <button> More Review </button>
-    <button> Add New Review </button>
+      <button> More Review </button>
+      <button> Add New Review </button>
 
     </div>
   )
