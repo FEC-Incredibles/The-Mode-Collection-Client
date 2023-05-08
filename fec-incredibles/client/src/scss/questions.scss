@@ -1,0 +1,53 @@
+#QA {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+
+
+
+  .pageTitle {
+    margin: 8px;
+  }
+
+  .searchBar {
+    align-self: center;
+    width: 400px;
+  }
+
+  .question {
+    margin: 10px;
+    font-weight: bold;
+    padding: 8px;
+    height: auto;
+  }
+
+  .answerContainer {
+    //border: 1px solid grey;
+    padding: 8px;
+    margin: 10px;
+    height: auto;
+  }
+
+  .buttons {
+    align-self: center;
+  }
+
+  .moreAnsweredBtn {
+    width: 250px;
+  }
+
+  .addQuestionBtn {
+    width: 250px;
+  }
+
+  .userDate {
+    font-size: 13px;
+  }
+
+  .answer {
+    padding: 8px;
+    margin: 7px;
+  }
+
+}
+

@@ -1,21 +1,26 @@
 import React, {useState, useEffect} from 'react'
 import QuestionEntry from './QuestionEntry.jsx';
 import axios from 'axios';
+import ExampleData from './ExampleData.json';
+
 
 const Questions = ({currentItemID}) => {
 
-  let [questions, setQuestions] = useState([]);
+  //let [questions, setQuestions] = useState([]);
 
 
   return (
-    <div>
-      <input placeholder={'search'}></input>
+    <div className='widget' id='QA'>
+      <h1 className='pageTitle'>Question & Answer</h1>
+        <input className='searchBar' placeholder='Have A Question? Search For Answers...'></input>
       <div>
-        <p>this is the Questions section</p>
-        <QuestionEntry questions={questions}/>
+        <QuestionEntry questions={ExampleData}/>
+      </div>
+      <div className='buttons'>
+        <button className='moreAnsweredBtn'>More Answered Questions</button> <button className='addQuestionBtn'>Add A Question</button>
       </div>
     </div>
   )
 }
 
-export default Questions
+export default Questions;
