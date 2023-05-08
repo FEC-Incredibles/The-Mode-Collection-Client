@@ -4,7 +4,7 @@ const SortOption = () => {
   return (
     <div className="">
 
-      <label htmlFor="sorting-option">Total # of this product, sorted by</label>
+      <label htmlFor="sorting-option">Total # of this product, sorted by </label>
 
       <select name="sorting-option" id="sorting">
         <option htmlFor="relevant">Relevant</option>
