@@ -51,25 +51,51 @@
  */
 #rating-breakdown {
   display: flex;
-  flex-flow: column nowrap; }
+  flex-flow: column nowrap;
+  margin: 10px 0; }
   #rating-breakdown .breakdown-summary {
     display: inline-flex; }
     #rating-breakdown .breakdown-summary .breakdown-heading {
       font-size: 3rem;
       margin-right: 8px; }
-  #rating-breakdown .breakdown-by-star a {
-    text-decoration: underline;
-    color: #201f1f; }
-  #rating-breakdown .breakdown-by-star .breakdown-bar {
-    width: 70%;
-    height: 10px;
-    display: inline-block;
-    margin: 0 5px;
-    border: 1px solid #fff;
-    box-shadow: 0 0 1px #aaa; }
-    #rating-breakdown .breakdown-by-star .breakdown-bar .bar {
-      width: 0%;
-      height: 100%;
-      background: green; }
+  #rating-breakdown .breakdown-by-star {
+    margin: 3px 0; }
+    #rating-breakdown .breakdown-by-star a {
+      text-decoration: none;
+      color: default; }
+    #rating-breakdown .breakdown-by-star .breakdown-bar {
+      width: 70%;
+      height: 10px;
+      display: inline-block;
+      margin: 0 5px;
+      border: 1px solid #fff;
+      box-shadow: 0 0 1px #aaa; }
+      #rating-breakdown .breakdown-by-star .breakdown-bar .bar {
+        width: 0%;
+        height: 100%;
+        background: green; }
   #rating-breakdown .breakdown-by-star:hover {
     background-color: #aaa; }
+
+/*
+ * Product Breakdown
+ */
+#product-breakdown {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 40px 0; }
+  #product-breakdown .breakdown-by-factor {
+    margin: 5px 0; }
+    #product-breakdown .breakdown-by-factor .breakdown-bar {
+      width: 95%;
+      height: 8px;
+      display: inline-block;
+      background-color: #aaaaaa59; }
+      #product-breakdown .breakdown-by-factor .breakdown-bar i {
+        position: relative; }
+    #product-breakdown .breakdown-by-factor .factor-labels {
+      display: flex;
+      font-size: 0.7rem;
+      justify-content: space-between; }
+      #product-breakdown .breakdown-by-factor .factor-labels i {
+        text-align: center; }
