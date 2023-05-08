@@ -44,6 +44,47 @@ app.get('/products/:id/styles', (req, res) => {
   })
 })
 
+app.get('/relatedItems', (req, res) => {
+  let sortedData = [];
+  let relatedIDs = req.body.relatedIDs;
+
+  relatedIDs.forEach((itemID) => {
+    let id = itemID;
+    let starred = false;
+    let category, productData, price, stars, primaryPhotoURL;
+    store.getProductStyles(itemID)
+    .then((element) => {
+      let primaryPhotos = element.data.results.filter(style => style['default?'] === true)
+      console.log(primaryPhotos.length)
+      if (primaryPhotos.length === 1) {
+        primaryPhotoURL = primaryPhotos[0].photos[0].thumbnail_url;
+        return store.getProductInfo(itemID);
+      } else {
+        throw "There is not a default photo for this product" + itemID
+      }
+    })
+    .then((element) => {
+      category = element.category;
+      productData = element.slogan;
+      price = element.default_price;
+      return store.getReviewMeta(itemID);
+    })
+    .then((element) => {
+      let numReview = 0;
+      let totalScore = 0;
+      for(var i = 1; i <= 5; i++) {
+        numReview += element.ratings.i;
+        totalScore += (i * element.ratings.i);
+      }
+    })
+    .catch ((err) => {
+      console.log('Error:', err);
+    })
+  })
+  res.json({"test": "worked"});
+
+})
+
 
 
 

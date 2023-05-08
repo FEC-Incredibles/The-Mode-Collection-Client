@@ -31,3 +31,16 @@ module.exports.getProductStyles = (productID) => {
   .catch((err) => { console.log('API ERROR GETTING PRODUCT STYLES FOR ', productID, '=> ', err)} )
 }
 
+module.exports.getReviewMeta = (productID) => {
+  let metaOptions = {
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': config.TOKEN,
+      'contentType': 'application/json',
+      'product_id': productID
+    }
+  }
+  return axios.get(`${url}/reviews/meta`, options)
+  .then((response) => { return response; })
+  .catch((err) => { console.log('API ERROR GETTING PRODUCT STYLES FOR ', productID, '=> ', err)} )
+}
