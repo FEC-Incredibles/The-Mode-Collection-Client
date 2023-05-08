@@ -57,33 +57,19 @@
     #rating-breakdown .breakdown-summary .breakdown-heading {
       font-size: 3rem;
       margin-right: 8px; }
-<<<<<<< HEAD
   #rating-breakdown .breakdown-by-star a {
     text-decoration: underline;
     color: #201f1f; }
   #rating-breakdown .breakdown-by-star .breakdown-bar {
-=======
-  #rating-breakdown a {
-    text-decoration: underline;
-    color: #201f1f; }
-  #rating-breakdown .breakdown-by-star {
->>>>>>> 0b6a90f9ad7f81f1d4fb28af49d76e69b525c735
     width: 70%;
     height: 10px;
     display: inline-block;
     margin: 0 5px;
     border: 1px solid #fff;
     box-shadow: 0 0 1px #aaa; }
-<<<<<<< HEAD
     #rating-breakdown .breakdown-by-star .breakdown-bar .bar {
       width: 0%;
       height: 100%;
       background: green; }
   #rating-breakdown .breakdown-by-star:hover {
     background-color: #aaa; }
-=======
-    #rating-breakdown .breakdown-by-star .bar {
-      width: 0%;
-      height: 100%;
-      background: green; }
->>>>>>> 0b6a90f9ad7f81f1d4fb28af49d76e69b525c735
