@@ -79,6 +79,7 @@
  #rating-breakdown {
   display: flex;
   flex-flow: column nowrap;
+  margin: 10px 0;
 
   .breakdown-summary {
     display: inline-flex;
@@ -90,9 +91,11 @@
   }
 
   .breakdown-by-star {
+    margin: 3px 0;
+
     a {
-      text-decoration: underline;
-      color: rgb(32, 31, 31);
+      text-decoration: none;
+      color: default;
     }
 
     .breakdown-bar {
@@ -114,6 +117,42 @@
 
   .breakdown-by-star:hover {
     background-color: #aaa;
+  }
+
+ }
+
+ /*
+ * Product Breakdown
+ */
+ #product-breakdown {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 40px 0;
+
+  .breakdown-by-factor {
+    margin: 5px 0;
+
+    .breakdown-bar {
+      width: 95%;
+      height: 8px;
+      display: inline-block;
+      background-color: #aaaaaa59;
+
+      i {
+        position: relative;
+      }
+    }
+
+    .factor-labels {
+      display: flex;
+      font-size: 0.7rem;
+      // width: 105%;
+      justify-content: space-between;
+
+      i {
+        text-align: center;
+      }
+    }
   }
 
  }

@@ -95,9 +95,50 @@ const exampleReviews = [
     },
 ]
 
+const exampleMeta = {
+    "product_id": "37313",
+    "ratings": {
+        "1": "6",
+        "2": "3",
+        "3": "20",
+        "4": "45",
+        "5": "31"
+    },
+    "recommended": {
+        "false": "34",
+        "true": "71"
+    },
+    "characteristics": {
+        "Fit": {
+            "id": 125036,
+            "value": "2.4534883720930233"
+        },
+        "Length": {
+            "id": 125037,
+            "value": "2.6486486486486486"
+        },
+        "Comfort": {
+            "id": 125038,
+            "value": "2.7820512820512821"
+        },
+        "Quality": {
+            "id": 125039,
+            "value": "2.9397590361445783"
+        }
+    }
+}
+
 const Reviews = ({ currentItemID }) => {
 
     const [reviews, setReviews] = useState(exampleReviews.slice(0, 2));
+
+    const getTotalNumOfReviews = () => {
+        return Object.values(exampleMeta.recommended)
+            .reduce(
+                (accumulator, currentValue) => accumulator + Number(currentValue)
+                , 0);
+    };
+    const numOfReviews = getTotalNumOfReviews();
 
     return (
         <div className="widget" id="review-module">
@@ -105,8 +146,13 @@ const Reviews = ({ currentItemID }) => {
             <h3>RATINGS & REVIEWS </h3>
 
             <div className="col-25">
-                <RatingBreakdown />
-                <ProductBreakdown />
+                <RatingBreakdown
+                    reviewsMeta={exampleMeta}
+                    numOfReviews={numOfReviews} />
+
+                <ProductBreakdown
+                    characteristics={exampleMeta.characteristics}
+                    numOfReviews={numOfReviews} />
             </div>
 
 
