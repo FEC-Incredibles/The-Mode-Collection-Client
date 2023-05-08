@@ -89,25 +89,31 @@
     }
   }
 
-  a {
-    text-decoration: underline;
-    color: rgb(32, 31, 31);
+  .breakdown-by-star {
+    a {
+      text-decoration: underline;
+      color: rgb(32, 31, 31);
+    }
+
+    .breakdown-bar {
+      width: 70%;
+      height: 10px;
+      display: inline-block;
+      margin:  0 5px;
+      border: 1px solid #fff;
+      // padding: 2px 11px;
+      box-shadow: 0 0 1px #aaa;
+
+      .bar {
+        width: 0%;
+        height: 100%;
+        background: green;
+      }
+    }
   }
 
-  .breakdown-by-star {
-    width: 70%;
-    height: 10px;
-    display: inline-block;
-    margin:  0 5px;
-    border: 1px solid #fff;
-    // padding: 2px 11px;
-    box-shadow: 0 0 1px #aaa;
-
-    .bar {
-      width: 0%;
-      height: 100%;
-      background: green;
-    }
+  .breakdown-by-star:hover {
+    background-color: #aaa;
   }
 
  }

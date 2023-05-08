@@ -88,10 +88,10 @@ const RatingBreakdown = () => {
       <br />
       {Object.keys(exampleMeta.ratings).reverse().map((rating, idx) => {
         return (
-          <div className={} key={idx} >
+          <div className="breakdown-by-star" key={idx} >
             {/* TODO: click on it will filter the displaying reviews */}
             <a>{rating} stars</a>
-            <div className="">
+            <div className="breakdown-bar">
               <div className="bar" style={{ width: `${breakdownByStar(rating)}%` }}>
               </div>
             </div>
