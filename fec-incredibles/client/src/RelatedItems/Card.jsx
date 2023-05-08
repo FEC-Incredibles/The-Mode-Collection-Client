@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 export default function Card({ item, width }) {
-  let filledStar = "☆";
-  let emptyStar = "★";
+  let filledStar = '☆'
+  let emptyStar = '★'
   return (
     <div className="Card" style={{ width: width }}>
       {item.starred ? (
@@ -16,9 +16,7 @@ export default function Card({ item, width }) {
         <h2>{item.productData}</h2>
         <h3>{item.price}</h3>
         <div className="stars">
-          <h3>
-            {filledStar.repeat(item.stars) + emptyStar.repeat(5 - item.stars)}
-          </h3>
+          <h3>{filledStar.repeat(item.stars) + emptyStar.repeat(5 - item.stars)}</h3>
         </div>
       </div>
     </div>

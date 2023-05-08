@@ -1,24 +1,16 @@
 #relatedProducts {
-  max-width: 100%; }
-  #relatedProducts .relatedCarousel {
-    overflow: hidden; }
-    #relatedProducts .relatedCarousel .viewPort {
-      display: flex;
-      flex-flow: row nowrap;
-      white-space: nowrap;
-      transition: transform 0.5s; }
-      #relatedProducts .relatedCarousel .viewPort .Card {
-        display: inline-flex;
-        height: 500px;
-        flex-flow: column nowrap;
-        margin: 12px;
-        max-width: 200px;
-        border: 2px solid lightgrey;
-        border-radius: 6px; }
-      #relatedProducts .relatedCarousel .viewPort .starred {
-        padding: 4px;
-        position: absolute;
-        align-self: end; }
-      #relatedProducts .relatedCarousel .viewPort .info {
-        overflow-wrap: break-word;
-        padding: 10px; }
+  display: flex;
+  flex-flow: row nowrap; }
+  #relatedProducts .Card {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 12px;
+    max-width: 200px;
+    border: 2px solid lightgrey;
+    border-radius: 6px; }
+  #relatedProducts .starred {
+    padding: 4px;
+    position: absolute;
+    align-self: end; }
+  #relatedProducts .info {
+    padding: 10px; }
