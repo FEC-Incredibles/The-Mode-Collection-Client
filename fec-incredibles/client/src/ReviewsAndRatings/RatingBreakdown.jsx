@@ -41,6 +41,7 @@ const RatingBreakdown = ({ reviewsMeta, numOfReviews }) => {
               <div className="bar" style={{ width: `${breakdownByStar(rating)}%` }}>
               </div>
             </div>
+            <i>{breakdownByStar(rating)}%</i>
           </div>
         );
       })}

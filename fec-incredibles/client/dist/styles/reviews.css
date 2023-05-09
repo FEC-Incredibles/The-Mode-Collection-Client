@@ -13,10 +13,10 @@
   /* Clear floats after the columns */ }
   #review-module .col-25 {
     float: left;
-    width: 25%; }
+    width: 28%; }
   #review-module .col-75 {
     float: right;
-    width: 75%; }
+    width: 70%; }
   #review-module select {
     display: inline-block; }
 
@@ -29,7 +29,7 @@
 .review-tile {
   display: flex;
   flex-flow: column nowrap;
-  padding: 20px 15px 10px 15px;
+  padding: 20px 7px 10px 7px;
   margin: 10px 0;
   border: 1.5px outset #96a0c4;
   border-radius: 10px;
@@ -43,7 +43,7 @@
       font-size: 0.8rem;
       margin: 0 5px 0 5px; }
   .review-tile .review-tile-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: bold;
     margin: 10px 0 8px 0; }
     .review-tile .review-tile-title .review-tile-title-capped {
@@ -61,7 +61,8 @@
     height: auto;
     margin: 5px; }
   .review-tile .review-tile-recommend {
-    margin: 8px 0; }
+    margin: 8px 0;
+    font-size: 0.9rem; }
   .review-tile .review-tile-response {
     margin: 8px 0;
     padding: 8px 5px;
@@ -78,6 +79,8 @@
       font-weight: lighter;
       margin: 0 5px 0 10px;
       text-decoration: underline; }
+    .review-tile .review-tile-footer i:hover {
+      background-color: #8c888814; }
 
 /*
  * Rating Breakdown
@@ -94,20 +97,22 @@
   #rating-breakdown .breakdown-by-star {
     margin: 3px 0; }
     #rating-breakdown .breakdown-by-star i {
-      text-decoration: underline; }
+      text-decoration: underline;
+      font-size: smaller; }
     #rating-breakdown .breakdown-by-star .breakdown-bar {
-      width: 70%;
+      width: 60%;
       height: 10px;
       display: inline-block;
       margin: 0 5px;
       border: 1px solid #fff;
-      box-shadow: 0 0 1px #aaa; }
+      box-shadow: 0 0 1px #aaa;
+      background-color: #8c888814; }
       #rating-breakdown .breakdown-by-star .breakdown-bar .bar {
         width: 0%;
         height: 100%;
         background: green; }
   #rating-breakdown .breakdown-by-star:hover {
-    background-color: #aaa; }
+    background-color: #8c888814; }
 
 /*
  * Product Breakdown
