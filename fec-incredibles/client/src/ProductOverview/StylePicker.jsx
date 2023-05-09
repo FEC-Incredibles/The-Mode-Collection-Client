@@ -18,7 +18,7 @@ const StylePicker = ({ defaultStyle, styles, setter }) => {
 						changeStyle(style);
 					}}
 				>
-					<img className='images-styles'
+					<img className={`images-styles ${defaultStyle === style && "selected"}`}
 						src={
 							style.photos[0].thumbnail_url
 								? style.photos[0].thumbnail_url
