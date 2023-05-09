@@ -16,6 +16,9 @@ const Questions = ({currentItemID}) => {
       <div>
         <QuestionEntry questions={ExampleData}/>
       </div>
+      <div>
+        <button>Load More Answers</button>
+      </div>
       <div className='buttons'>
         <button className='moreAnsweredBtn'>More Answered Questions</button> <button className='addQuestionBtn'>Add A Question</button>
       </div>
