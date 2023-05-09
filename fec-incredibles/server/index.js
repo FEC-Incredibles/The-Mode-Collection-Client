@@ -40,22 +40,36 @@ app.get('/products/:id/styles', (req, res) => {
   })
   .catch((err) => {
     console.log('error getting product styles => ', err)
-    response.sendStatus(500)
+    res.sendStatus(500)
+  })
+})
+
+app.get('/products/:id/related', (req, res) => {
+  store.getRelatedProductsID(req.params.id)
+  .then((response) => {
+    // console.log('product styles => ', response.data)
+    res.status(200).json(response.data);
+  })
+  .catch((err) => {
+    console.log('error getting product ids => ', err)
+    res.sendStatus(500)
   })
 })
 
 app.get('/relatedItems', (req, res) => {
   let sortedData = [];
-  let relatedIDs = req.body.relatedIDs;
+  let relatedIDs = JSON.parse(req.query.relatedIDs);
+  let finish = () => {
+    res.json(sortedData);
+  }
 
-  relatedIDs.forEach((itemID) => {
+  relatedIDs.forEach((itemID, index) => {
     let id = itemID;
     let starred = false;
     let category, productData, price, stars, primaryPhotoURL;
     store.getProductStyles(itemID)
     .then((element) => {
       let primaryPhotos = element.data.results.filter(style => style['default?'] === true)
-      console.log(primaryPhotos.length)
       if (primaryPhotos.length === 1) {
         primaryPhotoURL = primaryPhotos[0].photos[0].thumbnail_url;
         return store.getProductInfo(itemID);
@@ -64,25 +78,39 @@ app.get('/relatedItems', (req, res) => {
       }
     })
     .then((element) => {
-      category = element.category;
-      productData = element.slogan;
-      price = element.default_price;
+      category = element.data.category;
+      productData = element.data.slogan;
+      price = element.data.default_price;
       return store.getReviewMeta(itemID);
     })
     .then((element) => {
+      //console.log(element.data)
       let numReview = 0;
       let totalScore = 0;
       for(var i = 1; i <= 5; i++) {
-        numReview += element.ratings.i;
-        totalScore += (i * element.ratings.i);
+        numReview += Number(element.data.ratings[String(i)]);
+        totalScore += (i * Number(element.data.ratings[String(i)]));
+      }
+      stars = Math.floor(totalScore / numReview)
+      if (category && productData && price && stars && primaryPhotoURL) {
+        sortedData.push({
+          "id": itemID,
+          "starred": true,
+          "imgURL": primaryPhotoURL,
+          "category": category,
+          "productData": productData,
+          "price": ('$' + String(price)),
+          "stars": String(stars)
+        })
+      }
+      if (index === relatedIDs.length - 1) {
+        finish()
       }
     })
     .catch ((err) => {
-      console.log('Error:', err);
+      //console.log('Error:', err);
     })
   })
-  res.json({"test": "worked"});
-
 })
 
 
