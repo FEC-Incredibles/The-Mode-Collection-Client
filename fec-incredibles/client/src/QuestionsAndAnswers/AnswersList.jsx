@@ -3,7 +3,7 @@ import React from 'react';
 const AnswersList = ({question}) => {
   return (
     <div className='answerContainer'>
-      <div className='question'>Q: {question.question_body}</div>
+      <div className='question'>Q: {question.question_body} <button className='helpbtn'>Helpful?</button><button className='addanswerbtn'>Add Answer</button></div>
       <div>{Object.keys(question.answers).map((answer, index) => {
         return (<div key={index} className='answer'>
         <div>A: {question.answers[answer].body}</div>

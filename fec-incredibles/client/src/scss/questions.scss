@@ -3,8 +3,6 @@
   flex-flow: column wrap;
   width: 100%;
 
-
-
   .pageTitle {
     margin: 8px;
   }
@@ -30,6 +28,18 @@
 
   .buttons {
     align-self: center;
+  }
+
+  .helpbtn {
+    width: 100px;
+    height: 25px;
+    font-size: 10px;
+  }
+
+  .addanswerbtn {
+    width: 125px;
+    height: 25px;
+    font-size: 10px;
   }
 
   .moreAnsweredBtn {

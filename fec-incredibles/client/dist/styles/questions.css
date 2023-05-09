@@ -18,6 +18,14 @@
     height: auto; }
   #QA .buttons {
     align-self: center; }
+  #QA .helpbtn {
+    width: 100px;
+    height: 25px;
+    font-size: 10px; }
+  #QA .addanswerbtn {
+    width: 125px;
+    height: 25px;
+    font-size: 10px; }
   #QA .moreAnsweredBtn {
     width: 250px; }
   #QA .addQuestionBtn {
