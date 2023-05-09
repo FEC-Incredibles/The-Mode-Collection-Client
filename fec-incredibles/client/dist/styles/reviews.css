@@ -17,9 +17,6 @@
   #review-module .col-75 {
     float: right;
     width: 75%; }
-  #review-module ::after {
-    content: "";
-    clear: both; }
   #review-module select {
     display: inline-block; }
 
@@ -41,10 +38,35 @@
     .review-tile .review-tile-header i {
       font-size: 0.8rem;
       margin: 0 5px 0 5px; }
-  .review-tile .review-img {
+  .review-tile .review-tile-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 10px 0 8px 0; }
+    .review-tile .review-tile-title .review-tile-title-capped {
+      font-size: 1rem;
+      font-weight: 100;
+      margin: 5px 0 0 0; }
+  .review-tile .review-tile-body {
+    margin: 10px 0 8px 0; }
+    .review-tile .review-tile-body i {
+      font-weight: 200;
+      text-decoration: underline;
+      margin: 0 5px; }
+  .review-tile .review-tile-thumbnail .review-img {
     max-width: 80px;
     height: auto;
     margin: 5px; }
+  .review-tile .review-tile-recommend {
+    margin: 8px 0; }
+  .review-tile .review-tile-response {
+    margin: 8px 0; }
+  .review-tile .review-tile-footer {
+    font-size: 0.85rem;
+    margin: 8px 0 0 0; }
+    .review-tile .review-tile-footer i {
+      font-weight: lighter;
+      margin: 0 5px 0 10px;
+      text-decoration: underline; }
 
 /*
  * Rating Breakdown
@@ -60,9 +82,8 @@
       margin-right: 8px; }
   #rating-breakdown .breakdown-by-star {
     margin: 3px 0; }
-    #rating-breakdown .breakdown-by-star a {
-      text-decoration: none;
-      color: default; }
+    #rating-breakdown .breakdown-by-star i {
+      text-decoration: underline; }
     #rating-breakdown .breakdown-by-star .breakdown-bar {
       width: 70%;
       height: 10px;
@@ -94,6 +115,7 @@
       #product-breakdown .breakdown-by-factor .breakdown-bar i {
         position: relative; }
     #product-breakdown .breakdown-by-factor .factor-labels {
+      width: 95%;
       display: flex;
       font-size: 0.7rem;
       justify-content: space-between; }
