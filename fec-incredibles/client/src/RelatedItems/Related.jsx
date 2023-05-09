@@ -1,10 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./Card.jsx";
-import relatedProducts from "./ExampleData/relatedProducts.json";
+import axios from 'axios';
 
 const Related = ({ currentItemID }) => {
   const [activeItem, setActiveItem] = useState(0);
+  const [relatedProducts, setRelatedProducts] = useState([]);
 
+  useEffect(() => {
+    if (currentItemID) {
+      axios({
+        method: 'get',
+        url: `/products/${currentItemID}/related`,
+      })
+      .then((element) => {
+        return axios({
+          method: 'get',
+          url: `/relatedItems/?relatedIDs=${JSON.stringify(element.data)}`,
+        })
+      })
+      .then (element => {
+        console.log(element.data)
+        setRelatedProducts(element.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
+  }, [currentItemID])
   const updateItem = (newItem) => {
     if (newItem < 0) {
       newItem = 0;
