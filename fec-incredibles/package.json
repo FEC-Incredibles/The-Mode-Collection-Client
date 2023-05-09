@@ -12,6 +12,12 @@
     "server-dev": "npx nodemon --watch server server/index.js",
     "styles-dev": "node-sass -w ./client/src/scss -o ./client/dist/styles",
     "dev": "npm run styles-dev & npm run client-dev & npm run server-dev",
+    "test": "jest --env=jsdom",
+    "coverage": "jest --coverage",
+    "coverage-overview": "jest --coverage --collectCoverageFrom='./client/src/ProductOverview/**'",
+    "coverage-qa": "jest --coverage --collectCoverageFrom='./client/src/QuestionsAndAnswers/**'",
+    "coverage-related": "jest --coverage --collectCoverageFrom='./client/src/RelatedItems/**'",
+    "coverage-reviews": "jest --coverage --collectCoverageFrom='./client/src/ReviewsAndRatings/**'",
     "build": "npx webpack --mode=production",
     "start": "node server/index.js"
   },
@@ -33,7 +39,12 @@
     "webpack-cli": "^4.7.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "node-sass": "^8.0.0"
   }
 }
