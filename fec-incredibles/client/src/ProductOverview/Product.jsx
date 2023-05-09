@@ -42,13 +42,13 @@ const Product = ({ currentItemID }) => {
 	return (
 		<div className="widget" id="Product">
 			<ProductImages selectedStyleData={selectedStyle} />
-			<ProductDetails productDetails={productDetails} />
+			<ProductDetails productDetails={productDetails} selectedStyleData={selectedStyle} />
 			<StylePicker
-				defaultStyle={selectedStyle}
+				selectedStyleData={selectedStyle}
 				styles={styles}
 				setter={setSelectedStyle}
 			/>
-			<AddToOutfit data={selectedStyle} />
+			<AddToOutfit selectedStyleData={selectedStyle} />
 		</div>
 	);
 };

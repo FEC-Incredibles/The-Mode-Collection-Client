@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 import DropDownList from "./DropDownList.jsx";
 import axios from 'axios';
 
-const AddToOutfit = ({ data }) => {
+const AddToOutfit = ({ selectedStyleData }) => {
 	const [skus, setSkus] = useState();
 	const [selectedSize, setSelectedSize] = useState();
 	const [selectedQuantity, setSelectedQuantity] = useState(1);
 	const [availableQuantity, setAvailableQuantity] = useState([]);
 
 	useEffect(() => {
-		setSkus(data.skus);
-	}, [data]);
+		setSkus(selectedStyleData.skus);
+	}, [selectedStyleData]);
 
 
 	const setQuantityFromSize = (size) => {
@@ -69,7 +69,7 @@ const AddToOutfit = ({ data }) => {
 			/>
 
 			{selectedQuantity && selectedSize && <button type="button" onClick={() => {
-        console.log('SELECTED OPTIONS => ', selectedQuantity, selectedSize, data)
+        console.log('SELECTED OPTIONS => ', selectedQuantity, selectedSize, selectedStyleData)
       }}>add to outfit</button>}
 		</div>
 	);

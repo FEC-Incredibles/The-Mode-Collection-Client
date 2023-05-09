@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-const StylePicker = ({ defaultStyle, styles, setter }) => {
-	// console.log("currently selected style => ", defaultStyle);
+const StylePicker = ({ selectedStyleData, styles, setter }) => {
+	// console.log("currently selected style => ", selectedStyleData);
 	// console.log("full list of styles => ", styles);
-	// const [selectedStyle, setSelectedStyle] = useState(defaultStyle)
+	// const [selectedStyle, setSelectedStyle] = useState(selectedStyleData)
 
 	const changeStyle = (style) => {
 		setter(style);
@@ -18,7 +18,7 @@ const StylePicker = ({ defaultStyle, styles, setter }) => {
 						changeStyle(style);
 					}}
 				>
-					<img className={`images-styles ${defaultStyle === style && "selected"}`}
+					<img className={`images-styles ${selectedStyleData === style && "selected"}`}
 						src={
 							style.photos[0].thumbnail_url
 								? style.photos[0].thumbnail_url
