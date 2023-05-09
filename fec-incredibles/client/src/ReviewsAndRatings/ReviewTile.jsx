@@ -66,8 +66,8 @@ const ReviewTile = ({ review }) => {
 
       {truncatedBody[1] ? (
         <div className="review-tile-body">
-          {reviewBody}
-          {expandBody || <i onClick={handleExpandBody} >Show more</i>}
+          <div data-testid="review-body">{reviewBody} </div>
+          {expandBody || <i id="btn-show-more" onClick={handleExpandBody} >Show more</i>}
           {expandBody && <i onClick={handleExpandBody} >Show less</i>}
         </div>
       ) : (
