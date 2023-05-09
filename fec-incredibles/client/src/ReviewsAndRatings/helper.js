@@ -18,7 +18,12 @@ const getAvgRating = (reviewMeta) => {
   return (sum / getTotalNumOfReviews(reviewMeta)).toFixed(1);
 };
 
+const starRating = (numRating) => {
+  return ('★').repeat(numRating) + ('✩').repeat(5 - numRating);
+}
+
 module.exports = {
   getTotalNumOfReviews,
-  getAvgRating
+  getAvgRating,
+  starRating
  }

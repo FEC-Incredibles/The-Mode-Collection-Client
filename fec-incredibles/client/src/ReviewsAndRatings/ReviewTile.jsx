@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
 
+import { starRating } from './helper.js';
+
 const ReviewTile = ({ review }) => {
 
   const truncatedText = (text, limit) => {
@@ -17,10 +19,6 @@ const ReviewTile = ({ review }) => {
   const [ reviewBody, setReviewBody ] = useState(truncatedBody[0]);
   const [ expandBody, setExpandBody ] = useState(false);
 
-  // TODO: consistent stars through out the page
-  const starRating = (numRating) => {
-    return ('★').repeat(numRating) + ('✩').repeat(5 - numRating);
-  }
 
   const handleClickHelpful = () => {
     // TODO: make a PUT request to /reviews/:review_id/helpful

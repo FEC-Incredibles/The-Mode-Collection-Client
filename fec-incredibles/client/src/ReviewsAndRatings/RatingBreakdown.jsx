@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getAvgRating } from './helper.js';
+import { getAvgRating, starRating } from './helper.js';
 
 const RatingBreakdown = ({ reviewsMeta, numOfReviews }) => {
 
@@ -13,12 +13,6 @@ const RatingBreakdown = ({ reviewsMeta, numOfReviews }) => {
   const breakdownByStar = (numString) => {
     return Math.round((Number(reviewsMeta['ratings'][numString]) / numOfReviews) * 100);
   }
-
-  const starRating = (numRating) => {
-    return ('★').repeat(numRating) + ('✩').repeat(5 - numRating);
-  }
-
-
 
   const percentRecommended = getPercentRecommended();
 
