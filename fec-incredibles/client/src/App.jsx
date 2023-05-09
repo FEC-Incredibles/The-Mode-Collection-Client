@@ -29,7 +29,6 @@ const App = () => {
         setTypedID(e.target.value)
       }}></input>
       <button type='button' onClick={() => {
-        console.log('typed in id => ', typedID);
         setCurrentItemID(typedID)
       }}>enter specific id</button>
      </nav>
