@@ -3,11 +3,9 @@ import DropDownList from "./DropDownList.jsx";
 
 const AddToOutfit = ({ data }) => {
 	const [skus, setSkus] = useState();
-	const [selectedSize, setSelectedSize] = useState({
-		size: null,
-		quantity: null,
-	});
-	const [availableQuantity, setAvailableQuantity] = useState(["select a size"]);
+	const [selectedSize, setSelectedSize] = useState();
+	const [selectedQuantity, setSelectedQuantity] = useState(1);
+	const [availableQuantity, setAvailableQuantity] = useState([]);
 
 	useEffect(() => {
 		setSkus(data.skus);
@@ -35,49 +33,43 @@ const AddToOutfit = ({ data }) => {
 		}
 	};
 
+	if (!skus) {
+		return <div>Loading...</div>;
+	}
 	return (
-		<form
-			onSubmit={(e) => {
-				e.preventDefault();
-				console.log(e);
-			}}
-			id="AddToOutfit"
-		>
-			<label htmlFor="size">Size</label>
+		<div>
+			<p>size</p>
+			{skus.null === undefined ? (
+				<DropDownList
+					placeHolder={"select a size"}
+					options={skus}
+					valKey={"size"}
+					onChange={(value) => {
+						setQuantityFromSize(value);
+            setSelectedSize(value)
 
-			<select
-				id="size"
-				name="size"
-				onChange={(e) => {
-					setQuantityFromSize(e.target.value);
+					}}
+				/>
+			) : (
+				<DropDownList
+					placeHolder={"OUT OF STOCK"}
+					options={[]}
+				/>
+			)}
+
+			<p>quantity</p>
+			<DropDownList
+				placeHolder={availableQuantity.length ? "1" : "-"}
+				options={availableQuantity}
+				onChange={(value) => {
+				setSelectedQuantity(value)
 				}}
-			>
-				<option value="select a size">select a size</option>
+			/>
 
-				{Object.keys(data.skus).map((skuid) => (
-					<option key={skuid} value={data.skus[skuid].size}>
-						{data.skus[skuid].size}
-					</option>
-				))}
-			</select>
-
-			<label htmlFor="quantity">Quantity</label>
-			<select
-				id="quantity"
-				name="quantity"
-				onChange={(e) => {
-					console.log(e);
-				}}
-			>
-				<option value="select a quantity">select a quantity</option>
-				{availableQuantity.map((val, index) => {
-					<option key={index} value={val}>
-						{val}
-					</option>;
-				})}
-			</select>
-			<button type="submit">add to outfit</button>
-		</form>
+			{selectedQuantity && selectedSize && <button type="button" onClick={() => {
+        console.log('SELECTED OPTIONS => ', selectedQuantity, selectedSize, data)
+      }}>add to outfit</button>}
+		</div>
 	);
 };
 

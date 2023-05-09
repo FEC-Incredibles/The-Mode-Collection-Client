@@ -12,13 +12,11 @@ const StylePicker = ({ defaultStyle, styles, setter }) => {
 		<ul>
 			styles:
 			{styles.map((style, index) => (
-				<li key={index}>
-					<img
-						src={style.photos[0].thumbnail_url}
-						onClick={(e) => {
-							changeStyle(style);
-						}}
-					></img>
+				<li key={index}
+				onClick={(e) => {
+					changeStyle(style);
+				}}>
+					<img src={style.photos[0].thumbnail_url}></img>
 					<p>style name {style.name}</p>
 					<p>style original_price {style.original_price}</p>
 					<p>style sale_price {style.sale_price}</p>
