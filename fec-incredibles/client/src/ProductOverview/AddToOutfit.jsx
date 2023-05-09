@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import DropDownList from "./DropDownList.jsx";
+import axios from 'axios';
 
 const AddToOutfit = ({ data }) => {
 	const [skus, setSkus] = useState();
@@ -10,6 +11,7 @@ const AddToOutfit = ({ data }) => {
 	useEffect(() => {
 		setSkus(data.skus);
 	}, [data]);
+
 
 	const setQuantityFromSize = (size) => {
 		if (size === "select a size") {
