@@ -30,10 +30,36 @@
   cursor: pointer;
 }
 
+.stylesContainer {
+  display: flex;
+  flex-direction: row;
+}
+
 .dropdown-item:hover {
   background-color: #c00d72;
 }
 .dropdown-item.selected {
   background-color: #0d6efd;
   color: #fff;
+}
+.style-icon {
+  width: 20%;
+  height: 20%;
+}
+
+.images-styles{
+  border-radius: 50%;
+}
+
+.images-styles.selected{
+  border: 8px solid rgb(28, 241, 39)
+}
+.images-row {
+  position: relative;
+  top: -10%;
+  z-index: 1;
+}
+.images-extra {
+  width: 7%;
+  height: 7%
 }
