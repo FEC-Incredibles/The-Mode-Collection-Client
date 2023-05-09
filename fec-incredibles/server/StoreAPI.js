@@ -13,7 +13,7 @@ const options = {
 
 
 module.exports.getProducts = () => {
-  return axios.get(`${url}/products`, options)
+  return axios.get(`${url}/products?count=50`, options)
   .then((response) => { return response; })
   .catch((err) => { console.log('API ERROR GETTING PRODUCTS => ', err); })
 }

@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 const StylePicker = ({ defaultStyle, styles, setter }) => {
-	console.log("currently selected style => ", defaultStyle);
-	console.log("full list of styles => ", styles);
+	// console.log("currently selected style => ", defaultStyle);
+	// console.log("full list of styles => ", styles);
 	// const [selectedStyle, setSelectedStyle] = useState(defaultStyle)
 
 	const changeStyle = (style) => {

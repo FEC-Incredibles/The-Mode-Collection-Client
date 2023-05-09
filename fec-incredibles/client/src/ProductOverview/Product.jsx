@@ -26,13 +26,17 @@ const Product = ({ currentItemID }) => {
 					const [defaultStyle] = response.data.results.filter(
 						(style) => style["default?"] === true
 					);
-					setSelectedStyle(defaultStyle);
+					if (!defaultStyle) {
+						setSelectedStyle(response.data.results[0])
+					} else {
+						setSelectedStyle(defaultStyle);
+					}
 				});
 		}
 	}, [currentItemID]);
 
 	if (!productDetails || !styles || !selectedStyle) {
-		return <div> Loading... </div>;
+		return <div> Loading... (if product takes too long to load then it may be unavailable) </div>;
 	}
 
 	return (
