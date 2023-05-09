@@ -15,20 +15,20 @@
 
   .col-25 {
     float: left;
-    width: 25%;
+    width: 28%;
   }
 
   .col-75 {
     float: right;
-    width: 75%;
+    width: 70%;
   }
 
   /* Clear floats after the columns */
-  ::after {
-    content: "";
-    // display: table;
-    clear: both;
-  }
+  // ::after {
+  //   content: "";
+  //   // display: table;
+  //   clear: both;
+  // }
 
   select {
     display: inline-block;
@@ -49,7 +49,13 @@
 .review-tile {
   display: flex;
   flex-flow: column nowrap;
-  margin: 4px;
+
+  padding: 20px 7px 10px 7px;
+  margin: 10px 0;
+
+  border: 1.5px outset #96a0c4;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
 
   .review-tile-header {
     display: flex;
@@ -66,10 +72,70 @@
 
   }
 
-  .review-img {
-    max-width: 80px;
-    height: auto;
-    margin: 5px;
+  .review-tile-title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    margin: 10px 0 8px 0;
+
+    .review-tile-title-capped {
+      font-size: 1rem;
+      font-weight: 100;
+      margin: 5px 0 0 0;
+    }
+  }
+
+
+  .review-tile-body {
+    margin: 10px 0 8px 0;
+
+    i {
+      font-weight: 200;
+      text-decoration: underline;
+      margin: 0 5px;
+    }
+  }
+
+  .review-tile-thumbnail {
+    .review-img {
+      max-width: 80px;
+      height: auto;
+      margin: 5px;
+    }
+  }
+
+  .review-tile-recommend {
+    margin: 8px 0;
+    font-size: 0.9rem;
+  }
+
+  .review-tile-response {
+    margin: 8px 0;
+    padding: 8px 5px;
+    background-color: #8c888814;
+
+    b {
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    p {
+      margin: 10px 0 5px 0;
+    }
+  }
+
+  .review-tile-footer {
+    font-size: 0.85rem;
+    margin: 8px 0 0 0;
+
+    i {
+      font-weight: lighter;
+      margin: 0 5px 0 10px;
+      text-decoration: underline;
+    }
+
+    i:hover {
+      background-color: #8c888814;
+    }
   }
 }
 
@@ -93,19 +159,19 @@
   .breakdown-by-star {
     margin: 3px 0;
 
-    a {
-      text-decoration: none;
-      color: default;
+    i {
+      text-decoration: underline;
+      font-size: smaller;
     }
 
     .breakdown-bar {
-      width: 70%;
+      width: 60%;
       height: 10px;
       display: inline-block;
       margin:  0 5px;
       border: 1px solid #fff;
-      // padding: 2px 11px;
       box-shadow: 0 0 1px #aaa;
+      background-color: #8c888814;
 
       .bar {
         width: 0%;
@@ -116,7 +182,7 @@
   }
 
   .breakdown-by-star:hover {
-    background-color: #aaa;
+    background-color: #8c888814;
   }
 
  }
@@ -144,9 +210,9 @@
     }
 
     .factor-labels {
+      width: 95%;
       display: flex;
       font-size: 0.7rem;
-      // width: 105%;
       justify-content: space-between;
 
       i {

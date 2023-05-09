@@ -1,15 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
+
+import { starRating } from './helper.js';
 
 const ReviewTile = ({ review }) => {
 
-  // TODO: consistent stars through out the page
-  const starRating = (numRating) => {
-    return ('★').repeat(numRating) + ('✩').repeat(5 - numRating);
+  const truncatedText = (text, limit) => {
+    let result = [text];
+    if (text.length > limit) {
+      result[0] = text.substring(0, limit + 1) + '...';
+      result[1] = '...' + text.substring(limit + 1);
+    }
+    return result;
+  }
+  let truncatedSummary = truncatedText(review.summary, 60);
+  let truncatedBody = truncatedText(review.body, 250);
+
+  const [ reviewBody, setReviewBody ] = useState(truncatedBody[0]);
+  const [ expandBody, setExpandBody ] = useState(false);
+
+
+  const handleClickHelpful = () => {
+    // TODO: make a PUT request to /reviews/:review_id/helpful
+  }
+
+  const handleClickReport = () => {
+    // TODO: make a PUT request to /reviews/:review_id/report
+  }
+
+  const handleExpandBody = () => {
+    if (expandBody) {
+      setReviewBody(truncatedBody[0]);
+    } else {
+      setReviewBody(review.body);
+    }
+    setExpandBody(!expandBody);
+  }
+
+  const handleExpandImage = (e) => {
+    // TODO:  open the image in a modal window
+    // console.log(e.target.src);
   }
 
   return (
-    <div className="review-tile review-container">
+    <div className="review-tile">
 
       <div className="review-tile-header">
         <div>{starRating(review.rating)} </div>
@@ -18,10 +52,29 @@ const ReviewTile = ({ review }) => {
         <i>{format(parseISO(review.date), 'MMMM dd, yyyy')}</i>
       </div>
 
-      <br />
-      <h5>Summary: {review.summary} </h5>
-      {/* TODO: truncate body if it's longer than 250 characters */}
-      <p>Body: {review.body}</p>
+
+      {truncatedSummary[1] ? (
+        <div className="review-tile-title">
+          {truncatedSummary[0]}
+          <div className="review-tile-title-capped">{truncatedSummary[1]}</div>
+        </div>
+      ) : (
+        <div className="review-tile-title">
+          {truncatedSummary[0]}
+        </div>
+      )}
+
+      {truncatedBody[1] ? (
+        <div className="review-tile-body">
+          {reviewBody}
+          {expandBody || <i onClick={handleExpandBody} >Show more</i>}
+          {expandBody && <i onClick={handleExpandBody} >Show less</i>}
+        </div>
+      ) : (
+        <div className="review-tile-body">
+          {review.body}
+        </div>
+      )}
 
       <div className="review-tile-thumbnail">
         {review.photos.map((photo, idx) => {
@@ -31,28 +84,29 @@ const ReviewTile = ({ review }) => {
               className="review-img"
               src={photo.url}
               alt={`Photo ${photo.id}`}
+              onClick={handleExpandImage}
             />
           )
         })}
       </div>
 
-      <br />
       {review.recommend && (
-        <div>✔️ I recommended this product.</div>
+        <div className="review-tile-recommend">✔️ I recommended this product.</div>
       )}
 
       {review.response && (
-        <div>Response:
+        <div className="review-tile-response">
+          <b>Response:</b>
           <p>{review.response}</p>
         </div>
       )}
 
-      <br />
-      {/* TODO: enable users to click on icon and vote for helpfulness */}
-      <div>Helpful?
-        <i>👍 {review.helpfulness}  / </i>
-        {/* TODO: figure out number of votes for not helpful */}
-        <i>👎 {0} </i>
+
+      <div className="review-tile-footer">
+        Helpful?
+        <i onClick={handleClickHelpful}>YES</i>
+        ({review.helpfulness})  |
+        <i onClick={handleClickReport}> REPORT </i>
       </div>
 
     </div>

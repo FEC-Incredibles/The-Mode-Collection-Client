@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const SortOption = () => {
+const SortOption = ({ numOfReviews }) => {
+
+  const [ selectedSorting, setSelectedSorting ] = useState("relevant");
+
+  const handleChangeSorting = (e) => {
+    setSelectedSorting(e.target.value);
+  }
+
   return (
     <div className="">
+      <div>Selected sorting: {selectedSorting}</div>
 
-      <label htmlFor="sorting-option">Total # of this product, sorted by </label>
+      <label>
+        {numOfReviews} reviews, sorted by
 
-      <select name="sorting-option" id="sorting">
-        <option htmlFor="relevant">Relevant</option>
-        <option htmlFor="helpful">Helpful</option>
-        <option htmlFor="newest">Newest</option>
-      </select>
+        <select
+        name="sorting-option"
+        id="sorting"
+        value={selectedSorting}
+        onChange={handleChangeSorting}>
+
+          <option value="relevant">Relevant</option>
+          <option value="helpful">Helpful</option>
+          <option value="newest">Newest</option>
+        </select>
+      </label>
     </div>
   )
 }
