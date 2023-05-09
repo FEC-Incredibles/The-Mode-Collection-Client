@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
 
+import ReviewImage from './ReviewImage.jsx';
+
 import { starRating } from './helper.js';
 
 const ReviewTile = ({ review }) => {
@@ -37,10 +39,6 @@ const ReviewTile = ({ review }) => {
     setExpandBody(!expandBody);
   }
 
-  const handleExpandImage = (e) => {
-    // TODO:  open the image in a modal window
-    // console.log(e.target.src);
-  }
 
   return (
     <div className="review-tile">
@@ -79,13 +77,7 @@ const ReviewTile = ({ review }) => {
       <div className="review-tile-thumbnail">
         {review.photos.map((photo, idx) => {
           return (
-            <img
-              key={idx}
-              className="review-img"
-              src={photo.url}
-              alt={`Photo ${photo.id}`}
-              onClick={handleExpandImage}
-            />
+            <ReviewImage photo={photo} key={idx} />
           )
         })}
       </div>
