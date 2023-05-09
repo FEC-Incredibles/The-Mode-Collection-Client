@@ -61,7 +61,7 @@ const RatingBreakdown = ({ reviewsMeta, numOfReviews }) => {
         return (
           <div className="breakdown-by-star" key={idx} >
             {/* TODO: click on it will filter the displaying reviews */}
-            <a>{rating} stars</a>
+            <i>{rating} stars</i>
             <div className="breakdown-bar">
               <div className="bar" style={{ width: `${breakdownByStar(rating)}%` }}>
               </div>
