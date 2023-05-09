@@ -3,7 +3,7 @@ import Axios from 'axios'
 import Product from './ProductOverview/Product.jsx'
 import Questions from './QuestionsAndAnswers/Questions.jsx'
 import Related from './RelatedItems/Related.jsx'
-import Reviews from './ReviewsAndRatings/Reviews.jsx'
+import Reviews from './ReviewsAndRatings'
 
 
 const App = () => {

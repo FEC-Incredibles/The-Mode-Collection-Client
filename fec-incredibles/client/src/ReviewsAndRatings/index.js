@@ -5,6 +5,8 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 import SortOption from './SortOption.jsx';
 import ReviewList from './ReviewList.jsx';
 
+import { getTotalNumOfReviews } from './helper.js';
+
 // product_id = 37313
 const exampleReviews = [
     {
@@ -131,14 +133,9 @@ const exampleMeta = {
 const Reviews = ({ currentItemID }) => {
 
     const [reviews, setReviews] = useState(exampleReviews);
+    const [reviewMeta, setReviewMeta] = useState(exampleMeta);
 
-    const getTotalNumOfReviews = () => {
-        return Object.values(exampleMeta.recommended)
-            .reduce(
-                (accumulator, currentValue) => accumulator + Number(currentValue)
-                , 0);
-    };
-    const numOfReviews = getTotalNumOfReviews();
+    const numOfReviews = getTotalNumOfReviews(reviewMeta);
 
     return (
         <div className="widget" id="review-module">
@@ -147,11 +144,11 @@ const Reviews = ({ currentItemID }) => {
 
             <div className="col-25">
                 <RatingBreakdown
-                    reviewsMeta={exampleMeta}
+                    reviewsMeta={reviewMeta}
                     numOfReviews={numOfReviews} />
 
                 <ProductBreakdown
-                    characteristics={exampleMeta.characteristics}
+                    characteristics={reviewMeta.characteristics}
                     numOfReviews={numOfReviews} />
             </div>
 

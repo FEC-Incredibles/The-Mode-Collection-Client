@@ -1,29 +1,10 @@
 import React from 'react';
 
-
+import { getAvgRating } from './helper.js';
 
 const RatingBreakdown = ({ reviewsMeta, numOfReviews }) => {
 
-  // const getTotalNumOfReviews = () => {
-  //   return Object.values(reviewsMeta.recommended)
-  //   .reduce(
-  //     (accumulator, currentValue) => accumulator + Number(currentValue)
-  //     , 0);
-  //   };
-  // const numOfReviews = getTotalNumOfReviews();
-
-  const getAvgRating = () => {
-    let ratings = reviewsMeta.ratings;
-    let sum = Object.keys(ratings).reduce(
-      (accumulator, currentKey) => {
-        let currentValue = ratings[currentKey];
-        accumulator += Number(currentKey) * Number(currentValue);
-        return accumulator;
-      }
-      , 0);
-    return (sum / numOfReviews).toFixed(1);
-  };
-  const avgRating = getAvgRating();
+  const avgRating = getAvgRating(reviewsMeta);
 
   const getPercentRecommended = () => {
     return Math.round((reviewsMeta.recommended.true / numOfReviews) * 100);

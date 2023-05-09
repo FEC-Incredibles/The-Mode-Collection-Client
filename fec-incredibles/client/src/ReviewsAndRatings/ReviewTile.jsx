@@ -45,7 +45,7 @@ const ReviewTile = ({ review }) => {
   }
 
   return (
-    <div className="review-tile review-container">
+    <div className="review-tile">
 
       <div className="review-tile-header">
         <div>{starRating(review.rating)} </div>
@@ -97,7 +97,8 @@ const ReviewTile = ({ review }) => {
       )}
 
       {review.response && (
-        <div className="review-tile-response">Response:
+        <div className="review-tile-response">
+          <b>Response:</b>
           <p>{review.response}</p>
         </div>
       )}

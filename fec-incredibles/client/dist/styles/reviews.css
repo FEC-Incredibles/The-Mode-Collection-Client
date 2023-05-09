@@ -29,7 +29,11 @@
 .review-tile {
   display: flex;
   flex-flow: column nowrap;
-  margin: 4px; }
+  padding: 20px 15px 10px 15px;
+  margin: 10px 0;
+  border: 1.5px outset #96a0c4;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4); }
   .review-tile .review-tile-header {
     display: flex;
     flex-flow: row nowrap; }
@@ -59,7 +63,14 @@
   .review-tile .review-tile-recommend {
     margin: 8px 0; }
   .review-tile .review-tile-response {
-    margin: 8px 0; }
+    margin: 8px 0;
+    padding: 8px 5px;
+    background-color: #8c888814; }
+    .review-tile .review-tile-response b {
+      font-weight: bold;
+      margin: 5px 0; }
+    .review-tile .review-tile-response p {
+      margin: 10px 0 5px 0; }
   .review-tile .review-tile-footer {
     font-size: 0.85rem;
     margin: 8px 0 0 0; }
