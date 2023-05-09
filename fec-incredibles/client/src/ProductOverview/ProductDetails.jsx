@@ -28,24 +28,7 @@ const ProductDetails = ({ productDetails, selectedStyleData }) => {
 			) : (
 				<p> product price {defaultPrice} </p>
 			)}
-			<br />
-			<br />
-			<p>
-				product slogan <br />
-				{productDetails.slogan}
-			</p>
-			<br />
-			<p>
-				product description <br />
-				{productDetails.description}
-			</p>
-			<br />
-			<p>features</p>
-			{productDetails.features.map((thing, index) => (
-				<p key={index}>
-					{thing.feature} | {thing.value}
-				</p>
-			))}
+
 			<br />
 		</div>
 	);

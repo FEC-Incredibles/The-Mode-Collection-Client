@@ -9,10 +9,10 @@ const StylePicker = ({ selectedStyleData, styles, setter}) => {
 		setter(style);
 	};
 	return (
-		<ul>
+		<ul className='stylesContainer'>
 			styles:
 			{styles.map((style, index) => (
-				<li
+				<li className='style-icon'
 				key={index}
 				onClick={(e) => {
 					changeStyle(style);

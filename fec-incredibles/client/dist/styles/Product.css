@@ -28,6 +28,10 @@
   padding: 5px;
   cursor: pointer; }
 
+.stylesContainer {
+  display: flex;
+  flex-direction: row; }
+
 .dropdown-item:hover {
   background-color: #c00d72; }
 
@@ -35,9 +39,12 @@
   background-color: #0d6efd;
   color: #fff; }
 
+.style-icon {
+  width: 20%;
+  height: 20%; }
+
 .images-styles {
-  width: 10%;
-  height: 10%; }
+  border-radius: 50%; }
 
 .images-styles.selected {
   border: 8px solid #1cf127; }

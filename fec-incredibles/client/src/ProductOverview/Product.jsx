@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductDetails from "./ProductDetails.jsx";
+import ProductDetailsExtra from "./ProductDetailsExtra.jsx";
 import StylePicker from "./StylePicker.jsx";
 import ProductImages from "./ProductImages.jsx";
 import AddToOutfit from "./AddToOutfit.jsx";
@@ -49,6 +50,7 @@ const Product = ({ currentItemID }) => {
 				setter={setSelectedStyle}
 			/>
 			<AddToOutfit selectedStyleData={selectedStyle} />
+			<ProductDetailsExtra productDetails={productDetails}/>
 		</div>
 	);
 };
