@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const ProductDetails = ({ productDetails }) => {
-	console.log(productDetails);
+	// console.log(productDetails);
 	return (
 		<div>
 			<p>product name {productDetails.name}</p>
