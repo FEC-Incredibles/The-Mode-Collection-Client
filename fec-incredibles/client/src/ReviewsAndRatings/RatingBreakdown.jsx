@@ -1,10 +1,12 @@
 import React from 'react';
 
+import StarRating from '../StarRating.jsx';
 import { getAvgRating, starRating } from './helper.js';
 
 const RatingBreakdown = ({ reviewsMeta, numOfReviews }) => {
 
-  const avgRating = getAvgRating(reviewsMeta);
+  // const avgRating = getAvgRating(reviewsMeta);
+  const avgRating = 3.6;
 
   const getPercentRecommended = () => {
     return Math.round((reviewsMeta.recommended.true / numOfReviews) * 100);
@@ -20,10 +22,10 @@ const RatingBreakdown = ({ reviewsMeta, numOfReviews }) => {
   return (
     <div className="" id="rating-breakdown">
 
-      {/* TODO: partially filled stars */}
       <div className="breakdown-summary">
         <h1 className="breakdown-heading">{avgRating}</h1>
-        {starRating(Math.round(avgRating))}
+        {/* {starRating(Math.round(avgRating))} */}
+        <StarRating numRating={avgRating}/>
       </div>
 
       <br />
