@@ -9,10 +9,15 @@ import Reviews from './ReviewsAndRatings'
 import { getReviews, getMetaData } from './ReviewsAndRatings/temApiCall.js';
 import { getAvgRating } from './ReviewsAndRatings/helper.js';
 
+import { getReviews, getMetaData } from './ReviewsAndRatings/temApiCall.js';
+import { getAvgRating } from './ReviewsAndRatings/helper.js';
+
 const App = () => {
   const [currentItemID, setCurrentItemID] = useState();
   const [allProducts, setAllProducts] = useState();
   const [typedID, setTypedID] = useState();
+  const [currentAvgRating, setCurrentAvgRating] = useState(0);
+  const [currentReviewsMeta, setCurrentReviewsMeta] = useState();
   const [currentAvgRating, setCurrentAvgRating] = useState(0);
   const [currentReviewsMeta, setCurrentReviewsMeta] = useState();
 
@@ -22,7 +27,26 @@ const App = () => {
         let randomIndex = Math.floor(Math.random() * 50)
         setCurrentItemID(response.data[randomIndex].id)
       })
+      .then((response) => {
+        let randomIndex = Math.floor(Math.random() * 50)
+        setCurrentItemID(response.data[randomIndex].id)
+      })
   }, [])
+
+  useEffect(() => {
+    if (currentItemID) {
+      // TODO: remove temApiCall once set up routes in server
+      getMetaData(currentItemID)
+        .then(response => {
+          // console.log('Reviews metadata: ', response.data)
+          let avgRating = getAvgRating(response.data);
+          setCurrentAvgRating(avgRating);
+          setCurrentReviewsMeta(response.data);
+        })
+        .catch(error =>
+          console.log('Error getting reviews from App.jsx 🫠', error))
+    }
+  }, [currentItemID])
 
   useEffect(() => {
     if (currentItemID) {
