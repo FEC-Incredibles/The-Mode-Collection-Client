@@ -24,7 +24,7 @@ const App = () => {
      <h1>current item id  {currentItemID}🤯</h1>
      <nav style={{display:'flex'}}>
       <button type='button' onClick={() => {setCurrentItemID(currentItemID-1)}}>previous</button>
-      <button type='button' onClick={() => {setCurrentItemID(currentItemID+1)}}>next</button>
+      <button type='button' onClick={() => {setCurrentItemID(Number(currentItemID)+1)}}>next</button>
       <input type='text' onChange={(e) => {
         setTypedID(e.target.value)
       }}></input>
