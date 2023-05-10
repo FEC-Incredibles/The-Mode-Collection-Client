@@ -29,15 +29,16 @@ const ProductImages = ({ selectedStyleData }) => {
 		<div id="imageContainer">
 
 			{/* additional row of images */}
+			<div className="images-row" >
 			{selectedStyleData.photos.length > 1 ? selectedStyleData.photos.map((photo, index) => (
-				<div className="images-row" key={index}>
-					<img
-						className="images-extra"
-						onClick={(e) => {changeImage(index)}}
-						src={photo.url}
-						></img>
-				</div>
-			)) : null}
+				<img
+					key={index}
+					className="images-extra"
+					onClick={(e) => {changeImage(index)}}
+					src={photo.url}
+					></img>
+					)) : null}
+			</div>
 
 			{/* main image */}
 			<img src={selectedImage.url ? selectedImage.url : "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="}></img>

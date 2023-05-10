@@ -42,12 +42,12 @@
   background-color: #0d6efd;
   color: #fff;
 }
-.style-icon {
-  width: 20%;
-  height: 20%;
-}
+
 
 .images-styles{
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
   border-radius: 50%;
 }
 
@@ -55,11 +55,15 @@
   border: 8px solid rgb(28, 241, 39)
 }
 .images-row {
-  position: relative;
-  top: -10%;
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
   z-index: 1;
+  padding: 5px;
 }
 .images-extra {
-  width: 7%;
-  height: 7%
+  width: 3rem;
+  height: 3rem;
+  margin: 5px;
+  object-fit: cover;
 }
