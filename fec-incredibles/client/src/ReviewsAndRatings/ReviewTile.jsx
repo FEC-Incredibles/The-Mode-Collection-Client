@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
 
 import ReviewImage from './ReviewImage.jsx';
+import StarRating from '../StarRating.jsx';
 
 import { starRating } from './helper.js';
 
@@ -44,7 +45,10 @@ const ReviewTile = ({ review }) => {
     <div className="review-tile">
 
       <div className="review-tile-header">
-        <div>{starRating(review.rating)} </div>
+
+        {/* <div>{starRating(review.rating)} </div> */}
+        <StarRating numRating={review.rating} color={"#372f0e"} />
+
         {/* TODO: verified users */}
         <i>{review.reviewer_name}</i>
         <i>{format(parseISO(review.date), 'MMMM dd, yyyy')}</i>
