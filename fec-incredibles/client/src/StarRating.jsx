@@ -37,9 +37,9 @@ const StarRating = ({ rating, size, color }) => {
           key={idx}
           height={starSize} width={starSize}
           viewBox="0 0 24 24"
-          data-testid={`star:grad-${percent}-${color}`}>
+          data-testid={`star:grad-${percent}-${starColor}`}>
           <defs>
-            <linearGradient id={`grad-${percent}-${color}`}>
+            <linearGradient id={`grad-${percent}-${starColor}`}>
               <stop offset="0%" stopColor={starColor} />
               <stop offset={`${percent}%`} stopColor={starColor} />
               <stop offset={`${percent}%`} stopColor="white" />
@@ -47,7 +47,7 @@ const StarRating = ({ rating, size, color }) => {
             </linearGradient>
           </defs>
           <path
-            fill={`url(#grad-${percent}-${color})`}
+            fill={`url(#grad-${percent}-${starColor})`}
             stroke="black"
             strokeWidth="0.8"
             d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
