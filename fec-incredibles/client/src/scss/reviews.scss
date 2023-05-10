@@ -5,10 +5,12 @@
   height: auto;
 }
 
-/*
- * General Module Layout
- */
+
 #review-module {
+
+  //
+  // Module Layout
+  //
   width: 100%;
   height: auto;
   padding: 8px;
@@ -33,225 +35,244 @@
   select {
     display: inline-block;
   }
-}
 
 
 
 
-/*
- * Review List
- */
- .modal {
-  position: fixed; /* Stay in place */
-  z-index: 10; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
 
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  //
+  // Review List
+  //
+  .modal {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
 
-  button {
-    float: right;
-    margin: auto;
-  }
-
-  .modal-content {
-    margin: auto;
-    max-width: 90%;
-    max-height: 90%;
-  }
-}
-
-.form-new-review {
-  min-height: 500px;
-  min-width: 500px;
-  background-color: #aaa;
-}
-
-/*
- * Single Review Tile
- */
-.review-tile {
-  display: flex;
-  flex-flow: column nowrap;
-
-  padding: 20px 7px 10px 7px;
-  margin: 10px 0;
-
-  border: 1.5px outset #96a0c4;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-
-  .review-tile-header {
     display: flex;
-    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
 
-    div {
-      flex: 6;
-    }
 
-    i {
-      font-size: 0.8rem;
-      margin: 0 5px 0 5px;
+    .modal-content {
+      margin: auto;
+      // max-width: 90%;
+      // max-height: 90%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        align-self: flex-end;
+        background-color: transparent;
+      }
+
+      img {
+        max-width: 90vw;
+        max-height: 90vh;
+      }
     }
 
   }
 
-  .review-tile-title {
-    font-size: 1.05rem;
-    font-weight: bold;
-    margin: 10px 0 8px 0;
+  .form-new-review {
+    min-height: 500px;
+    min-width: 500px;
+    background-color: #aaa;
+  }
 
-    .review-tile-title-capped {
-      font-size: 1rem;
-      font-weight: 100;
-      margin: 5px 0 0 0;
+
+
+  //
+  // Single Review Tile
+  //
+  .review-tile {
+    display: flex;
+    flex-flow: column nowrap;
+
+    padding: 20px 7px 10px 7px;
+    margin: 10px 0;
+
+    border: 1.5px outset #96a0c4;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+
+    .review-tile-header {
+      display: flex;
+      flex-flow: row nowrap;
+
+      div {
+        flex: 6;
+      }
+
+      i {
+        font-size: 0.8rem;
+        margin: 0 5px 0 5px;
+      }
+
     }
-  }
 
-
-  .review-tile-body {
-    margin: 10px 0 8px 0;
-
-    i {
-      font-weight: 200;
-      text-decoration: underline;
-      margin: 0 5px;
-    }
-  }
-
-  .review-tile-thumbnail {
-    .review-img {
-      max-width: 80px;
-      height: auto;
-      margin: 5px;
-    }
-  }
-
-
-  .review-tile-recommend {
-    margin: 8px 0;
-    font-size: 0.9rem;
-  }
-
-  .review-tile-response {
-    margin: 8px 0;
-    padding: 8px 5px;
-    background-color: #8c888814;
-
-    b {
+    .review-tile-title {
+      font-size: 1.05rem;
       font-weight: bold;
-      margin: 5px 0;
+      margin: 10px 0 8px 0;
+
+      .review-tile-title-capped {
+        font-size: 1rem;
+        font-weight: 100;
+        margin: 5px 0 0 0;
+      }
     }
 
-    p {
-      margin: 10px 0 5px 0;
+
+    .review-tile-body {
+      margin: 10px 0 8px 0;
+
+      i {
+        font-weight: 200;
+        text-decoration: underline;
+        margin: 0 5px;
+      }
+    }
+
+    .review-tile-thumbnail {
+      .review-img {
+        max-width: 80px;
+        height: auto;
+        margin: 5px;
+      }
+    }
+
+
+    .review-tile-recommend {
+      margin: 8px 0;
+      font-size: 0.9rem;
+    }
+
+    .review-tile-response {
+      margin: 8px 0;
+      padding: 8px 5px;
+      background-color: #8c888814;
+
+      b {
+        font-weight: bold;
+        margin: 5px 0;
+      }
+
+      p {
+        margin: 10px 0 5px 0;
+      }
+    }
+
+    .review-tile-footer {
+      font-size: 0.85rem;
+      margin: 8px 0 0 0;
+
+      i {
+        font-weight: lighter;
+        margin: 0 5px 0 10px;
+        text-decoration: underline;
+      }
+
+      i:hover {
+        background-color: #8c888814;
+      }
     }
   }
 
-  .review-tile-footer {
-    font-size: 0.85rem;
-    margin: 8px 0 0 0;
 
-    i {
-      font-weight: lighter;
-      margin: 0 5px 0 10px;
-      text-decoration: underline;
+  //
+  // Rating Breakdown
+  //
+  #rating-breakdown {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 10px 0;
+
+    .breakdown-summary {
+      display: inline-flex;
+
+      .breakdown-heading {
+        font-size: 3rem;
+        margin-right: 8px;
+      }
     }
 
-    i:hover {
+    .breakdown-by-star {
+      margin: 3px 0;
+
+      i {
+        text-decoration: underline;
+        font-size: smaller;
+      }
+
+      .breakdown-bar {
+        width: 60%;
+        height: 10px;
+        display: inline-block;
+        margin: 0 5px;
+        border: 1px solid #fff;
+        box-shadow: 0 0 1px #aaa;
+        background-color: #8c888814;
+
+        .bar {
+          width: 0%;
+          height: 100%;
+          background: green;
+        }
+      }
+    }
+
+    .breakdown-by-star:hover {
       background-color: #8c888814;
     }
+
+  }
+
+  //
+  // Product Breakdown
+  //
+  #product-breakdown {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 40px 0;
+
+    .breakdown-by-factor {
+      margin: 5px 0;
+
+      .breakdown-bar {
+        width: 95%;
+        height: 8px;
+        display: inline-block;
+        background-color: #aaaaaa59;
+
+        i {
+          position: relative;
+        }
+      }
+
+      .factor-labels {
+        width: 95%;
+        display: flex;
+        font-size: 0.7rem;
+        justify-content: space-between;
+
+        i {
+          text-align: center;
+        }
+      }
+    }
+
   }
 }
-
-/*
- * Rating Breakdown
- */
- #rating-breakdown {
-  display: flex;
-  flex-flow: column nowrap;
-  margin: 10px 0;
-
-  .breakdown-summary {
-    display: inline-flex;
-
-    .breakdown-heading {
-      font-size: 3rem;
-      margin-right: 8px;
-    }
-  }
-
-  .breakdown-by-star {
-    margin: 3px 0;
-
-    i {
-      text-decoration: underline;
-      font-size: smaller;
-    }
-
-    .breakdown-bar {
-      width: 60%;
-      height: 10px;
-      display: inline-block;
-      margin:  0 5px;
-      border: 1px solid #fff;
-      box-shadow: 0 0 1px #aaa;
-      background-color: #8c888814;
-
-      .bar {
-        width: 0%;
-        height: 100%;
-        background: green;
-      }
-    }
-  }
-
-  .breakdown-by-star:hover {
-    background-color: #8c888814;
-  }
-
- }
-
- /*
- * Product Breakdown
- */
- #product-breakdown {
-  display: flex;
-  flex-flow: column nowrap;
-  margin: 40px 0;
-
-  .breakdown-by-factor {
-    margin: 5px 0;
-
-    .breakdown-bar {
-      width: 95%;
-      height: 8px;
-      display: inline-block;
-      background-color: #aaaaaa59;
-
-      i {
-        position: relative;
-      }
-    }
-
-    .factor-labels {
-      width: 95%;
-      display: flex;
-      font-size: 0.7rem;
-      justify-content: space-between;
-
-      i {
-        text-align: center;
-      }
-    }
-  }
-
- }

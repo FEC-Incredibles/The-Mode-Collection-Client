@@ -3,9 +3,6 @@
   padding: 8px;
   height: auto; }
 
-/*
- * General Module Layout
- */
 #review-module {
   width: 100%;
   height: auto;
@@ -19,154 +16,138 @@
     width: 70%; }
   #review-module select {
     display: inline-block; }
-
-/*
- * Review List
- */
-.modal {
-  position: fixed;
-  /* Stay in place */
-  z-index: 10;
-  /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .modal button {
-    float: right;
-    margin: auto; }
-  .modal .modal-content {
-    margin: auto;
-    max-width: 90%;
-    max-height: 90%; }
-
-.form-new-review {
-  min-height: 500px;
-  min-width: 500px;
-  background-color: #aaa; }
-
-/*
- * Single Review Tile
- */
-.review-tile {
-  display: flex;
-  flex-flow: column nowrap;
-  padding: 20px 7px 10px 7px;
-  margin: 10px 0;
-  border: 1.5px outset #96a0c4;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4); }
-  .review-tile .review-tile-header {
+  #review-module .modal {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: black;
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
     display: flex;
-    flex-flow: row nowrap; }
-    .review-tile .review-tile-header div {
-      flex: 6; }
-    .review-tile .review-tile-header i {
-      font-size: 0.8rem;
-      margin: 0 5px 0 5px; }
-  .review-tile .review-tile-title {
-    font-size: 1.05rem;
-    font-weight: bold;
-    margin: 10px 0 8px 0; }
-    .review-tile .review-tile-title .review-tile-title-capped {
-      font-size: 1rem;
-      font-weight: 100;
-      margin: 5px 0 0 0; }
-  .review-tile .review-tile-body {
-    margin: 10px 0 8px 0; }
-    .review-tile .review-tile-body i {
-      font-weight: 200;
-      text-decoration: underline;
-      margin: 0 5px; }
-  .review-tile .review-tile-thumbnail .review-img {
-    max-width: 80px;
-    height: auto;
-    margin: 5px; }
-  .review-tile .review-tile-recommend {
-    margin: 8px 0;
-    font-size: 0.9rem; }
-  .review-tile .review-tile-response {
-    margin: 8px 0;
-    padding: 8px 5px;
-    background-color: #8c888814; }
-    .review-tile .review-tile-response b {
-      font-weight: bold;
-      margin: 5px 0; }
-    .review-tile .review-tile-response p {
-      margin: 10px 0 5px 0; }
-  .review-tile .review-tile-footer {
-    font-size: 0.85rem;
-    margin: 8px 0 0 0; }
-    .review-tile .review-tile-footer i {
-      font-weight: lighter;
-      margin: 0 5px 0 10px;
-      text-decoration: underline; }
-    .review-tile .review-tile-footer i:hover {
-      background-color: #8c888814; }
-
-/*
- * Rating Breakdown
- */
-#rating-breakdown {
-  display: flex;
-  flex-flow: column nowrap;
-  margin: 10px 0; }
-  #rating-breakdown .breakdown-summary {
-    display: inline-flex; }
-    #rating-breakdown .breakdown-summary .breakdown-heading {
-      font-size: 3rem;
-      margin-right: 8px; }
-  #rating-breakdown .breakdown-by-star {
-    margin: 3px 0; }
-    #rating-breakdown .breakdown-by-star i {
-      text-decoration: underline;
-      font-size: smaller; }
-    #rating-breakdown .breakdown-by-star .breakdown-bar {
-      width: 60%;
-      height: 10px;
-      display: inline-block;
-      margin: 0 5px;
-      border: 1px solid #fff;
-      box-shadow: 0 0 1px #aaa;
-      background-color: #8c888814; }
-      #rating-breakdown .breakdown-by-star .breakdown-bar .bar {
-        width: 0%;
-        height: 100%;
-        background: green; }
-  #rating-breakdown .breakdown-by-star:hover {
-    background-color: #8c888814; }
-
-/*
- * Product Breakdown
- */
-#product-breakdown {
-  display: flex;
-  flex-flow: column nowrap;
-  margin: 40px 0; }
-  #product-breakdown .breakdown-by-factor {
-    margin: 5px 0; }
-    #product-breakdown .breakdown-by-factor .breakdown-bar {
-      width: 95%;
-      height: 8px;
-      display: inline-block;
-      background-color: #aaaaaa59; }
-      #product-breakdown .breakdown-by-factor .breakdown-bar i {
-        position: relative; }
-    #product-breakdown .breakdown-by-factor .factor-labels {
-      width: 95%;
+    justify-content: center;
+    align-items: center; }
+    #review-module .modal .modal-content {
+      margin: auto;
       display: flex;
-      font-size: 0.7rem;
-      justify-content: space-between; }
-      #product-breakdown .breakdown-by-factor .factor-labels i {
-        text-align: center; }
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      #review-module .modal .modal-content button {
+        align-self: flex-end;
+        background-color: transparent; }
+      #review-module .modal .modal-content img {
+        max-width: 90vw;
+        max-height: 90vh; }
+  #review-module .form-new-review {
+    min-height: 500px;
+    min-width: 500px;
+    background-color: #aaa; }
+  #review-module .review-tile {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 20px 7px 10px 7px;
+    margin: 10px 0;
+    border: 1.5px outset #96a0c4;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4); }
+    #review-module .review-tile .review-tile-header {
+      display: flex;
+      flex-flow: row nowrap; }
+      #review-module .review-tile .review-tile-header div {
+        flex: 6; }
+      #review-module .review-tile .review-tile-header i {
+        font-size: 0.8rem;
+        margin: 0 5px 0 5px; }
+    #review-module .review-tile .review-tile-title {
+      font-size: 1.05rem;
+      font-weight: bold;
+      margin: 10px 0 8px 0; }
+      #review-module .review-tile .review-tile-title .review-tile-title-capped {
+        font-size: 1rem;
+        font-weight: 100;
+        margin: 5px 0 0 0; }
+    #review-module .review-tile .review-tile-body {
+      margin: 10px 0 8px 0; }
+      #review-module .review-tile .review-tile-body i {
+        font-weight: 200;
+        text-decoration: underline;
+        margin: 0 5px; }
+    #review-module .review-tile .review-tile-thumbnail .review-img {
+      max-width: 80px;
+      height: auto;
+      margin: 5px; }
+    #review-module .review-tile .review-tile-recommend {
+      margin: 8px 0;
+      font-size: 0.9rem; }
+    #review-module .review-tile .review-tile-response {
+      margin: 8px 0;
+      padding: 8px 5px;
+      background-color: #8c888814; }
+      #review-module .review-tile .review-tile-response b {
+        font-weight: bold;
+        margin: 5px 0; }
+      #review-module .review-tile .review-tile-response p {
+        margin: 10px 0 5px 0; }
+    #review-module .review-tile .review-tile-footer {
+      font-size: 0.85rem;
+      margin: 8px 0 0 0; }
+      #review-module .review-tile .review-tile-footer i {
+        font-weight: lighter;
+        margin: 0 5px 0 10px;
+        text-decoration: underline; }
+      #review-module .review-tile .review-tile-footer i:hover {
+        background-color: #8c888814; }
+  #review-module #rating-breakdown {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 10px 0; }
+    #review-module #rating-breakdown .breakdown-summary {
+      display: inline-flex; }
+      #review-module #rating-breakdown .breakdown-summary .breakdown-heading {
+        font-size: 3rem;
+        margin-right: 8px; }
+    #review-module #rating-breakdown .breakdown-by-star {
+      margin: 3px 0; }
+      #review-module #rating-breakdown .breakdown-by-star i {
+        text-decoration: underline;
+        font-size: smaller; }
+      #review-module #rating-breakdown .breakdown-by-star .breakdown-bar {
+        width: 60%;
+        height: 10px;
+        display: inline-block;
+        margin: 0 5px;
+        border: 1px solid #fff;
+        box-shadow: 0 0 1px #aaa;
+        background-color: #8c888814; }
+        #review-module #rating-breakdown .breakdown-by-star .breakdown-bar .bar {
+          width: 0%;
+          height: 100%;
+          background: green; }
+    #review-module #rating-breakdown .breakdown-by-star:hover {
+      background-color: #8c888814; }
+  #review-module #product-breakdown {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 40px 0; }
+    #review-module #product-breakdown .breakdown-by-factor {
+      margin: 5px 0; }
+      #review-module #product-breakdown .breakdown-by-factor .breakdown-bar {
+        width: 95%;
+        height: 8px;
+        display: inline-block;
+        background-color: #aaaaaa59; }
+        #review-module #product-breakdown .breakdown-by-factor .breakdown-bar i {
+          position: relative; }
+      #review-module #product-breakdown .breakdown-by-factor .factor-labels {
+        width: 95%;
+        display: flex;
+        font-size: 0.7rem;
+        justify-content: space-between; }
+        #review-module #product-breakdown .breakdown-by-factor .factor-labels i {
+          text-align: center; }
