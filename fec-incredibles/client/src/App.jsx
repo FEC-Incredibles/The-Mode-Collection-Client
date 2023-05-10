@@ -23,10 +23,6 @@ const App = () => {
         let randomIndex = Math.floor(Math.random() * 50)
         setCurrentItemID(response.data[randomIndex].id)
       })
-      .then((response) => {
-        let randomIndex = Math.floor(Math.random() * 50)
-        setCurrentItemID(response.data[randomIndex].id)
-      })
   }, [])
 
   useEffect(() => {
