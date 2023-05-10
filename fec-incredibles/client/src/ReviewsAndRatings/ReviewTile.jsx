@@ -47,7 +47,7 @@ const ReviewTile = ({ review }) => {
       <div className="review-tile-header">
 
         {/* <div>{starRating(review.rating)} </div> */}
-        <StarRating numRating={review.rating} color={"#372f0e"} />
+        <StarRating rating={review.rating} color={"#3f3d36"} />
 
         {/* TODO: verified users */}
         <i>{review.reviewer_name}</i>

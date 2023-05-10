@@ -6,7 +6,7 @@ import React from 'react';
  * (optional) size: size of the stars in pixel, default = 18
  * (optional) color: color of the stars, default = Candlelight
  */
-const StarRating = ({ numRating, size, color }) => {
+const StarRating = ({ rating, size, color }) => {
 
   const starSize = size || 18;
   const starColor = color || "#fbd323";
@@ -31,12 +31,13 @@ const StarRating = ({ numRating, size, color }) => {
 
 
   return (
-    <div className="star-rating">
-      {percentsRating(numRating).map((percent, idx) =>
+    <div className="rating-star">
+      {percentsRating(rating).map((percent, idx) =>
         <svg
           key={idx}
           height={starSize} width={starSize}
-          viewBox="0 0 24 24" >
+          viewBox="0 0 24 24"
+          data-testid={`star:grad-${percent}-${color}`}>
           <defs>
             <linearGradient id={`grad-${percent}-${color}`}>
               <stop offset="0%" stopColor={starColor} />

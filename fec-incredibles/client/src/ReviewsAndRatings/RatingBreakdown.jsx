@@ -25,7 +25,7 @@ const RatingBreakdown = ({ reviewsMeta, numOfReviews }) => {
       <div className="breakdown-summary">
         <h1 className="breakdown-heading">{avgRating}</h1>
         {/* {starRating(Math.round(avgRating))} */}
-        <StarRating numRating={avgRating}/>
+        <StarRating rating={avgRating}/>
       </div>
 
       <br />
