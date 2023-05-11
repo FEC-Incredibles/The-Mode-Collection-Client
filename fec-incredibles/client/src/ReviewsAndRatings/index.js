@@ -130,12 +130,18 @@ const exampleMeta = {
     }
 }
 
-const Reviews = ({ currentItemID }) => {
+const Reviews = ({ currentItemID, avgRating }) => {
 
     const [reviews, setReviews] = useState(exampleReviews);
-    const [reviewMeta, setReviewMeta] = useState(exampleMeta);
+    const [reviewsMeta, setReviewsMeta] = useState(exampleMeta);
+    // const [numOfReviews, setNumOfReviews] = useState(0);
 
-    const numOfReviews = getTotalNumOfReviews(reviewMeta);
+
+    // useEffect(() => {
+    //     const numOfReviews = getTotalNumOfReviews(reviewsMeta);
+    // }, [reviewsMeta])
+
+    const numOfReviews = getTotalNumOfReviews(reviewsMeta);
 
     return (
         <div className="widget" id="review-module">
@@ -144,17 +150,21 @@ const Reviews = ({ currentItemID }) => {
 
             <div className="col-25">
                 <RatingBreakdown
-                    reviewsMeta={reviewMeta}
-                    numOfReviews={numOfReviews} />
+                    reviewsMeta={reviewsMeta}
+                    numOfReviews={numOfReviews}
+                    avgRating={avgRating} />
 
-                <ProductBreakdown
-                    characteristics={reviewMeta.characteristics}
+                {numOfReviews > 0 && (
+                    <ProductBreakdown
+                    characteristics={reviewsMeta.characteristics}
                     numOfReviews={numOfReviews} />
+                ) }
+
             </div>
 
 
             <div className="col-75">
-                <SortOption numOfReviews={numOfReviews}  />
+                <SortOption numOfReviews={numOfReviews} />
                 <ReviewList reviews={reviews} />
             </div>
 

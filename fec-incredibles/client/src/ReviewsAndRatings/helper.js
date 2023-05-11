@@ -1,12 +1,17 @@
 
-const getTotalNumOfReviews = (reviewMeta) => {
-  return Object.values(reviewMeta.recommended)
+const getTotalNumOfReviews = (reviewsMeta) => {
+  return Object.values(reviewsMeta.recommended)
       .reduce(
           (accumulator, currentValue) => accumulator + Number(currentValue)
           , 0);
 };
 
 const getAvgRating = (reviewMeta) => {
+  let numOfReviews = getTotalNumOfReviews(reviewMeta);
+  if (numOfReviews === 0) {
+    return 0;
+  }
+
   let ratings = reviewMeta.ratings;
   let sum = Object.keys(ratings).reduce(
     (accumulator, currentKey) => {
@@ -15,7 +20,7 @@ const getAvgRating = (reviewMeta) => {
       return accumulator;
     }
     , 0);
-  return (sum / getTotalNumOfReviews(reviewMeta)).toFixed(1);
+  return (sum / numOfReviews).toFixed(1);
 };
 
 const starRating = (numRating) => {

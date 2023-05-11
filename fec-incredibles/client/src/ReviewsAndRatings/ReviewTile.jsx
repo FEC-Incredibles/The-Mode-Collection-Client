@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
 
+import ReviewImage from './ReviewImage.jsx';
+import StarRating from '../StarRating.jsx';
+
 import { starRating } from './helper.js';
 
 const ReviewTile = ({ review }) => {
@@ -37,16 +40,15 @@ const ReviewTile = ({ review }) => {
     setExpandBody(!expandBody);
   }
 
-  const handleExpandImage = (e) => {
-    // TODO:  open the image in a modal window
-    // console.log(e.target.src);
-  }
 
   return (
     <div className="review-tile">
 
       <div className="review-tile-header">
-        <div>{starRating(review.rating)} </div>
+
+        {/* <div>{starRating(review.rating)} </div> */}
+        <StarRating rating={review.rating} color={"#3f3d36"} />
+
         {/* TODO: verified users */}
         <i>{review.reviewer_name}</i>
         <i>{format(parseISO(review.date), 'MMMM dd, yyyy')}</i>
@@ -79,13 +81,7 @@ const ReviewTile = ({ review }) => {
       <div className="review-tile-thumbnail">
         {review.photos.map((photo, idx) => {
           return (
-            <img
-              key={idx}
-              className="review-img"
-              src={photo.url}
-              alt={`Photo ${photo.id}`}
-              onClick={handleExpandImage}
-            />
+            <ReviewImage photo={photo} key={idx} />
           )
         })}
       </div>
