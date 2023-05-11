@@ -1,11 +1,13 @@
 import React from 'react';
 
 import characteristicsScale from './characteristics.js';
+import { getPercentage } from './helper.js';
 
-const ProductBreakdown = ({ characteristics, numOfReviews }) => {
+const ProductBreakdown = ({ characteristics }) => {
 
   const breakdownByFactor = (factor) => {
-    return Math.round((Number(characteristics[factor].value) / 5) * 100);
+    let count = characteristics[factor].value;
+    return getPercentage(count, 5);
   }
 
   return (
@@ -17,19 +19,21 @@ const ProductBreakdown = ({ characteristics, numOfReviews }) => {
             <div>{factor}</div>
 
             <div className="breakdown-bar">
-              <i style={{ left: `${breakdownByFactor(factor)}%` }}>▼</i>
+              {breakdownByFactor(factor) >= 0 &&
+                <i style={{ left: `${breakdownByFactor(factor)}%` }}>▼</i>
+              }
             </div>
 
             <div className="factor-labels">
               {characteristicsScale.scale[factor].map((scale, idx) =>
                 <i key={idx} >{scale}</i>
-                )}
+              )}
             </div>
 
           </div>
         );
       })}
-      </div>
+    </div>
   )
 }
 

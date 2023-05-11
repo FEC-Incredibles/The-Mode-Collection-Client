@@ -11,19 +11,17 @@ import { exampleReviews, exampleMeta, emptyMeta } from './exampleData';
 const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
 
     const [reviews, setReviews] = useState(exampleReviews);
-    const [meta, setMeta] = useState(emptyMeta);
+    const [meta, setMeta] = useState(reviewsMeta);
     const [numOfReviews, setNumOfReviews] = useState(0);
 
-    console.log('Reviews metadata inside module: ', reviewsMeta)
+    // console.log('Reviews metadata inside module: ', reviewsMeta)
 
     useEffect(() => {
-
         setMeta(reviewsMeta);
         setNumOfReviews(getTotalNumOfReviews(reviewsMeta));
-
     }, [reviewsMeta])
 
-    // const numOfReviews = getTotalNumOfReviews(meta);
+    // const numOfReviews = getTotalNumOfReviews(reviewsMeta);
 
     return (
         <div className="widget" id="review-module">
@@ -36,11 +34,8 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
                     numOfReviews={numOfReviews}
                     avgRating={avgRating} />
 
-                {numOfReviews > 0 && (
-                    <ProductBreakdown
-                    characteristics={meta.characteristics}
-                    numOfReviews={numOfReviews} />
-                ) }
+                <ProductBreakdown
+                    characteristics={meta.characteristics} />
 
             </div>
 

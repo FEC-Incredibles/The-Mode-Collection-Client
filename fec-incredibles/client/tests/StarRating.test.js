@@ -9,13 +9,13 @@ describe("StarRating Component", () => {
   // Test block: unit test
   test("Generates 5 SVG tags when the component is rendered", () => {
     // first, render the component that we want to test
-    render(<StarRating rating={"3.73"} color="black"/>)
+    render(<StarRating rating={"3.734"} color="black"/>)
 
     // select the elements that we want to interact with
     // other select methods: https://testing-library.com/docs/react-testing-library/cheatsheet
     const stars = screen.queryAllByTestId(/star:grad-/);
     const fullStars =  screen.queryAllByTestId("star:grad-100-black");
-    const halfStar = screen.queryAllByTestId("star:grad-70-black");
+    const halfStar = screen.queryAllByTestId("star:grad-73-black");
     const emptyStar = screen.queryAllByTestId("star:grad-0-black");
 
     //assert the expected result

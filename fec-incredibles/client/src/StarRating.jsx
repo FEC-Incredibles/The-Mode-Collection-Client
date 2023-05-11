@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * props:
- * (required) numRating: a number with one decimal digit
+ * (required) numRating: a number
  * (optional) size: size of the stars in pixel, default = 18
  * (optional) color: color of the stars, default = Candlelight
  */
@@ -13,18 +13,18 @@ const StarRating = ({ rating, size, color }) => {
 
   /**
    * Helper function
-   * that takes a number with one decimal digit
+   * that takes a number with any number of decimal digits
    * and returns an array of percents
-   * e.g. (4.5) => [100, 100, 100, 100, 50]
+   * e.g. (4.511) => [100, 100, 100, 100, 51]
    */
   const percentsRating = (numRating) => {
     let percentArray = new Array(5).fill(0);
 
     let wholeNumDigit = Math.trunc(numRating);
-    let decimalDigit = (numRating - wholeNumDigit).toFixed(1) * 100;
+    let decimalDigit = (numRating - wholeNumDigit).toFixed(2);
 
     percentArray = percentArray.fill(100, 0, wholeNumDigit);
-    percentArray = percentArray.fill(decimalDigit, wholeNumDigit, wholeNumDigit + 1)
+    percentArray = percentArray.fill(decimalDigit * 100, wholeNumDigit, wholeNumDigit + 1)
 
     return percentArray;
   }
