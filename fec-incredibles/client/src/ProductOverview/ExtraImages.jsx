@@ -22,14 +22,14 @@ const ExtraImages = ({ photos, setSelectedImage }) => {
 				) : (
 					<div style={{ display: "flex", flexDirection: "column" }}>
 						{startWindow === 0 ? null : (
-							<i
+							<button className='images-buttons'
 								onClick={() => {
 									setStartWindow(startWindow - 1);
 									setEndWindow(endWindow - 1);
 								}}
 							>
 								/\
-							</i>
+							</button>
 						)}
 						{photos.slice(startWindow, endWindow).map((photo, index) => (
 							<img
@@ -42,14 +42,14 @@ const ExtraImages = ({ photos, setSelectedImage }) => {
 							></img>
 						))}
 						{endWindow === photos.length - 1 ? null : (
-							<i
+							<button className='images-buttons'
 								onClick={() => {
 									setStartWindow(startWindow + 1);
 									setEndWindow(endWindow + 1);
 								}}
 							>
 								\/
-							</i>
+							</button>
 						)}
 					</div>
 				)

@@ -61,6 +61,12 @@
   z-index: 1;
   padding: 5px;
 }
+.images-buttons {
+  display:'flex';
+  justify-content: 'center';
+  width:'2rem';
+  height:'2rem';
+}
 .images-extra {
   width: 3rem;
   height: 3rem;
