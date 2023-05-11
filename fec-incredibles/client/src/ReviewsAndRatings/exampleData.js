@@ -122,7 +122,16 @@ const exampleMeta = {
   }
 };
 
+const emptyMeta = {
+  "product_id": "0",
+  "ratings": {
+  },
+  "recommended": {},
+  "characteristics": {}
+};
+
 module.exports = {
   exampleReviews,
-  exampleMeta
+  exampleMeta,
+  emptyMeta
 }

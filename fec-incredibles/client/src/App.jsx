@@ -8,6 +8,7 @@ import Reviews from './ReviewsAndRatings'
 
 import { getReviews, getMetaData } from './ReviewsAndRatings/temApiCall.js';
 import { getAvgRating } from './ReviewsAndRatings/helper.js';
+import { emptyMeta } from './ReviewsAndRatings/exampleData.js'
 
 
 const App = () => {
@@ -15,7 +16,7 @@ const App = () => {
   const [allProducts, setAllProducts] = useState();
   const [typedID, setTypedID] = useState();
   const [currentAvgRating, setCurrentAvgRating] = useState(0);
-  const [currentReviewsMeta, setCurrentReviewsMeta] = useState();
+  const [currentReviewsMeta, setCurrentReviewsMeta] = useState(emptyMeta);
 
   useEffect(() => {
     Axios.get('/products')

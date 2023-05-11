@@ -6,20 +6,24 @@ import SortOption from './SortOption.jsx';
 import ReviewList from './ReviewList.jsx';
 
 import { getTotalNumOfReviews } from './helper.js';
-import { exampleReviews, exampleMeta } from './exampleData';
+import { exampleReviews, exampleMeta, emptyMeta } from './exampleData';
 
-const Reviews = ({ currentItemID, avgRating }) => {
+const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
 
     const [reviews, setReviews] = useState(exampleReviews);
-    const [reviewsMeta, setReviewsMeta] = useState(exampleMeta);
-    // const [numOfReviews, setNumOfReviews] = useState(0);
+    const [meta, setMeta] = useState(emptyMeta);
+    const [numOfReviews, setNumOfReviews] = useState(0);
 
+    console.log('Reviews metadata inside module: ', reviewsMeta)
 
-    // useEffect(() => {
-    //     const numOfReviews = getTotalNumOfReviews(reviewsMeta);
-    // }, [reviewsMeta])
+    useEffect(() => {
 
-    const numOfReviews = getTotalNumOfReviews(reviewsMeta);
+        setMeta(reviewsMeta);
+        setNumOfReviews(getTotalNumOfReviews(reviewsMeta));
+
+    }, [reviewsMeta])
+
+    // const numOfReviews = getTotalNumOfReviews(meta);
 
     return (
         <div className="widget" id="review-module">
@@ -28,13 +32,13 @@ const Reviews = ({ currentItemID, avgRating }) => {
 
             <div className="col-25">
                 <RatingBreakdown
-                    reviewsMeta={reviewsMeta}
+                    reviewsMeta={meta}
                     numOfReviews={numOfReviews}
                     avgRating={avgRating} />
 
                 {numOfReviews > 0 && (
                     <ProductBreakdown
-                    characteristics={reviewsMeta.characteristics}
+                    characteristics={meta.characteristics}
                     numOfReviews={numOfReviews} />
                 ) }
 
