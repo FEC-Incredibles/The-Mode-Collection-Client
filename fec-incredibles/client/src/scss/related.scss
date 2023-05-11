@@ -1,19 +1,35 @@
 #relatedProducts {
   max-width: 100%;
+  .carouselItems {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    .navButtons {
+      max-height: 32px;
+      padding: 20px;
+    }
+  }
   .relatedCarousel {
     overflow: hidden;
+    padding: 20px;
     .viewPort {
       display: flex;
       flex-flow: row nowrap;
-      // white-space: nowrap;
+      white-space: pre-wrap;
       transition: transform 0.5s;
       .Card {
-        display: inline-flex;
+        display: flex;
         flex-flow: column nowrap;
+        width: 50%;
+        max-height: 100%;
         margin: 12px;
-        max-width: 200px;
         border: 2px solid lightgrey;
         border-radius: 6px;
+        img {
+          max-width: 200px;
+          max-height: 200px;
+        }
       }
       .starred {
         padding: 4px;
@@ -21,8 +37,12 @@
         align-self: end;
       }
       .info {
-        overflow-wrap: break-word;
         padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        height: 100%;
+        align-items: center;
       }
     }
   }

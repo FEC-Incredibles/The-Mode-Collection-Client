@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-export default function Card({ item, width }) {
+export default function Card({ item }) {
   let filledStar = "☆";
   let emptyStar = "★";
   return (
-    <div className="Card" style={{ width: width }}>
+    <div className="Card">
       {item.starred ? (
         <h2 className="starred">⭐️</h2>
       ) : (

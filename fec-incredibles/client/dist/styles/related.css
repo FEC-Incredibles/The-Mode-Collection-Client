@@ -1,22 +1,40 @@
 #relatedProducts {
   max-width: 100%; }
+  #relatedProducts .carouselItems {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center; }
+    #relatedProducts .carouselItems .navButtons {
+      max-height: 32px;
+      padding: 20px; }
   #relatedProducts .relatedCarousel {
-    overflow: hidden; }
+    overflow: hidden;
+    padding: 20px; }
     #relatedProducts .relatedCarousel .viewPort {
       display: flex;
       flex-flow: row nowrap;
+      white-space: pre-wrap;
       transition: transform 0.5s; }
       #relatedProducts .relatedCarousel .viewPort .Card {
-        display: inline-flex;
+        display: flex;
         flex-flow: column nowrap;
+        width: 50%;
+        max-height: 100%;
         margin: 12px;
-        max-width: 200px;
         border: 2px solid lightgrey;
         border-radius: 6px; }
+        #relatedProducts .relatedCarousel .viewPort .Card img {
+          max-width: 200px;
+          max-height: 200px; }
       #relatedProducts .relatedCarousel .viewPort .starred {
         padding: 4px;
         position: absolute;
         align-self: end; }
       #relatedProducts .relatedCarousel .viewPort .info {
-        overflow-wrap: break-word;
-        padding: 10px; }
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        height: 100%;
+        align-items: center; }
