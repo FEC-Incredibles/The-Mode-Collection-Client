@@ -5,7 +5,7 @@
     .viewPort {
       display: flex;
       flex-flow: row nowrap;
-      white-space: nowrap;
+      // white-space: nowrap;
       transition: transform 0.5s;
       .Card {
         display: inline-flex;

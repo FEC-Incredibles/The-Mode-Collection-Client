@@ -5,7 +5,6 @@
     #relatedProducts .relatedCarousel .viewPort {
       display: flex;
       flex-flow: row nowrap;
-      white-space: nowrap;
       transition: transform 0.5s; }
       #relatedProducts .relatedCarousel .viewPort .Card {
         display: inline-flex;

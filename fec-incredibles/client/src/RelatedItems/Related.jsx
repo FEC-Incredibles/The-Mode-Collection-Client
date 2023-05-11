@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card.jsx";
-import axios from 'axios';
+import axios from "axios";
 
 const Related = ({ currentItemID }) => {
   const [activeItem, setActiveItem] = useState(0);
@@ -9,24 +9,24 @@ const Related = ({ currentItemID }) => {
   useEffect(() => {
     if (currentItemID) {
       axios({
-        method: 'get',
+        method: "get",
         url: `/products/${currentItemID}/related`,
       })
-      .then((element) => {
-        return axios({
-          method: 'get',
-          url: `/relatedItems/?relatedIDs=${JSON.stringify(element.data)}`,
+        .then((element) => {
+          return axios({
+            method: "get",
+            url: `/relatedItems/?relatedIDs=${JSON.stringify(element.data)}`,
+          });
         })
-      })
-      .then (element => {
-        console.log(element.data)
-        setRelatedProducts(element.data);
-      })
-      .catch(err => {
-        console.log(err);
-      })
+        .then((element) => {
+          console.log(element.data);
+          setRelatedProducts(element.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-  }, [currentItemID])
+  }, [currentItemID]);
   const updateItem = (newItem) => {
     if (newItem < 0) {
       newItem = 0;
@@ -37,6 +37,7 @@ const Related = ({ currentItemID }) => {
   };
   return (
     <div className="widget" id="relatedProducts">
+      <h1>Related Products</h1>
       <div className="relatedCarousel">
         <div
           className="viewPort"
