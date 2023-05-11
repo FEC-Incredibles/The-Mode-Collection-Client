@@ -43,6 +43,19 @@
   //
   // Review List
   //
+  #review-list {
+
+    .scrollable-list {
+      max-height: 70vh;
+      overflow: scroll;
+
+      h6 {
+        text-align: center;
+      }
+    }
+
+  }
+
   .modal {
     position: fixed;
     z-index: 10;

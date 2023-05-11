@@ -16,6 +16,11 @@
     width: 70%; }
   #review-module select {
     display: inline-block; }
+  #review-module #review-list .scrollable-list {
+    max-height: 70vh;
+    overflow: scroll; }
+    #review-module #review-list .scrollable-list h6 {
+      text-align: center; }
   #review-module .modal {
     position: fixed;
     z-index: 10;
