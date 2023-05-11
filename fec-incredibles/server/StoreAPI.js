@@ -44,7 +44,7 @@ module.exports.getReviewMeta = (productID) => {
 }
 
 module.exports.getProductQuestions = (productID) => {
-  return axios.get(`${url}/qa/questions/${productID}`, options)
-  .then((response) => {return response})
-  .catch((err) => {console.log('API ERROR GETTING PRODUCT QUETIONS FOR ', productID, '=> ', err)})
+  return axios.get(`${url}/qa/questions/?product_id=${productID}`, options)
+  .then((response) => {return response; })
+  .catch((err) => {console.log('API ERROR GETTING PRODUCT QUESTIONS FOR ', productID, '=> ', err)})
 }

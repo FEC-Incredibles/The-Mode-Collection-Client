@@ -6,7 +6,17 @@ import ExampleData from './ExampleData.json';
 
 const Questions = ({currentItemID}) => {
 
-  //let [questions, setQuestions] = useState([]);
+  let [questionList, setQuestionList] = useState([]);
+
+  useEffect(() => {
+    axios.get(`/qa/questions/${currentItemID}`)
+    .then((response) => {
+      setQuestionList(response.data)
+    })
+    .catch((err) => {
+      console.log('ERR GETTING QUESTIONS FOR PRODUCT ', err)
+    })
+  }, []);
 
 
   return (
