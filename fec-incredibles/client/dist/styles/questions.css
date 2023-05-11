@@ -16,6 +16,10 @@
     padding: 8px;
     margin: 10px;
     height: auto; }
+  #QA .helpful {
+    width: 125px;
+    height: 25px;
+    font-size: 9px; }
   #QA .buttons {
     align-self: center; }
   #QA .helpbtn {
