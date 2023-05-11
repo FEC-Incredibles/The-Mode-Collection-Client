@@ -19,6 +19,7 @@ const StylePicker = ({ selectedStyleData, styles, setter}) => {
 				}}
 				>
 					{selectedStyleData === style && <p>{style.name}</p>}
+					<br/>
 					<img className={`images-styles ${selectedStyleData === style && "selected"}`}
 						src={
 							style.photos[0].thumbnail_url

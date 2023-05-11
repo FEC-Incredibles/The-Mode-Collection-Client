@@ -4,9 +4,9 @@ const ProductDetails = ({ productDetails, selectedStyleData }) => {
 	const defaultPrice = productDetails.default_price;
 	const stylePrice = selectedStyleData.original_price;
 	const salePrice = selectedStyleData.sale_price;
-	console.log(
-		`default price: ${defaultPrice} style specific price ${stylePrice} sale price ${salePrice}`
-	);
+	// console.log(
+	// 	`default price: ${defaultPrice} style specific price ${stylePrice} sale price ${salePrice}`
+	// );
 	return (
 		<div>
 			<p>product name {productDetails.name}</p>
