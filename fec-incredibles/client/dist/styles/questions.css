@@ -16,8 +16,20 @@
     padding: 8px;
     margin: 10px;
     height: auto; }
+  #QA .helpful {
+    width: 125px;
+    height: 25px;
+    font-size: 9px; }
   #QA .buttons {
     align-self: center; }
+  #QA .helpbtn {
+    width: 100px;
+    height: 25px;
+    font-size: 10px; }
+  #QA .addanswerbtn {
+    width: 125px;
+    height: 25px;
+    font-size: 10px; }
   #QA .moreAnsweredBtn {
     width: 250px; }
   #QA .addQuestionBtn {

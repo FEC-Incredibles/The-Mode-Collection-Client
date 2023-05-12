@@ -113,7 +113,17 @@ app.get('/relatedItems', (req, res) => {
   })
 })
 
-
+app.get('/qa/questions/:id', (req, res) => {
+  //console.log('this is param ', req.params.id);
+  store.getProductQuestions(req.params.id)
+    .then((response) => {
+      //console.log(response);
+      res.status(200).json(response.data);
+    })
+    .catch((err) => {
+      console.log('ERR GETTING QUESTIONS FROM DB ', err)
+    })
+})
 
 
 let port = 3000;
