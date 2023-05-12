@@ -15,6 +15,7 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
     const [meta, setMeta] = useState(reviewsMeta);
     const [numOfReviews, setNumOfReviews] = useState(0);
     const [sort, setSort] = useState("relevant");
+    const [filters, setFilters] = useState([]);
 
     // console.log('Reviews metadata inside module: ', reviewsMeta)
 
@@ -36,10 +37,43 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
         }
     }, [currentItemID, numOfReviews, sort])
 
+    useEffect(() => {
+        console.log("filters: ", filters);
+
+        // filter ratings by rating
+        let result = [];
+        filters.forEach(rating => {
+            let reviewsByRating = reviews.filter(review =>
+                review.rating === rating
+            );
+            result = result.concat(reviewsByRating);
+        })
+        console.log("Result ", result);
+    }, [filters])
+
     const removeReview = (reviewID) => {
         let filteredReviews = reviews.filter(review =>
             review.review_id !== reviewID)
         setReviews(filteredReviews);
+    }
+
+    // const filterReviewByRating = (rating) => {
+    //     let filteredReviews = reviews.filter(review => {
+
+    //         return review.rating === rating
+    //     })
+    //     console.log(filteredReviews)
+    //     // setReviews(filteredReviews);
+    // }
+
+    const updateFilters = (rating) => {
+        if (filters.indexOf(rating) === -1) {
+            setFilters([...filters, rating])
+            // setFilters(filters.push(rating))
+        } else {
+            setFilters(filters.filter(x => x != rating));
+        }
+
     }
 
     return (
@@ -49,7 +83,7 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
 
             <div className="col-25">
                 <RatingBreakdown
-                    reviewsMeta={meta} setReviews={setReviews}/>
+                    reviewsMeta={meta} updateFilters={updateFilters} />
 
                 <ProductBreakdown
                     characteristics={meta.characteristics} />
