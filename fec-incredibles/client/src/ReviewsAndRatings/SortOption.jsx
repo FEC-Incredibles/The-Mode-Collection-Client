@@ -5,7 +5,7 @@ const SortOption = ({ numOfReviews, sort, setSort }) => {
   // const [ selectedSorting, setSelectedSorting ] = useState("relevant");
 
   const handleChangeSorting = (e) => {
-    console.log("Selected sorting: ", e.target.value);
+    // console.log("Selected sorting: ", e.target.value);
     setSort(e.target.value);
   }
 

@@ -29,7 +29,7 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
         if (currentItemID && (numOfReviews > 0)) {
             getReviews(currentItemID, numOfReviews, sort)
             .then(response => {
-                // console.log('Reviews sorted by', sort, ': ',  response.data);
+                console.log('Reviews sorted by', sort, ': ',  response.data);
                 setReviews(response.data.results);
             })
             .catch(error =>
