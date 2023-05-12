@@ -1,9 +1,12 @@
 import React from 'react';
 
 import StarRating from '../StarRating.jsx';
-import { getAvgRating, getPercentage } from './helper.js';
+import { getTotalNumOfReviews, getAvgRating, getPercentage } from './helper.js';
 
-const RatingBreakdown = ({ reviewsMeta, numOfReviews, avgRating }) => {
+const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
+
+  const numOfReviews = getTotalNumOfReviews(reviewsMeta);
+  const avgRating = getAvgRating(reviewsMeta);
 
   const breakdownByStar = (numString) => {
     let count = reviewsMeta['ratings'][numString];
@@ -12,6 +15,23 @@ const RatingBreakdown = ({ reviewsMeta, numOfReviews, avgRating }) => {
 
   const percentRecommended = () =>
     getPercentage(reviewsMeta.recommended.true, numOfReviews);
+
+  const handleToggleFilter = (rating) => {
+    console.log("Clicked ", rating)
+    // updateFilters(Number(rating));
+    rating = Number(rating)
+
+    if (filters.indexOf(rating) === -1) {
+      setFilters([...filters, rating])
+      // setFilters(filters.push(rating))
+    } else {
+      setFilters(filters.filter(x => x != rating));
+    }
+  }
+
+  const handleClearFilter = () => {
+    setFilters([]);
+  }
 
   return (
     <div className="" id="rating-breakdown">
@@ -30,7 +50,8 @@ const RatingBreakdown = ({ reviewsMeta, numOfReviews, avgRating }) => {
       <br />
       {['5', '4', '3', '2', '1'].map((rating, idx) => {
         return (
-          <div className="breakdown-by-star" key={idx} >
+          <div className="breakdown-by-star" key={idx}
+            onClick={() => handleToggleFilter(rating)}>
             {/* TODO: click on it will filter the displaying reviews */}
             <i>{rating} stars</i>
             <div className="breakdown-bar">
@@ -42,7 +63,21 @@ const RatingBreakdown = ({ reviewsMeta, numOfReviews, avgRating }) => {
         );
       })}
 
+      <br />
+      {filters.length > 0 && (
+        <>
+          <div className="filters-container">
+            Filters:
+            {filters.map((rating, idx) =>
+              <i key={idx} onClick={() => handleToggleFilter(rating)}>
+                {rating} stars ✘
+              </i>
+            )}
+            <button onClick={handleClearFilter}>Clear all filters</button>
+          </div>
 
+        </>
+      )}
 
     </div>
   )

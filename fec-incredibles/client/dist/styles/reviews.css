@@ -19,7 +19,8 @@
   #review-module #review-list .scrollable-list {
     max-height: 70vh;
     overflow: scroll;
-    min-height: 50vh; }
+    min-height: 50vh;
+    transition-property: all; }
     #review-module #review-list .scrollable-list h6 {
       text-align: center; }
   #review-module .modal {
@@ -109,7 +110,9 @@
         margin: 0 5px 0 10px;
         text-decoration: underline; }
       #review-module .review-tile .review-tile-footer i:hover {
-        background-color: #8c888814; }
+        background-color: #8c888825; }
+      #review-module .review-tile .review-tile-footer .voted {
+        text-decoration: none; }
   #review-module #rating-breakdown {
     display: flex;
     flex-flow: column nowrap;
@@ -137,7 +140,20 @@
           height: 100%;
           background: green; }
     #review-module #rating-breakdown .breakdown-by-star:hover {
-      background-color: #8c888814; }
+      background-color: #aaaaaa59; }
+    #review-module #rating-breakdown .filters-container {
+      font-size: small;
+      font-weight: bold; }
+      #review-module #rating-breakdown .filters-container i {
+        display: inline-block;
+        margin: 0 5px;
+        background-color: #8c888814; }
+      #review-module #rating-breakdown .filters-container button {
+        display: block;
+        margin: 0 5px;
+        padding: 2px;
+        text-decoration: underline;
+        background-color: transparent; }
   #review-module #product-breakdown {
     display: flex;
     flex-flow: column nowrap;
