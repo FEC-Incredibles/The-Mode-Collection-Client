@@ -48,3 +48,21 @@ module.exports.getProductQuestions = (productID) => {
   .then((response) => {return response; })
   .catch((err) => {console.log('API ERROR GETTING PRODUCT QUESTIONS FOR ', productID, '=> ', err)})
 }
+
+module.exports.reviews = (req, res) => {
+  // console.log("method: ", req.method)
+  // console.log("url: ", req.url)
+
+  axios({
+    method: req.method,
+    url: url + req.url,
+    data: req.body,
+    headers: options.headers
+  })
+  .then((response) => {
+    res.json(response.data)
+  })
+  .catch((error) => {
+    console.log("API ERROR FOR REVIEWS 🤯:", error)
+  })
+}

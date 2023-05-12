@@ -18,7 +18,8 @@
     display: inline-block; }
   #review-module #review-list .scrollable-list {
     max-height: 70vh;
-    overflow: scroll; }
+    overflow: scroll;
+    min-height: 50vh; }
     #review-module #review-list .scrollable-list h6 {
       text-align: center; }
   #review-module .modal {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 
 import ProductBreakdown from './ProductBreakdown.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
@@ -7,7 +8,6 @@ import ReviewList from './ReviewList.jsx';
 
 import { getTotalNumOfReviews } from './helper.js';
 import { exampleReviews, exampleMeta, emptyMeta } from './exampleData';
-import { getReviews } from './temApiCall.js';
 
 const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
 
@@ -23,17 +23,16 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
         setNumOfReviews(getTotalNumOfReviews(reviewsMeta));
     }, [reviewsMeta])
 
-    // const numOfReviews = getTotalNumOfReviews(reviewsMeta);
-
     useEffect(() => {
         if (currentItemID && (numOfReviews > 0)) {
-            getReviews(currentItemID, numOfReviews, sort)
+            let url = `/reviews/?product_id=${currentItemID}&sort=${sort}&count=${numOfReviews}`;
+            axios.get(url)
             .then(response => {
-                console.log('Reviews sorted by', sort, ': ',  response.data);
+                // console.log('Reviews sorted by', sort, ': ',  response.data);
                 setReviews(response.data.results);
             })
             .catch(error =>
-                console.log('inside module, Error getting reviews 🤕', error))
+                console.log('Error getting reviews inside module 🤕', error))
         }
     }, [currentItemID, numOfReviews, sort])
 
