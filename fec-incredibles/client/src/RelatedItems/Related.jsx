@@ -19,7 +19,6 @@ const Related = ({ currentItemID }) => {
           });
         })
         .then((element) => {
-          console.log(element.data);
           setRelatedProducts(element.data);
         })
         .catch((err) => {
@@ -39,7 +38,7 @@ const Related = ({ currentItemID }) => {
     <div className="widget" id="relatedProducts">
       <h1>Related Products</h1>
       <div className="carouselItems">
-        {activeItem > 0 && (
+        {activeItem > 0 ? (
           <button
             id="backClick"
             className="navButtons"
@@ -49,18 +48,26 @@ const Related = ({ currentItemID }) => {
           >
             Backward
           </button>
+        ) : (
+          <button
+            id="backClick"
+            className="navButtons"
+            style={{ visibility: "hidden" }}
+          >
+            Backward
+          </button>
         )}
         <div className="relatedCarousel">
           <div
             className="viewPort"
-            style={{ transform: `translateX(-${activeItem * 50}%)` }}
+            style={{ transform: `translateX(-${activeItem * 60}%)` }}
           >
             {relatedProducts.map((item, index) => {
               return <Card item={item} key={index} />;
             })}
           </div>
         </div>
-        {activeItem <= (relatedProducts.length / 2 - 1) &&
+        {(activeItem <= relatedProducts.length / 2 - 1) ? (
           <button
             id="forwardClick"
             className="navButtons"
@@ -70,7 +77,15 @@ const Related = ({ currentItemID }) => {
           >
             Forward
           </button>
-        }
+        ) : (
+          <button
+            id="forwardClick"
+            className="navButtons"
+            style={{ visibility: "hidden" }}
+          >
+            Forward
+          </button>
+        )}
       </div>
     </div>
   );
