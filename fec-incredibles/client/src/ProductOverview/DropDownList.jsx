@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import DownArrowIcon from '../SVGs/DownArrowIcon.jsx'
 
 //this is the actual drop down menu component
-const DropDownSizeList = ({ placeHolder, options, valKey, onChange }) => {
+const DropDownSizeList = ({ testid, placeHolder, options, valKey, onChange }) => {
 	const [showMenu, toggleShowMenu] = useState(false);
 	const [selectedOption, setSelectedOption] = useState();
 
@@ -58,7 +58,7 @@ const DropDownSizeList = ({ placeHolder, options, valKey, onChange }) => {
 	};
 
 	return (
-		<div className="dropdown-container">
+		<div data-testid={testid} className="dropdown-container">
 			<div className="dropdown-input" onClick={handleInputClick}>
 				<div className="dropdown-selected-value">{getDisplay()}</div>
 				<div className="dropdown-tools">
