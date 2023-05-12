@@ -35,6 +35,10 @@ const ReviewTile = ({ review, removeReview }) => {
     SetTruncatedBody(truncatedText(review.body, LIMIT_BODY));
     SetTruncatedSummary(truncatedText(review.summary, LIMIT_TITLE));
     setHelpfulness(review.helpfulness);
+    // TODO: this is reset every time review updated,
+    // meaning even clicking sorting resets it
+    // maybe using session_id to ensure users can only click once
+    setVoted(false);
   }, [review])
 
   // console.log('Single Review', review)

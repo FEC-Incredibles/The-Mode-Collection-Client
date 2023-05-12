@@ -16,8 +16,26 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
     const [numOfReviews, setNumOfReviews] = useState(0);
     const [sort, setSort] = useState("relevant");
     const [filters, setFilters] = useState([]);
+    const [currentDisplay, setCurrentDisplay] = useState([]);
 
     // console.log('Reviews metadata inside module: ', reviewsMeta)
+
+    const updateReviewsByFilter = (reviews) => {
+        if (filters.length === 0) {
+            setReviews(reviews);
+        } else {
+             // filter ratings by rating
+             let result = [];
+             filters.forEach(rating => {
+                 let reviewsByRating = reviews.filter(review =>
+                     review.rating === rating
+                 );
+                 result = result.concat(reviewsByRating);
+             })
+            //  console.log("Result ", result);
+             setReviews(result);
+        }
+    }
 
     useEffect(() => {
         setMeta(reviewsMeta);
@@ -30,7 +48,7 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
             axios.get(url)
                 .then(response => {
                     // console.log('Reviews sorted by', sort, ': ', response.data);
-                    setReviews(response.data.results);
+                    updateReviewsByFilter(response.data.results);
                 })
                 .catch(error =>
                     console.log('Error getting reviews inside module 🤕', error))
@@ -39,22 +57,41 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
 
     useEffect(() => {
         console.log("filters: ", filters);
-
-        // filter ratings by rating
-        let result = [];
-        filters.forEach(rating => {
-            let reviewsByRating = reviews.filter(review =>
-                review.rating === rating
-            );
-            result = result.concat(reviewsByRating);
-        })
-        console.log("Result ", result);
+        if (filters.length === 0) {
+            setCurrentDisplay(reviews);
+        } else {
+            // filter ratings by rating
+            let result = [];
+            filters.forEach(rating => {
+                let reviewsByRating = reviews.filter(review =>
+                    review.rating === rating
+                );
+                result = result.concat(reviewsByRating);
+            })
+            console.log("Result ", result);
+            setCurrentDisplay(result);
+        }
     }, [filters])
+
+    useEffect(() => {
+        // update currentDisplay
+        // let currentLength = currentDisplay.length;
+        // if (reviews.length > currentLength) {
+        //   setCurrentDisplay(reviews.slice(0, currentLength + 2));
+        // }
+        // console.log("Reviews inside list: ", reviews);
+        if (currentDisplay.length === 0) {
+            setCurrentDisplay(reviews.slice(0, 2));
+        } else {
+            setCurrentDisplay(reviews.slice(0, currentDisplay.length));
+        }
+
+    }, [reviews])
 
     const removeReview = (reviewID) => {
         let filteredReviews = reviews.filter(review =>
             review.review_id !== reviewID)
-        setReviews(filteredReviews);
+            updateReviewsByFilter(filteredReviews);
     }
 
     // const filterReviewByRating = (rating) => {
@@ -66,14 +103,21 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
     //     // setReviews(filteredReviews);
     // }
 
-    const updateFilters = (rating) => {
-        if (filters.indexOf(rating) === -1) {
-            setFilters([...filters, rating])
-            // setFilters(filters.push(rating))
-        } else {
-            setFilters(filters.filter(x => x != rating));
-        }
+    // const updateFilters = (rating) => {
+    //     if (filters.indexOf(rating) === -1) {
+    //         setFilters([...filters, rating])
+    //         // setFilters(filters.push(rating))
+    //     } else {
+    //         setFilters(filters.filter(x => x != rating));
+    //     }
 
+    // }
+
+    const displayTwoMoreReviews = () => {
+        let currentLength = currentDisplay.length;
+        if (reviews.length > currentLength) {
+            setCurrentDisplay(reviews.slice(0, currentLength + 2));
+        }
     }
 
     return (
@@ -82,8 +126,8 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
             <h3>RATINGS & REVIEWS </h3>
 
             <div className="col-25">
-                <RatingBreakdown
-                    reviewsMeta={meta} updateFilters={updateFilters} />
+                <RatingBreakdown filters={filters}
+                    reviewsMeta={meta} setFilters={setFilters} />
 
                 <ProductBreakdown
                     characteristics={meta.characteristics} />
@@ -95,7 +139,9 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
                 <SortOption
                     reviews={reviews} sort={sort} setSort={setSort} />
                 <ReviewList
-                    reviews={reviews} removeReview={removeReview} />
+                    reviews={reviews} removeReview={removeReview}
+                    currentDisplay={currentDisplay}
+                    displayTwoMoreReviews={displayTwoMoreReviews} />
             </div>
 
         </div>

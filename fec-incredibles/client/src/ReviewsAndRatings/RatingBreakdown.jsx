@@ -3,7 +3,7 @@ import React from 'react';
 import StarRating from '../StarRating.jsx';
 import { getTotalNumOfReviews, getAvgRating, getPercentage } from './helper.js';
 
-const RatingBreakdown = ({ reviewsMeta, updateFilters }) => {
+const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
 
   const numOfReviews = getTotalNumOfReviews(reviewsMeta);
   const avgRating = getAvgRating(reviewsMeta);
@@ -16,9 +16,21 @@ const RatingBreakdown = ({ reviewsMeta, updateFilters }) => {
   const percentRecommended = () =>
     getPercentage(reviewsMeta.recommended.true, numOfReviews);
 
-  const handleClickFilter = (rating) => {
+  const handleToggleFilter = (rating) => {
     console.log("Clicked ", rating)
-    updateFilters(Number(rating));
+    // updateFilters(Number(rating));
+    rating = Number(rating)
+
+    if (filters.indexOf(rating) === -1) {
+      setFilters([...filters, rating])
+      // setFilters(filters.push(rating))
+    } else {
+      setFilters(filters.filter(x => x != rating));
+    }
+  }
+
+  const handleClearFilter = () => {
+    setFilters([]);
   }
 
   return (
@@ -39,7 +51,7 @@ const RatingBreakdown = ({ reviewsMeta, updateFilters }) => {
       {['5', '4', '3', '2', '1'].map((rating, idx) => {
         return (
           <div className="breakdown-by-star" key={idx}
-          onClick={() => handleClickFilter(rating)}>
+            onClick={() => handleToggleFilter(rating)}>
             {/* TODO: click on it will filter the displaying reviews */}
             <i>{rating} stars</i>
             <div className="breakdown-bar">
@@ -51,7 +63,21 @@ const RatingBreakdown = ({ reviewsMeta, updateFilters }) => {
         );
       })}
 
+      <br />
+      {filters.length > 0 && (
+        <>
+          <div className="filters-container">
+            Filters:
+            {filters.map((rating, idx) =>
+              <i key={idx} onClick={() => handleToggleFilter(rating)}>
+                {rating} stars ✘
+              </i>
+            )}
+            <button onClick={handleClearFilter}>Clear all filters</button>
+          </div>
 
+        </>
+      )}
 
     </div>
   )

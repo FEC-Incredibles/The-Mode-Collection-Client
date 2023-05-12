@@ -255,7 +255,26 @@
     }
 
     .breakdown-by-star:hover {
-      background-color: #8c888814;
+      background-color: #aaaaaa59;
+    }
+
+    .filters-container {
+      font-size: small;
+      font-weight: bold;
+
+      i {
+        display: inline-block;
+        margin: 0 5px;
+        background-color: #8c888814;
+      }
+
+      button {
+        display: block;
+        margin: 0 5px;
+        padding: 2px;
+        text-decoration: underline;
+        background-color: transparent;
+      }
     }
 
   }
