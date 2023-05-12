@@ -27,14 +27,20 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
         if (currentItemID && (numOfReviews > 0)) {
             let url = `/reviews/?product_id=${currentItemID}&sort=${sort}&count=${numOfReviews}`;
             axios.get(url)
-            .then(response => {
-                // console.log('Reviews sorted by', sort, ': ',  response.data);
-                setReviews(response.data.results);
-            })
-            .catch(error =>
-                console.log('Error getting reviews inside module 🤕', error))
+                .then(response => {
+                    // console.log('Reviews sorted by', sort, ': ', response.data);
+                    setReviews(response.data.results);
+                })
+                .catch(error =>
+                    console.log('Error getting reviews inside module 🤕', error))
         }
     }, [currentItemID, numOfReviews, sort])
+
+    const removeReview = (reviewID) => {
+        let filteredReviews = reviews.filter(review =>
+            review.review_id !== reviewID)
+        setReviews(filteredReviews);
+    }
 
     return (
         <div className="widget" id="review-module">
@@ -43,9 +49,7 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
 
             <div className="col-25">
                 <RatingBreakdown
-                    reviewsMeta={meta}
-                    numOfReviews={numOfReviews}
-                    avgRating={avgRating} />
+                    reviewsMeta={meta} setReviews={setReviews}/>
 
                 <ProductBreakdown
                     characteristics={meta.characteristics} />
@@ -55,10 +59,9 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
 
             <div className="col-75">
                 <SortOption
-                    numOfReviews={numOfReviews}
-                    sort={sort}
-                    setSort={setSort} />
-                <ReviewList reviews={reviews} />
+                    reviews={reviews} sort={sort} setSort={setSort} />
+                <ReviewList
+                    reviews={reviews} removeReview={removeReview} />
             </div>
 
         </div>

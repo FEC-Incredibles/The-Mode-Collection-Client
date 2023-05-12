@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-const SortOption = ({ numOfReviews, sort, setSort }) => {
-
-  // const [ selectedSorting, setSelectedSorting ] = useState("relevant");
+const SortOption = ({ reviews, sort, setSort }) => {
 
   const handleChangeSorting = (e) => {
     // console.log("Selected sorting: ", e.target.value);
@@ -11,10 +9,9 @@ const SortOption = ({ numOfReviews, sort, setSort }) => {
 
   return (
     <div className="">
-      {/* <div>Selected sorting: {sort}</div> */}
 
       <label>
-        {numOfReviews} reviews, sorted by
+        {reviews.length} reviews, sorted by
 
         <select
         name="sorting-option"

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
+import axios from 'axios';
 
 import ReviewImage from './ReviewImage.jsx';
 import StarRating from '../StarRating.jsx';
 
 
 
-const ReviewTile = ({ review }) => {
+const ReviewTile = ({ review, removeReview }) => {
 
   const LIMIT_BODY = 250;
   const LIMIT_TITLE = 60;
@@ -27,19 +28,40 @@ const ReviewTile = ({ review }) => {
   const [truncatedSummary, SetTruncatedSummary] = useState(
     truncatedText(review.summary, LIMIT_TITLE)
   );
+  const [helpfulness, setHelpfulness] = useState(review.helpfulness);
+  const [voted, setVoted] = useState(false);
 
   useEffect(() => {
     SetTruncatedBody(truncatedText(review.body, LIMIT_BODY));
     SetTruncatedSummary(truncatedText(review.summary, LIMIT_TITLE));
+    setHelpfulness(review.helpfulness);
   }, [review])
 
+  // console.log('Single Review', review)
 
   const handleClickHelpful = () => {
-    // TODO: make a PUT request to /reviews/:review_id/helpful
+    axios.put(`/reviews/${review.review_id}/helpful`)
+    .then(() => {
+      // console.log('Voted helpful for review: 🤩 ', review.review_id)
+      setHelpfulness(helpfulness + 1);
+      setVoted(true);
+    })
+    .catch(error => {
+      console.log('Error voting helpful for review: ', review.review_id)
+    })
+
   }
 
   const handleClickReport = () => {
-    // TODO: make a PUT request to /reviews/:review_id/report
+    axios.put(`/reviews/${review.review_id}/report`)
+    .then(() => {
+      // console.log('Reported review: 👎 ', review.review_id)
+      removeReview(review.review_id);
+    })
+    .catch(error => {
+      console.log('Error reporting review: ', review.review_id)
+    })
+
   }
 
   const handleExpandBody = () => {
@@ -108,8 +130,9 @@ const ReviewTile = ({ review }) => {
 
       <div className="review-tile-footer">
         Helpful?
-        <i onClick={handleClickHelpful}>YES</i>
-        ({review.helpfulness})  |
+        {voted || <i onClick={handleClickHelpful}>YES</i>}
+        {voted && <i className="voted">Thanks, we ❤️ feedback!</i>}
+        ({helpfulness})  |
         <i onClick={handleClickReport}> REPORT </i>
       </div>
 

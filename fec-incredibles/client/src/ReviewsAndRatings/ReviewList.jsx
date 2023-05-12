@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import ReviewTile from './ReviewTile.jsx';
 
-const ReviewList = ({ reviews }) => {
+const ReviewList = ({ reviews, removeReview }) => {
 
   const [createMode, setCreateMode] = useState(false);
   const [moreReview, setMoreReview] = useState(reviews.length >= 2);
@@ -56,7 +56,8 @@ const ReviewList = ({ reviews }) => {
       {currentDisplay.length > 0 && (
         <div className="scrollable-list">
           {currentDisplay.map((review, idx) =>
-            <ReviewTile review={review} key={idx} />
+            <ReviewTile
+              review={review} key={idx} removeReview={removeReview} />
           )}
           {moreReview || (
             <h6> --- end of list --- </h6>

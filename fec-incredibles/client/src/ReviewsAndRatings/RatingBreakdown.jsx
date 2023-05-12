@@ -1,9 +1,12 @@
 import React from 'react';
 
 import StarRating from '../StarRating.jsx';
-import { getAvgRating, getPercentage } from './helper.js';
+import { getTotalNumOfReviews, getAvgRating, getPercentage } from './helper.js';
 
-const RatingBreakdown = ({ reviewsMeta, numOfReviews, avgRating }) => {
+const RatingBreakdown = ({ reviewsMeta, setReviews }) => {
+
+  const numOfReviews = getTotalNumOfReviews(reviewsMeta);
+  const avgRating = getAvgRating(reviewsMeta);
 
   const breakdownByStar = (numString) => {
     let count = reviewsMeta['ratings'][numString];
