@@ -10,10 +10,10 @@
   /* Clear floats after the columns */ }
   #review-module .col-25 {
     float: left;
-    width: 28%; }
+    width: 26%; }
   #review-module .col-75 {
     float: right;
-    width: 70%; }
+    width: 73%; }
   #review-module select {
     display: inline-block; }
   #review-module #review-list .scrollable-list {
@@ -56,7 +56,7 @@
   #review-module .review-tile {
     display: flex;
     flex-flow: column nowrap;
-    padding: 20px 7px 10px 7px;
+    padding: 20px 4px 10px 10px;
     margin: 10px 0;
     border: 1.5px outset #96a0c4;
     border-radius: 10px;

@@ -17,12 +17,12 @@
 
   .col-25 {
     float: left;
-    width: 28%;
+    width: 26%;
   }
 
   .col-75 {
     float: right;
-    width: 70%;
+    width: 73%;
   }
 
   /* Clear floats after the columns */
@@ -114,7 +114,7 @@
     display: flex;
     flex-flow: column nowrap;
 
-    padding: 20px 7px 10px 7px;
+    padding: 20px 4px 10px 10px;
     margin: 10px 0;
 
     border: 1.5px outset #96a0c4;

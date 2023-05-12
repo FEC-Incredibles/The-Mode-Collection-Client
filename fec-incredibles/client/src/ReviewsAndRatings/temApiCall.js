@@ -9,9 +9,12 @@ const auth = {
 };
 
 export const getMetaData = (product_id) => {
-  return axios.get(baseURL + 'reviews/meta/?product_id=' + product_id, auth)
+  let url = `${baseURL}reviews/meta/?product_id=${product_id}`;
+  return axios.get(url, auth);
 }
 
-export const getReviews = (product_id) => {
-  return axios.get(baseURL + 'reviews/?product_id=' + product_id, auth)
+export const getReviews = (product_id, count, sort) => {
+  let url = `${baseURL}reviews/?product_id=${product_id}&sort=${sort}&count=${count}`;
+  // console.log("url ", url);
+  return axios.get(url, auth);
 }

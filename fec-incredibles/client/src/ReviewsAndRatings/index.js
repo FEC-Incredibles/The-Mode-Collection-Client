@@ -7,12 +7,14 @@ import ReviewList from './ReviewList.jsx';
 
 import { getTotalNumOfReviews } from './helper.js';
 import { exampleReviews, exampleMeta, emptyMeta } from './exampleData';
+import { getReviews } from './temApiCall.js';
 
 const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
 
-    const [reviews, setReviews] = useState(exampleReviews);
+    const [reviews, setReviews] = useState([]);
     const [meta, setMeta] = useState(reviewsMeta);
     const [numOfReviews, setNumOfReviews] = useState(0);
+    const [sort, setSort] = useState("relevant");
 
     // console.log('Reviews metadata inside module: ', reviewsMeta)
 
@@ -22,6 +24,18 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
     }, [reviewsMeta])
 
     // const numOfReviews = getTotalNumOfReviews(reviewsMeta);
+
+    useEffect(() => {
+        if (currentItemID && (numOfReviews > 0)) {
+            getReviews(currentItemID, numOfReviews, sort)
+            .then(response => {
+                // console.log('Reviews sorted by', sort, ': ',  response.data);
+                setReviews(response.data.results);
+            })
+            .catch(error =>
+                console.log('inside module, Error getting reviews 🤕', error))
+        }
+    }, [currentItemID, numOfReviews, sort])
 
     return (
         <div className="widget" id="review-module">
@@ -41,7 +55,10 @@ const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
 
 
             <div className="col-75">
-                <SortOption numOfReviews={numOfReviews} />
+                <SortOption
+                    numOfReviews={numOfReviews}
+                    sort={sort}
+                    setSort={setSort} />
                 <ReviewList reviews={reviews} />
             </div>
 

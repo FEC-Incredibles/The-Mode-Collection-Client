@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
 
 import ReviewImage from './ReviewImage.jsx';
 import StarRating from '../StarRating.jsx';
 
-import { starRating } from './helper.js';
+
 
 const ReviewTile = ({ review }) => {
+
+  const LIMIT_BODY = 250;
+  const LIMIT_TITLE = 60;
 
   const truncatedText = (text, limit) => {
     let result = [text];
@@ -16,11 +19,19 @@ const ReviewTile = ({ review }) => {
     }
     return result;
   }
-  let truncatedSummary = truncatedText(review.summary, 60);
-  let truncatedBody = truncatedText(review.body, 250);
 
-  const [ reviewBody, setReviewBody ] = useState(truncatedBody[0]);
-  const [ expandBody, setExpandBody ] = useState(false);
+  const [expandBody, setExpandBody] = useState(false);
+  const [truncatedBody, SetTruncatedBody] = useState(
+    truncatedText(review.body, LIMIT_BODY)
+  );
+  const [truncatedSummary, SetTruncatedSummary] = useState(
+    truncatedText(review.summary, LIMIT_TITLE)
+  );
+
+  useEffect(() => {
+    SetTruncatedBody(truncatedText(review.body, LIMIT_BODY));
+    SetTruncatedSummary(truncatedText(review.summary, LIMIT_TITLE));
+  }, [review])
 
 
   const handleClickHelpful = () => {
@@ -32,11 +43,6 @@ const ReviewTile = ({ review }) => {
   }
 
   const handleExpandBody = () => {
-    if (expandBody) {
-      setReviewBody(truncatedBody[0]);
-    } else {
-      setReviewBody(review.body);
-    }
     setExpandBody(!expandBody);
   }
 
@@ -46,8 +52,7 @@ const ReviewTile = ({ review }) => {
 
       <div className="review-tile-header">
 
-        {/* <div>{starRating(review.rating)} </div> */}
-        <StarRating rating={review.rating} color={"#3f3d36"} />
+        <StarRating rating={review.rating} color={"#453f3d"} />
 
         {/* TODO: verified users */}
         <i>{review.reviewer_name}</i>
@@ -55,7 +60,7 @@ const ReviewTile = ({ review }) => {
       </div>
 
 
-      {truncatedSummary[1] ? (
+      {truncatedSummary[1]  ? (
         <div className="review-tile-title">
           {truncatedSummary[0]}
           <div className="review-tile-title-capped">{truncatedSummary[1]}</div>
@@ -68,7 +73,9 @@ const ReviewTile = ({ review }) => {
 
       {truncatedBody[1] ? (
         <div className="review-tile-body">
-          <div data-testid="review-body">{reviewBody} </div>
+          <div data-testid="review-body">
+            {expandBody ? review.body : truncatedBody[0]}
+          </div>
           {expandBody || <i id="btn-show-more" onClick={handleExpandBody} >Show more</i>}
           {expandBody && <i onClick={handleExpandBody} >Show less</i>}
         </div>
