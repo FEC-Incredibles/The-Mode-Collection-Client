@@ -12,13 +12,14 @@ const StylePicker = ({ selectedStyleData, styles, setter}) => {
 		<ul className='stylesContainer'>
 			styles:
 			{styles.map((style, index) => (
-				<li className='style-icon'
+				<li
 				key={index}
 				onClick={(e) => {
 					changeStyle(style);
 				}}
 				>
-					{selectedStyleData === style && <p>style name {style.name}</p>}
+					{selectedStyleData === style && <p>{style.name}</p>}
+					<br/>
 					<img className={`images-styles ${selectedStyleData === style && "selected"}`}
 						src={
 							style.photos[0].thumbnail_url

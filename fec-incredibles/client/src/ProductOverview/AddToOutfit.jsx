@@ -43,6 +43,7 @@ const AddToOutfit = ({ selectedStyleData }) => {
 			<p>size</p>
 			{skus.null === undefined ? (
 				<DropDownList
+					testid='sizeDDM'
 					placeHolder={"select a size"}
 					options={skus}
 					valKey={"size"}
@@ -58,16 +59,17 @@ const AddToOutfit = ({ selectedStyleData }) => {
 					options={[]}
 				/>
 			)}
-
+			<br/>
 			<p>quantity</p>
 			<DropDownList
+				testid='quantityDDM'
 				placeHolder={availableQuantity.length ? "1" : "-"}
 				options={availableQuantity}
 				onChange={(value) => {
 				setSelectedQuantity(value)
 				}}
 			/>
-
+			<br/>
 			{selectedQuantity && selectedSize && <button type="button" onClick={() => {
         console.log('SELECTED OPTIONS => ', selectedQuantity, selectedSize, selectedStyleData)
       }}>add to outfit</button>}
