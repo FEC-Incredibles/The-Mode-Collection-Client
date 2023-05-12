@@ -5,8 +5,9 @@ import ProductDetailsExtra from "./ProductDetailsExtra.jsx";
 import StylePicker from "./StylePicker.jsx";
 import ProductImages from "./ProductImages.jsx";
 import AddToOutfit from "./AddToOutfit.jsx";
+import StarRating from '../StarRating.jsx'
 
-const Product = ({ currentItemID }) => {
+const Product = ({ currentItemID, averageRating }) => {
 	const [productDetails, setProductDetails] = useState();
 	const [styles, setStyles] = useState();
 	const [selectedStyle, setSelectedStyle] = useState();
@@ -42,8 +43,10 @@ const Product = ({ currentItemID }) => {
 
 	return (
 		<div className="widget" id="Product">
+			<StarRating rating={averageRating}/>
 			<ProductImages selectedStyleData={selectedStyle} />
 			<ProductDetails productDetails={productDetails} selectedStyleData={selectedStyle} />
+			<h2>STYLE => {selectedStyle.name}</h2>
 			<StylePicker
 				selectedStyleData={selectedStyle}
 				styles={styles}

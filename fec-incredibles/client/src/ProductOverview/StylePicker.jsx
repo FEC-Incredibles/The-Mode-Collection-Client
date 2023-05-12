@@ -10,7 +10,7 @@ const StylePicker = ({ selectedStyleData, styles, setter}) => {
 	};
 	return (
 		<ul className='stylesContainer'>
-			styles:
+			{/* limit it to 4 and then have it create a new row */}
 			{styles.map((style, index) => (
 				<li
 				key={index}
@@ -18,7 +18,6 @@ const StylePicker = ({ selectedStyleData, styles, setter}) => {
 					changeStyle(style);
 				}}
 				>
-					{selectedStyleData === style && <p>{style.name}</p>}
 					<br/>
 					<img className={`images-styles ${selectedStyleData === style && "selected"}`}
 						src={
