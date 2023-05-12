@@ -3,11 +3,10 @@ import Axios from 'axios'
 import Product from './ProductOverview/Product.jsx'
 import Questions from './QuestionsAndAnswers/Questions.jsx'
 import Related from './RelatedItems/Related.jsx'
-import Reviews from './ReviewsAndRatings'
+import Reviews from './ReviewsAndRatings/Reviews.jsx'
 
-
-import { getReviews, getMetaData } from './ReviewsAndRatings/temApiCall.js';
 import { getAvgRating } from './ReviewsAndRatings/helper.js';
+import { emptyMeta } from './ReviewsAndRatings/exampleData.js'
 
 
 const App = () => {
@@ -15,7 +14,7 @@ const App = () => {
   const [allProducts, setAllProducts] = useState();
   const [typedID, setTypedID] = useState();
   const [currentAvgRating, setCurrentAvgRating] = useState(0);
-  const [currentReviewsMeta, setCurrentReviewsMeta] = useState();
+  const [currentReviewsMeta, setCurrentReviewsMeta] = useState(emptyMeta);
 
   useEffect(() => {
     Axios.get('/products')
@@ -27,18 +26,18 @@ const App = () => {
 
   useEffect(() => {
     if (currentItemID) {
-      // TODO: remove temApiCall once set up routes in server
-      getMetaData(currentItemID)
-        .then(response => {
-          // console.log('Reviews metadata: ', response.data)
-          let avgRating = getAvgRating(response.data);
-          setCurrentAvgRating(avgRating);
-          setCurrentReviewsMeta(response.data);
-        })
-        .catch(error =>
-          console.log('Error getting reviews from App.jsx 🫠', error))
+      Axios.get(`/reviews/meta/?product_id=${currentItemID}`)
+      .then(response => {
+        // console.log('Reviews metadata: ', response.data)
+        let avgRating = getAvgRating(response.data);
+        setCurrentAvgRating(avgRating);
+        setCurrentReviewsMeta(response.data);
+      })
+      .catch(error =>
+        console.log('Error getting metadata at home page 🫠', error))
     }
   }, [currentItemID])
+
 
   return (
     <div id='main'>

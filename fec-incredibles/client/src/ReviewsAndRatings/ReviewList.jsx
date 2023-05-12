@@ -1,37 +1,83 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 import ReviewTile from './ReviewTile.jsx';
 
 const ReviewList = ({ reviews }) => {
 
-const [ createMode, setCreateMode ] = useState(false);
+  const [createMode, setCreateMode] = useState(false);
+  const [moreReview, setMoreReview] = useState(reviews.length >= 2);
+  const [currentDisplay, setCurrentDisplay] = useState(reviews.slice(0, 2));
 
-const toggleCreateMode = () => {
-  setCreateMode(!createMode);
-}
+  const displayTwoMoreReviews = () => {
+    let currentLength = currentDisplay.length;
+    if (reviews.length > currentLength) {
+      setCurrentDisplay(reviews.slice(0, currentLength + 2));
+    }
+  }
+
+  useEffect(() => {
+    // update currentDisplay
+    // let currentLength = currentDisplay.length;
+    // if (reviews.length > currentLength) {
+    //   setCurrentDisplay(reviews.slice(0, currentLength + 2));
+    // }
+    // console.log("Reviews inside list: ", reviews);
+    if (currentDisplay.length === 0) {
+      setCurrentDisplay(reviews.slice(0, 2));
+    } else {
+      setCurrentDisplay(reviews.slice(0, currentDisplay.length));
+    }
+
+  }, [reviews])
+
+  useEffect(() => {
+    // if (reviews.length > currentDisplay.length) {
+    //   setMoreReview(true);
+    // } else {
+    //   setMoreReview(false);
+    // }
+    setMoreReview(reviews.length > currentDisplay.length);
+  }, [currentDisplay])
+
+  const toggleCreateMode = () => {
+    setCreateMode(!createMode);
+  }
 
   return (
-    <div className="">
+    <div id="review-list">
 
-      {reviews.map((review, idx) => {
-        return (
-          <ReviewTile review={review} key={idx} />
-        )
-      })}
+      {currentDisplay.length === 0 && (
+        <div >
+          No (unreported) reviews found.
+        </div>
+      )}
 
-      <button> More Review </button>
+      {currentDisplay.length > 0 && (
+        <div className="scrollable-list">
+          {currentDisplay.map((review, idx) =>
+            <ReviewTile review={review} key={idx} />
+          )}
+          {moreReview || (
+            <h6> --- end of list --- </h6>
+          )}
+        </div>
+      )}
+
+      <br />
+      {moreReview && (
+        <button onClick={displayTwoMoreReviews}> More Review </button>
+      )}
+
       <button onClick={toggleCreateMode} > Add New Review </button>
 
       {createMode && (
         <div className="modal">
           <div className="modal-content">
             <button onClick={toggleCreateMode}> ❌ </button>
+            <form className="form-new-review">
 
-
-              <form className="form-new-review">
-
-              </form>
+            </form>
 
           </div>
         </div>

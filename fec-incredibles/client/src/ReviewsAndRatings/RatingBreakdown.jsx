@@ -1,44 +1,34 @@
 import React from 'react';
 
 import StarRating from '../StarRating.jsx';
-import { getAvgRating, starRating } from './helper.js';
+import { getAvgRating, getPercentage } from './helper.js';
 
 const RatingBreakdown = ({ reviewsMeta, numOfReviews, avgRating }) => {
 
-  // const avgRating = getAvgRating(reviewsMeta);
-  // const avgRating = 3.6;
-
-
-  const getPercentRecommended = () => {
-    return Math.round((reviewsMeta.recommended.true / numOfReviews) * 100);
-  }
-
   const breakdownByStar = (numString) => {
-    return Math.round((Number(reviewsMeta['ratings'][numString]) / numOfReviews) * 100);
+    let count = reviewsMeta['ratings'][numString];
+    return getPercentage(count, numOfReviews);
   }
 
-  const percentRecommended = getPercentRecommended();
-
-
-
-
+  const percentRecommended = () =>
+    getPercentage(reviewsMeta.recommended.true, numOfReviews);
 
   return (
     <div className="" id="rating-breakdown">
 
       <div className="breakdown-summary">
-        <h1 className="breakdown-heading">{avgRating}</h1>
-        {/* {starRating(Math.round(avgRating))} */}
+        <h1 className="breakdown-heading">{Number(avgRating).toFixed(1)}</h1>
         <StarRating rating={avgRating} />
       </div>
 
       <br />
       <div>
-        {percentRecommended}% of reviews recommend this product
+        {percentRecommended()}% of reviews recommend this product
       </div>
 
+
       <br />
-      {numOfReviews > 0 && Object.keys(reviewsMeta.ratings).reverse().map((rating, idx) => {
+      {['5', '4', '3', '2', '1'].map((rating, idx) => {
         return (
           <div className="breakdown-by-star" key={idx} >
             {/* TODO: click on it will filter the displaying reviews */}
