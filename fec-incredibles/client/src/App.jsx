@@ -19,8 +19,17 @@ const App = () => {
   useEffect(() => {
     Axios.get('/products')
       .then((response) => {
-        let randomIndex = Math.floor(Math.random() * 50)
-        setCurrentItemID(response.data[randomIndex].id)
+        /**
+         * 373??
+         * 11 => camo onesie
+         * 12 => [out of stock] sunglasses
+         * 13 - 14 => pants
+         * 15-19 => shoes
+         * 20 => infinity stones
+         * 21 => CURSED BROKEN EMPTY PRODUCT DATA
+         * 22+ => "unknown area"
+         */
+        setCurrentItemID(37315)
       })
   }, [])
 
@@ -52,7 +61,7 @@ const App = () => {
           setCurrentItemID(typedID)
         }}>enter specific id</button>
       </nav>
-      <Product currentItemID={currentItemID} />
+      <Product currentItemID={currentItemID} averageRating={currentAvgRating} />
       <Related currentItemID={currentItemID} />
       <Questions currentItemID={currentItemID} />
       <Reviews
