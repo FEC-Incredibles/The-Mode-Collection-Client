@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const AddToOutfit = ({ selectedStyleData }) => {
 	const [skus, setSkus] = useState();
+	const [skuId, setSkuId] = useState();
 	const [selectedSize, setSelectedSize] = useState();
 	const [selectedQuantity, setSelectedQuantity] = useState(1);
 	const [availableQuantity, setAvailableQuantity] = useState([]);
@@ -21,6 +22,7 @@ const AddToOutfit = ({ selectedStyleData }) => {
 		const [skuidForThatSize] = Object.keys(skus).filter(
 			(skuid) => skus[skuid]["size"] === size
 		);
+		setSkuId(skuidForThatSize)
 		setAvailableQuantity(generateList(skus[skuidForThatSize]["quantity"]));
 	};
 
@@ -49,8 +51,7 @@ const AddToOutfit = ({ selectedStyleData }) => {
 					valKey={"size"}
 					onChange={(value) => {
 						setQuantityFromSize(value);
-            setSelectedSize(value)
-
+            			setSelectedSize(value)
 					}}
 				/>
 			) : (
@@ -71,7 +72,8 @@ const AddToOutfit = ({ selectedStyleData }) => {
 			/>
 			<br/>
 			{selectedQuantity && selectedSize && <button type="button" onClick={() => {
-        console.log('SELECTED OPTIONS => ', selectedQuantity, selectedSize, selectedStyleData)
+        console.log('SELECTED OPTIONS => ', selectedQuantity, selectedSize, skuId)
+		// axios.post('/outfit', {sku_id: skuId, quantity:selectedQuantity})
       }}>add to outfit</button>}
 		</div>
 	);

@@ -1,7 +1,16 @@
+/*
+  color palatte following the 60-30-10 rule
+    60% primary 30% seconday 10% accent
+
+  red primary #FD8A8A
+  yellow secondary #F1F7B5
+  blue primary-accent #A8D1D1
+  darker blue seconday-accent blue #9EA1D4
+*/
 #main {
+  background-color: #FD8A8A;
   padding: 30px;
   display: flex;
-  max-width: 1000px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -10,6 +19,7 @@
     padding: 20px;
     border: 2px solid lightgrey;
     border-radius: 6px;
+    background-color: #F1F7B5;
   }
 }
 

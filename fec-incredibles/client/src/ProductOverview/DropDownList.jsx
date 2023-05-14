@@ -7,6 +7,7 @@ const DropDownSizeList = ({ testid, placeHolder, options, valKey, onChange }) =>
 	const [selectedOption, setSelectedOption] = useState();
 
 	useEffect(() => {
+		setSelectedOption()
 		//this is an event handler to close the menu
 		const handler = () => {
 			toggleShowMenu(false);
@@ -14,10 +15,9 @@ const DropDownSizeList = ({ testid, placeHolder, options, valKey, onChange }) =>
 		//this adds that event handler to the window, so that when you click anywhere, it closes the drop down menu
 		window.addEventListener("click", handler);
 		return () => {
-      //this removes the eventListener?
 			window.removeEventListener("click", handler);
 		};
-	}, []);
+	}, [options]);
 
   //this is the event handler for when the user clicks on the drop down menu
 	const handleInputClick = (e) => {
