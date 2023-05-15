@@ -8,18 +8,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/dist')))
 
 
-app.get('/products', (req, res) => {
-  store.getProducts()
-  .then((response) => {
-    // console.log('products data => ', response.data)
-    res.status(200).json(response.data)
-  })
-  .catch((err) => {
-    console.log('error getting store data => ', err)
-    res.sendStatus(500);
-  })
-})
-
 app.get('/products/:id', (req, res) => {
   store.getProductInfo(req.params.id)
   .then((response) => {
