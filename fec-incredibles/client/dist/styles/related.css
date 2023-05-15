@@ -1,42 +1,40 @@
-#relatedProducts {
-  max-width: 100%; }
-  #relatedProducts .carouselItems {
+.brianWidget .carouselItems {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center; }
+  .brianWidget .carouselItems .navButtons {
+    max-height: 32px;
+    padding: 20px; }
+
+.brianWidget .relatedCarousel {
+  max-width: 80%;
+  overflow: hidden; }
+  .brianWidget .relatedCarousel .viewPort {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-evenly;
-    align-items: center; }
-    #relatedProducts .carouselItems .navButtons {
-      max-height: 32px;
-      padding: 20px; }
-  #relatedProducts .relatedCarousel {
-    max-width: 80%;
-    overflow: hidden;
-    padding: 20px; }
-    #relatedProducts .relatedCarousel .viewPort {
+    white-space: pre-wrap;
+    transition: transform 0.5s; }
+    .brianWidget .relatedCarousel .viewPort .Card {
+      background-color: whitesmoke;
       display: flex;
       flex-flow: column nowrap;
-      white-space: pre-wrap;
-      transition: transform 0.5s; }
-      #relatedProducts .relatedCarousel .viewPort .Card {
-        background-color: whitesmoke;
-        display: flex;
-        flex-flow: column nowrap;
-        width: 50%;
-        max-height: 100%;
-        margin: 12px;
-        border: 2px solid lightgrey;
-        border-radius: 6px; }
-        #relatedProducts .relatedCarousel .viewPort .Card img {
-          max-width: 200px;
-          max-height: 200px; }
-      #relatedProducts .relatedCarousel .viewPort .starred {
-        padding: 4px;
-        position: absolute;
-        align-self: end; }
-      #relatedProducts .relatedCarousel .viewPort .info {
-        padding: 10px;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: space-between;
-        height: 100%;
-        align-items: center; }
+      width: 50%;
+      max-height: 100%;
+      margin: 12px;
+      border: 2px solid lightgrey;
+      border-radius: 6px; }
+      .brianWidget .relatedCarousel .viewPort .Card img {
+        max-width: 200px;
+        max-height: 200px; }
+    .brianWidget .relatedCarousel .viewPort .starred {
+      padding: 4px;
+      position: absolute;
+      align-self: end; }
+    .brianWidget .relatedCarousel .viewPort .info {
+      padding: 10px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      height: 100%;
+      align-items: center; }

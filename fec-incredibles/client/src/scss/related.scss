@@ -1,5 +1,4 @@
-#relatedProducts {
-  max-width: 100%;
+.brianWidget {
   .carouselItems {
     display: flex;
     flex-flow: column nowrap;
@@ -13,7 +12,6 @@
   .relatedCarousel {
     max-width: 80%;
     overflow: hidden;
-    padding: 20px;
     .viewPort {
       display: flex;
       flex-flow: column nowrap;

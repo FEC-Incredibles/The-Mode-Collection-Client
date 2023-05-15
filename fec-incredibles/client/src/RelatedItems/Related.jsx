@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card.jsx";
 import axios from "axios";
 
-const Related = ({ currentItemID }) => {
+const Related = ({ currentItemID, module }) => {
   const [activeItem, setActiveItem] = useState(0);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
@@ -35,7 +35,7 @@ const Related = ({ currentItemID }) => {
     setActiveItem(newItem);
   };
   return (
-    <div className="widget" id="relatedProducts">
+    <div className="widget brianWidget" id={module}>
       <h1>Related Products</h1>
       <div className="carouselItems">
         {activeItem > 0 ? (
