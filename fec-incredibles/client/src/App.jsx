@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Axios from 'axios'
-import Product from './ProductOverview/Product.jsx'
-import Questions from './QuestionsAndAnswers/Questions.jsx'
-import Related from './RelatedItems/Related.jsx'
-import Reviews from './ReviewsAndRatings/Reviews.jsx'
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
+import Product from "./ProductOverview/Product.jsx";
+import Questions from "./QuestionsAndAnswers/Questions.jsx";
+import Related from "./RelatedItems/Related.jsx";
+import Reviews from "./ReviewsAndRatings/Reviews.jsx";
 
-import { getAvgRating } from './ReviewsAndRatings/helper.js';
-import { emptyMeta } from './ReviewsAndRatings/exampleData.js'
-
+import { getAvgRating } from "./ReviewsAndRatings/helper.js";
+import { emptyMeta } from "./ReviewsAndRatings/exampleData.js";
 
 const App = () => {
   const [currentItemID, setCurrentItemID] = useState();
@@ -17,50 +16,77 @@ const App = () => {
   const [currentReviewsMeta, setCurrentReviewsMeta] = useState(emptyMeta);
 
   useEffect(() => {
-    Axios.get('/products')
-      .then((response) => {
-        let randomIndex = Math.floor(Math.random() * 50)
-        setCurrentItemID(response.data[randomIndex].id)
-      })
-  }, [])
+    Axios.get("/products").then((response) => {
+      let randomIndex = Math.floor(Math.random() * 50);
+      setCurrentItemID(response.data[randomIndex].id);
+    });
+  }, []);
 
   useEffect(() => {
     if (currentItemID) {
       Axios.get(`/reviews/meta/?product_id=${currentItemID}`)
-      .then(response => {
-        // console.log('Reviews metadata: ', response.data)
-        let avgRating = getAvgRating(response.data);
-        setCurrentAvgRating(avgRating);
-        setCurrentReviewsMeta(response.data);
-      })
-      .catch(error =>
-        console.log('Error getting metadata at home page 🫠', error))
+        .then((response) => {
+          // console.log('Reviews metadata: ', response.data)
+          let avgRating = getAvgRating(response.data);
+          setCurrentAvgRating(avgRating);
+          setCurrentReviewsMeta(response.data);
+        })
+        .catch((error) =>
+          console.log("Error getting metadata at home page 🫠", error)
+        );
     }
-  }, [currentItemID])
-
+  }, [currentItemID]);
 
   return (
-    <div id='main'>
-      <h1>current item id  {currentItemID}🤯</h1>
-      <nav style={{ display: 'flex' }}>
-        <button type='button' onClick={() => { setCurrentItemID(currentItemID - 1) }}>previous</button>
-        <button type='button' onClick={() => { setCurrentItemID(Number(currentItemID) + 1) }}>next</button>
-        <input type='text' onChange={(e) => {
-          setTypedID(e.target.value)
-        }}></input>
-        <button type='button' onClick={() => {
-          setCurrentItemID(typedID)
-        }}>enter specific id</button>
+    <div id="main">
+      <nav style={{ display: "flex" }}>
+        <h1>current item id {currentItemID}🤯</h1>
+        <button
+          type="button"
+          onClick={() => {
+            setCurrentItemID(currentItemID - 1);
+          }}
+        >
+          previous
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setCurrentItemID(Number(currentItemID) + 1);
+          }}
+        >
+          next
+        </button>
+        <input
+          type="text"
+          onChange={(e) => {
+            setTypedID(e.target.value);
+          }}
+        ></input>
+        <button
+          type="button"
+          onClick={() => {
+            setCurrentItemID(typedID);
+          }}
+        >
+          enter specific id
+        </button>
       </nav>
-      <Product currentItemID={currentItemID} />
-      <Related currentItemID={currentItemID} />
-      <Questions currentItemID={currentItemID} />
+      <div id="productRelated">
+        <Product currentItemID={currentItemID} />
+        <Related currentItemID={currentItemID} />
+      </div>
+      <div id="questionsOutfit">
+        <Questions currentItemID={currentItemID} />
+        <Related currentItemID={currentItemID} />
+      </div>
       <Reviews
         currentItemID={currentItemID}
         avgRating={currentAvgRating}
-        reviewsMeta={currentReviewsMeta} />
+        reviewsMeta={currentReviewsMeta}
+      />
     </div>
-  )
-}
+  );
+};
 
 export default App;
