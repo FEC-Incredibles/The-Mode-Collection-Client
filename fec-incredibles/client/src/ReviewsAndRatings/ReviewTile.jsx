@@ -132,9 +132,9 @@ const ReviewTile = ({ review, removeReview }) => {
       )}
 
 
-      <div className="review-tile-footer">
+      <div className="review-tile-footer" data-testid="review-footer">
         Helpful?
-        {voted || <i onClick={handleClickHelpful}>YES</i>}
+        {voted || <i onClick={handleClickHelpful} data-testid="markHelpful">YES</i>}
         {voted && <i className="voted">Thanks, we ❤️ feedback!</i>}
         ({helpfulness})  |
         <i onClick={handleClickReport}> REPORT </i>

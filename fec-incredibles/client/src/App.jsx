@@ -6,8 +6,7 @@ import Related from './RelatedItems/Related.jsx'
 import Reviews from './ReviewsAndRatings/Reviews.jsx'
 import ProductDetailsExtra from './ProductOverview/ProductDetailsExtra.jsx';
 
-import { getAvgRating } from './ReviewsAndRatings/helper.js';
-import { emptyMeta } from './ReviewsAndRatings/exampleData.js'
+import { getAvgRating, emptyMeta } from './ReviewsAndRatings/helper.js';
 
 
 const App = () => {
