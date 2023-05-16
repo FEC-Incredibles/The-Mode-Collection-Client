@@ -1,4 +1,6 @@
 import {useState} from "react";
+import UpArrowIcon from '../SVGs/UpArrowIcon.jsx'
+import DownArrowIcon from '../SVGs/DownArrowIcon.jsx'
 
 const ExtraImages = ({ photos, setSelectedImage }) => {
 	const [startWindow, setStartWindow] = useState(0);
@@ -13,23 +15,19 @@ const ExtraImages = ({ photos, setSelectedImage }) => {
 								key={index}
 								className="images-extra"
 								onClick={(e) => {
-									changeImage(index);
+									setSelectedImage(photo.url);
 								}}
 								src={photo.url}
 							></img>
 						))}
 					</div>
 				) : (
-					<div style={{ display: "flex", flexDirection: "column" }}>
+					<div style={{ display: "flex", flexDirection: "column", justifyContent:'center'}}>
 						{startWindow === 0 ? null : (
-							<button className='images-buttons'
-								onClick={() => {
-									setStartWindow(startWindow - 1);
-									setEndWindow(endWindow - 1);
-								}}
-							>
-								/\
-							</button>
+							<UpArrowIcon CSSclass='centered' clickEvent={() => {
+								setStartWindow(startWindow - 1);
+								setEndWindow(endWindow - 1);
+							}}/>
 						)}
 						{photos.slice(startWindow, endWindow).map((photo, index) => (
 							<img
@@ -42,14 +40,10 @@ const ExtraImages = ({ photos, setSelectedImage }) => {
 							></img>
 						))}
 						{endWindow === photos.length - 1 ? null : (
-							<button className='images-buttons'
-								onClick={() => {
-									setStartWindow(startWindow + 1);
-									setEndWindow(endWindow + 1);
-								}}
-							>
-								\/
-							</button>
+							<DownArrowIcon CSSclass='centered' clickEvent={() => {
+								setStartWindow(startWindow + 1);
+								setEndWindow(endWindow + 1);
+							}}/>
 						)}
 					</div>
 				)
