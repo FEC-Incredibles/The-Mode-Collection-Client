@@ -1,38 +1,48 @@
-#relatedProducts {
-  max-width: 100%;
+.brianWidget {
+  max-width: 360px;
+  max-height: 1000px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
   .carouselItems {
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
+    flex-flow: column nowrap;
+    justify-content: center;
     align-items: center;
+
     .navButtons {
       max-height: 32px;
       padding: 20px;
     }
   }
   .relatedCarousel {
+    max-width: 90%;
+    max-height: 600px;
     overflow: hidden;
-    padding: 20px;
     .viewPort {
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: column nowrap;
       white-space: pre-wrap;
+      justify-content: center;
+      align-items: center;
       transition: transform 0.5s;
       .Card {
+        background-color: whitesmoke;
         display: flex;
         flex-flow: column nowrap;
-        width: 50%;
+        max-width: 80%;
         max-height: 100%;
         margin: 12px;
         border: 2px solid lightgrey;
         border-radius: 6px;
         img {
-          max-width: 200px;
-          max-height: 200px;
+          max-width: 360px;
+          max-height: 360px;
         }
       }
       .starred {
-        padding: 4px;
+        padding: 10px;
         position: absolute;
         align-self: end;
       }

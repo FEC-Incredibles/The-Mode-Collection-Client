@@ -1,12 +1,51 @@
-#main {
-  padding: 30px;
+@use "./utils/vars.scss";
+body {
+  background-color: #b2a4ff;
   display: flex;
-  max-width: 1000px;
+  flex-flow: column nowrap; }
+
+#root {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center; }
+
+#main {
+  display: flex;
+  padding: 2rem;
+  max-width: 2000px;
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+  #main h1, #main h2 {
+    font-family: 'Major Mono Display', monospace;
+    text-transform: lowercase;
+    font-size: 50px; }
+  #main h3, #main h4, #main h5 {
+    font-family: 'Oswald', sans-serif; }
+  #main p, #main a {
+    font-family: 'Cousine', monospace; }
   #main .widget {
-    margin: 20px;
-    padding: 20px;
-    border: 2px solid lightgrey;
-    border-radius: 6px; }
+    margin: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); }
+  #main #productRelated {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: start; }
+  #main #questionsOutfit {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: end; }
+  #main nav {
+    margin: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 20px 20px black, inset 20px 20px black, inset -4px -4px red, 4px 4px yellow;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); }

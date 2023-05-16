@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductDetails from "./ProductDetails.jsx";
-import ProductDetailsExtra from "./ProductDetailsExtra.jsx";
 import StylePicker from "./StylePicker.jsx";
 import ProductImages from "./ProductImages.jsx";
 import AddToOutfit from "./AddToOutfit.jsx";
@@ -35,18 +34,21 @@ const Product = ({ currentItem, averageRating }) => {
 	}
 
 	return (
-		<div className="widget" id="Product">
-			<StarRating rating={averageRating}/>
+		<div id="product">
 			<ProductImages selectedStyleData={selectedStyle} />
-			<ProductDetails productDetails={currentItem} selectedStyleData={selectedStyle} />
-			<h2>STYLE => {selectedStyle.name}</h2>
-			<StylePicker
-				selectedStyleData={selectedStyle}
-				styles={styles}
-				setter={setSelectedStyle}
-			/>
-			<AddToOutfit selectedStyleData={selectedStyle} />
-			<ProductDetailsExtra productDetails={currentItem}/>
+			<div className="product-details-container" style={{'padding':'1rem'}}>
+				<StarRating rating={averageRating}/>
+				<ProductDetails productDetails={currentItem} selectedStyleData={selectedStyle} />
+				<div className="product-style-container">
+					<h2 data-testid='style'>STYLE →{selectedStyle.name}</h2>
+					<StylePicker
+						selectedStyleData={selectedStyle}
+						styles={styles}
+						setter={setSelectedStyle}
+						/>
+					<AddToOutfit selectedStyleData={selectedStyle} />
+				</div>
+			</div>
 		</div>
 	);
 };

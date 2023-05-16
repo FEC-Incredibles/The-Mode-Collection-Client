@@ -1,31 +1,33 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card.jsx";
 import axios from "axios";
+import testData from "./ExampleData/relatedProducts.json"
 
-const Related = ({ currentItemID }) => {
+const Related = ({ currentItemID, module }) => {
   const [activeItem, setActiveItem] = useState(0);
-  const [relatedProducts, setRelatedProducts] = useState([]);
+  const [relatedProducts, setRelatedProducts] = useState(testData);
 
-  useEffect(() => {
-    if (currentItemID) {
-      axios({
-        method: "get",
-        url: `/products/${currentItemID}/related`,
-      })
-        .then((element) => {
-          return axios({
-            method: "get",
-            url: `/relatedItems/?relatedIDs=${JSON.stringify(element.data)}`,
-          });
-        })
-        .then((element) => {
-          setRelatedProducts(element.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [currentItemID]);
+  // useEffect(() => {
+  //   if (currentItemID) {
+  //     axios({
+  //       method: "get",
+  //       url: `/products/${currentItemID}/related`,
+  //     })
+  //       .then((element) => {
+  //         return axios({
+  //           method: "get",
+  //           url: `/relatedItems/?relatedIDs=${JSON.stringify(element.data)}`,
+  //         });
+  //       })
+  //       .then((element) => {
+  //         setRelatedProducts(element.data);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // }, [currentItemID]);
+
   const updateItem = (newItem) => {
     if (newItem < 0) {
       newItem = 0;
@@ -35,7 +37,7 @@ const Related = ({ currentItemID }) => {
     setActiveItem(newItem);
   };
   return (
-    <div className="widget" id="relatedProducts">
+    <div className="widget brianWidget" id={module}>
       <h1>Related Products</h1>
       <div className="carouselItems">
         {activeItem > 0 ? (
@@ -60,7 +62,7 @@ const Related = ({ currentItemID }) => {
         <div className="relatedCarousel">
           <div
             className="viewPort"
-            style={{ transform: `translateX(-${activeItem * 60}%)` }}
+            style={{ transform: `translateY(-${activeItem * 28}%)` }}
           >
             {relatedProducts.map((item, index) => {
               return <Card item={item} key={index} />;
