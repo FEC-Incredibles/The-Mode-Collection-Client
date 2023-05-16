@@ -36,7 +36,7 @@ const Product = ({ currentItem, averageRating }) => {
 	return (
 		<div id="product">
 			<ProductImages selectedStyleData={selectedStyle} />
-			<div className="product-details-container" style={{'padding':'1rem'}}>
+			<div className="product-details-container">
 				<StarRating rating={averageRating}/>
 				<ProductDetails productDetails={currentItem} selectedStyleData={selectedStyle} />
 				<div className="product-style-container">
