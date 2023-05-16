@@ -1,3 +1,5 @@
+@use "./utils/vars.scss";
+
 body {
   background-image: url("../imgs/background.webp");
   display: flex;
@@ -15,45 +17,34 @@ body {
   display: flex;
   padding: 2rem;
   max-width: 2000px;
-  max-height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   .widget {
-    max-width: 100%;
-    max-height: 100%;
+    h1, h2 {
+      font-family: vars.$titleFont;
+    }
+    h3, h4, h5 {
+      font-family: vars.$secondaryTitleFont;
+    }
+    p, a {
+      font-family: vars.$bodyFont;
+    }
+    margin: 2rem;
     padding: 2rem;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 15px 15px rgb(0, 0, 0), inset  15px 15px black, inset -4px -4px red, 4px 4px yellow;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 20px 20px rgb(0, 0, 0), inset  20px 20px black, inset -4px -4px red, 4px 4px yellow;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
-  #infoGrid{
-    max-width: 80%;
-    max-height: 80%;
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
-    align-items: center;
-    justify-content: center;
-    #logoCard {
-      grid-area: 1 / 3 / span 1 / span 3
-    }
-    #Product {
-      grid-area: 1 / 1 / span 2 / span 2
-    }
-    #related {
-      grid-area: 2 / 3 / span 3 / span 3
-    }
-    #outfit {
-      grid-area: 3 / 1 / span 4 / span 1
-    }
-    #QA {
-      grid-area: 4 / 2 / span 4 / span 3
-    }
-    #review-module {
-      grid-area: 5 / 1 / span 5 / span 3
-    }
+  #productRelated {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+  }
+  #questionsOutfit {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
   }
 }

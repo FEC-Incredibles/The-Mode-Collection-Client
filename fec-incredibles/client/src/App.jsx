@@ -39,7 +39,7 @@ const App = () => {
 
   return (
     <div id="main">
-      {/* <nav style={{ display: "flex" }}>
+      <nav style={{ display: "flex" }}>
         <h1>current item id {currentItemID}🤯</h1>
         <button
           type="button"
@@ -71,21 +71,20 @@ const App = () => {
         >
           enter specific id
         </button>
-      </nav> */}
-      <div id="infoGrid">
-        <div id="logoCard">
-          <h1>Mode mode mode</h1>
-        </div>
+      </nav>
+      <div id="productRelated">
         <Product currentItemID={currentItemID} />
-        <Related currentItemID={currentItemID} module={"related"} />
-        <Questions currentItemID={currentItemID} />
-        <Related currentItemID={currentItemID} module={"outfit"} />
-        <Reviews
-          currentItemID={currentItemID}
-          avgRating={currentAvgRating}
-          reviewsMeta={currentReviewsMeta}
-        />
+        <Related currentItemID={currentItemID} />
       </div>
+      <div id="questionsOutfit">
+        <Related currentItemID={currentItemID} />
+        <Questions currentItemID={currentItemID} />
+      </div>
+      <Reviews
+        currentItemID={currentItemID}
+        avgRating={currentAvgRating}
+        reviewsMeta={currentReviewsMeta}
+      />
     </div>
   );
 };
