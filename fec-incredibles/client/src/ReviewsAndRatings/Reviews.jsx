@@ -7,7 +7,6 @@ import SortOption from './SortOption.jsx';
 import ReviewList from './ReviewList.jsx';
 
 import { getTotalNumOfReviews } from './helper.js';
-import { exampleReviews, exampleMeta, emptyMeta } from './exampleData';
 
 const Reviews = ({ currentItemID, avgRating, reviewsMeta }) => {
 

@@ -20,7 +20,8 @@ const ProductBreakdown = ({ characteristics }) => {
 
             <div className="breakdown-bar">
               {breakdownByFactor(factor) >= 0 &&
-                <i style={{ left: `${breakdownByFactor(factor)}%` }}>▼</i>
+                <i data-testid={factor}
+                style={{ left: `${breakdownByFactor(factor)}%` }}>▼</i>
               }
             </div>
 
