@@ -99,6 +99,5 @@ describe("Style Picker", () => {
     await waitFor(() => expect(axios.get).toHaveBeenCalled());
     const Style = screen.getByText(/forest green & black/i)
     expect(Style).toHaveTextContent("STYLE => Forest Green & Black")
-
   })
 })

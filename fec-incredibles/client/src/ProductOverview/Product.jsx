@@ -38,7 +38,7 @@ const Product = ({ currentItem, averageRating }) => {
 			<ProductImages selectedStyleData={selectedStyle} />
 			<div className="product-details-container" style={{'padding':'1rem'}}>
 				<StarRating rating={averageRating}/>
-				<ProductDetails productDetails={productDetails} selectedStyleData={selectedStyle} />
+				<ProductDetails productDetails={currentItem} selectedStyleData={selectedStyle} />
 				<div className="product-style-container">
 					<h2>STYLE →{selectedStyle.name}</h2>
 					<StylePicker
