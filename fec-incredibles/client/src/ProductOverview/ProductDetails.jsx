@@ -9,24 +9,24 @@ const ProductDetails = ({ productDetails, selectedStyleData }) => {
 	// );
 	return (
 		<div>
-			<p>product name {productDetails.name}</p>
-			<p>product category {productDetails.category}</p>
+			<h1>product name {productDetails.name}</h1>
+			<h2>product category {productDetails.category}</h2>
 			{stylePrice ? (
 				salePrice ? (
 					<>
-						<p style={{
+						<h3 style={{
 							'textDecoration': 'line-through',
 
-					}}>product price {defaultPrice}</p>
-						<p style={{
+					}}>product price {defaultPrice}</h3>
+						<h3 style={{
 							'color' : 'red'
-						}}>sale price {salePrice}</p>
+						}}>sale price {salePrice}</h3>
 					</>
 				) : (
-					<p>style price {stylePrice} </p>
+					<h3>style price {stylePrice} </h3>
 				)
 			) : (
-				<p> product price {defaultPrice} </p>
+				<h3> product price {defaultPrice} </h3>
 			)}
 
 			<br />

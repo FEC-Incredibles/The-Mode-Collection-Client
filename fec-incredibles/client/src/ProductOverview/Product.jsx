@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductDetails from "./ProductDetails.jsx";
-import ProductDetailsExtra from "./ProductDetailsExtra.jsx";
 import StylePicker from "./StylePicker.jsx";
 import ProductImages from "./ProductImages.jsx";
 import AddToOutfit from "./AddToOutfit.jsx";
 import StarRating from '../StarRating.jsx'
 
+const Product = ({ currentItem, averageRating }) => {
 const Product = ({ currentItem, averageRating }) => {
 	const [styles, setStyles] = useState();
 	const [selectedStyle, setSelectedStyle] = useState();
@@ -29,24 +29,29 @@ const Product = ({ currentItem, averageRating }) => {
 			});
 		}
 	}, [currentItem]);
+	}, [currentItem]);
 
+	if (!styles || !selectedStyle) {
 	if (!styles || !selectedStyle) {
 		return <div> Loading... (if product takes too long to load then it may be unavailable) </div>;
 	}
 
 	return (
-		<div className="widget" id="Product">
-			<StarRating rating={averageRating}/>
+		<div id="product">
 			<ProductImages selectedStyleData={selectedStyle} />
-			<ProductDetails productDetails={currentItem} selectedStyleData={selectedStyle} />
-			<h2>STYLE => {selectedStyle.name}</h2>
-			<StylePicker
-				selectedStyleData={selectedStyle}
-				styles={styles}
-				setter={setSelectedStyle}
-			/>
-			<AddToOutfit selectedStyleData={selectedStyle} />
-			<ProductDetailsExtra productDetails={currentItem}/>
+			<div className="product-details-container" style={{'padding':'1rem'}}>
+				<StarRating rating={averageRating}/>
+				<ProductDetails productDetails={productDetails} selectedStyleData={selectedStyle} />
+				<div className="product-style-container">
+					<h2>STYLE →{selectedStyle.name}</h2>
+					<StylePicker
+						selectedStyleData={selectedStyle}
+						styles={styles}
+						setter={setSelectedStyle}
+						/>
+					<AddToOutfit selectedStyleData={selectedStyle} />
+				</div>
+			</div>
 		</div>
 	);
 };
