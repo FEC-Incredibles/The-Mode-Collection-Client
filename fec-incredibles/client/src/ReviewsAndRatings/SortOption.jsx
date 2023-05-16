@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
-const SortOption = ({ reviews, sort, setSort }) => {
+const SortOption = ({ length, sort, setSort }) => {
 
   const handleChangeSorting = (e) => {
-    // console.log("Selected sorting: ", e.target.value);
     setSort(e.target.value);
   }
 
@@ -11,7 +10,7 @@ const SortOption = ({ reviews, sort, setSort }) => {
     <div className="">
 
       <label>
-        {reviews.length} reviews, sorted by
+        {length} reviews, sorted by
 
         <select
         name="sorting-option"

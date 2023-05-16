@@ -18,7 +18,7 @@
     display: inline-block; }
   #review-module #review-list .scrollable-list {
     max-height: 70vh;
-    overflow: scroll;
+    overflow-y: auto;
     min-height: 50vh;
     transition-property: all; }
     #review-module #review-list .scrollable-list h6 {
