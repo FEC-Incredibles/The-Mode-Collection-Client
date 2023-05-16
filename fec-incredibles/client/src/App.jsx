@@ -39,6 +39,19 @@ const App = () => {
 
   return (
     <div id="main">
+      <div id="productRelated">
+        <Product currentItemID={currentItemID} />
+        <Related currentItemID={currentItemID} />
+      </div>
+      <div id="questionsOutfit">
+        <Related currentItemID={currentItemID} />
+        <Questions currentItemID={currentItemID} />
+      </div>
+      <Reviews
+        currentItemID={currentItemID}
+        avgRating={currentAvgRating}
+        reviewsMeta={currentReviewsMeta}
+      />
       <nav style={{ display: "flex" }}>
         <h1>current item id {currentItemID}🤯</h1>
         <button
@@ -72,19 +85,6 @@ const App = () => {
           enter specific id
         </button>
       </nav>
-      <div id="productRelated">
-        <Product currentItemID={currentItemID} />
-        <Related currentItemID={currentItemID} />
-      </div>
-      <div id="questionsOutfit">
-        <Related currentItemID={currentItemID} />
-        <Questions currentItemID={currentItemID} />
-      </div>
-      <Reviews
-        currentItemID={currentItemID}
-        avgRating={currentAvgRating}
-        reviewsMeta={currentReviewsMeta}
-      />
     </div>
   );
 };
