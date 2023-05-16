@@ -30,6 +30,11 @@
   max-height: 150px;
   background-color: #A8D1D1; }
 
+
+.dropdown-item {
+  padding: 5px;
+  cursor: pointer; }
+
 .stylesContainer {
   display: flex;
   flex-direction: row;
