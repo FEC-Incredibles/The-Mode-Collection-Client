@@ -98,6 +98,6 @@ describe("Style Picker", () => {
     render(<Product currentItem={productDetails} averageRating={3.87}/>)
     await waitFor(() => expect(axios.get).toHaveBeenCalled());
     const Style = screen.getByText(/forest green & black/i)
-    expect(Style).toHaveTextContent("STYLE => Forest Green & Black")
+    expect(Style).toHaveTextContent("STYLE →Forest Green & Black")
   })
 })
