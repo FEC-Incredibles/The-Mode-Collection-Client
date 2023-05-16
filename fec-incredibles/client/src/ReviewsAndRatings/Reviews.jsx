@@ -8,7 +8,7 @@ import ReviewList from './ReviewList.jsx';
 
 import { getTotalNumOfReviews } from './helper.js';
 
-const Reviews = ({ currentItemID, reviewsMeta }) => {
+const Reviews = ({ reviewsMeta }) => {
 
     /**
      * States
@@ -58,7 +58,7 @@ const Reviews = ({ currentItemID, reviewsMeta }) => {
      */
     useEffect(() => {
         const numOfReviews = getTotalNumOfReviews(reviewsMeta);
-        let url = `/reviews/?product_id=${currentItemID}&sort=${sort}&count=${numOfReviews}`;
+        let url = `/reviews/?product_id=${reviewsMeta['product_id']}&sort=${sort}&count=${numOfReviews}`;
         axios.get(url)
             .then(response => {
                 setOrderedReviews(response.data.results);
@@ -66,7 +66,7 @@ const Reviews = ({ currentItemID, reviewsMeta }) => {
             })
             .catch(error =>
                 console.log('Error getting reviews inside module 🤕', error))
-    }, [currentItemID, sort])
+    }, [sort])
 
     useEffect(() => {
         updateFilteredReviews(orderedReviews);
@@ -100,7 +100,9 @@ const Reviews = ({ currentItemID, reviewsMeta }) => {
 
             <div className="col-75">
                 <SortOption
-                    length={filteredReviews.length} sort={sort} setSort={setSort} />
+                    totalLength={filteredReviews.length}
+                    currentLength={currentDisplay.length}
+                    sort={sort} setSort={setSort} />
                 <ReviewList
                     reviews={filteredReviews} removeReview={removeReview}
                     currentDisplay={currentDisplay}

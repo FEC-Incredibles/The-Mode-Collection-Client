@@ -66,11 +66,11 @@ const App = () => {
         <Related currentItemID={currentItemID} />
         <Questions currentItemID={currentItemID} />
       </div>
-      <Reviews
+      {currentReviewsMeta && <Reviews
         currentItemID={currentItemID}
         avgRating={currentAvgRating}
         reviewsMeta={currentReviewsMeta}
-      />
+      />}
       <nav style={{ display: "flex" }}>
         <h1>current item id {currentItemID}:exploding_head:</h1>
         <button

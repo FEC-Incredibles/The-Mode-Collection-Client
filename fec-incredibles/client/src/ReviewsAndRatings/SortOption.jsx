@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SortOption = ({ length, sort, setSort }) => {
+const SortOption = ({ totalLength, currentLength, sort, setSort }) => {
 
   const handleChangeSorting = (e) => {
     setSort(e.target.value);
@@ -10,7 +10,7 @@ const SortOption = ({ length, sort, setSort }) => {
     <div className="">
 
       <label>
-        {length} reviews, sorted by
+        Currently displaying {currentLength} out of {totalLength} reviews, sorted by
 
         <select
         name="sorting-option"
