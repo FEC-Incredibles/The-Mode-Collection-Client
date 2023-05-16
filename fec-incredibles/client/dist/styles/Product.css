@@ -29,13 +29,6 @@
   overflow: auto;
   max-height: 150px;
   background-color: #A8D1D1; }
-<<<<<<< HEAD
-=======
-
-.dropdown-item {
-  padding: 5px;
-  cursor: pointer; }
->>>>>>> created a base theme for the website
 
 .stylesContainer {
   display: flex;
