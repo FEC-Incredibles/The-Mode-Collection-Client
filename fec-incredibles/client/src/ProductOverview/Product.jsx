@@ -7,7 +7,6 @@ import AddToOutfit from "./AddToOutfit.jsx";
 import StarRating from '../StarRating.jsx'
 
 const Product = ({ currentItem, averageRating }) => {
-const Product = ({ currentItem, averageRating }) => {
 	const [styles, setStyles] = useState();
 	const [selectedStyle, setSelectedStyle] = useState();
 
@@ -29,9 +28,7 @@ const Product = ({ currentItem, averageRating }) => {
 			});
 		}
 	}, [currentItem]);
-	}, [currentItem]);
 
-	if (!styles || !selectedStyle) {
 	if (!styles || !selectedStyle) {
 		return <div> Loading... (if product takes too long to load then it may be unavailable) </div>;
 	}
