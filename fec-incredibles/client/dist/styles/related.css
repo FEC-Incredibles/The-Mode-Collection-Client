@@ -34,8 +34,8 @@
         border: 2px solid lightgrey;
         border-radius: 6px; }
         .brianWidget .relatedCarousel .viewPort .Card img {
-          max-width: 500px;
-          max-height: 500px; }
+          max-width: 360px;
+          max-height: 360px; }
       .brianWidget .relatedCarousel .viewPort .starred {
         padding: 10px;
         position: absolute;

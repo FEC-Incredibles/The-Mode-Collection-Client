@@ -1,6 +1,6 @@
 @use "./utils/vars.scss";
 body {
-  background-image: url("../imgs/background.webp");
+  background-color: #b2a4ff;
   display: flex;
   flex-flow: column nowrap; }
 
@@ -29,7 +29,7 @@ body {
     margin: 2rem;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.3);
-    box-shadow: 20px 20px black, inset 20px 20px black, inset -4px -4px red, 4px 4px yellow;
+    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px); }
   #main #productRelated {
