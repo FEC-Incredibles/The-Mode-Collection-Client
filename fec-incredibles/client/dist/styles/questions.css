@@ -1,7 +1,6 @@
 #QA {
   display: flex;
-  flex-flow: column wrap;
-  width: 100%; }
+  flex-flow: column wrap; }
   #QA .pageTitle {
     margin: 8px; }
   #QA .searchBar {

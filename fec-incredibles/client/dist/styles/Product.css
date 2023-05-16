@@ -1,4 +1,4 @@
-.dropdown-container {
+#Product .dropdown-container {
   background-color: #80566d;
   width: 33%;
   text-align: left;
@@ -6,7 +6,7 @@
   position: relative;
   border-radius: 5px; }
 
-.dropdown-input {
+#Product .dropdown-input {
   padding: 5px;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
   justify-content: space-between;
   user-select: none; }
 
-.dorpdown-menu {
+#Product .dorpdown-menu {
   position: absolute;
   transform: translateY(4px);
   width: 100%;
@@ -24,38 +24,39 @@
   max-height: 150px;
   background-color: #fff; }
 
-.dropdown-item {
+#Product .dropdown-item {
   padding: 5px;
   cursor: pointer; }
 
-.stylesContainer {
+#Product .stylesContainer {
   display: flex;
   flex-direction: row;
   width: 23rem;
   flex-wrap: wrap; }
 
-.dropdown-item:hover {
+#Product .dropdown-item:hover {
   background-color: #c00d72; }
 
-.dropdown-item.selected {
+#Product .dropdown-item.selected {
   background-color: #0d6efd;
   color: #fff; }
 
-.images-styles {
+#Product .images-styles {
   width: 5rem;
   height: 5rem;
   object-fit: cover;
   border-radius: 50%; }
 
-.images-styles.selected {
+#Product .images-styles.selected {
   border: 8px solid #1cf127; }
 
-.images-row {
+#Product .images-row {
   position: absolute;
   display: flex;
   flex-flow: column nowrap;
   z-index: 1;
   padding: 5px; }
+
 
 .images-main {
   width: 41rem;
@@ -66,11 +67,12 @@
   display: flex;
   justify-content: center; }
 
-.images-extra {
+#Product .images-extra {
   width: 3rem;
   height: 3rem;
   margin: 5px;
   object-fit: cover; }
+
 
 .modal {
   position: fixed;
