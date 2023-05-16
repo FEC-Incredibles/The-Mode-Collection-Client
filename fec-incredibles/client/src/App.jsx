@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import Product from './ProductOverview/Product.jsx'
@@ -8,6 +9,8 @@ import Reviews from './ReviewsAndRatings/Reviews.jsx'
 import { getAvgRating } from './ReviewsAndRatings/helper.js';
 import { emptyMeta } from './ReviewsAndRatings/exampleData.js'
 
+import { getAvgRating } from "./ReviewsAndRatings/helper.js";
+import { emptyMeta } from "./ReviewsAndRatings/exampleData.js";
 
 const App = () => {
   const [currentItemID, setCurrentItemID] = useState(37315);
@@ -27,6 +30,7 @@ const App = () => {
      * 22+ => "unknown area"
      */
   useEffect(() => {
+  
     axios.get(`/products/${currentItemID}`)
     .then((response) => {
       setCurrentItem(response.data)
@@ -45,29 +49,56 @@ const App = () => {
       console.log('Error getting metadata at home page 🫠', error))
   }, [currentItemID])
 
-
-  return (
-    <div id='main'>
-      <h1>current item id  {currentItemID}🤯</h1>
-      <nav style={{ display: 'flex' }}>
-        <button type='button' onClick={() => { setCurrentItemID(currentItemID - 1) }}>previous</button>
-        <button type='button' onClick={() => { setCurrentItemID(Number(currentItemID) + 1) }}>next</button>
-        <input type='text' onChange={(e) => {
-          setTypedID(e.target.value)
-        }}></input>
-        <button type='button' onClick={() => {
-          setCurrentItemID(typedID)
-        }}>enter specific id</button>
-      </nav>
-      <Product currentItem={currentItem} averageRating={currentAvgRating} />
-      <Related currentItemID={currentItemID} />
-      <Questions currentItemID={currentItemID} />
+return (
+    <div id="main">
+      <div id="productRelated">
+        <Product currentItemID={currentItemID} />
+        <Related currentItemID={currentItemID} />
+      </div>
+      <div id="questionsOutfit">
+        <Related currentItemID={currentItemID} />
+        <Questions currentItemID={currentItemID} />
+      </div>
       <Reviews
         currentItemID={currentItemID}
         avgRating={currentAvgRating}
-        reviewsMeta={currentReviewsMeta} />
+        reviewsMeta={currentReviewsMeta}
+      />
+      <nav style={{ display: "flex" }}>
+        <h1>current item id {currentItemID}🤯</h1>
+        <button
+          type="button"
+          onClick={() => {
+            setCurrentItemID(currentItemID - 1);
+          }}
+        >
+          previous
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setCurrentItemID(Number(currentItemID) + 1);
+          }}
+        >
+          next
+        </button>
+        <input
+          type="text"
+          onChange={(e) => {
+            setTypedID(e.target.value);
+          }}
+        ></input>
+        <button
+          type="button"
+          onClick={() => {
+            setCurrentItemID(typedID);
+          }}
+        >
+          enter specific id
+        </button>
+      </nav>
     </div>
-  )
-}
+  );
+};
 
 export default App;
