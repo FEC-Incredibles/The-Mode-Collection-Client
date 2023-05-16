@@ -1,6 +1,6 @@
 import React from 'react';
-
-import { render, fireEvent, screen } from '@testing-library/react';
+import axios from 'axios';
+import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 
 import ReviewTile from '../../src/ReviewsAndRatings/ReviewTile.jsx';
 import { exampleReviews } from './exampleData';
@@ -32,7 +32,7 @@ describe("Reviews & Ratings: ReviewTile Component", () => {
 
   test("Once the user marked a review as helpful, the button is disabled and helpfulness increased by 1", async () => {
     render(<ReviewTile review={exampleReviews[0]} />)
-
+    jest.spyOn(axios, 'put').mockResolvedValue();
 
     let btnYES = screen.getByTestId("markHelpful");
     let helpfulness = screen.getByTestId("review-footer");
@@ -41,19 +41,11 @@ describe("Reviews & Ratings: ReviewTile Component", () => {
     expect(btnYES).toBeVisible();
     expect(helpfulness).toHaveTextContent('5')
 
-    //interact with those elements
-    await fireEvent.click(btnYES);
+    await waitFor(() => fireEvent.click(btnYES));
 
-    //assert the expected result
-    // More matchers: https://github.com/testing-library/jest-dom
-    // expect(btnShowMore).toBeVisible();
-
-    await expect(btnYES).not.toBeVisible();
-    await expect(helpfulness).toHaveTextContent('6')
-
-    // btnYES = screen.getByText("YES");
-    // expect(btnYES).not.toBeVisible();
-
+    // before clicking YES
+    expect(btnYES).not.toBeVisible();
+    expect(helpfulness).toHaveTextContent('6');
   })
 
 })

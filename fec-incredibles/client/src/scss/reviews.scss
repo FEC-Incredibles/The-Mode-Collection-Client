@@ -47,7 +47,7 @@
 
     .scrollable-list {
       max-height: 70vh;
-      overflow: scroll;
+      overflow-y: auto;
       min-height: 50vh;
       transition-property: all;
 

@@ -14,7 +14,7 @@ const App = () => {
   const [currentItem, setCurrentItem] = useState();
   const [typedID, setTypedID] = useState();
   const [currentAvgRating, setCurrentAvgRating] = useState(0);
-  const [currentReviewsMeta, setCurrentReviewsMeta] = useState(emptyMeta);
+  const [currentReviewsMeta, setCurrentReviewsMeta] = useState();
 
     /**
      * 373__

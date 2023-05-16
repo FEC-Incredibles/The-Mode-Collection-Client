@@ -17,8 +17,7 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
     getPercentage(reviewsMeta.recommended.true, numOfReviews);
 
   const handleToggleFilter = (rating) => {
-    console.log("Clicked ", rating)
-    // updateFilters(Number(rating));
+    // console.log("Clicked ", rating)
     rating = Number(rating)
 
     if (filters.indexOf(rating) === -1) {
@@ -52,7 +51,6 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
         return (
           <div className="breakdown-by-star" key={idx}
             onClick={() => handleToggleFilter(rating)}>
-            {/* TODO: click on it will filter the displaying reviews */}
             <i>{rating} stars</i>
             <div className="breakdown-bar">
               <div className="bar" style={{ width: `${breakdownByStar(rating)}%` }}>
@@ -65,7 +63,6 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
 
       <br />
       {filters.length > 0 && (
-        <>
           <div className="filters-container">
             Filters:
             {filters.map((rating, idx) =>
@@ -75,8 +72,6 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
             )}
             <button onClick={handleClearFilter}>Clear all filters</button>
           </div>
-
-        </>
       )}
 
     </div>
