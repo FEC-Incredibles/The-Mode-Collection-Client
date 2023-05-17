@@ -1,22 +1,37 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card.jsx";
 import axios from "axios";
-import testData from "./ExampleData/relatedProducts.json"
+import testData from "./ExampleData/relatedProducts.json";
 
 const Related = ({ currentItemID, module }) => {
   const [activeItem, setActiveItem] = useState(0);
   const [relatedProducts, setRelatedProducts] = useState(testData);
 
   useEffect(() => {
+    let related;
+    let details = {};
     if (currentItemID) {
       axios({
         method: "get",
         url: `/products/${currentItemID}/related`,
       })
         .then((element) => {
+          related = element.data;
           return axios({
             method: "get",
-            url: `/relatedItems/?relatedIDs=${JSON.stringify(element.data)}&currentID=${currentItemID}`,
+            url: `/products/${currentItemID}`,
+          });
+        })
+        .then((element) => {
+          let incomingFeatures = element.data.feature;
+          for (var i = 0; i <= incomingFeatures.length; i++) {
+            details[incomingFeatures[i].feature] = incomingFeatures[i].value;
+          }
+          return axios({
+            method: "get",
+            url: `/relatedItems/?relatedIDs=${JSON.stringify(
+              related
+            )}&currentFeatures=${JSON.stringify(details)}`,
           });
         })
         .then((element) => {
@@ -69,7 +84,7 @@ const Related = ({ currentItemID, module }) => {
             })}
           </div>
         </div>
-        {(activeItem <= relatedProducts.length / 2 - 1) ? (
+        {activeItem <= relatedProducts.length / 2 - 1 ? (
           <button
             id="forwardClick"
             className="navButtons"
