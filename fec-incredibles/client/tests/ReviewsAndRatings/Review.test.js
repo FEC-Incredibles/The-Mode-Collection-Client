@@ -27,33 +27,4 @@ describe("Reviews & Ratings: whole module", () => {
     expect(title).toBeVisible();
   })
 
-  xtest("Should show the proper average rating", () => {
-    const avgRating = screen.getByTestId('avg-rating');
-    expect(avgRating).toHaveTextContent(3.9);
-  })
-
-
- // Test block: unit test
- xtest("When the 'Show more' button is clicked, expands the review body ", () => {
-  // first, render the component that we want to test
-  render(<ReviewTile review={exampleReviews[0]} />)
-
-  // select the elements that we want to interact with
-  // other select methods: https://testing-library.com/docs/react-testing-library/cheatsheet
-  const reviewBody = screen.getByTestId("review-body");
-  const btnShowMore = screen.getByText("Show more");
-
-  //assert the expected result
-  // More matchers: https://github.com/testing-library/jest-dom
-  expect(btnShowMore).toBeVisible();
-  expect(reviewBody).not.toHaveTextContent('Expanded.')
-
-  //interact with those elements
-  fireEvent.click(btnShowMore);
-
-  expect(btnShowMore).not.toBeVisible();
-  expect(reviewBody).toHaveTextContent('Expanded.')
-})
-
-
 })
