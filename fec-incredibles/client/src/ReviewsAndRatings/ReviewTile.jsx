@@ -63,7 +63,7 @@ const ReviewTile = ({ review, removeReview }) => {
       removeReview(review.review_id);
     })
     .catch(error => {
-      console.log('Error reporting review: ', review.review_id)
+      console.log('Error reporting review: ', review.review_id, error)
     })
 
   }
@@ -74,7 +74,7 @@ const ReviewTile = ({ review, removeReview }) => {
 
 
   return (
-    <div className="review-tile">
+    <div className="review-tile" data-testid="review-tile">
 
       <div className="review-tile-header">
 
@@ -132,9 +132,9 @@ const ReviewTile = ({ review, removeReview }) => {
       )}
 
 
-      <div className="review-tile-footer">
+      <div className="review-tile-footer" data-testid="review-footer">
         Helpful?
-        {voted || <i onClick={handleClickHelpful}>YES</i>}
+        {voted || <i onClick={handleClickHelpful} data-testid="markHelpful">YES</i>}
         {voted && <i className="voted">Thanks, we ❤️ feedback!</i>}
         ({helpfulness})  |
         <i onClick={handleClickReport}> REPORT </i>

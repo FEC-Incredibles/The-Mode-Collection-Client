@@ -25,7 +25,7 @@ const getAvgRating = (reviewsMeta) => {
       return accumulator;
     }
     , { sum: 0, count: 0 });
-  return count === 0 ? 0 : (sum / count).toFixed(2);
+  return count === 0 ? 0 : Number((sum / count).toFixed(2));
 };
 
 /**
@@ -36,15 +36,28 @@ const getAvgRating = (reviewsMeta) => {
 const getPercentage = (num, den) => {
   num = Number(num);
   den = Number(den);
-  if (!num || num === 0 || den === 0) {
+  if (isNaN(num) || isNaN(den) || num === 0 || den === 0) {
     return 0;
   }
   return Math.round((num / den) * 100);
 }
 
 
+/**
+ * Example reviews meta data
+ */
+const emptyMeta = {
+  "product_id": "0",
+  "ratings": {
+  },
+  "recommended": {},
+  "characteristics": {}
+};
+
+
 module.exports = {
   getTotalNumOfReviews,
   getAvgRating,
-  getPercentage
+  getPercentage,
+  emptyMeta,
 }

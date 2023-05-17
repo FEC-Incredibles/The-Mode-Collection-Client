@@ -11,6 +11,7 @@
   //
   // Module Layout
   //
+  // max-width: 100%;
   width: 100%;
   height: auto;
   padding: 8px;
@@ -47,8 +48,8 @@
 
     .scrollable-list {
       max-height: 70vh;
-      overflow: scroll;
-      min-height: 50vh;
+      overflow-y: auto;
+      // min-height: 50vh;
       transition-property: all;
 
       h6 {

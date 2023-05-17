@@ -6,8 +6,7 @@ import Related from './RelatedItems/Related.jsx'
 import Reviews from './ReviewsAndRatings/Reviews.jsx'
 import ProductDetailsExtra from './ProductOverview/ProductDetailsExtra.jsx';
 
-import { getAvgRating } from './ReviewsAndRatings/helper.js';
-import { emptyMeta } from './ReviewsAndRatings/exampleData.js'
+import { getAvgRating, emptyMeta } from './ReviewsAndRatings/helper.js';
 
 
 const App = () => {
@@ -15,7 +14,7 @@ const App = () => {
   const [currentItem, setCurrentItem] = useState();
   const [typedID, setTypedID] = useState();
   const [currentAvgRating, setCurrentAvgRating] = useState(0);
-  const [currentReviewsMeta, setCurrentReviewsMeta] = useState(emptyMeta);
+  const [currentReviewsMeta, setCurrentReviewsMeta] = useState();
 
     /**
      * 373__
@@ -67,11 +66,11 @@ const App = () => {
         <Related currentItemID={currentItemID} />
         <Questions currentItemID={currentItemID} />
       </div>
-      <Reviews
+      {currentReviewsMeta && <Reviews
         currentItemID={currentItemID}
         avgRating={currentAvgRating}
         reviewsMeta={currentReviewsMeta}
-      />
+      />}
       <nav style={{ display: "flex" }}>
         <h1>current item id {currentItemID}:exploding_head:</h1>
         <button

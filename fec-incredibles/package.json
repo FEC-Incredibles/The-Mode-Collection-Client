@@ -12,7 +12,7 @@
     "server-dev": "npx nodemon --watch server server/index.js",
     "styles-dev": "node-sass -w ./client/src/scss -o ./client/dist/styles",
     "dev": "npm run styles-dev & npm run client-dev & npm run server-dev",
-    "test": "jest --env=jsdom",
+    "test": "jest --env=jsdom --detectOpenHandles",
     "coverage": "jest --coverage",
     "coverage-overview": "jest --coverage --collectCoverageFrom='./client/src/ProductOverview/**'",
     "coverage-qa": "jest --coverage --collectCoverageFrom='./client/src/QuestionsAndAnswers/**'",
