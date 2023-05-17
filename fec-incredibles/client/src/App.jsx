@@ -15,6 +15,7 @@ const App = () => {
   const [typedID, setTypedID] = useState();
   const [currentAvgRating, setCurrentAvgRating] = useState(0);
   const [currentReviewsMeta, setCurrentReviewsMeta] = useState();
+  const [outfit, setOutfit] = useState([])
 
     /**
      * 373__
@@ -57,13 +58,13 @@ const App = () => {
       </div>
       <div id="productRelated">
         <div className='widget'>
-          <Product currentItem={currentItem} averageRating={currentAvgRating} />
+          <Product currentItem={currentItem} averageRating={currentAvgRating} outfit={outfit} setOutfit={setOutfit}/>
           <ProductDetailsExtra productDetails={currentItem}/>
         </div>
         <Related currentItemID={currentItemID} />
       </div>
       <div id="questionsOutfit">
-        <Related currentItemID={currentItemID} />
+        <Related currentItemID={currentItemID} outfit={outfit} setOutfit={setOutfit}/>
         <Questions currentItemID={currentItemID} />
       </div>
       {currentReviewsMeta && <Reviews

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import DropDownList from "./DropDownList.jsx";
 import axios from 'axios';
 
-const AddToOutfit = ({ selectedStyleData }) => {
+const AddToOutfit = ({ selectedStyleData, outfit, setOutfit }) => {
 	const [skus, setSkus] = useState();
 	const [skuId, setSkuId] = useState();
 	const [selectedSize, setSelectedSize] = useState();
@@ -71,10 +71,7 @@ const AddToOutfit = ({ selectedStyleData }) => {
 				}}
 			/>
 			<br/>
-			{selectedQuantity && selectedSize && <button type="button" onClick={() => {
-        console.log('SELECTED OPTIONS => ', selectedQuantity, selectedSize, skuId)
-		// axios.post('/outfit', {sku_id: skuId, quantity:selectedQuantity})
-      }}>add to outfit</button>}
+			{selectedQuantity && selectedSize && <button type="button" onClick={() => {outfit.indexOf(skuId) === -1 ? setOutfit([...outfit, skuId]) : null}}>add to outfit</button>}
 		</div>
 	);
 };

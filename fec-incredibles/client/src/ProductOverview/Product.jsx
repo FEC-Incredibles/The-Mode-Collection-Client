@@ -6,7 +6,7 @@ import ProductImages from "./ProductImages.jsx";
 import AddToOutfit from "./AddToOutfit.jsx";
 import StarRating from '../StarRating.jsx'
 
-const Product = ({ currentItem, averageRating }) => {
+const Product = ({ currentItem, averageRating, outfit, setOutfit}) => {
 	const [styles, setStyles] = useState();
 	const [selectedStyle, setSelectedStyle] = useState();
 
@@ -46,7 +46,7 @@ const Product = ({ currentItem, averageRating }) => {
 						styles={styles}
 						setter={setSelectedStyle}
 						/>
-					<AddToOutfit selectedStyleData={selectedStyle} />
+					<AddToOutfit selectedStyleData={selectedStyle} outfit={outfit} setOutfit={setOutfit}/>
 				</div>
 			</div>
 		</div>
