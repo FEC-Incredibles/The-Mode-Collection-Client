@@ -13,6 +13,7 @@ export default function Card({ item }) {
       <img src={item.imgURL} />
       <div className="info">
         <h3>{item.category}</h3>
+        <p>{JSON.stringify(item.comparedFeatures)}</p>
         <h3>{item.productData}</h3>
         <h3>{item.price}</h3>
         <div className="stars">
