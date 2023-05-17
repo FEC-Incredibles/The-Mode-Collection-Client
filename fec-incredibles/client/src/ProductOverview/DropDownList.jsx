@@ -60,7 +60,7 @@ const DropDownSizeList = ({ testid, placeHolder, options, valKey, onChange }) =>
 	return (
 		<div data-testid={testid} className="dropdown-container">
 			<div className="dropdown-input" onClick={handleInputClick}>
-				<div className="dropdown-selected-value">{getDisplay()}</div>
+				<div className="dropdown-selected-value"><h3>{getDisplay()}</h3></div>
 				<div className="dropdown-tools">
 					<DownArrowIcon />
 				</div>
@@ -77,7 +77,7 @@ const DropDownSizeList = ({ testid, placeHolder, options, valKey, onChange }) =>
 										}`}
 										onClick={() => onItemClick(option)}
 									>
-										{options[option][valKey]}
+										<h3>{options[option][valKey]}</h3>
 									</div>
 								);
 						  })
@@ -90,7 +90,7 @@ const DropDownSizeList = ({ testid, placeHolder, options, valKey, onChange }) =>
 										}`}
 										onClick={() => onItemClick(option)}
 									>
-										{option}
+										<h3>{option}</h3>
 									</div>
 								);
 						  })

@@ -45,6 +45,12 @@
   width: 23rem;
   flex-wrap: wrap; }
 
+.dropdown-item {
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center; }
+
 .dropdown-item:hover {
   background-color: #919191; }
 
