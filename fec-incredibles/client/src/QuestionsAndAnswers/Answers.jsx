@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import { format, parseISO} from 'date-fns';
 
 const Answers = ({answer, helpfulAnswer, setHelpfulAnswer}) => {
   const [answerReported, setAnswerReported] = useState(false);
@@ -46,7 +47,7 @@ const Answers = ({answer, helpfulAnswer, setHelpfulAnswer}) => {
     <div className='answerModule'>
       <div>A: {answer.body}</div>
       <div className='answerInfo'>
-        <div className='userDate'>by: {answer.answerer_name} on {answer.date}  |</div>
+        <div className='userDate'>by: {answer.answerer_name} on {format(parseISO(answer.date), 'MMMM dd, yyyy')}  |</div>
         {!answerVoted ? <div className='answerHelpful' onClick={handleAnswerHelpful}>Helpful? yes ({answer.helpfulness})</div>
          : <div className='answerHelpful'>Helpful? yes ({answer.helpfulness})</div>}
         <div className='answerReport' onClick={handleAReport}>| {reportButtonText}</div>

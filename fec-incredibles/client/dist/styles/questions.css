@@ -1,30 +1,40 @@
 #QA {
   display: flex;
-  flex-flow: column wrap;
-  max-height: 800px;
-  max-width: 800px;
-  width: 100%; }
-  #QA .questionEntry {
-    overflow-y: auto; }
+  flex-flow: column nowrap;
+  max-height: 900px;
+  max-width: 1200px;
+  min-height: 600px;
+  min-height: 800px; }
+  #QA .questionContainer {
+    overflow-y: auto;
+    max-height: 760px; }
+  #QA .questionHelpful {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 5px;
+    justify-content: space-between; }
+  #QA .helpfulAddAnswer {
+    display: flex;
+    flex-flow: row nowrap; }
   #QA .pageTitle {
     margin: 8px; }
   #QA .searchBar {
     align-self: center;
-    width: 400px; }
+    width: 400px;
+    height: 30px; }
   #QA .question {
-    margin: 10px;
+    margin: 5px;
     font-weight: bold;
-    padding: 8px;
     height: auto; }
   #QA .oneQuestion {
-    padding: 8px;
-    margin: 10px;
+    padding: 5px;
+    margin: 5px;
     height: auto; }
   #QA .helpful {
     display: flex;
     float: right;
     font-size: 11px;
-    margin: 2px;
+    margin: 10px;
     text-decoration: underline; }
   #QA .buttons {
     align-self: center; }
@@ -36,7 +46,7 @@
     display: flex;
     float: right;
     font-size: 11px;
-    margin: 2px; }
+    margin: 10px; }
   #QA .moreAnsweredBtn {
     width: 250px; }
   #QA .addQuestionBtn {
@@ -48,20 +58,59 @@
     padding: 8px;
     margin: 7px; }
   #QA .answerModule {
-    margin: 5px;
-    padding: 5px; }
+    margin: 2px;
+    padding: 2px; }
   #QA .answerInfo {
     display: flex;
     width: 100%; }
   #QA .answerContainer {
-    max-height: 101px;
-    overflow-y: auto; }
+    max-height: 90px;
+    height: 20%;
+    overflow-y: auto;
+    margin-left: 5px; }
   #QA .answerReport {
     display: flex;
     margin: 2px;
-    font-size: 13px; }
+    font-size: 13px;
+    font-weight: bold; }
   #QA .answerHelpful {
     display: flex;
     margin: 2px;
     font-size: 13px;
     text-decoration: underline; }
+  #QA .loadAnswers {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: underline; }
+  #QA .collapseAnswers {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: underline; }
+  #QA .answerModal {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 90%;
+    height: 50%;
+    outline: solid;
+    outline-color: black;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: white;
+    /* Fallback color */
+    /* Black w/ opacity */
+    display: flex; }
+  #QA .answerForm {
+    width: 100%; }
+  #QA .answerModalTitle {
+    text-align: center;
+    font-weight: bold;
+    margin: 4px;
+    padding: 4px; }
+  #QA .answerModalQuestion {
+    margin: 4px;
+    padding: 4px; }
+  #QA .answerModalAnswer {
+    margin: 4px;
+    padding: 4px; }

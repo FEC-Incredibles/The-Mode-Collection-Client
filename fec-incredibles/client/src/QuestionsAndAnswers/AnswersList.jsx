@@ -22,6 +22,7 @@ const AnswersList = ({question, questionHelpful, setQuestionHelpful}) => {
       }, [question, helpfulAnswer])
 
     useEffect(() => {
+      if (!answerList) return;
       if (!loadClicked) {
         setAnswerDisplay(answerList.slice(0, 2))
       } else {
@@ -58,17 +59,24 @@ const AnswersList = ({question, questionHelpful, setQuestionHelpful}) => {
 
     return (
       <div className='oneQuestion'>
-        <div className='question'>Q: {question.question_body}
-        <div className='addanswerbtn' onClick={handleAddAnswer}>Add Answer</div>
-        {!questionVoted ? <div className='helpful' onClick={() => {handleQHelpful(question.question_id)}}>Helpful? Yes {question.question_helpfulness}</div>
-        : <div className='helpful'>Helpful? Yes {question.question_helpfulness}</div>}
-      </div>
-        {addAnswer && (<AddAnswer />)}
+        <div className='questionHelpful'>
+          <p className='question'>Q: {question.question_body} </p>
+          <div className='helpfulAddAnswer'>
+            <div className='addanswerbtn' onClick={handleAddAnswer}>Add Answer</div>
+            <div>
+            {!questionVoted ? <div className='helpful' onClick={() => {handleQHelpful(question.question_id)}}>Helpful? Yes {question.question_helpfulness}</div>
+            : <div className='helpful'>Helpful? Yes {question.question_helpfulness}</div>}
+            </div>
+          </div>
+        </div>
+        {addAnswer && (<AddAnswer currentQuestion={question.question_body}/>)}
         <div className='answerContainer'>{answerDisplay.map((answer, index) => {
-          return (<Answers answer={answer} key={index} helpfulAnswer={helpfulAnswer} setHelpfulAnswer={setHelpfulAnswer}/>)
+          return (<Answers answer={answer} key={index} helpfulAnswer={helpfulAnswer} setHelpfulAnswer={setHelpfulAnswer} />)
         })}</div>
-        {answerList.length > 2 && (!loadClicked ? <div className='loadAnswers' onClick={handleLoadMoreAnswers}>load more answers</div>
-        : <div className='collapseAnswers' onClick={handleCollapseAnswers}>Collapse Answers</div>)}
+        <div data-testid='answerBody'>
+          {answerList.length > 2 && (!loadClicked ? <div className='loadAnswers' onClick={handleLoadMoreAnswers}>Load More Answers</div>
+          : <div className='collapseAnswers' onClick={handleCollapseAnswers}>Collapse Answers</div>)}
+        </div>
       </div>
     )
 }

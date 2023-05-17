@@ -1,12 +1,26 @@
 #QA {
   display: flex;
-  flex-flow: column wrap;
-  max-height: 800px;
-  max-width: 800px;
-  width: 100%;
+  flex-flow: column nowrap;
+  max-height: 900px;
+  max-width: 1200px;
+  min-height: 600px;
+  min-height: 800px;
 
-  .questionEntry {
+  .questionContainer {
     overflow-y: auto;
+    max-height: 760px;
+  }
+
+  .questionHelpful {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 5px;
+    justify-content: space-between;
+  }
+
+  .helpfulAddAnswer {
+    display: flex;
+    flex-flow: row nowrap;
   }
 
   .pageTitle {
@@ -16,26 +30,26 @@
   .searchBar {
     align-self: center;
     width: 400px;
+    height: 30px;
   }
 
   .question {
-    margin: 10px;
+    margin: 5px;
     font-weight: bold;
-    padding: 8px;
     height: auto;
   }
 
   .oneQuestion {
     //border: 1px solid grey;
-    padding: 8px;
-    margin: 10px;
+    padding: 5px;
+    margin: 5px;
     height: auto;
   }
   .helpful {
     display: flex;
     float: right;
     font-size: 11px;
-    margin: 2px;
+    margin: 10px;
     text-decoration: underline;
   }
   .buttons {
@@ -52,7 +66,7 @@
     display: flex;
     float: right;
     font-size: 11px;
-    margin: 2px;
+    margin: 10px;
   }
 
   .moreAnsweredBtn {
@@ -74,8 +88,8 @@
   }
 
   .answerModule {
-    margin: 5px;
-    padding: 5px;
+    margin: 2px;
+    padding: 2px;
   }
 
   .answerInfo {
@@ -84,13 +98,16 @@
   }
 
   .answerContainer {
-    max-height: 101px;
+    max-height: 90px;
+    height: 20%;
     overflow-y: auto;
+    margin-left: 5px;
   }
   .answerReport {
     display: flex;
     margin: 2px;
     font-size: 13px;
+    font-weight: bold;
   }
 
   .answerHelpful {
@@ -98,6 +115,57 @@
     margin: 2px;
     font-size: 13px;
     text-decoration: underline;
+  }
+
+  .loadAnswers {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .collapseAnswers {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .answerModal {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 90%;
+    height: 50%;
+    outline: solid;
+    outline-color: black;;
+
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: white;
+    /* Fallback color */
+    /* Black w/ opacity */
+    display: flex;
+  }
+
+  .answerForm {
+    width: 100%;
+  }
+
+  .answerModalTitle {
+    text-align: center;
+    font-weight: bold;
+    margin: 4px;
+    padding: 4px;
+  }
+
+  .answerModalQuestion {
+    margin: 4px;
+    padding: 4px;
+  }
+
+  .answerModalAnswer {
+    margin: 4px;
+    padding: 4px;
   }
 
 }
