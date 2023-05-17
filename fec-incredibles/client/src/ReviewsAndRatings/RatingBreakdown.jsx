@@ -36,12 +36,14 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
     <div className="" id="rating-breakdown">
 
       <div className="breakdown-summary">
-        <h1 className="breakdown-heading">{Number(avgRating).toFixed(1)}</h1>
+        <h1 className="breakdown-heading" data-testid="avg-rating">
+          {Number(avgRating).toFixed(1)}
+        </h1>
         <StarRating rating={avgRating} />
       </div>
 
       <br />
-      <div>
+      <div data-testid="recommended">
         {percentRecommended()}% of reviews recommend this product
       </div>
 
@@ -50,7 +52,8 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
       {['5', '4', '3', '2', '1'].map((rating, idx) => {
         return (
           <div className="breakdown-by-star" key={idx}
-            onClick={() => handleToggleFilter(rating)}>
+            onClick={() => handleToggleFilter(rating)}
+            data-testid={`rating-bar-${rating}`}>
             <i>{rating} stars</i>
             <div className="breakdown-bar">
               <div className="bar" style={{ width: `${breakdownByStar(rating)}%` }}>
@@ -63,15 +66,15 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
 
       <br />
       {filters.length > 0 && (
-          <div className="filters-container">
-            Filters:
-            {filters.map((rating, idx) =>
-              <i key={idx} onClick={() => handleToggleFilter(rating)}>
-                {rating} stars ✘
-              </i>
-            )}
-            <button onClick={handleClearFilter}>Clear all filters</button>
-          </div>
+        <div className="filters-container">
+          Filters:
+          {filters.map((rating, idx) =>
+            <i key={idx} onClick={() => handleToggleFilter(rating)}>
+              {rating} stars ✘
+            </i>
+          )}
+          <button onClick={handleClearFilter}>Clear all filters</button>
+        </div>
       )}
 
     </div>

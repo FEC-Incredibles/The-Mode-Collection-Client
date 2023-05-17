@@ -40,7 +40,7 @@ const Reviews = ({ reviewsMeta }) => {
     }
 
     const removeReview = (reviewID) => {
-        let result = reviews.filter(review =>
+        let result = filteredReviews.filter(review =>
             review.review_id !== reviewID)
         updateFilteredReviews(result);
     }
@@ -66,7 +66,7 @@ const Reviews = ({ reviewsMeta }) => {
             })
             .catch(error =>
                 console.log('Error getting reviews inside module 🤕', error))
-    }, [sort])
+    }, [sort, reviewsMeta])
 
     useEffect(() => {
         updateFilteredReviews(orderedReviews);
@@ -88,7 +88,7 @@ const Reviews = ({ reviewsMeta }) => {
 
 
     return (
-        <div className="widget" id="review-module">
+        <div className="widget" id="review-module" data-testid="review-module">
             <h3>RATINGS & REVIEWS </h3>
 
             <div className="col-25">

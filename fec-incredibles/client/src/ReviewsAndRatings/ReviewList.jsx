@@ -20,7 +20,7 @@ const ReviewList = ({ reviews, removeReview, currentDisplay, handleClickMoreRevi
       )}
 
       {currentDisplay.length > 0 && (
-        <div className="scrollable-list">
+        <div className="scrollable-list" data-testid="list">
           {currentDisplay.map((review, idx) =>
             <ReviewTile
               review={review} key={idx} removeReview={removeReview} />
@@ -39,7 +39,7 @@ const ReviewList = ({ reviews, removeReview, currentDisplay, handleClickMoreRevi
       <button onClick={toggleCreateMode} > Add New Review </button>
 
       {createMode && (
-        <div className="modal">
+        <div className="modal" data-testid="modal">
           <div className="modal-content">
             <button onClick={toggleCreateMode}> ❌ </button>
             <form className="form-new-review">
