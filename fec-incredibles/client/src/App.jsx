@@ -10,7 +10,7 @@ import { getAvgRating, emptyMeta } from './ReviewsAndRatings/helper.js';
 
 
 const App = () => {
-  const [currentItemID, setCurrentItemID] = useState(37315);
+  const [currentItemID, setCurrentItemID] = useState(37325);
   const [currentItem, setCurrentItem] = useState();
   const [typedID, setTypedID] = useState();
   const [currentAvgRating, setCurrentAvgRating] = useState(0);
@@ -110,3 +110,4 @@ const App = () => {
 };
 
 export default App;
+
