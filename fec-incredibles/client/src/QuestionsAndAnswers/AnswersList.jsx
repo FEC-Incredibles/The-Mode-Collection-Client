@@ -1,29 +1,76 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import Answers from './Answers.jsx';
+import axios from 'axios';
+import AddAnswer from './AddAnswer.jsx';
 
-const AnswersList = ({question}) => {
-  if (Object.keys(question.answers).length >= 2) {
-    var answers = Object.keys(question.answers).map((answer, index) => {
-      return answer;
-    })
-    var firstTwo = [question.answers[answers[0]], question.answers[answers[1]]];
-  } else {
-    var firstTwo = Object.keys(question.answers).map((answer, index) => {
-      return answer;
-    })
-  }
+const AnswersList = ({question, questionHelpful, setQuestionHelpful}) => {
+  const [answerList, setAnswerList] = useState([]);
+  const [answerDisplay, setAnswerDisplay] = useState([]);
+  const [helpfulAnswer, setHelpfulAnswer] = useState(0);
+  const [questionVoted, setQuestionVoted] = useState(false);
+  const [loadClicked, setLoadClicked] = useState(false);
+  const [addAnswer, setAddAnswer] = useState(false);
 
-  return (
-    <div className='answerContainer'>
-      <div className='question'>Q: {question.question_body} <button className='helpful'>helpful? {question.question_helpfulness}</button> <button className='addanswerbtn'>Add Answer</button></div>
-        <div>{firstTwo.map((answer, index) => {
-          return (<div key={index} className='answer'>
-          <div>A: {answer.body}</div>
-          <div className='userDate'>by: {answer.answerer_name} on {answer.date}</div>
-          </div>)
+    useEffect(() => {
+      axios.get(`/qa/questions/${question.question_id}/answers`)
+        .then((response) => {
+          setAnswerList(response.data.results);
+        })
+        .catch((err) => {
+          console.log('ERR GETTING ANSWERS LIST', err)
+        })
+      }, [question, helpfulAnswer])
+
+    useEffect(() => {
+      if (!loadClicked) {
+        setAnswerDisplay(answerList.slice(0, 2))
+      } else {
+        setAnswerDisplay(answerList.slice(0))
+      }
+    }, [answerList, loadClicked])
+
+    const handleQHelpful = (questionID) => {
+      axios.put(`/qa/questions/${questionID}/helpful`, {
+        body: questionID
+      })
+      .then((response) => {
+        console.log('updated QHelpful')
+        setQuestionVoted(true);
+        setQuestionHelpful(questionHelpful + 1)
+      })
+      .catch((err) => {
+        console.log('ERROR PUTING QHELPFUL', err)
+      })
+    }
+
+    const handleLoadMoreAnswers = () => {
+      setLoadClicked(true);
+    }
+
+    const handleCollapseAnswers = () => {
+      setLoadClicked(false);
+    }
+
+    const handleAddAnswer = () => {
+      setAddAnswer(true);
+    }
+
+
+    return (
+      <div className='oneQuestion'>
+        <div className='question'>Q: {question.question_body}
+        <div className='addanswerbtn' onClick={handleAddAnswer}>Add Answer</div>
+        {!questionVoted ? <div className='helpful' onClick={() => {handleQHelpful(question.question_id)}}>Helpful? Yes {question.question_helpfulness}</div>
+        : <div className='helpful'>Helpful? Yes {question.question_helpfulness}</div>}
+      </div>
+        {addAnswer && (<AddAnswer />)}
+        <div className='answerContainer'>{answerDisplay.map((answer, index) => {
+          return (<Answers answer={answer} key={index} helpfulAnswer={helpfulAnswer} setHelpfulAnswer={setHelpfulAnswer}/>)
         })}</div>
-        <button>load more answers</button>
-    </div>
-  )
+        {answerList.length > 2 && (!loadClicked ? <div className='loadAnswers' onClick={handleLoadMoreAnswers}>load more answers</div>
+        : <div className='collapseAnswers' onClick={handleCollapseAnswers}>Collapse Answers</div>)}
+      </div>
+    )
 }
 
 export default AnswersList;

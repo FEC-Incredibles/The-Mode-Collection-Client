@@ -101,17 +101,35 @@ app.get('/relatedItems', (req, res) => {
   })
 })
 
-app.get('/qa/questions/:id', (req, res) => {
-  //console.log('this is param ', req.params.id);
-  store.getProductQuestions(req.params.id)
-    .then((response) => {
-      //console.log(response);
-      res.status(200).json(response.data);
-    })
-    .catch((err) => {
-      console.log('ERR GETTING QUESTIONS FROM DB ', err)
-    })
-})
+// app.get('/qa/questions/:id', (req, res) => {
+//   //console.log('this is param ', req.params.id);
+//   store.getProductQuestions(req.params.id)
+//     .then((response) => {
+//       //console.log(response);
+//       res.status(200).json(response.data);
+//     })
+//     .catch((err) => {
+//       console.log('ERR GETTING QUESTIONS FROM DB ', err)
+//     })
+// })
+
+// app.put('/qa/questions/:id/helpful', (req, res) => {
+//   console.log('this is the request object', req.params.id);
+//   store.putProductHelpful(req.params.id)
+//     .then((response) => {
+//       console.log('PUT QHelpful');
+//     })
+//     .catch((err) => {
+//       console.log('ERR PUTING HELPFUL FOR QUESTION ', err)
+//     })
+// })
+
+// app.get('/qa/questions/:id', (req, res) => {
+// })
+
+app.all('/qa/questions*', store.questions);
+
+app.all('/qa/answers*', store.answers);
 
 
 app.all('/reviews*', store.reviews);

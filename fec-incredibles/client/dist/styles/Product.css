@@ -30,10 +30,13 @@
   max-height: 150px;
   background-color: #A8D1D1; }
 
+<<<<<<< HEAD
 .dropdown-item {
   padding: 5px;
   cursor: pointer; }
 
+=======
+>>>>>>> fc67e9d (working on add answer)
 .stylesContainer {
   display: flex;
   flex-direction: row;

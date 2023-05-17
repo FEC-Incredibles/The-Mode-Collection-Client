@@ -1,6 +1,13 @@
 #QA {
   display: flex;
   flex-flow: column wrap;
+  max-height: 800px;
+  max-width: 800px;
+  width: 100%;
+
+  .questionEntry {
+    overflow-y: auto;
+  }
 
   .pageTitle {
     margin: 8px;
@@ -18,16 +25,18 @@
     height: auto;
   }
 
-  .answerContainer {
+  .oneQuestion {
     //border: 1px solid grey;
     padding: 8px;
     margin: 10px;
     height: auto;
   }
   .helpful {
-    width: 125px;
-    height: 25px;
-    font-size: 9px;
+    display: flex;
+    float: right;
+    font-size: 11px;
+    margin: 2px;
+    text-decoration: underline;
   }
   .buttons {
     align-self: center;
@@ -40,9 +49,10 @@
   }
 
   .addanswerbtn {
-    width: 125px;
-    height: 25px;
-    font-size: 10px;
+    display: flex;
+    float: right;
+    font-size: 11px;
+    margin: 2px;
   }
 
   .moreAnsweredBtn {
@@ -55,11 +65,39 @@
 
   .userDate {
     font-size: 13px;
+    margin: 2px;
   }
 
   .answer {
     padding: 8px;
     margin: 7px;
+  }
+
+  .answerModule {
+    margin: 5px;
+    padding: 5px;
+  }
+
+  .answerInfo {
+    display: flex;
+    width: 100%;
+  }
+
+  .answerContainer {
+    max-height: 101px;
+    overflow-y: auto;
+  }
+  .answerReport {
+    display: flex;
+    margin: 2px;
+    font-size: 13px;
+  }
+
+  .answerHelpful {
+    display: flex;
+    margin: 2px;
+    font-size: 13px;
+    text-decoration: underline;
   }
 
 }
