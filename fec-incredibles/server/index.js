@@ -48,7 +48,6 @@ app.get('/relatedItems', (req, res) => {
   let sortedData = [];
   let relatedIDs = JSON.parse(req.query.relatedIDs);
   let currentFeatures = JSON.parse(req.query.currentFeatures)
-  console.log(currentFeatures);
   let finish = () => {
     setTimeout(() => {
       res.json(sortedData);
@@ -57,7 +56,8 @@ app.get('/relatedItems', (req, res) => {
   relatedIDs.forEach((itemID, index) => {
     let id = itemID;
     let starred = false;
-    let category, productData, price, stars, primaryPhotoURL, features;
+    let comparedFeatures = {};
+    let category, productData, price, stars, primaryPhotoURL;
     store.getProductStyles(itemID)
     .then((element) => {
       let primaryPhotos = element.data.results.filter(style => style['default?'] === true)
@@ -72,7 +72,17 @@ app.get('/relatedItems', (req, res) => {
       category = element.data.category;
       productData = element.data.slogan;
       price = element.data.default_price;
-      features = element.data.features;
+      let incomingFeatures = element.data.features;
+      for (var i = 0; i < incomingFeatures.length; i++) {
+        comparedFeatures[incomingFeatures[i]["feature"]] = [null, incomingFeatures[i].value];
+      }
+      for (var key in currentFeatures) {
+        if (comparedFeatures[key] === undefined) {
+          comparedFeatures[key] = [currentFeatures[key], null];
+        } else {
+          comparedFeatures[key][0] = currentFeatures[key]
+        }
+      }
       return store.getReviewMeta(itemID);
     })
     .then((element) => {
@@ -87,7 +97,7 @@ app.get('/relatedItems', (req, res) => {
       if (stars === NaN) {
         stars = 3;
       }
-      // if (category && productData && price && stars && primaryPhotoURL) {
+      if (category && productData && price && stars && primaryPhotoURL) {
         sortedData.push({
           "id": itemID,
           "starred": true,
@@ -95,9 +105,10 @@ app.get('/relatedItems', (req, res) => {
           "category": category,
           "productData": productData,
           "price": ('$' + String(price)),
-          "stars": String(stars)
+          "stars": String(stars),
+          "comparedFeatures": comparedFeatures
         })
-      //}
+      }
       if (index === relatedIDs.length - 1) {
         finish()
       }
