@@ -47,6 +47,7 @@ app.get('/products/:id/related', (req, res) => {
 app.get('/relatedItems', (req, res) => {
   let sortedData = [];
   let relatedIDs = JSON.parse(req.query.relatedIDs);
+  console.log(req.query);
   let finish = () => {
     res.json(sortedData);
   }
@@ -54,7 +55,7 @@ app.get('/relatedItems', (req, res) => {
   relatedIDs.forEach((itemID, index) => {
     let id = itemID;
     let starred = false;
-    let category, productData, price, stars, primaryPhotoURL;
+    let category, productData, price, stars, primaryPhotoURL, features;
     store.getProductStyles(itemID)
     .then((element) => {
       let primaryPhotos = element.data.results.filter(style => style['default?'] === true)
@@ -69,6 +70,7 @@ app.get('/relatedItems', (req, res) => {
       category = element.data.category;
       productData = element.data.slogan;
       price = element.data.default_price;
+      features = element.data.features;
       return store.getReviewMeta(itemID);
     })
     .then((element) => {
