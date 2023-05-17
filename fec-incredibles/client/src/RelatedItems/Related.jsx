@@ -23,9 +23,9 @@ const Related = ({ currentItemID, module }) => {
           });
         })
         .then((element) => {
-          let incomingFeatures = element.data.feature;
-          for (var i = 0; i <= incomingFeatures.length; i++) {
-            details[incomingFeatures[i].feature] = incomingFeatures[i].value;
+          let incomingFeatures = element.data.features;
+          for (var i = 0; i < incomingFeatures.length; i++) {
+            details[incomingFeatures[i]["feature"]] = incomingFeatures[i].value;
           }
           return axios({
             method: "get",
