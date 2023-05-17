@@ -47,11 +47,13 @@ app.get('/products/:id/related', (req, res) => {
 app.get('/relatedItems', (req, res) => {
   let sortedData = [];
   let relatedIDs = JSON.parse(req.query.relatedIDs);
-  console.log(req.query);
+  let currentFeatures = JSON.parse(req.query.currentFeatures)
+  console.log(currentFeatures);
   let finish = () => {
-    res.json(sortedData);
+    setTimeout(() => {
+      res.json(sortedData);
+    }, 400);
   }
-
   relatedIDs.forEach((itemID, index) => {
     let id = itemID;
     let starred = false;
@@ -82,7 +84,10 @@ app.get('/relatedItems', (req, res) => {
         totalScore += (i * Number(element.data.ratings[String(i)]));
       }
       stars = Math.floor(totalScore / numReview)
-      if (category && productData && price && stars && primaryPhotoURL) {
+      if (stars === NaN) {
+        stars = 3;
+      }
+      // if (category && productData && price && stars && primaryPhotoURL) {
         sortedData.push({
           "id": itemID,
           "starred": true,
@@ -92,7 +97,7 @@ app.get('/relatedItems', (req, res) => {
           "price": ('$' + String(price)),
           "stars": String(stars)
         })
-      }
+      //}
       if (index === relatedIDs.length - 1) {
         finish()
       }
