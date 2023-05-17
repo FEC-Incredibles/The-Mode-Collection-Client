@@ -7,26 +7,26 @@ const Related = ({ currentItemID, module }) => {
   const [activeItem, setActiveItem] = useState(0);
   const [relatedProducts, setRelatedProducts] = useState(testData);
 
-  // useEffect(() => {
-  //   if (currentItemID) {
-  //     axios({
-  //       method: "get",
-  //       url: `/products/${currentItemID}/related`,
-  //     })
-  //       .then((element) => {
-  //         return axios({
-  //           method: "get",
-  //           url: `/relatedItems/?relatedIDs=${JSON.stringify(element.data)}`,
-  //         });
-  //       })
-  //       .then((element) => {
-  //         setRelatedProducts(element.data);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // }, [currentItemID]);
+  useEffect(() => {
+    if (currentItemID) {
+      axios({
+        method: "get",
+        url: `/products/${currentItemID}/related`,
+      })
+        .then((element) => {
+          return axios({
+            method: "get",
+            url: `/relatedItems/?relatedIDs=${JSON.stringify(element.data)}&currentID=${currentItemID}`,
+          });
+        })
+        .then((element) => {
+          setRelatedProducts(element.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [currentItemID]);
 
   const updateItem = (newItem) => {
     if (newItem < 0) {
@@ -62,7 +62,7 @@ const Related = ({ currentItemID, module }) => {
         <div className="relatedCarousel">
           <div
             className="viewPort"
-            style={{ transform: `translateY(-${activeItem * 28}%)` }}
+            style={{ transform: `translateY(-${activeItem * 25}%)` }}
           >
             {relatedProducts.map((item, index) => {
               return <Card item={item} key={index} />;
