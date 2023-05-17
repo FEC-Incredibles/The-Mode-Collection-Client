@@ -4,7 +4,6 @@ import Product from './ProductOverview/Product.jsx'
 import Questions from './QuestionsAndAnswers/Questions.jsx'
 import Related from './RelatedItems/Related.jsx'
 import Reviews from './ReviewsAndRatings/Reviews.jsx'
-import ProductDetailsExtra from './ProductOverview/ProductDetailsExtra.jsx';
 
 import { getAvgRating, emptyMeta } from './ReviewsAndRatings/helper.js';
 
