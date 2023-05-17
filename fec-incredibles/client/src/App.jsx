@@ -4,7 +4,6 @@ import Product from './ProductOverview/Product.jsx'
 import Questions from './QuestionsAndAnswers/Questions.jsx'
 import Related from './RelatedItems/Related.jsx'
 import Reviews from './ReviewsAndRatings/Reviews.jsx'
-import ProductDetailsExtra from './ProductOverview/ProductDetailsExtra.jsx';
 
 import { getAvgRating, emptyMeta } from './ReviewsAndRatings/helper.js';
 
@@ -51,16 +50,15 @@ const App = () => {
   }
   return (
     <div id="main">
-      <div >
-        <img  src='https://i.pinimg.com/736x/a7/af/d9/a7afd91574d49720996cf0ea8b938cf4.jpg'></img>
-        <p >MODE COLLECTION</p>
-        <p >the clothing store for incredible people</p>
+      <div id='logo-container'>
+        <img id='logo-image' src='https://i.pinimg.com/736x/a7/af/d9/a7afd91574d49720996cf0ea8b938cf4.jpg'></img>
+        <div id='logo-text'>
+          <h1 >MODE COLLECTION</h1>
+          <p >clothing for incredible people</p>
+        </div>
       </div>
       <div id="productRelated">
-        <div className='widget'>
-          <Product currentItem={currentItem} averageRating={currentAvgRating} outfit={outfit} setOutfit={setOutfit}/>
-          <ProductDetailsExtra productDetails={currentItem}/>
-        </div>
+        <Product currentItem={currentItem} averageRating={currentAvgRating} outfit={outfit} setOutfit={setOutfit}/>
         <Related currentItemID={currentItemID} />
       </div>
       <div id="questionsOutfit">

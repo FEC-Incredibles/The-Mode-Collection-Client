@@ -21,11 +21,10 @@ const ProductImages = ({ selectedStyleData }) => {
 //	2 + 4 = 6th image
 	return (
 		<div id="imageContainer">
-			<p>{selectedImageIndex}</p>
-			<ExtraImages photos={selectedStyleData.photos} setSelectedImage={setSelectedImage} />
-			<div style={{'position': 'absolute', 'zIndex':'2', 'bottom':'35%', 'width':'43.8%', 'display':'flex', 'flexDirection':'row', 'justifyContent':'space-between'}}>
+			<ExtraImages photos={selectedStyleData.photos} setSelectedImage={setSelectedImage} setSelectedImageIndex={setSelectedImageIndex} selectedImageIndex={selectedImageIndex}/>
+			<div className="images-arrows">
 				{selectedImageIndex > 0 ? <div onClick={() => {console.log('left arrow was clicked'); setSelectedImageIndex(selectedImageIndex - 1); setSelectedImage(selectedStyleData.photos[selectedImageIndex].url)}}>
-					<LeftArrowIcon />
+					<LeftArrowIcon/>
 				</div> : null}
 				{selectedImageIndex < selectedStyleData.photos.length - 1 ? <div onClick={() => {console.log('right arrow was clicked'); setSelectedImageIndex(selectedImageIndex + 1); setSelectedImage(selectedStyleData.photos[selectedImageIndex].url)}}>
 				<RightArrowIcon />

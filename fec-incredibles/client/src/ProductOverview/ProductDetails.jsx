@@ -9,8 +9,11 @@ const ProductDetails = ({ productDetails, selectedStyleData }) => {
 	// );
 	return (
 		<div>
-			<h1>product name {productDetails.name}</h1>
-			<h2>product category {productDetails.category}</h2>
+			<h2>{productDetails.category}</h2>
+			<hr/>
+			<h1>{productDetails.name}</h1>
+			<hr/>
+
 			{stylePrice ? (
 				salePrice ? (
 					<>

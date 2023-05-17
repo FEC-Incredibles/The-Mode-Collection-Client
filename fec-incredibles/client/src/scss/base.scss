@@ -40,6 +40,9 @@ body {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
+  img{
+    user-select: none;
+  }
   #productRelated {
     display: flex;
     flex-flow: row nowrap;
@@ -59,5 +62,21 @@ body {
     box-shadow: 20px 20px rgb(0, 0, 0), inset  20px 20px black, inset -4px -4px red, 4px 4px yellow;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+  }
+  #logo-container{
+    display: flex;
+    flex-direction: row;
+    #logo-image {
+      width: 190px;
+      height: 190px;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+    }
+    #logo-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8px;
+    }
   }
 }

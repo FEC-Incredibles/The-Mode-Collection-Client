@@ -5,6 +5,8 @@ import StylePicker from "./StylePicker.jsx";
 import ProductImages from "./ProductImages.jsx";
 import AddToOutfit from "./AddToOutfit.jsx";
 import StarRating from '../StarRating.jsx'
+import ProductDetailsExtra from './ProductDetailsExtra.jsx';
+
 
 const Product = ({ currentItem, averageRating, outfit, setOutfit}) => {
 	const [styles, setStyles] = useState();
@@ -34,21 +36,24 @@ const Product = ({ currentItem, averageRating, outfit, setOutfit}) => {
 	}
 
 	return (
-		<div id="product">
-			<ProductImages selectedStyleData={selectedStyle} />
+		<div className="widget" id="product">
 			<div className="product-details-container">
-				<StarRating rating={averageRating}/>
-				<ProductDetails productDetails={currentItem} selectedStyleData={selectedStyle} />
-				<div className="product-style-container">
-					<h2 data-testid='style'>STYLE →{selectedStyle.name}</h2>
-					<StylePicker
-						selectedStyleData={selectedStyle}
-						styles={styles}
-						setter={setSelectedStyle}
-						/>
-					<AddToOutfit selectedStyleData={selectedStyle} outfit={outfit} setOutfit={setOutfit}/>
+			<ProductImages selectedStyleData={selectedStyle} />
+				<div className="flex-col">
+					<StarRating rating={averageRating}/>
+					<ProductDetails productDetails={currentItem} selectedStyleData={selectedStyle} />
+					<div className="product-style-container">
+						<h3 data-testid='style'>STYLE →{selectedStyle.name}</h3>
+						<StylePicker
+							selectedStyleData={selectedStyle}
+							styles={styles}
+							setter={setSelectedStyle}
+							/>
+						<AddToOutfit selectedStyleData={selectedStyle} />
+					</div>
 				</div>
 			</div>
+			<ProductDetailsExtra productDetails={currentItem}/>
 		</div>
 	);
 };
