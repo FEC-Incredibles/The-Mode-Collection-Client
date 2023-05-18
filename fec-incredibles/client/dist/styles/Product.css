@@ -9,10 +9,9 @@
   flex-direction: row; }
 
 .dropdown-container {
-  background-color: #A8D1D1;
-  width: 33%;
+  background-color: #323638;
   text-align: left;
-  border: 1px solid #ccc;
+  border: 1px solid #F9D949;
   position: relative;
   border-radius: 5px; }
 
@@ -24,20 +23,25 @@
   justify-content: space-between;
   user-select: none; }
 
-.dorpdown-menu {
+.dropdown-menu {
   position: absolute;
   z-index: 4;
   transform: translateY(4px);
   width: 100%;
-  border: 1px solid #ccc;
   border-radius: 5px;
-  overflow: auto;
+  overflow-y: scroll;
   max-height: 150px;
-  background-color: #A8D1D1; }
+  background-color: #323638; }
 
-.dropdown-item {
-  padding: 5px;
-  cursor: pointer; }
+.add-to-outfit-button {
+  background-color: #E5707E;
+  color: #252525;
+  width: 87px;
+  height: 25px;
+  display: flex;
+  border: 2px solid #F9D949;
+  border-radius: 20%;
+  justify-content: center; }
 
 .stylesContainer {
   display: flex;
@@ -51,11 +55,14 @@
   display: flex;
   justify-content: center; }
 
+.share-icon {
+  color: #E5707E; }
+
 .dropdown-item:hover {
-  background-color: #919191; }
+  background-color: #E5707E; }
 
 .dropdown-item.selected {
-  background-color: #919191;
+  background-color: #c4636e;
   color: #fff; }
 
 .images-styles {
@@ -72,6 +79,10 @@
   display: flex;
   flex-direction: row; }
 
+.share {
+  padding: 5px;
+  text-decoration: none; }
+
 .images-extra-carousel {
   display: flex;
   flex-direction: column;
@@ -80,26 +91,32 @@
   transition: transform 0.5s; }
 
 .images-styles.selected {
-  border: 8px solid #919191; }
+  border: 8px solid #E5707E; }
 
 .images-row {
   position: absolute;
   display: flex;
   flex-flow: column nowrap;
   z-index: 1;
-  padding: 5px; }
+  padding: 5px;
+  top: 15%; }
 
 #imageContainer {
   padding: 15px; }
 
-.images-arrows {
+.hidden {
+  visibility: hidden; }
+
+.image-arrow-right {
   position: absolute;
-  z-index: 2;
-  bottom: 35%;
-  width: 43.8%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; }
+  z-index: 5;
+  top: 55%;
+  right: 50%; }
+
+.image-arrow-left {
+  position: absolute;
+  z-index: 5;
+  top: 55%; }
 
 .images-main {
   max-width: 500px;
@@ -116,6 +133,9 @@
   aspect-ratio: 1/1;
   margin: 5px;
   object-fit: cover; }
+
+.images-extra.selected {
+  border: 3px solid #E5707E; }
 
 .modal {
   position: fixed;

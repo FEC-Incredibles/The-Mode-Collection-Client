@@ -2,9 +2,11 @@
 
 body {
   // background-image: url("../imgs/background.webp");
-  background-color: #b2a4ff;
+  // background-color: #b2a4ff;
+  background-color: rgb(50, 54, 56);
   display: flex;
   flex-flow: column nowrap;
+  color: #e8e6e3;
 }
 
 #root {
@@ -29,14 +31,23 @@ body {
   h3, h4, h5 {
     font-family: 'Oswald', sans-serif;
   }
-  p, a {
+  p {
     font-family: 'Cousine', monospace;
   }
+  a {
+    font-family: 'Cousine', monospace;
+    text-decoration: none;
+    color: #e8e6e3;
+  }
+
   .widget {
     margin: 2rem;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.3);
-    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    // box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    // red #E5707E
+    // yellow #F9D949
+    box-shadow: rgb(100,100,100) 20px 20px, rgb(100,100,100) 20px 20px inset, #E5707E -4px -4px inset,  #F9D949 4px 4px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
@@ -59,7 +70,7 @@ body {
     margin: 2rem;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.3);
-    box-shadow: 20px 20px rgb(0, 0, 0), inset  20px 20px black, inset -4px -4px red, 4px 4px yellow;
+    box-shadow: rgb(100,100,100) 20px 20px, rgb(100,100,100) 20px 20px inset, #E5707E -4px -4px inset,  #F9D949 4px 4px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }

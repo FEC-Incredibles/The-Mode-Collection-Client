@@ -9,7 +9,7 @@ import { getTotalNumOfReviews, getAvgRating, emptyMeta } from './ReviewsAndRatin
 
 
 const App = () => {
-  const [currentItemID, setCurrentItemID] = useState(37325);
+  const [currentItemID, setCurrentItemID] = useState(37315);
   const [currentItem, setCurrentItem] = useState();
   const [typedID, setTypedID] = useState();
   const [currentAvgRating, setCurrentAvgRating] = useState(0);
