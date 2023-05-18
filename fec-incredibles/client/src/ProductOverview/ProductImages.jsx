@@ -27,9 +27,9 @@ const ProductImages = ({ selectedStyleData }) => {
   const turnOffExpandedView = () => {
     setExpandedView(false);
   };
-  window.addEventListener("click", turnOffExpandedView);
 
   useEffect(() => {
+    window.addEventListener("click", turnOffExpandedView);
     setStartWindow(0)
     setEndWindow(4)
     selectedStyleData.photos[0].url
@@ -37,6 +37,9 @@ const ProductImages = ({ selectedStyleData }) => {
       : setSelectedImage(
           "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
         );
+        return () => {
+          window.removeEventListener("click", turnOffExpandedView);
+        }
   }, [selectedStyleData.photos]);
   //index plus selected image index
   // so like 0 + 0 = first image, 0 + 1 = second image,
@@ -57,7 +60,6 @@ const ProductImages = ({ selectedStyleData }) => {
         <div
           className="image-arrow-left"
           onClick={() => {
-            console.log("left arrow was clicked", selectedImageIndex, startWindow);
             setSelectedImageIndex((previousIndex) => (previousIndex - 1));
             setSelectedImage(selectedStyleData.photos[selectedImageIndex - 1].url);
 						if (selectedImageIndex === startWindow) {
@@ -72,7 +74,6 @@ const ProductImages = ({ selectedStyleData }) => {
         <div
           className="image-arrow-right"
           onClick={() => {
-            console.log("right arrow was clicked", selectedImageIndex, endWindow);
             setSelectedImageIndex((previousIndex) => (previousIndex + 1));
             setSelectedImage(selectedStyleData.photos[selectedImageIndex + 1].url);
 						if (selectedImageIndex === endWindow-1){
@@ -84,15 +85,12 @@ const ProductImages = ({ selectedStyleData }) => {
         </div>
       ) : null}
       {/* main image */}
-      <img
-        className="images-main"
-        src={selectedImage}
-        onClick={turnOnExpandedView}
-      ></img>
+      <img className="images-main" src={selectedImage} onClick={turnOnExpandedView}></img>
+
+      {/* modal pop up image */}
       {expandedView && (
-        <div className="modal">
-          <div className="modal-content">
-            {/* <button onClick={turnOffExpandedView}> ❌ </button> */}
+        <div className="expanded-image-modal">
+          <div className="expanded-image-modal-content">
             <img src={selectedImage}></img>
           </div>
         </div>

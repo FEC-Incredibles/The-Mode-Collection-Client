@@ -28,11 +28,7 @@ const ExtraImages = ({ photos, setSelectedImage, selectedImage, setSelectedImage
 							))}
 						</div>
 						{selectedImageIndex < photos.length-1 ? <DownArrowIcon CSSclass='centered' clickEvent={() => {setActiveWindow(activeWindow + 1)}}></DownArrowIcon> : null} */}
-						{startWindow === 0 ? (
-							<UpArrowIcon CSSclass='hidden' />
-						) : (
-							<UpArrowIcon CSSclass='centered' clickEvent={moveWindowUp}/>
-							)}
+						{startWindow === 0 ? (<UpArrowIcon CSSclass='hidden' />) : (<UpArrowIcon CSSclass='centered' clickEvent={moveWindowUp}/>)}
 						{photos.slice(startWindow, endWindow).map((photo, index) => (
 							<img
 							key={index}
@@ -44,11 +40,7 @@ const ExtraImages = ({ photos, setSelectedImage, selectedImage, setSelectedImage
 							src={photo.url}
 							></img>
 							))}
-						{endWindow === photos.length ? (
-							<DownArrowIcon CSSclass='hidden'/>
-						) : (
-							<DownArrowIcon CSSclass='centered' clickEvent={moveWindowDown}/>
-							)}
+						{endWindow === photos.length ? (<DownArrowIcon CSSclass='hidden'/>) : (<DownArrowIcon CSSclass='centered' clickEvent={moveWindowDown}/>)}
 					</div>
 				)
 			) : null}

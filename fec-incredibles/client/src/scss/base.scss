@@ -74,6 +74,19 @@ body {
     box-shadow: rgb(100,100,100) 20px 20px, rgb(100,100,100) 20px 20px inset, #E5707E -4px -4px inset,  #F9D949 4px 4px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    button{
+      width: 75px;
+      background-color: #E5707E;
+    }
+    input{
+      background-color: #646464;
+      color:#e8e6e3;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
   #logo-container{
     display: flex;
