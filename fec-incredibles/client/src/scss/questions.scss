@@ -53,15 +53,18 @@
     font-size: 11px;
     margin: 10px;
     text-decoration: underline;
+    cursor: pointer;
   }
   .buttons {
     align-self: center;
+    cursor: pointer;
   }
 
   .helpbtn {
     width: 100px;
     height: 25px;
     font-size: 10px;
+    cursor: pointer;
   }
 
   .addanswerbtn {
@@ -69,14 +72,17 @@
     float: right;
     font-size: 11px;
     margin: 10px;
+    cursor: pointer;
   }
 
   .moreAnsweredBtn {
     width: 250px;
+    cursor: pointer;
   }
 
   .addQuestionBtn {
     width: 250px;
+    cursor: pointer;
   }
 
   .userDate {
@@ -110,6 +116,7 @@
     margin: 2px;
     font-size: 13px;
     font-weight: bold;
+    cursor: pointer;
   }
 
   .answerHelpful {
@@ -117,6 +124,7 @@
     margin: 2px;
     font-size: 13px;
     text-decoration: underline;
+    cursor: pointer;
   }
 
   .loadAnswers {

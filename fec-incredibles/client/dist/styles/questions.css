@@ -36,22 +36,28 @@
     float: right;
     font-size: 11px;
     margin: 10px;
-    text-decoration: underline; }
+    text-decoration: underline;
+    cursor: pointer; }
   #QA .buttons {
-    align-self: center; }
+    align-self: center;
+    cursor: pointer; }
   #QA .helpbtn {
     width: 100px;
     height: 25px;
-    font-size: 10px; }
+    font-size: 10px;
+    cursor: pointer; }
   #QA .addanswerbtn {
     display: flex;
     float: right;
     font-size: 11px;
-    margin: 10px; }
+    margin: 10px;
+    cursor: pointer; }
   #QA .moreAnsweredBtn {
-    width: 250px; }
+    width: 250px;
+    cursor: pointer; }
   #QA .addQuestionBtn {
-    width: 250px; }
+    width: 250px;
+    cursor: pointer; }
   #QA .userDate {
     font-size: 13px;
     margin: 2px; }
@@ -73,12 +79,14 @@
     display: flex;
     margin: 2px;
     font-size: 13px;
-    font-weight: bold; }
+    font-weight: bold;
+    cursor: pointer; }
   #QA .answerHelpful {
     display: flex;
     margin: 2px;
     font-size: 13px;
-    text-decoration: underline; }
+    text-decoration: underline;
+    cursor: pointer; }
   #QA .loadAnswers {
     margin-left: 10px;
     font-weight: bold;
