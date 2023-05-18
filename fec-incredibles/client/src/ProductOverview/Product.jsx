@@ -40,7 +40,10 @@ const Product = ({ currentItem, averageRating, outfit, setOutfit}) => {
 			<div className="product-details-container">
 			<ProductImages selectedStyleData={selectedStyle} />
 				<div className="flex-col">
-					<StarRating rating={averageRating}/>
+					<div className="flex-row">
+						<StarRating rating={averageRating}/>
+						<a href="#review-module"> read all reviews</a>
+					</div>
 					<ProductDetails productDetails={currentItem} selectedStyleData={selectedStyle} />
 					<div className="product-style-container">
 						<h3 data-testid='style'>STYLE →{selectedStyle.name}</h3>
@@ -50,6 +53,11 @@ const Product = ({ currentItem, averageRating, outfit, setOutfit}) => {
 							setter={setSelectedStyle}
 							/>
 						<AddToOutfit selectedStyleData={selectedStyle} />
+						<ul className="flex-row">
+								<li className="share"><a href="http://twitter.com/share?text=[title]"><i className="fa-brands fa-twitter"></i></a></li>
+								<li className="share"><a href="http://www.facebook.com/sharer.php?u=/node/[nid]&p=[title]"><i className="fa-brands fa-facebook"></i></a></li>
+								<li className="share"><a href="http://pinterest.com/pin/create/button/?url=/node/[nid]&description=[title]"><i className="fa-brands fa-pinterest"></i></a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
