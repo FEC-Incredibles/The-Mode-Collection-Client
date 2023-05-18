@@ -37,6 +37,19 @@
           max-width: 200px;
           aspect-ratio: 1 / 1;
           object-fit: cover; }
+      .brianWidget .relatedCarousel .viewPort .moreDetails {
+        z-index: 1;
+        visibility: hidden;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: start;
+        justify-content: center;
+        padding: 2em; }
+        .brianWidget .relatedCarousel .viewPort .moreDetails .row {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: space-between; }
       .brianWidget .relatedCarousel .viewPort .starred {
         padding: 10px;
         position: absolute;

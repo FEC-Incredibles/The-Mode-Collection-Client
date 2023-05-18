@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MoreDetails from "./MoreDetails.jsx"
 
 export default function Card({ item }) {
   let filledStar = "☆";
@@ -12,8 +13,7 @@ export default function Card({ item }) {
       )}
       <img src={item.imgURL} />
       <div className="info">
-        <h3>{item.category}</h3>
-        <p>{JSON.stringify(item.comparedFeatures)}</p>
+        <h2 style={{"fontSize": "28px"}}>{item.category}</h2>
         <h3>{item.productData}</h3>
         <h3>{item.price}</h3>
         <div className="stars">
@@ -22,6 +22,7 @@ export default function Card({ item }) {
           </h3>
         </div>
       </div>
+      <MoreDetails ComparedFeatures={item.comparedFeatures}/>
     </div>
   );
 }
