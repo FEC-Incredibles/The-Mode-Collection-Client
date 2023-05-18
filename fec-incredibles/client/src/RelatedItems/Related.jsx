@@ -1,32 +1,58 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card.jsx";
 import axios from "axios";
-import testData from "./ExampleData/relatedProducts.json"
+import testData from "./ExampleData/relatedProducts.json";
+import DownArrowIcon from "../SVGs/DownArrowIcon.jsx"
+import UpArrowIcon from "../SVGs/UpArrowIcon.jsx"
 
-const Related = ({ currentItemID, module }) => {
+const Related = ({ currentItemID, type, outfit, setOutfit }) => {
   const [activeItem, setActiveItem] = useState(0);
-  const [relatedProducts, setRelatedProducts] = useState(testData);
+  const [relatedProducts, setRelatedProducts] = useState([]);
 
-  // useEffect(() => {
-  //   if (currentItemID) {
-  //     axios({
-  //       method: "get",
-  //       url: `/products/${currentItemID}/related`,
-  //     })
-  //       .then((element) => {
-  //         return axios({
-  //           method: "get",
-  //           url: `/relatedItems/?relatedIDs=${JSON.stringify(element.data)}`,
-  //         });
-  //       })
-  //       .then((element) => {
-  //         setRelatedProducts(element.data);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // }, [currentItemID]);
+  useEffect(() => {
+    let related;
+    let details = {};
+    if (currentItemID) {
+      axios({
+        method: "get",
+        url: `/products/${currentItemID}/related`,
+      })
+        .then((element) => {
+          related = element.data;
+          return axios({
+            method: "get",
+            url: `/products/${currentItemID}`,
+          });
+        })
+        .then((element) => {
+          let incomingFeatures = element.data.features;
+          for (var i = 0; i < incomingFeatures.length; i++) {
+            details[incomingFeatures[i]["feature"]] = incomingFeatures[i].value;
+          }
+          if(type === 'Related') {
+            return axios({
+              method: "get",
+              url: `/relatedItems/?relatedIDs=${JSON.stringify(
+                related
+              )}&currentFeatures=${JSON.stringify(details)}`,
+            });
+          } else {
+            return axios({
+              method: "get",
+              url: `/relatedItems/?relatedIDs=${JSON.stringify(
+                outfit
+              )}&currentFeatures=${JSON.stringify(details)}`,
+            });
+          }
+        })
+        .then((element) => {
+          setRelatedProducts(element.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [currentItemID]);
 
   const updateItem = (newItem) => {
     if (newItem < 0) {
@@ -38,55 +64,55 @@ const Related = ({ currentItemID, module }) => {
   };
   return (
     <div className="widget brianWidget" id={module}>
-      <h1>Related Products</h1>
+      <h1>{type} Products</h1>
       <div className="carouselItems">
         {activeItem > 0 ? (
-          <button
+          <div
             id="backClick"
             className="navButtons"
             onClick={() => {
               updateItem(activeItem - 1);
             }}
           >
-            Backward
-          </button>
+            <UpArrowIcon />
+          </div>
         ) : (
-          <button
+          <div
             id="backClick"
             className="navButtons"
             style={{ visibility: "hidden" }}
           >
-            Backward
-          </button>
+            <UpArrowIcon />
+          </div>
         )}
         <div className="relatedCarousel">
           <div
             className="viewPort"
-            style={{ transform: `translateY(-${activeItem * 28}%)` }}
+            style={{ transform: `translateY(-${activeItem * 40}%)` }}
           >
             {relatedProducts.map((item, index) => {
               return <Card item={item} key={index} />;
             })}
           </div>
         </div>
-        {(activeItem <= relatedProducts.length / 2 - 1) ? (
-          <button
+        {activeItem <= relatedProducts.length / 2 - 1 ? (
+          <div
             id="forwardClick"
             className="navButtons"
             onClick={() => {
               updateItem(activeItem + 1);
             }}
           >
-            Forward
-          </button>
+            <DownArrowIcon />
+          </div>
         ) : (
-          <button
+          <div
             id="forwardClick"
             className="navButtons"
             style={{ visibility: "hidden" }}
           >
-            Forward
-          </button>
+            <DownArrowIcon />
+          </div>
         )}
       </div>
     </div>

@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const store = require('./StoreAPI.js');
+const {getAvgRating} = require("../client/src/ReviewsAndRatings/helper.js")
 
 let app = express();
 
@@ -47,13 +48,16 @@ app.get('/products/:id/related', (req, res) => {
 app.get('/relatedItems', (req, res) => {
   let sortedData = [];
   let relatedIDs = JSON.parse(req.query.relatedIDs);
+  let currentFeatures = JSON.parse(req.query.currentFeatures)
   let finish = () => {
-    res.json(sortedData);
+    setTimeout(() => {
+      res.json(sortedData);
+    }, 400);
   }
-
   relatedIDs.forEach((itemID, index) => {
     let id = itemID;
     let starred = false;
+    let comparedFeatures = {};
     let category, productData, price, stars, primaryPhotoURL;
     store.getProductStyles(itemID)
     .then((element) => {
@@ -69,17 +73,21 @@ app.get('/relatedItems', (req, res) => {
       category = element.data.category;
       productData = element.data.slogan;
       price = element.data.default_price;
+      let incomingFeatures = element.data.features;
+      for (var i = 0; i < incomingFeatures.length; i++) {
+        comparedFeatures[incomingFeatures[i]["feature"]] = [false, incomingFeatures[i].value];
+      }
+      for (var key in currentFeatures) {
+        if (comparedFeatures[key] === undefined) {
+          comparedFeatures[key] = [currentFeatures[key], false];
+        } else {
+          comparedFeatures[key][0] = currentFeatures[key]
+        }
+      }
       return store.getReviewMeta(itemID);
     })
     .then((element) => {
-      //console.log(element.data)
-      let numReview = 0;
-      let totalScore = 0;
-      for(var i = 1; i <= 5; i++) {
-        numReview += Number(element.data.ratings[String(i)]);
-        totalScore += (i * Number(element.data.ratings[String(i)]));
-      }
-      stars = Math.floor(totalScore / numReview)
+      stars = getAvgRating(element.data)
       if (category && productData && price && stars && primaryPhotoURL) {
         sortedData.push({
           "id": itemID,
@@ -88,7 +96,8 @@ app.get('/relatedItems', (req, res) => {
           "category": category,
           "productData": productData,
           "price": ('$' + String(price)),
-          "stars": String(stars)
+          "stars": String(stars),
+          "comparedFeatures": comparedFeatures
         })
       }
       if (index === relatedIDs.length - 1) {
