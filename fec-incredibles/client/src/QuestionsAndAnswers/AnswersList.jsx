@@ -12,7 +12,7 @@ const AnswersList = ({question, questionHelpful, setQuestionHelpful}) => {
   const [addAnswer, setAddAnswer] = useState(false);
 
     useEffect(() => {
-      axios.get(`/qa/questions/${question.question_id}/answers`)
+      axios.get(`/qa/questions/${question.question_id}/answers?count=10`)
         .then((response) => {
           setAnswerList(response.data.results);
         })
@@ -22,7 +22,6 @@ const AnswersList = ({question, questionHelpful, setQuestionHelpful}) => {
       }, [question, helpfulAnswer])
 
     useEffect(() => {
-      if (!answerList) return;
       if (!loadClicked) {
         setAnswerDisplay(answerList.slice(0, 2))
       } else {
@@ -69,7 +68,7 @@ const AnswersList = ({question, questionHelpful, setQuestionHelpful}) => {
             </div>
           </div>
         </div>
-        {addAnswer && (<AddAnswer currentQuestion={question.question_body}/>)}
+        {addAnswer && (<AddAnswer currentQuestion={question} setAnswerList={setAnswerList} setAddAnswer={setAddAnswer} addAnswer={addAnswer}/>)}
         <div className='answerContainer'>{answerDisplay.map((answer, index) => {
           return (<Answers answer={answer} key={index} helpfulAnswer={helpfulAnswer} setHelpfulAnswer={setHelpfulAnswer} />)
         })}</div>

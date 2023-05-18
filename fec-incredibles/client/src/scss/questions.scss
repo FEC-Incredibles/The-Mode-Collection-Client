@@ -1,14 +1,15 @@
 #QA {
   display: flex;
   flex-flow: column nowrap;
-  max-height: 900px;
-  max-width: 1200px;
-  min-height: 600px;
-  min-height: 800px;
+  max-height: 800px;
+  width: 1000px;
+  min-height: 500px;
+  cursor: default;
+
 
   .questionContainer {
     overflow-y: auto;
-    max-height: 760px;
+    max-height: 600px;
   }
 
   .questionHelpful {
@@ -37,6 +38,7 @@
     margin: 5px;
     font-weight: bold;
     height: auto;
+    max-width: 725px;
   }
 
   .oneQuestion {
@@ -51,15 +53,18 @@
     font-size: 11px;
     margin: 10px;
     text-decoration: underline;
+    cursor: pointer;
   }
   .buttons {
     align-self: center;
+    cursor: pointer;
   }
 
   .helpbtn {
     width: 100px;
     height: 25px;
     font-size: 10px;
+    cursor: pointer;
   }
 
   .addanswerbtn {
@@ -67,14 +72,17 @@
     float: right;
     font-size: 11px;
     margin: 10px;
+    cursor: pointer;
   }
 
   .moreAnsweredBtn {
     width: 250px;
+    cursor: pointer;
   }
 
   .addQuestionBtn {
     width: 250px;
+    cursor: pointer;
   }
 
   .userDate {
@@ -98,7 +106,7 @@
   }
 
   .answerContainer {
-    max-height: 90px;
+    max-height: 120px;
     height: 20%;
     overflow-y: auto;
     margin-left: 5px;
@@ -108,6 +116,7 @@
     margin: 2px;
     font-size: 13px;
     font-weight: bold;
+    cursor: pointer;
   }
 
   .answerHelpful {
@@ -115,6 +124,7 @@
     margin: 2px;
     font-size: 13px;
     text-decoration: underline;
+    cursor: pointer;
   }
 
   .loadAnswers {
@@ -134,8 +144,6 @@
     z-index: 10;
     left: 0;
     top: 0;
-    width: 90%;
-    height: 50%;
     outline: solid;
     outline-color: black;;
 
@@ -148,12 +156,21 @@
   }
 
   .answerForm {
-    width: 100%;
+    min-height: 30vh;
+    min-width: 80vh;
+
+    margin: 0 1rem 1rem 1rem 1rem;
+    padding: 2rem;
+    background:  rgb(50, 54, 56);
+    box-shadow: rgb(100,100,100) 20px 20px, rgb(100,100,100) 20px 20px inset, #E5707E -4px -4px inset,  #F9D949 4px 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .answerModalTitle {
     text-align: center;
     font-weight: bold;
+    font-size: 20px;
     margin: 4px;
     padding: 4px;
   }
@@ -164,8 +181,93 @@
   }
 
   .answerModalAnswer {
-    margin: 4px;
-    padding: 4px;
+    margin: 5px 0;
+    padding: 5px;
+    height: 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .answerModalInput {
+    margin: 5px 0;
+    padding: 5px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .answerSubmitBtn {
+    margin: 10px;
+    display: flex;
+    float: right;
+  }
+
+  .answerCancel {
+    margin: 10px;
+    display: flex;
+    float: left;
+  }
+
+  .questionModal {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    outline: solid;
+    outline-color: black;;
+
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: white;
+    /* Fallback color */
+    /* Black w/ opacity */
+    display: flex;
+  }
+
+  .questionForm {
+    min-height: 30vh;
+    min-width: 80vh;
+
+    margin: 0 1rem 1rem 1rem 1rem;
+    padding: 2rem;
+    background:  rgb(50, 54, 56);
+    box-shadow: rgb(100,100,100) 20px 20px, rgb(100,100,100) 20px 20px inset, #E5707E -4px -4px inset,  #F9D949 4px 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .questionModalQuestion {
+    margin: 5px 0;
+    padding: 5px;
+    height: 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .questionModalInput {
+      margin: 5px 0;
+      padding: 5px;
+      width: 500px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+  }
+
+  .questionSubmitBtn {
+    margin: 10px;
+    display: flex;
+    float: right;
+  }
+
+  .questionCancel {
+    margin: 10px;
+    display: flex;
+    float: left;
   }
 
 }

@@ -10,12 +10,13 @@ const ProductImages = ({ selectedStyleData }) => {
 	const [startWindow, setStartWindow] = useState(0)
 	const [endWindow, setEndWindow] = useState(4)
 
+
 	const moveWindowUp = () => {
-		setStartWindow(startWindow - 1);
+    setStartWindow(startWindow - 1);
 		setEndWindow(endWindow - 1);
 	}
 	const moveWindowDown = () => {
-		setStartWindow(startWindow + 1);
+    setStartWindow(startWindow + 1);
 		setEndWindow(endWindow + 1);
 	}
 
@@ -29,6 +30,8 @@ const ProductImages = ({ selectedStyleData }) => {
   window.addEventListener("click", turnOffExpandedView);
 
   useEffect(() => {
+    setStartWindow(0)
+    setEndWindow(4)
     selectedStyleData.photos[0].url
       ? setSelectedImage(selectedStyleData.photos[0].url)
       : setSelectedImage(
@@ -40,7 +43,6 @@ const ProductImages = ({ selectedStyleData }) => {
   //	2 + 4 = 6th image
   return (
     <div id="imageContainer">
-			<p>{selectedImageIndex}</p>
       <ExtraImages
         photos={selectedStyleData.photos}
         selectedImage={selectedImage}
@@ -90,7 +92,7 @@ const ProductImages = ({ selectedStyleData }) => {
       {expandedView && (
         <div className="modal">
           <div className="modal-content">
-            <button onClick={turnOffExpandedView}> ❌ </button>
+            {/* <button onClick={turnOffExpandedView}> ❌ </button> */}
             <img src={selectedImage}></img>
           </div>
         </div>

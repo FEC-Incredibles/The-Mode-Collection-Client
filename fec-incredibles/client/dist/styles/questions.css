@@ -1,13 +1,13 @@
 #QA {
   display: flex;
   flex-flow: column nowrap;
-  max-height: 900px;
-  max-width: 1200px;
-  min-height: 600px;
-  min-height: 800px; }
+  max-height: 800px;
+  width: 1000px;
+  min-height: 500px;
+  cursor: default; }
   #QA .questionContainer {
     overflow-y: auto;
-    max-height: 760px; }
+    max-height: 600px; }
   #QA .questionHelpful {
     display: flex;
     flex-flow: row nowrap;
@@ -25,7 +25,8 @@
   #QA .question {
     margin: 5px;
     font-weight: bold;
-    height: auto; }
+    height: auto;
+    max-width: 725px; }
   #QA .oneQuestion {
     padding: 5px;
     margin: 5px;
@@ -35,22 +36,28 @@
     float: right;
     font-size: 11px;
     margin: 10px;
-    text-decoration: underline; }
+    text-decoration: underline;
+    cursor: pointer; }
   #QA .buttons {
-    align-self: center; }
+    align-self: center;
+    cursor: pointer; }
   #QA .helpbtn {
     width: 100px;
     height: 25px;
-    font-size: 10px; }
+    font-size: 10px;
+    cursor: pointer; }
   #QA .addanswerbtn {
     display: flex;
     float: right;
     font-size: 11px;
-    margin: 10px; }
+    margin: 10px;
+    cursor: pointer; }
   #QA .moreAnsweredBtn {
-    width: 250px; }
+    width: 250px;
+    cursor: pointer; }
   #QA .addQuestionBtn {
-    width: 250px; }
+    width: 250px;
+    cursor: pointer; }
   #QA .userDate {
     font-size: 13px;
     margin: 2px; }
@@ -64,7 +71,7 @@
     display: flex;
     width: 100%; }
   #QA .answerContainer {
-    max-height: 90px;
+    max-height: 120px;
     height: 20%;
     overflow-y: auto;
     margin-left: 5px; }
@@ -72,12 +79,14 @@
     display: flex;
     margin: 2px;
     font-size: 13px;
-    font-weight: bold; }
+    font-weight: bold;
+    cursor: pointer; }
   #QA .answerHelpful {
     display: flex;
     margin: 2px;
     font-size: 13px;
-    text-decoration: underline; }
+    text-decoration: underline;
+    cursor: pointer; }
   #QA .loadAnswers {
     margin-left: 10px;
     font-weight: bold;
@@ -91,8 +100,6 @@
     z-index: 10;
     left: 0;
     top: 0;
-    width: 90%;
-    height: 50%;
     outline: solid;
     outline-color: black;
     overflow: auto;
@@ -102,15 +109,88 @@
     /* Black w/ opacity */
     display: flex; }
   #QA .answerForm {
-    width: 100%; }
+    min-height: 30vh;
+    min-width: 80vh;
+    margin: 0 1rem 1rem 1rem 1rem;
+    padding: 2rem;
+    background: #323638;
+    box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); }
   #QA .answerModalTitle {
     text-align: center;
     font-weight: bold;
+    font-size: 20px;
     margin: 4px;
     padding: 4px; }
   #QA .answerModalQuestion {
     margin: 4px;
     padding: 4px; }
   #QA .answerModalAnswer {
-    margin: 4px;
-    padding: 4px; }
+    margin: 5px 0;
+    padding: 5px;
+    height: 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+  #QA .answerModalInput {
+    margin: 5px 0;
+    padding: 5px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+  #QA .answerSubmitBtn {
+    margin: 10px;
+    display: flex;
+    float: right; }
+  #QA .answerCancel {
+    margin: 10px;
+    display: flex;
+    float: left; }
+  #QA .questionModal {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    outline: solid;
+    outline-color: black;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: white;
+    /* Fallback color */
+    /* Black w/ opacity */
+    display: flex; }
+  #QA .questionForm {
+    min-height: 30vh;
+    min-width: 80vh;
+    margin: 0 1rem 1rem 1rem 1rem;
+    padding: 2rem;
+    background: #323638;
+    box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); }
+  #QA .questionModalQuestion {
+    margin: 5px 0;
+    padding: 5px;
+    height: 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+  #QA .questionModalInput {
+    margin: 5px 0;
+    padding: 5px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+  #QA .questionSubmitBtn {
+    margin: 10px;
+    display: flex;
+    float: right; }
+  #QA .questionCancel {
+    margin: 10px;
+    display: flex;
+    float: left; }
