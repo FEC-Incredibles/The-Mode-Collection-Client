@@ -38,6 +38,10 @@ const AddAnswer = ({currentQuestion, setAnswerList, addAnswer, setAddAnswer}) =>
       })
   }
 
+  const handleCancel = () => {
+    setAddAnswer(false);
+  }
+
   useEffect(() => {
     axios.get(`/qa/questions/${currentQuestion.question_id}/answers?count=10`)
       .then((response) => {
@@ -58,7 +62,7 @@ const AddAnswer = ({currentQuestion, setAnswerList, addAnswer, setAddAnswer}) =>
             <label>{currentQuestion.question_body}</label>
           </div>
           <div>
-            <input onChange={handleAnswerAnswer} className='answerModalInput' placeholder='Your Answer'/>
+            <input onChange={handleAnswerAnswer} className='answerModalAnswer' placeholder='Your Answer'/>
           </div>
           <div>
             <input onChange={handleAnswerNickname} className='answerModalInput' placeholder='Your Nickname'/>
@@ -67,7 +71,7 @@ const AddAnswer = ({currentQuestion, setAnswerList, addAnswer, setAddAnswer}) =>
             <input onChange={handleAnswerEmail} className='answerModalInput' placeholder='Your Email'/>
           </div>
           <div>
-            <button onClick={handleAnswerSubmit} >Submit</button>
+            <button onClick={handleCancel} className='answerCancel'>Cancel</button><button onClick={handleAnswerSubmit} className='answerSubmitBtn'>Submit</button>
           </div>
         </form>
     </div>

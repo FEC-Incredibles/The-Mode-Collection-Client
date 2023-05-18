@@ -35,6 +35,11 @@ const AddQuestion = ({currentItemID, setAddQuestion, addQuestion, setQuestionLis
     })
   }
 
+
+  const handleQuestionCancel = () => {
+    setAddQuestion(false);
+  }
+
   useEffect(() => {
     axios.get(`/qa/questions/?product_id=${currentItemID}&count=100`)
       .then((response) => {
@@ -51,7 +56,7 @@ const AddQuestion = ({currentItemID, setAddQuestion, addQuestion, setQuestionLis
             <div>Submit Your Question</div>
           </div>
           <div>
-            <input onChange={handleQuestionInput} className='questionModalInput' placeholder='Your Question'/>
+            <input onChange={handleQuestionInput} className='questionModalQuestion' placeholder='Your Question'/>
           </div>
           <div>
             <input onChange={handleQuestionNickname} className='questionModalInput' placeholder='Your Nickname'/>
@@ -61,7 +66,7 @@ const AddQuestion = ({currentItemID, setAddQuestion, addQuestion, setQuestionLis
             <label>For authentication reasons you will not be emailed.</label>
           </div>
           <div>
-            <button onClick={handleQuestionSubmit} >Submit</button>
+          <button onClick={handleQuestionCancel} className='questionCancel'>Cancel</button><button onClick={handleQuestionSubmit} className='questionSubmitBtn' >Submit</button>
           </div>
         </form>
     </div>

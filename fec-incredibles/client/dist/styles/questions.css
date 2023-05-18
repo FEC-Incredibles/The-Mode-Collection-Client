@@ -25,7 +25,8 @@
   #QA .question {
     margin: 5px;
     font-weight: bold;
-    height: auto; }
+    height: auto;
+    max-width: 725px; }
   #QA .oneQuestion {
     padding: 5px;
     margin: 5px;
@@ -64,7 +65,7 @@
     display: flex;
     width: 100%; }
   #QA .answerContainer {
-    max-height: 90px;
+    max-height: 120px;
     height: 20%;
     overflow-y: auto;
     margin-left: 5px; }
@@ -91,8 +92,6 @@
     z-index: 10;
     left: 0;
     top: 0;
-    width: 90%;
-    height: 50%;
     outline: solid;
     outline-color: black;
     overflow: auto;
@@ -102,25 +101,51 @@
     /* Black w/ opacity */
     display: flex; }
   #QA .answerForm {
-    width: 100%; }
+    min-height: 30vh;
+    min-width: 80vh;
+    margin: 0 1rem 1rem 1rem 1rem;
+    padding: 2rem;
+    background: #b2a4ff;
+    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); }
   #QA .answerModalTitle {
     text-align: center;
     font-weight: bold;
+    font-size: 20px;
     margin: 4px;
     padding: 4px; }
   #QA .answerModalQuestion {
     margin: 4px;
     padding: 4px; }
+  #QA .answerModalAnswer {
+    margin: 5px 0;
+    padding: 5px;
+    height: 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
   #QA .answerModalInput {
-    margin: 4px;
-    padding: 4px; }
+    margin: 5px 0;
+    padding: 5px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+  #QA .answerSubmitBtn {
+    margin: 10px;
+    display: flex;
+    float: right; }
+  #QA .answerCancel {
+    margin: 10px;
+    display: flex;
+    float: left; }
   #QA .questionModal {
     position: fixed;
     z-index: 10;
     left: 0;
     top: 0;
-    width: 90%;
-    height: 50%;
     outline: solid;
     outline-color: black;
     overflow: auto;
@@ -129,3 +154,35 @@
     /* Fallback color */
     /* Black w/ opacity */
     display: flex; }
+  #QA .questionForm {
+    min-height: 30vh;
+    min-width: 80vh;
+    margin: 0 1rem 1rem 1rem 1rem;
+    padding: 2rem;
+    background: #b2a4ff;
+    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); }
+  #QA .questionModalQuestion {
+    margin: 5px 0;
+    padding: 5px;
+    height: 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+  #QA .questionModalInput {
+    margin: 5px 0;
+    padding: 5px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+  #QA .questionSubmitBtn {
+    margin: 10px;
+    display: flex;
+    float: right; }
+  #QA .questionCancel {
+    margin: 10px;
+    display: flex;
+    float: left; }

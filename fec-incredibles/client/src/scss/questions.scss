@@ -38,6 +38,7 @@
     margin: 5px;
     font-weight: bold;
     height: auto;
+    max-width: 725px;
   }
 
   .oneQuestion {
@@ -99,7 +100,7 @@
   }
 
   .answerContainer {
-    max-height: 90px;
+    max-height: 120px;
     height: 20%;
     overflow-y: auto;
     margin-left: 5px;
@@ -135,8 +136,6 @@
     z-index: 10;
     left: 0;
     top: 0;
-    width: 90%;
-    height: 50%;
     outline: solid;
     outline-color: black;;
 
@@ -149,12 +148,21 @@
   }
 
   .answerForm {
-    width: 100%;
+    min-height: 30vh;
+    min-width: 80vh;
+
+    margin: 0 1rem 1rem 1rem 1rem;
+    padding: 2rem;
+    background: #b2a4ff;
+    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .answerModalTitle {
     text-align: center;
     font-weight: bold;
+    font-size: 20px;
     margin: 4px;
     padding: 4px;
   }
@@ -164,10 +172,35 @@
     padding: 4px;
   }
 
+  .answerModalAnswer {
+    margin: 5px 0;
+    padding: 5px;
+    height: 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 
   .answerModalInput {
-    margin: 4px;
-    padding: 4px;
+    margin: 5px 0;
+    padding: 5px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .answerSubmitBtn {
+    margin: 10px;
+    display: flex;
+    float: right;
+  }
+
+  .answerCancel {
+    margin: 10px;
+    display: flex;
+    float: left;
   }
 
   .questionModal {
@@ -175,8 +208,6 @@
     z-index: 10;
     left: 0;
     top: 0;
-    width: 90%;
-    height: 50%;
     outline: solid;
     outline-color: black;;
 
@@ -187,5 +218,49 @@
     /* Black w/ opacity */
     display: flex;
   }
+
+  .questionForm {
+    min-height: 30vh;
+    min-width: 80vh;
+
+    margin: 0 1rem 1rem 1rem 1rem;
+    padding: 2rem;
+    background: #b2a4ff;
+    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .questionModalQuestion {
+    margin: 5px 0;
+    padding: 5px;
+    height: 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .questionModalInput {
+      margin: 5px 0;
+      padding: 5px;
+      width: 500px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+  }
+
+  .questionSubmitBtn {
+    margin: 10px;
+    display: flex;
+    float: right;
+  }
+
+  .questionCancel {
+    margin: 10px;
+    display: flex;
+    float: left;
+  }
+
 }
 
