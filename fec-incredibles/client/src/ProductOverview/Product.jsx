@@ -42,7 +42,7 @@ const Product = ({ currentItem, averageRating, outfit, setOutfit}) => {
 				<div className="flex-col">
 					<div className="flex-row">
 						<StarRating rating={averageRating}/>
-						<a href="#review-module"> read all reviews</a>
+						<a id='reviews-link' href="#review-module"> read all reviews</a>
 					</div>
 					<ProductDetails productDetails={currentItem} selectedStyleData={selectedStyle} />
 					<div className="product-style-container">
@@ -54,9 +54,9 @@ const Product = ({ currentItem, averageRating, outfit, setOutfit}) => {
 							/>
 						<AddToOutfit selectedStyleData={selectedStyle} />
 						<ul className="flex-row">
-								<li className="share"><a href="http://twitter.com/share?text=[title]"><i className="fa-brands fa-twitter"></i></a></li>
-								<li className="share"><a href="http://www.facebook.com/sharer.php?u=/node/[nid]&p=[title]"><i className="fa-brands fa-facebook"></i></a></li>
-								<li className="share"><a href="http://pinterest.com/pin/create/button/?url=/node/[nid]&description=[title]"><i className="fa-brands fa-pinterest"></i></a></li>
+								<li className="share"><a className="share-icon" href="http://twitter.com/share?text=[title]"><i className="fa-brands fa-twitter"></i></a></li>
+								<li className="share"><a className="share-icon" href="http://www.facebook.com/sharer.php?u=/node/[nid]&p=[title]"><i className="fa-brands fa-facebook"></i></a></li>
+								<li className="share"><a className="share-icon" href="http://pinterest.com/pin/create/button/?url=/node/[nid]&description=[title]"><i className="fa-brands fa-pinterest"></i></a></li>
 						</ul>
 					</div>
 				</div>

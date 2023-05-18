@@ -25,7 +25,7 @@
       align-items: center;
       transition: transform 0.5s; }
       .brianWidget .relatedCarousel .viewPort .Card {
-        background-color: whitesmoke;
+        background-color: #323638;
         display: flex;
         flex-flow: column nowrap;
         max-width: 80%;

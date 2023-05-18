@@ -9,10 +9,9 @@
   flex-direction: row; }
 
 .dropdown-container {
-  background-color: #A8D1D1;
-  width: 33%;
+  background-color: #323638;
   text-align: left;
-  border: 1px solid #ccc;
+  border: 1px solid #F9D949;
   position: relative;
   border-radius: 5px; }
 
@@ -32,7 +31,17 @@
   border-radius: 5px;
   overflow-y: scroll;
   max-height: 150px;
-  background-color: #A8D1D1; }
+  background-color: #323638; }
+
+.add-to-outfit-button {
+  background-color: #E5707E;
+  color: #252525;
+  width: 87px;
+  height: 25px;
+  display: flex;
+  border: 2px solid #F9D949;
+  border-radius: 20%;
+  justify-content: center; }
 
 .stylesContainer {
   display: flex;
@@ -46,11 +55,14 @@
   display: flex;
   justify-content: center; }
 
+.share-icon {
+  color: #E5707E; }
+
 .dropdown-item:hover {
-  background-color: #6e8f8f; }
+  background-color: #E5707E; }
 
 .dropdown-item.selected {
-  background-color: #8fa5a5;
+  background-color: #c4636e;
   color: #fff; }
 
 .images-styles {
@@ -79,7 +91,7 @@
   transition: transform 0.5s; }
 
 .images-styles.selected {
-  border: 8px solid #6e8f8f; }
+  border: 8px solid #E5707E; }
 
 .images-row {
   position: absolute;
@@ -123,7 +135,7 @@
   object-fit: cover; }
 
 .images-extra.selected {
-  border: 3px solid #A8D1D1; }
+  border: 3px solid #E5707E; }
 
 .modal {
   position: fixed;

@@ -2,9 +2,7 @@ import {useState} from "react";
 import UpArrowIcon from '../SVGs/UpArrowIcon.jsx'
 import DownArrowIcon from '../SVGs/DownArrowIcon.jsx'
 
-const ExtraImages = ({ photos, setSelectedImage, selectedImage, selectedImageIndex, setSelectedImageIndex }) => {
-	const [startWindow, setStartWindow] = useState(0)
-	const [endWindow, setEndWindow] = useState(4)
+const ExtraImages = ({ photos, setSelectedImage, selectedImage, setSelectedImageIndex, startWindow, endWindow, moveWindowUp, moveWindowDown }) => {
 	return (
 		<div className="images-row">
 			{photos.length > 1 ? (
@@ -33,10 +31,7 @@ const ExtraImages = ({ photos, setSelectedImage, selectedImage, selectedImageInd
 						{startWindow === 0 ? (
 							<UpArrowIcon CSSclass='hidden' />
 						) : (
-							<UpArrowIcon CSSclass='centered' clickEvent={() => {
-								setStartWindow(startWindow - 1);
-								setEndWindow(endWindow - 1);
-							}}/>
+							<UpArrowIcon CSSclass='centered' clickEvent={moveWindowUp}/>
 							)}
 						{photos.slice(startWindow, endWindow).map((photo, index) => (
 							<img
@@ -44,16 +39,13 @@ const ExtraImages = ({ photos, setSelectedImage, selectedImage, selectedImageInd
 							className={`images-extra ${selectedImage === photo.url && "selected"}`}
 							onClick={(e) => {
 								setSelectedImage(photo.url);
-								setSelectedImageIndex(index)
+								setSelectedImageIndex((prevIndex) => (startWindow + index))
 							}}
 							src={photo.url}
 							></img>
 							))}
 						{endWindow === photos.length - 1 ? null : (
-							<DownArrowIcon CSSclass='centered' clickEvent={() => {
-								setStartWindow(startWindow + 1);
-								setEndWindow(endWindow + 1);
-							}}/>
+							<DownArrowIcon CSSclass='centered' clickEvent={moveWindowDown}/>
 							)}
 					</div>
 				)

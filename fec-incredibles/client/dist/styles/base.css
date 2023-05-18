@@ -1,8 +1,9 @@
 @use "./utils/vars.scss";
 body {
-  background-color: #b2a4ff;
+  background-color: #323638;
   display: flex;
-  flex-flow: column nowrap; }
+  flex-flow: column nowrap;
+  color: #e8e6e3; }
 
 #root {
   display: flex;
@@ -23,13 +24,17 @@ body {
     font-size: 50px; }
   #main h3, #main h4, #main h5 {
     font-family: 'Oswald', sans-serif; }
-  #main p, #main a {
+  #main p {
     font-family: 'Cousine', monospace; }
+  #main a {
+    font-family: 'Cousine', monospace;
+    text-decoration: none;
+    color: #e8e6e3; }
   #main .widget {
     margin: 2rem;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.3);
-    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px); }
   #main img {
@@ -48,7 +53,7 @@ body {
     margin: 2rem;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.3);
-    box-shadow: 20px 20px black, inset 20px 20px black, inset -4px -4px red, 4px 4px yellow;
+    box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px); }
   #main #logo-container {
