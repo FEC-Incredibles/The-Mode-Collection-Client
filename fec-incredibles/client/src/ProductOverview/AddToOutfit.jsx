@@ -74,10 +74,11 @@ const AddToOutfit = ({ selectedStyleData, outfit, setOutfit }) => {
 						/>
 				</div>
 			</div>
+      <p>{outfit}</p>
       {selectedQuantity && selectedSize && (
 				<div className="add-to-outfit-button"
 				onClick={() => {
-					outfit.indexOf(skuId) === -1 ? setOutfit([...outfit, skuId]) : null;
+					outfit.includes(skuId) ? null : setOutfit([...outfit, skuId]);
 				}}
         >
         <h3>add to outfit</h3>

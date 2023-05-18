@@ -3,7 +3,8 @@ body {
   background-color: #323638;
   display: flex;
   flex-flow: column nowrap;
-  color: #e8e6e3; }
+  color: #e8e6e3;
+  cursor: default; }
 
 #root {
   display: flex;
