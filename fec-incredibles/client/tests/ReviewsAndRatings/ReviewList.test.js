@@ -2,17 +2,21 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 
 import ReviewList from '../../src/ReviewsAndRatings/ReviewList.jsx';
-import { exampleReviews } from './exampleData';
+import { exampleReviews, exampleMeta } from './exampleData';
 
 describe("Review List with no reviews", () => {
   const handleClick = jest.fn();
   const removeReview = jest.fn();
+  const togglePostedReview = jest.fn()
 
   beforeEach(() => {
     render(<ReviewList
       reviews={exampleReviews} removeReview={removeReview}
       currentDisplay={[]}
-      handleClickMoreReview={handleClick} />)
+      characteristics={exampleReviews.characteristics}
+      reviewsMeta={exampleMeta}
+      handleClickMoreReview={handleClick}
+      togglePostedReview={togglePostedReview} />)
   })
 
   test("Should not render any reviews", () => {

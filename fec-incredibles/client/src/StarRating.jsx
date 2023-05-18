@@ -5,11 +5,13 @@ import React from 'react';
  * (required) numRating: a number
  * (optional) size: size of the stars in pixel, default = 18
  * (optional) color: color of the stars, default = Candlelight
+ * (optional) handler: handler for clicking on stars
  */
-const StarRating = ({ rating, size, color }) => {
+const StarRating = ({ rating, size, color, handler }) => {
 
   const starSize = size || 18;
   const starColor = color || "#fbd323";
+  const handleClick = handler || function(){};
 
   /**
    * Helper function
@@ -37,7 +39,8 @@ const StarRating = ({ rating, size, color }) => {
           key={idx}
           height={starSize} width={starSize}
           viewBox="0 0 24 24"
-          data-testid={`star:grad-${percent}-${starColor}`}>
+          data-testid={`star:grad-${percent}-${starColor}`}
+          onClick={() => handleClick(idx + 1) }>
           <defs>
             <linearGradient id={`grad-${percent}-${starColor}`}>
               <stop offset="0%" stopColor={starColor} />
