@@ -44,7 +44,9 @@ const ExtraImages = ({ photos, setSelectedImage, selectedImage, setSelectedImage
 							src={photo.url}
 							></img>
 							))}
-						{endWindow === photos.length - 1 ? null : (
+						{endWindow === photos.length ? (
+							<DownArrowIcon CSSclass='hidden'/>
+						) : (
 							<DownArrowIcon CSSclass='centered' clickEvent={moveWindowDown}/>
 							)}
 					</div>
