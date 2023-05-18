@@ -31,11 +31,22 @@
         background-color: rgb(50, 54, 56);
         display: flex;
         flex-flow: column nowrap;
-        max-width: 80%;
-        max-height: 100%;
+        width: 200px;
+        height: 360px;
         margin: 12px;
-        border: 2px solid lightgrey;
+        border: 3px solid lightgrey;
         border-radius: 6px;
+        .info {
+          padding: 10px;
+          height: 250px;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: space-between;
+          align-items: center;
+          height: 100%;
+          align-items: center;
+          text-align: center;
+        }
         img {
           max-width: 200px;
           aspect-ratio: 1 / 1;
@@ -44,7 +55,6 @@
       }
       .moreDetails {
         z-index: 1;
-        visibility: hidden;
         display: flex;
         flex-flow: column nowrap;
         align-items: start;
@@ -61,14 +71,6 @@
         padding: 10px;
         position: absolute;
         align-self: end;
-      }
-      .info {
-        padding: 10px;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: space-between;
-        height: 100%;
-        align-items: center;
       }
     }
   }

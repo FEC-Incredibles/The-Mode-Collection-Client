@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const store = require('./StoreAPI.js');
+const {getAvgRating} = require("../client/src/ReviewsAndRatings/helper.js")
 
 let app = express();
 
@@ -86,17 +87,7 @@ app.get('/relatedItems', (req, res) => {
       return store.getReviewMeta(itemID);
     })
     .then((element) => {
-      //console.log(element.data)
-      let numReview = 0;
-      let totalScore = 0;
-      for(var i = 1; i <= 5; i++) {
-        numReview += Number(element.data.ratings[String(i)]);
-        totalScore += (i * Number(element.data.ratings[String(i)]));
-      }
-      stars = Math.floor(totalScore / numReview)
-      if (stars === NaN) {
-        stars = 3;
-      }
+      stars = getAvgRating(element.data)
       if (category && productData && price && stars && primaryPhotoURL) {
         sortedData.push({
           "id": itemID,

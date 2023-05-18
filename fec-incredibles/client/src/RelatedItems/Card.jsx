@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MoreDetails from "./MoreDetails.jsx"
+import StarRating from "../StarRating.jsx"
 
 export default function Card({ item }) {
   let filledStar = "☆";
@@ -14,15 +15,15 @@ export default function Card({ item }) {
       <img src={item.imgURL} />
       <div className="info">
         <h2 style={{"fontSize": "28px"}}>{item.category}</h2>
-        <h3>{item.productData}</h3>
+        <p>{item.productData}</p>
         <h3>{item.price}</h3>
         <div className="stars">
           <h3>
-            {filledStar.repeat(item.stars) + emptyStar.repeat(5 - item.stars)}
+            <StarRating rating={item.stars} />
           </h3>
         </div>
       </div>
-      <MoreDetails ComparedFeatures={item.comparedFeatures}/>
+      {/* <MoreDetails ComparedFeatures={item.comparedFeatures}/> */}
     </div>
   );
 }

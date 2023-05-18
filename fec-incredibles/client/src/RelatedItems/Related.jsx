@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card.jsx";
 import axios from "axios";
 import testData from "./ExampleData/relatedProducts.json";
+import DownArrowIcon from "../SVGs/DownArrowIcon.jsx"
+import UpArrowIcon from "../SVGs/UpArrowIcon.jsx"
 
 const Related = ({ currentItemID, module }) => {
   const [activeItem, setActiveItem] = useState(0);
@@ -56,23 +58,23 @@ const Related = ({ currentItemID, module }) => {
       <h1>Related Products</h1>
       <div className="carouselItems">
         {activeItem > 0 ? (
-          <button
+          <div
             id="backClick"
             className="navButtons"
             onClick={() => {
               updateItem(activeItem - 1);
             }}
           >
-            Backward
-          </button>
+            <UpArrowIcon />
+          </div>
         ) : (
-          <button
+          <div
             id="backClick"
             className="navButtons"
             style={{ visibility: "hidden" }}
           >
-            Backward
-          </button>
+            <UpArrowIcon />
+          </div>
         )}
         <div className="relatedCarousel">
           <div
@@ -85,23 +87,23 @@ const Related = ({ currentItemID, module }) => {
           </div>
         </div>
         {activeItem <= relatedProducts.length / 2 - 1 ? (
-          <button
+          <div
             id="forwardClick"
             className="navButtons"
             onClick={() => {
               updateItem(activeItem + 1);
             }}
           >
-            Forward
-          </button>
+            <DownArrowIcon />
+          </div>
         ) : (
-          <button
+          <div
             id="forwardClick"
             className="navButtons"
             style={{ visibility: "hidden" }}
           >
-            Forward
-          </button>
+            <DownArrowIcon />
+          </div>
         )}
       </div>
     </div>
