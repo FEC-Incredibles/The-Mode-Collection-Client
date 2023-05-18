@@ -111,6 +111,21 @@
   #QA .answerModalQuestion {
     margin: 4px;
     padding: 4px; }
-  #QA .answerModalAnswer {
+  #QA .answerModalInput {
     margin: 4px;
     padding: 4px; }
+  #QA .questionModal {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 90%;
+    height: 50%;
+    outline: solid;
+    outline-color: black;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: white;
+    /* Fallback color */
+    /* Black w/ opacity */
+    display: flex; }

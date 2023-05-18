@@ -6,6 +6,7 @@
   min-height: 600px;
   min-height: 800px;
 
+
   .questionContainer {
     overflow-y: auto;
     max-height: 760px;
@@ -163,10 +164,28 @@
     padding: 4px;
   }
 
-  .answerModalAnswer {
+
+  .answerModalInput {
     margin: 4px;
     padding: 4px;
   }
 
+  .questionModal {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 90%;
+    height: 50%;
+    outline: solid;
+    outline-color: black;;
+
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: white;
+    /* Fallback color */
+    /* Black w/ opacity */
+    display: flex;
+  }
 }
 
