@@ -42,6 +42,21 @@
           object-fit: cover;
         }
       }
+      .moreDetails {
+        z-index: 1;
+        visibility: hidden;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: start;
+        justify-content: center;
+        padding: 2em;
+        .row {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
       .starred {
         padding: 10px;
         position: absolute;

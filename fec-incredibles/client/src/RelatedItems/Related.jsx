@@ -5,7 +5,7 @@ import testData from "./ExampleData/relatedProducts.json";
 
 const Related = ({ currentItemID, module }) => {
   const [activeItem, setActiveItem] = useState(0);
-  const [relatedProducts, setRelatedProducts] = useState(testData);
+  const [relatedProducts, setRelatedProducts] = useState([]);
 
   useEffect(() => {
     let related;
@@ -77,7 +77,7 @@ const Related = ({ currentItemID, module }) => {
         <div className="relatedCarousel">
           <div
             className="viewPort"
-            style={{ transform: `translateY(-${activeItem * 25}%)` }}
+            style={{ transform: `translateY(-${activeItem * 40}%)` }}
           >
             {relatedProducts.map((item, index) => {
               return <Card item={item} key={index} />;

@@ -74,11 +74,11 @@ app.get('/relatedItems', (req, res) => {
       price = element.data.default_price;
       let incomingFeatures = element.data.features;
       for (var i = 0; i < incomingFeatures.length; i++) {
-        comparedFeatures[incomingFeatures[i]["feature"]] = [null, incomingFeatures[i].value];
+        comparedFeatures[incomingFeatures[i]["feature"]] = [false, incomingFeatures[i].value];
       }
       for (var key in currentFeatures) {
         if (comparedFeatures[key] === undefined) {
-          comparedFeatures[key] = [currentFeatures[key], null];
+          comparedFeatures[key] = [currentFeatures[key], false];
         } else {
           comparedFeatures[key][0] = currentFeatures[key]
         }
