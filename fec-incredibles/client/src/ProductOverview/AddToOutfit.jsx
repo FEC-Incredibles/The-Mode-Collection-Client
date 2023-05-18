@@ -74,7 +74,6 @@ const AddToOutfit = ({ selectedStyleData, outfit, setOutfit }) => {
 						/>
 				</div>
 			</div>
-      <p>{outfit}</p>
       {selectedQuantity && selectedSize && (
 				<div className="add-to-outfit-button"
 				onClick={() => {
