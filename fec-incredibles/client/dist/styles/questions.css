@@ -1,13 +1,13 @@
 #QA {
   display: flex;
   flex-flow: column nowrap;
-  max-height: 900px;
-  max-width: 1200px;
-  min-height: 600px;
-  min-height: 800px; }
+  max-height: 800px;
+  width: 1000px;
+  min-height: 500px;
+  cursor: default; }
   #QA .questionContainer {
     overflow-y: auto;
-    max-height: 760px; }
+    max-height: 600px; }
   #QA .questionHelpful {
     display: flex;
     flex-flow: row nowrap;
@@ -105,8 +105,8 @@
     min-width: 80vh;
     margin: 0 1rem 1rem 1rem 1rem;
     padding: 2rem;
-    background: #b2a4ff;
-    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    background: #323638;
+    box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px); }
   #QA .answerModalTitle {
@@ -159,8 +159,8 @@
     min-width: 80vh;
     margin: 0 1rem 1rem 1rem 1rem;
     padding: 2rem;
-    background: #b2a4ff;
-    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    background: #323638;
+    box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px); }
   #QA .questionModalQuestion {

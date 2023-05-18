@@ -16,10 +16,9 @@ const Questions = ({currentItemID}) => {
   const [loadMoreQuestions, setLoadMoreQuestions] = useState(false);
 
 
- console.log(questionList);
 
   useEffect(() => {
-      axios.get(`/qa/questions/?product_id=${currentItemID}&count=100`)
+      axios.get(`/qa/questions/?product_id=${currentItemID}&count=25`)
       .then((response) => {
         setQuestionList(response.data.results)
       })
@@ -40,14 +39,25 @@ const Questions = ({currentItemID}) => {
 
   const handleSearch = (e) => {
     var value = e.target.value;
-    if (value.length > 2) {
-      questionList.forEach(question => {
+
+    if(value.length < 3) {
+      if (!loadMoreQuestions) {
+        setQuestionDisplay(questionList.slice(0, 4))
+      } else {
+        setQuestionDisplay(questionList.slice(0))
+      }
+    } else if (value.length > 2) {
+      var matchedList = questionList.filter((question) => {
         if (question.question_body.includes(value)) {
-          setQuestionList([question]);
+          return question;
         }
       })
+      setQuestionDisplay(matchedList);
     }
   }
+
+
+
 
   const handleAddQuestion = () => {
     setAddQuestion(true);
