@@ -1,13 +1,10 @@
-.review-container {
-  border: 1px solid grey;
-  padding: 8px;
-  height: auto; }
-
 #review-module {
   width: 100%;
   height: auto;
   padding: 8px;
   /* Clear floats after the columns */ }
+  #review-module input[type="radio"] {
+    -webkit-appearance: radio; }
   #review-module .col-25 {
     float: left;
     width: 26%; }
@@ -39,6 +36,8 @@
     justify-content: center;
     align-items: center; }
     #review-module .modal .modal-content {
+      min-height: 60vh;
+      min-width: 80vh;
       margin: auto;
       display: flex;
       flex-direction: column;
@@ -51,9 +50,41 @@
         max-width: 90vw;
         max-height: 90vh; }
   #review-module .form-new-review {
-    min-height: 500px;
-    min-width: 500px;
-    background-color: #aaa; }
+    min-height: 60vh;
+    min-width: 80vh;
+    margin: 0 1rem 1rem 1rem 1rem;
+    padding: 2rem;
+    background: #b2a4ff;
+    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    /* Clear floats after the columns */ }
+    #review-module .form-new-review .form-row {
+      margin: 5px 0;
+      padding: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around; }
+      #review-module .form-new-review .form-row label {
+        flex: 3; }
+      #review-module .form-new-review .form-row div {
+        flex: 3; }
+      #review-module .form-new-review .form-row input {
+        flex: 3; }
+      #review-module .form-new-review .form-row i {
+        flex: 2; }
+    #review-module .form-new-review .form-group .form-row {
+      margin: 5px 0;
+      padding: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around; }
+    #review-module .form-new-review .form-group label {
+      flex: 1.5; }
+    #review-module .form-new-review .form-group div {
+      flex: 4; }
+    #review-module .form-new-review .form-group i {
+      flex: 2; }
   #review-module .review-tile {
     display: flex;
     flex-flow: column nowrap;

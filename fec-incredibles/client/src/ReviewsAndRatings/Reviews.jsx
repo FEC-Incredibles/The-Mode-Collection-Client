@@ -20,6 +20,8 @@ const Reviews = ({ reviewsMeta }) => {
     const [sort, setSort] = useState("relevant");
     const [filters, setFilters] = useState([]);
 
+    const [postedReview, setPostedReview] = useState(false);
+
 
     /**
      * Helper functions
@@ -52,6 +54,10 @@ const Reviews = ({ reviewsMeta }) => {
         }
     }
 
+    const togglePostedReview = () => {
+        setPostedReview(!postedReview);
+    }
+
 
     /**
      * Hooks
@@ -66,7 +72,7 @@ const Reviews = ({ reviewsMeta }) => {
             })
             .catch(error =>
                 console.log('Error getting reviews inside module 🤕', error))
-    }, [sort, reviewsMeta])
+    }, [sort, reviewsMeta, postedReview])
 
     useEffect(() => {
         updateFilteredReviews(orderedReviews);
@@ -106,7 +112,10 @@ const Reviews = ({ reviewsMeta }) => {
                 <ReviewList
                     reviews={filteredReviews} removeReview={removeReview}
                     currentDisplay={currentDisplay}
-                    handleClickMoreReview={displayTwoMoreReviews} />
+                    handleClickMoreReview={displayTwoMoreReviews}
+                    characteristics={reviewsMeta.characteristics}
+                    reviewsMeta={reviewsMeta}
+                    togglePostedReview={togglePostedReview} />
             </div>
         </div>
     )

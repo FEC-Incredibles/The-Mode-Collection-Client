@@ -5,7 +5,7 @@ import Questions from './QuestionsAndAnswers/Questions.jsx'
 import Related from './RelatedItems/Related.jsx'
 import Reviews from './ReviewsAndRatings/Reviews.jsx'
 
-import { getAvgRating, emptyMeta } from './ReviewsAndRatings/helper.js';
+import { getTotalNumOfReviews, getAvgRating, emptyMeta } from './ReviewsAndRatings/helper.js';
 
 
 const App = () => {
@@ -15,6 +15,7 @@ const App = () => {
   const [currentAvgRating, setCurrentAvgRating] = useState(0);
   const [currentReviewsMeta, setCurrentReviewsMeta] = useState();
   const [outfit, setOutfit] = useState([])
+  const [numOfReviews, setNumOfReviews] = useState(0);
 
     /**
      * 373__
@@ -36,13 +37,13 @@ const App = () => {
   useEffect(() => {
     axios.get(`/reviews/meta/?product_id=${currentItemID}`)
     .then(response => {
-      // console.log('Reviews metadata: ', response.data)
       let avgRating = getAvgRating(response.data);
+      let totalReviews = getTotalNumOfReviews(response.data);
       setCurrentAvgRating(avgRating);
+      setNumOfReviews(totalReviews);
       setCurrentReviewsMeta(response.data);
     })
-    .catch(error =>
-      console.log('Error getting metadata at home page :melting_face:', error))
+    .catch(error => console.error(error))
   }, [currentItemID])
 
   if (!currentItem) {
@@ -65,11 +66,7 @@ const App = () => {
         <Related currentItemID={currentItemID} outfit={outfit} setOutfit={setOutfit}/>
         <Questions currentItemID={currentItemID} />
       </div>
-      {currentReviewsMeta && <Reviews
-        currentItemID={currentItemID}
-        avgRating={currentAvgRating}
-        reviewsMeta={currentReviewsMeta}
-      />}
+      {currentReviewsMeta && <Reviews reviewsMeta={currentReviewsMeta}/>}
       <nav style={{ display: "flex" }}>
         <h1>current item id {currentItemID}:exploding_head:</h1>
         <button
