@@ -1,10 +1,14 @@
 #review-module {
+  cursor: default;
   width: 100%;
   height: auto;
   padding: 8px;
   /* Clear floats after the columns */ }
   #review-module input[type="radio"] {
     -webkit-appearance: radio; }
+  #review-module button {
+    padding: 5px;
+    margin: 0 10px; }
   #review-module .col-25 {
     float: left;
     width: 26%; }
@@ -12,13 +16,24 @@
     float: right;
     width: 73%; }
   #review-module select {
-    display: inline-block; }
-  #review-module #review-list .scrollable-list {
-    max-height: 70vh;
-    overflow-y: auto;
-    transition-property: all; }
-    #review-module #review-list .scrollable-list h6 {
-      text-align: center; }
+    display: inline-block;
+    background-color: buttonface;
+    padding: 2px 5px; }
+  #review-module #review-list {
+    /* Handle */ }
+    #review-module #review-list .scrollable-list {
+      max-height: 70vh;
+      overflow-y: auto;
+      transition-property: all; }
+      #review-module #review-list .scrollable-list h6 {
+        text-align: center; }
+    #review-module #review-list ::-webkit-scrollbar {
+      width: 8px; }
+    #review-module #review-list ::-webkit-scrollbar-track {
+      background: #323638; }
+    #review-module #review-list ::-webkit-scrollbar-thumb {
+      background: #E5707E;
+      border-radius: 10px; }
   #review-module .modal {
     position: fixed;
     z-index: 10;
@@ -54,9 +69,8 @@
     min-width: 80vh;
     margin: 0 1rem 1rem 1rem 1rem;
     padding: 2rem;
-    background: #b2a4ff;
-    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
-    backdrop-filter: blur(8px);
+    background: #7e8182;
+    box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
     -webkit-backdrop-filter: blur(8px);
     /* Clear floats after the columns */ }
     #review-module .form-new-review .form-row {
@@ -89,7 +103,7 @@
     display: flex;
     flex-flow: column nowrap;
     padding: 20px 4px 10px 10px;
-    margin: 10px 0;
+    margin: 10px 10px 10px 0;
     border: 1.5px outset #96a0c4;
     border-radius: 10px;
     box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4); }
@@ -100,7 +114,8 @@
         flex: 6; }
       #review-module .review-tile .review-tile-header i {
         font-size: 0.8rem;
-        margin: 0 5px 0 5px; }
+        margin: 0 5px 0 5px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
     #review-module .review-tile .review-tile-title {
       font-size: 1.05rem;
       font-weight: bold;
@@ -110,7 +125,9 @@
         font-weight: 100;
         margin: 5px 0 0 0; }
     #review-module .review-tile .review-tile-body {
-      margin: 10px 0 8px 0; }
+      margin: 10px 0 8px 0;
+      font-family: 'Cousine', monospace;
+      line-height: 1.2; }
       #review-module .review-tile .review-tile-body i {
         font-weight: 200;
         text-decoration: underline;
@@ -145,20 +162,19 @@
         text-decoration: none; }
   #review-module #rating-breakdown {
     display: flex;
-    flex-flow: column nowrap;
-    margin: 10px 0; }
+    flex-flow: column nowrap; }
     #review-module #rating-breakdown .breakdown-summary {
       display: inline-flex; }
       #review-module #rating-breakdown .breakdown-summary .breakdown-heading {
         font-size: 3rem;
-        margin-right: 8px; }
+        margin-right: 8px;
+        font-weight: 300; }
     #review-module #rating-breakdown .breakdown-by-star {
-      margin: 3px 0; }
+      margin: 5px 0; }
       #review-module #rating-breakdown .breakdown-by-star i {
-        text-decoration: underline;
-        font-size: smaller; }
+        text-decoration: underline; }
       #review-module #rating-breakdown .breakdown-by-star .breakdown-bar {
-        width: 60%;
+        width: 70%;
         height: 10px;
         display: inline-block;
         margin: 0 5px;
@@ -196,8 +212,10 @@
         display: inline-block;
         background-color: #aaaaaa59; }
         #review-module #product-breakdown .breakdown-by-factor .breakdown-bar i {
-          position: relative; }
+          position: relative;
+          color: #F0F0F0; }
       #review-module #product-breakdown .breakdown-by-factor .factor-labels {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         width: 95%;
         display: flex;
         font-size: 0.7rem;

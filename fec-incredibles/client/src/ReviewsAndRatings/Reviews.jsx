@@ -95,7 +95,8 @@ const Reviews = ({ reviewsMeta }) => {
 
     return (
         <div className="widget" id="review-module" data-testid="review-module">
-            <h3>RATINGS & REVIEWS </h3>
+            <h1>RATINGS & REVIEWS </h1>
+            <br />
 
             <div className="col-25">
                 <RatingBreakdown filters={filters}

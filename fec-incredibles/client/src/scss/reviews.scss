@@ -1,11 +1,22 @@
 #review-module {
+  cursor: default;
 
   // undo reset
   input[type="radio"] {
     -webkit-appearance: radio;
   }
 
+  button {
+    padding: 5px;
+    margin: 0 10px;
+  }
 
+  // basic setting
+  // red #E5707E
+  // yellow #F9D949
+  // body background rgba(255, 255, 255, 0.3);
+  // shadow rgb(100,100,100)
+  // background  rgb(50, 54, 56);
 
   //
   // Module Layout
@@ -34,6 +45,8 @@
 
   select {
     display: inline-block;
+    background-color: buttonface;
+    padding: 2px 5px;
   }
 
 
@@ -55,6 +68,21 @@
         text-align: center;
       }
     }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgb(50, 54, 56);
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #E5707E;
+      border-radius: 10px;
+    }
+
 
   }
 
@@ -112,9 +140,10 @@
 
     margin: 0 1rem 1rem 1rem 1rem;
     padding: 2rem;
-    background: #b2a4ff;
-    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
-    backdrop-filter: blur(8px);
+    background: #7e8182;
+    // box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
+    box-shadow: rgb(100,100,100) 20px 20px, rgb(100,100,100) 20px 20px inset, #E5707E -4px -4px inset,  #F9D949 4px 4px;
+    // backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 
     .form-row {
@@ -195,7 +224,7 @@
     flex-flow: column nowrap;
 
     padding: 20px 4px 10px 10px;
-    margin: 10px 0;
+    margin: 10px 10px 10px 0;
 
     border: 1.5px outset #96a0c4;
     border-radius: 10px;
@@ -212,6 +241,7 @@
       i {
         font-size: 0.8rem;
         margin: 0 5px 0 5px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       }
 
     }
@@ -231,6 +261,9 @@
 
     .review-tile-body {
       margin: 10px 0 8px 0;
+      font-family: 'Cousine', monospace;
+      line-height: 1.2;
+      // letter-spacing: 0.05rem;
 
       i {
         font-weight: 200;
@@ -296,7 +329,7 @@
   #rating-breakdown {
     display: flex;
     flex-flow: column nowrap;
-    margin: 10px 0;
+    // margin: 10px 0;
 
     .breakdown-summary {
       display: inline-flex;
@@ -304,19 +337,20 @@
       .breakdown-heading {
         font-size: 3rem;
         margin-right: 8px;
+        font-weight: 300;
       }
     }
 
     .breakdown-by-star {
-      margin: 3px 0;
+      margin: 5px 0;
 
       i {
         text-decoration: underline;
-        font-size: smaller;
+        // font-size: smaller;
       }
 
       .breakdown-bar {
-        width: 60%;
+        width: 70%;
         height: 10px;
         display: inline-block;
         margin: 0 5px;
@@ -376,10 +410,12 @@
 
         i {
           position: relative;
+          color:#F0F0F0;
         }
       }
 
       .factor-labels {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         width: 95%;
         display: flex;
         font-size: 0.7rem;

@@ -39,7 +39,7 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
         <h1 className="breakdown-heading" data-testid="avg-rating">
           {Number(avgRating).toFixed(1)}
         </h1>
-        <StarRating rating={avgRating} />
+        <StarRating rating={avgRating} size={34}/>
       </div>
 
       <br />

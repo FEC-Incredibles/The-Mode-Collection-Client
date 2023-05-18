@@ -79,7 +79,7 @@ const ReviewTile = ({ review, removeReview }) => {
       <div className="review-tile-header">
 
         {/* <StarRating rating={review.rating} color={"#453f3d"} /> */}
-        <StarRating rating={review.rating} />
+        <StarRating rating={review.rating} size={24} />
 
         {/* TODO: verified users */}
         <i>{review.reviewer_name}</i>
@@ -88,28 +88,28 @@ const ReviewTile = ({ review, removeReview }) => {
 
 
       {truncatedSummary[1]  ? (
-        <div className="review-tile-title">
+        <p className="review-tile-title">
           {truncatedSummary[0]}
-          <div className="review-tile-title-capped">{truncatedSummary[1]}</div>
-        </div>
+          <p className="review-tile-title-capped">{truncatedSummary[1]}</p>
+        </p>
       ) : (
-        <div className="review-tile-title">
+        <p className="review-tile-title">
           {truncatedSummary[0]}
-        </div>
+        </p>
       )}
 
       {truncatedBody[1] ? (
         <div className="review-tile-body">
-          <div data-testid="review-body">
+          <p data-testid="review-body">
             {expandBody ? review.body : truncatedBody[0]}
-          </div>
+          </p>
           {expandBody || <i id="btn-show-more" onClick={handleExpandBody} >Show more</i>}
           {expandBody && <i onClick={handleExpandBody} >Show less</i>}
         </div>
       ) : (
-        <div className="review-tile-body">
+        <p className="review-tile-body">
           {review.body}
-        </div>
+        </p>
       )}
 
       <div className="review-tile-thumbnail">
