@@ -5,7 +5,7 @@ import testData from "./ExampleData/relatedProducts.json";
 import DownArrowIcon from "../SVGs/DownArrowIcon.jsx"
 import UpArrowIcon from "../SVGs/UpArrowIcon.jsx"
 
-const Related = ({ currentItemID, module }) => {
+const Related = ({ currentItemID, type, outfit, setOutfit }) => {
   const [activeItem, setActiveItem] = useState(0);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
@@ -29,12 +29,21 @@ const Related = ({ currentItemID, module }) => {
           for (var i = 0; i < incomingFeatures.length; i++) {
             details[incomingFeatures[i]["feature"]] = incomingFeatures[i].value;
           }
-          return axios({
-            method: "get",
-            url: `/relatedItems/?relatedIDs=${JSON.stringify(
-              related
-            )}&currentFeatures=${JSON.stringify(details)}`,
-          });
+          if(type === 'Related') {
+            return axios({
+              method: "get",
+              url: `/relatedItems/?relatedIDs=${JSON.stringify(
+                related
+              )}&currentFeatures=${JSON.stringify(details)}`,
+            });
+          } else {
+            return axios({
+              method: "get",
+              url: `/relatedItems/?relatedIDs=${JSON.stringify(
+                outfit
+              )}&currentFeatures=${JSON.stringify(details)}`,
+            });
+          }
         })
         .then((element) => {
           setRelatedProducts(element.data);
@@ -55,7 +64,7 @@ const Related = ({ currentItemID, module }) => {
   };
   return (
     <div className="widget brianWidget" id={module}>
-      <h1>Related Products</h1>
+      <h1>{type} Products</h1>
       <div className="carouselItems">
         {activeItem > 0 ? (
           <div
