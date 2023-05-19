@@ -48,7 +48,7 @@ const Product = ({ currentItem, averageRating, outfit, setOutfit, reviews}) => {
 					<div className="product-style-container">
 						<h3 data-testid='style'>STYLE →{selectedStyle.name}</h3>
 						<StylePicker selectedStyleData={selectedStyle} styles={styles} setter={setSelectedStyle} />
-						<AddToOutfit selectedStyleData={selectedStyle} outfit={outfit} setOutfit={setOutfit}/>
+						<AddToOutfit selectedStyleData={selectedStyle} outfit={outfit} setOutfit={setOutfit} currentItem={currentItem}/>
 						<ul className="flex-row">
 							<li className="share"><a className="share-icon" href="http://twitter.com/share?text=[title]"><i className="fa-brands fa-twitter"></i></a></li>
 							<li className="share"><a className="share-icon" href="http://www.facebook.com/sharer.php?u=/node/[nid]&p=[title]"><i className="fa-brands fa-facebook"></i></a></li>
