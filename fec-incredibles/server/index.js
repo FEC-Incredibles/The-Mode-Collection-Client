@@ -70,7 +70,7 @@ app.get('/relatedItems', (req, res) => {
       }
     })
     .then((element) => {
-      category = element.data.name;
+      category = element.data.category;
       productData = element.data.slogan;
       price = element.data.default_price;
       let incomingFeatures = element.data.features;
