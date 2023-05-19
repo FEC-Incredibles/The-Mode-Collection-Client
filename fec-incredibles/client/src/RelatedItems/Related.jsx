@@ -55,7 +55,6 @@ const Related = ({
     useEffect(() => {
       let related;
       let details = {};
-      console.log('this is working')
       if (currentItemID) {
         axios({
           method: "get",
@@ -70,7 +69,7 @@ const Related = ({
             return axios({
               method: "get",
               url: `/relatedItems/?relatedIDs=${JSON.stringify(
-                [currentItemID]
+                outfit
               )}&currentFeatures=${JSON.stringify(details)}`,
             });
           })

@@ -4,8 +4,6 @@ import StarRating from "../StarRating.jsx"
 
 export default function Card({ item , setCurrentItemID, type} ) {
   const [star, setStar] = useState(item.starred);
-  let filledStar = "☆";
-  let emptyStar = "★";
   return (
     <div className="Card" onClick={() => {
       setCurrentItemID(item.id);
