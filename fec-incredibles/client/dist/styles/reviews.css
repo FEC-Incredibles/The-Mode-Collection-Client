@@ -6,17 +6,20 @@
   padding: 8px; }
   #review-module input[type="radio"] {
     -webkit-appearance: radio;
-    accent-color: #F9D949; }
+    accent-color: #F9D949;
+    cursor: pointer; }
   #review-module button {
     padding: 10px;
     margin: 5px 10px;
     font-family: "Cousine", monospace;
-    background-color: #E5707E; }
+    background-color: #E5707E;
+    cursor: pointer; }
   #review-module input,
   #review-module textarea {
     background-color: #646464;
     color: #e8e6e3;
-    padding: 5px; }
+    padding: 5px;
+    cursor: text; }
   #review-module input::-webkit-outer-spin-button,
   #review-module input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -32,7 +35,10 @@
     background-color: #E5707E;
     padding: 2px 5px 1px 5px;
     margin: 0 5px;
-    font-family: "Cousine", monospace; }
+    font-family: "Cousine", monospace;
+    cursor: pointer; }
+    #review-module select option {
+      cursor: pointer; }
   #review-module .sort-option {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif; }
   #review-module #review-list {
@@ -78,10 +84,12 @@
         align-self: flex-end;
         background-color: transparent;
         color: #E5707E;
-        background-color: #434545; }
+        background-color: #434545;
+        cursor: pointer; }
       #review-module .modal .modal-content img {
         max-width: 90%;
-        max-height: 90%; }
+        max-height: 90%;
+        cursor: pointer; }
   #review-module .form-new-review {
     min-height: 80%;
     min-width: 90%;
@@ -128,6 +136,8 @@
         flex: 3; }
       #review-module .form-new-review .form-row i {
         flex: 2; }
+      #review-module .form-new-review .form-row svg {
+        cursor: pointer; }
     #review-module .form-new-review .form-group {
       margin: 15px 0; }
       #review-module .form-new-review .form-group .form-row {
@@ -152,7 +162,8 @@
       #review-module .form-new-review .form-row-main label {
         flex: 1; }
       #review-module .form-new-review .form-row-main input, #review-module .form-new-review .form-row-main textarea {
-        flex: 5; }
+        flex: 5;
+        cursor: text; }
   #review-module .review-tile {
     display: flex;
     flex-flow: column nowrap;
@@ -186,12 +197,14 @@
       #review-module .review-tile .review-tile-body i {
         font-weight: 200;
         text-decoration: underline;
-        margin: 0 5px; }
+        margin: 0 5px;
+        cursor: pointer; }
     #review-module .review-tile .review-tile-thumbnail .review-img {
       width: 80px;
       height: 100px;
       object-fit: cover;
-      margin: 5px; }
+      margin: 5px;
+      cursor: pointer; }
     #review-module .review-tile .review-tile-recommend {
       margin: 8px 0; }
       #review-module .review-tile .review-tile-recommend i {
@@ -213,7 +226,8 @@
       #review-module .review-tile .review-tile-footer i {
         font-weight: lighter;
         margin: 0 5px 0 10px;
-        text-decoration: underline; }
+        text-decoration: underline;
+        cursor: pointer; }
         #review-module .review-tile .review-tile-footer i span {
           color: #E5707E; }
       #review-module .review-tile .review-tile-footer i:hover {
@@ -230,7 +244,8 @@
     #review-module #rating-breakdown .breakdown-recommended {
       font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif; }
     #review-module #rating-breakdown .breakdown-by-star {
-      margin: 5px 0; }
+      margin: 5px 0;
+      cursor: pointer; }
       #review-module #rating-breakdown .breakdown-by-star i {
         text-decoration: underline; }
       #review-module #rating-breakdown .breakdown-by-star .breakdown-bar {
@@ -251,11 +266,13 @@
       font-weight: bold; }
       #review-module #rating-breakdown .filters-container i {
         margin: 0 5px;
-        background-color: #646464; }
+        background-color: #646464;
+        cursor: pointer; }
       #review-module #rating-breakdown .filters-container button {
         display: block;
         padding: 5px 2px;
-        margin: 5px 0; }
+        margin: 5px 0;
+        cursor: pointer; }
   #review-module #product-breakdown {
     display: flex;
     flex-flow: column nowrap;
