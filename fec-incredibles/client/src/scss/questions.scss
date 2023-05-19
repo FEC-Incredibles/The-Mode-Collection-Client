@@ -163,6 +163,7 @@
     transform: translate(-50%, -50% );
 
 
+
     overflow: auto;
   }
 
@@ -175,6 +176,7 @@
     flex-wrap: wrap;
     align-content: center;
     position: 50%;
+
 
 
     margin: 0 1rem 1rem 1rem 1rem;
@@ -206,6 +208,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    background-color: #646464;
   }
 
   .answerModalInput {
@@ -215,6 +218,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    background-color: #646464;
   }
 
   .answerSubmitBtn {
@@ -268,6 +272,14 @@
     -webkit-backdrop-filter: blur(8px);
   }
 
+  .questionModalTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 4px;
+    padding: 4px;
+  }
+
   .questionModalQuestion {
     margin: 5px 0;
     padding: 5px;
@@ -276,6 +288,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    background-color: #646464;
   }
 
   .questionModalInput {
@@ -285,6 +298,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-around;
+      background-color: #646464;
   }
 
   .questionSubmitBtn {
