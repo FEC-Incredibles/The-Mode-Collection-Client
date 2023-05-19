@@ -11,12 +11,7 @@ export default function Card({
 }) {
   const [star, setStar] = useState(item.starred);
   return (
-    <div
-      className="Card"
-      onClick={() => {
-        setCurrentItemID(item.id);
-      }}
-    >
+    <div className="Card">
       {type === "Related" ? (
         star ? (
           <i
@@ -39,14 +34,21 @@ export default function Card({
           className="fa-solid fa-x starred"
           style={{ color: "#e8e6e3" }}
           onClick={() => {
-            let newOutfit = outfit;
+            let newOutfit = outfit.slice();
             let deleteIndex = outfit.indexOf(item.id);
             newOutfit[deleteIndex] = null;
+            newOutfit.push(null);
             setOutfit(newOutfit);
+            console.log(outfit);
           }}
         ></i>
       )}
-      <img src={item.imgURL} />
+      <img
+        src={item.imgURL}
+        onClick={() => {
+          setCurrentItemID(item.id);
+        }}
+      />
       <div className="info">
         <h2 style={{ fontSize: "28px" }}>{item.category}</h2>
         <p>{item.productData}</p>
