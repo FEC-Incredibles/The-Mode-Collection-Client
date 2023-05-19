@@ -1,25 +1,54 @@
 import React, { useState, useEffect } from "react";
-import MoreDetails from "./MoreDetails.jsx"
-import StarRating from "../StarRating.jsx"
+import MoreDetails from "./MoreDetails.jsx";
+import StarRating from "../StarRating.jsx";
 
-export default function Card({ item , setCurrentItemID, type} ) {
+export default function Card({
+  item,
+  setCurrentItemID,
+  type,
+  setOutfit,
+  outfit,
+}) {
   const [star, setStar] = useState(item.starred);
   return (
-    <div className="Card" onClick={() => {
-      setCurrentItemID(item.id);
-    }}>
-      {type === 'Related' && (star ? (
-        <i className="fa-regular fa-star starred" onClick={() => {
-          setStar(!star);
-        }}></i>
+    <div
+      className="Card"
+      onClick={() => {
+        setCurrentItemID(item.id);
+      }}
+    >
+      {type === "Related" ? (
+        star ? (
+          <i
+            className="fa-regular fa-star starred"
+            onClick={() => {
+              setStar(!star);
+            }}
+          ></i>
+        ) : (
+          <i
+            className="fa-solid fa-star starred"
+            style={{ color: "#f9d949" }}
+            onClick={() => {
+              setStar(!star);
+            }}
+          ></i>
+        )
       ) : (
-        <i className="fa-solid fa-star starred" style={{'color': '#f9d949'}} onClick={() => {
-          setStar(!star);
-        }}></i>
-      ))}
+        <i
+          class="fa-solid fa-x starred"
+          style="color: #e8e6e3;"
+          onClick={() => {
+            let newOutfit = outfit;
+            let deleteIndex = outfit.indexOf(item.id);
+            newOutfit[deleteIndex] = null;
+            setOutfit(newOutfit);
+          }}
+        ></i>
+      )}
       <img src={item.imgURL} />
       <div className="info">
-        <h2 style={{"fontSize": "28px"}}>{item.category}</h2>
+        <h2 style={{ fontSize: "28px" }}>{item.category}</h2>
         <p>{item.productData}</p>
         <h3>{item.price}</h3>
         <div className="stars">

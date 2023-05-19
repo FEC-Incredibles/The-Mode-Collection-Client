@@ -63,7 +63,7 @@ const App = () => {
         <Related currentItemID={currentItemID} type={'Outfit'} outfit={outfit} setOutfit={setOutfit} setCurrentItemID={setCurrentItemID}/>
       </div>
       <div id="questionsOutfit">
-        <Related currentItemID={currentItemID} type={'Related'} setCurrentItemID={setCurrentItemID}/>
+        <Related currentItemID={currentItemID} type={'Related'} outfit={outfit} setOutfit={setOutfit} setCurrentItemID={setCurrentItemID}/>
         <Questions currentItemID={currentItemID}/>
       </div>
       {currentReviewsMeta && <Reviews reviewsMeta={currentReviewsMeta}/>}

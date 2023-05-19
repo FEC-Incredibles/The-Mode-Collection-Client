@@ -127,6 +127,7 @@ const Related = ({
                   setCurrentItemID={setCurrentItemID}
                   type={type}
                   setOutfit={setOutfit}
+                  outfit={outfit}
                 />
               );
             })}
