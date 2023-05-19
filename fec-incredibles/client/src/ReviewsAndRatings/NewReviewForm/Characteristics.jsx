@@ -25,7 +25,8 @@ const Characteristics = ({ factor, id }) => {
               type="radio" name={"factor-" + id}
               value={scale} id={"factor-" + id}
               checked={selected == scale}
-              onChange={handleChange}/>
+              onChange={handleChange}
+              required />
           )}
         </div>
 

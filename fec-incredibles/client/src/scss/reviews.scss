@@ -1,29 +1,51 @@
+$color-text-white: #ffffff;
+$color-primary: #ffffff4d;
+$color-secondary: #646464;
+$color-background: #323638;
+$color-accent-red: #E5707E;
+$color-accent-yellow: #F9D949;
+
+
+$font-title: 'Major Mono Display', monospace;
+$font-subtitle: 'Oswald', sans-serif;
+$font-h3: 'Baloo 2', cursive;
+$font-base: 'Cousine', monospace;
+$font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
 #review-module {
   cursor: default;
-  color: #ffffff;
+  color: $color-text-white;
 
   // undo reset
   input[type="radio"] {
     -webkit-appearance: radio;
+    accent-color: $color-accent-yellow;
   }
 
   button {
-    padding: 5px;
+    padding: 10px;
     margin: 5px 10px;
-    font-family: 'Cousine', monospace;
+    font-family: $font-base;
+    background-color: $color-accent-red;
   }
 
-  // basic setting
-  // red #E5707E
-  // yellow #F9D949
-  // body background rgba(255, 255, 255, 0.3);
-  // shadow rgb(100,100,100)
-  // background  rgb(50, 54, 56);
+  input,
+  textarea {
+    background-color: #646464;
+    color: #e8e6e3;
+    padding: 5px;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
   //
   // Module Layout
   //
-  // max-width: 100%;
   width: 100%;
   height: auto;
   padding: 8px;
@@ -40,14 +62,14 @@
 
   select {
     display: inline-block;
-    background-color: buttonface;
+    background-color: $color-accent-red;
     padding: 2px 5px 1px 5px;
     margin: 0 5px;
-    font-family: 'Cousine', monospace;
+    font-family: $font-base;
   }
 
   .sort-option {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: $font-footer;
   }
 
 
@@ -59,9 +81,8 @@
   //
   #review-list {
 
-
     .scrollable-list {
-      max-height: 70vh;
+      max-height: 80vh;
       overflow-y: auto;
       // min-height: 50vh;
       transition-property: all;
@@ -76,12 +97,12 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: rgb(50, 54, 56);
+      background: $color-background;
     }
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-      background: #E5707E;
+      background: $color-accent-red;
       border-radius: 10px;
     }
 
@@ -109,19 +130,16 @@
 
 
     .modal-content {
-      min-height: 60vh;
-      min-width: 80vh;
-
       margin: auto;
-      // max-width: 90%;
-      // max-height: 90%;
+      width: 60%;
+      height: 90%;
 
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
 
-      button {
+      button.btn-close {
         align-self: flex-end;
         background-color: transparent;
       }
@@ -135,18 +153,52 @@
   }
 
   .form-new-review {
-    // min-height: 60%;
-    // min-width: 80%;
-    min-height: 60vh;
-    min-width: 80vh;
+    min-height: 80%;
+    min-width: 90%;
+    // min-width: 70%;
+    // min-height: 60vh;
+    // min-width: 80vh;
 
     margin: 0 1rem 1rem 1rem 1rem;
     padding: 2rem;
-    background: #7e8182;
-    // box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
-    box-shadow: rgb(100, 100, 100) 20px 20px, rgb(100, 100, 100) 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
-    // backdrop-filter: blur(8px);
-    // -webkit-backdrop-filter: blur(8px);
+    background-color: #707374;
+    box-shadow: rgb(100, 100, 100) 20px 20px, rgb(100, 100, 100) 20px 20px inset, $color-accent-red -4px -4px inset, #F9D949 4px 4px;
+    overflow-y: auto;
+
+    h3 {
+      font-family: $font-h3;
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    h4 {
+      font-family: $font-h3;
+      font-size: 1.5rem;
+      text-align: start;
+      display: inline;
+      margin: 10px 0;
+    }
+
+    label {
+      font-family: $font-footer;
+    }
+
+    i {
+      color: #e8e6e3;
+      font-size: 0.8rem;
+      font-family: $font-subtitle;
+    }
+
+    input {
+      height: 15px;
+      height: 1.5rem;
+    }
+
+    button {
+      display: flex;
+      margin: auto;
+    }
+
 
     .form-row {
       margin: 5px 0;
@@ -173,47 +225,48 @@
     }
 
     .form-group {
+      margin: 15px 0;
+
       .form-row {
         margin: 5px 0;
-        padding: 5px;
+        padding: 2px 5px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
       }
 
       label {
+        padding-left: 5px;
         flex: 1.5;
       }
 
       div {
-        flex: 4;
+        flex: 3;
       }
 
       i {
         flex: 2;
       }
+    }
 
+    .form-row-main {
+      margin: 5px 0;
+      padding: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      label {
+        flex: 1;
+      }
+
+      input, textarea {
+        flex: 5;
+      }
 
     }
 
-    // .col-50 {
-    //   float: left;
-    //   width: 50%;
-    //   margin: 10px;
-    // }
 
-    // .col-50 {
-    //   float: left;
-    //   width: 50%;
-    //   margin: 10px;
-    // }
-
-    /* Clear floats after the columns */
-    // .form-row::after {
-    //   content: "";
-    //   display: table;
-    //   clear: both;
-    // }
   }
 
 
@@ -224,14 +277,13 @@
   .review-tile {
     display: flex;
     flex-flow: column nowrap;
-    // background-color: rgb(50, 54, 56);
 
     padding: 20px 4px 10px 10px;
     margin: 10px 10px 10px 0;
 
-    border: 1.5px outset rgb(50, 54, 56);
+    border: 1.5px outset $color-background;
     border-radius: 10px;
-    box-shadow: 0 10px 20px -10px rgb(50, 54, 56);
+    box-shadow: 0 10px 20px -10px $color-background;
 
     .review-tile-header {
       display: flex;
@@ -244,15 +296,16 @@
       i {
         font-size: 0.8rem;
         margin: 0 5px 0 5px;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: $font-footer;
       }
 
     }
 
     .review-tile-title {
-      font-size: 1.05rem;
-      font-weight: bold;
+      font-size: 1.1rem;
+      font-weight: bolder;
       margin: 10px 0 8px 0;
+      letter-spacing: -1px;
 
       .review-tile-title-capped {
         font-size: 1rem;
@@ -264,7 +317,7 @@
 
     .review-tile-body {
       margin: 10px 0 8px 0;
-      font-family: 'Cousine', monospace;
+      font-family: $font-base;
       line-height: 1.2;
       // letter-spacing: 0.05rem;
 
@@ -297,7 +350,8 @@
     .review-tile-response {
       margin: 8px 0;
       padding: 8px 5px;
-      background-color: #8c888814;
+      background-color: $color-background;
+      border-radius: 10px;
 
       b {
         font-weight: bold;
@@ -312,6 +366,7 @@
     .review-tile-footer {
       font-size: 0.85rem;
       margin: 8px 0 0 0;
+      font-family: $font-footer;
 
       i {
         font-weight: lighter;
@@ -319,7 +374,7 @@
         text-decoration: underline;
 
         span {
-          color: #E5707E;
+          color: $color-accent-red;
         }
       }
 
@@ -355,7 +410,7 @@
     }
 
     .breakdown-recommended {
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-family: $font-footer;
     }
 
     .breakdown-by-star {
@@ -378,7 +433,7 @@
         .bar {
           width: 0%;
           height: 100%;
-          background: #E5707E;
+          background: $color-accent-red;
         }
       }
     }
@@ -421,7 +476,7 @@
         width: 95%;
         height: 8px;
         display: inline-block;
-        background-color: rgb(50, 54, 56);
+        background-color: $color-secondary;
 
         i {
           position: relative;
@@ -430,7 +485,7 @@
       }
 
       .factor-labels {
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family: $font-footer;
         width: 95%;
         display: flex;
         font-size: 0.7rem;

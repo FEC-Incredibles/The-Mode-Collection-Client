@@ -8,7 +8,7 @@ import ReviewList from './ReviewList.jsx';
 
 import { getTotalNumOfReviews } from './helper.js';
 
-const Reviews = ({ reviewsMeta }) => {
+const Reviews = ({ reviewsMeta, productName }) => {
 
     /**
      * States
@@ -116,7 +116,8 @@ const Reviews = ({ reviewsMeta }) => {
                     handleClickMoreReview={displayTwoMoreReviews}
                     characteristics={reviewsMeta.characteristics}
                     reviewsMeta={reviewsMeta}
-                    togglePostedReview={togglePostedReview} />
+                    togglePostedReview={togglePostedReview}
+                    productName={productName} />
             </div>
         </div>
     )

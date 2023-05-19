@@ -20,7 +20,7 @@ const ReviewImage = ({ photo }) => {
       {modalMode && (
         <div className="modal">
           <div className="modal-content">
-            <button onClick={toggleExpandImage}> ❌ </button>
+            <button className="btn-close" onClick={toggleExpandImage}> ❌ </button>
             <img
               src={photo.url}
               alt={`Photo ${photo.id}`}
