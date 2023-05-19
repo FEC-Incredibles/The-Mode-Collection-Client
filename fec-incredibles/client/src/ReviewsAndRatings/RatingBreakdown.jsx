@@ -17,12 +17,10 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
     getPercentage(reviewsMeta.recommended.true, numOfReviews);
 
   const handleToggleFilter = (rating) => {
-    // console.log("Clicked ", rating)
     rating = Number(rating)
 
     if (filters.indexOf(rating) === -1) {
       setFilters([...filters, rating])
-      // setFilters(filters.push(rating))
     } else {
       setFilters(filters.filter(x => x != rating));
     }

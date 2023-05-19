@@ -21,6 +21,11 @@ const ReviewList = (props) => {
     setCreateMode(!createMode);
   }
 
+  const toggleMoreReview = () => {
+    setMoreReview(false);
+    handleClickMoreReview();
+  }
+
   return (
     <div id="review-list">
 
@@ -42,7 +47,7 @@ const ReviewList = (props) => {
 
       <br />
       {reviews.length > currentDisplay.length && (
-        <button onClick={handleClickMoreReview}> More Review </button>
+        <button onClick={toggleMoreReview}> More Review </button>
       )}
 
       <button onClick={toggleCreateMode} > Add New Review </button>
@@ -50,7 +55,8 @@ const ReviewList = (props) => {
       {createMode && (
         <div className="modal" data-testid="modal">
           <div className="modal-content">
-            <button className="btn-close" onClick={toggleCreateMode}> ❌ </button>
+            <button className="btn-close" onClick={toggleCreateMode}>
+            <i class="fa-solid fa-xmark fa-2xl"></i></button>
             <NewReviewForm
               reviewsMeta={reviewsMeta}
               setCreateMode={setCreateMode}

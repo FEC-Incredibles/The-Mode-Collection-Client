@@ -7,7 +7,6 @@ const Characteristics = ({ factor, id }) => {
   const [ selected, setSelected ] = useState(0)
 
   const handleChange = (e) => {
-    // console.log(e.target.value)
     setSelected(e.target.value)
   }
 
@@ -16,7 +15,6 @@ const Characteristics = ({ factor, id }) => {
       <div className='form-row' >
 
         <label htmlFor={"factor-" + id}>{factor}</label>
-
 
         <div>
           {[1, 2, 3, 4, 5].map((scale, idx) =>
@@ -32,14 +30,7 @@ const Characteristics = ({ factor, id }) => {
 
         <i>{scaleDetail[factor][selected]}</i>
 
-
       </div>
-      {/* <div className="factor-labels">
-        {scaleDetail[factor].map((scale, idx) =>
-          <i key={idx} >{scale}</i>
-        )}
-      </div> */}
-
     </div>
   );
 }

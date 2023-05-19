@@ -82,7 +82,7 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
   #review-list {
 
     .scrollable-list {
-      max-height: 80vh;
+      max-height: 75vh;
       overflow-y: auto;
       // min-height: 50vh;
       transition-property: all;
@@ -142,11 +142,13 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
       button.btn-close {
         align-self: flex-end;
         background-color: transparent;
+        color: $color-accent-red;
+        background-color: #434545;
       }
 
       img {
-        max-width: 90vw;
-        max-height: 90vh;
+        max-width: 90%;
+        max-height: 90%;
       }
     }
 
@@ -155,9 +157,6 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
   .form-new-review {
     min-height: 80%;
     min-width: 90%;
-    // min-width: 70%;
-    // min-height: 60vh;
-    // min-width: 80vh;
 
     margin: 0 1rem 1rem 1rem 1rem;
     padding: 2rem;
@@ -169,6 +168,10 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
       font-family: $font-h3;
       font-size: 3rem;
       text-align: center;
+
+      small {
+        font-size: 1.5rem;
+      }
     }
 
     h4 {
@@ -263,7 +266,6 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
       input, textarea {
         flex: 5;
       }
-
     }
 
 
@@ -319,7 +321,6 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
       margin: 10px 0 8px 0;
       font-family: $font-base;
       line-height: 1.2;
-      // letter-spacing: 0.05rem;
 
       i {
         font-weight: 200;
@@ -340,7 +341,6 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
 
     .review-tile-recommend {
       margin: 8px 0;
-      // font-size: 0.9rem;
 
       i {
         margin: 0 5px;

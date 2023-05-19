@@ -11,6 +11,8 @@ const exampleBody = "This is an incredible review! I just wanted to add a few mo
 const NewReviewForm = ({ reviewsMeta, setCreateMode, togglePostedReview, productName }) => {
 
   const [rating, setRating] = useState(0);
+
+  // TODO: pre-filled fields for demoing, remove later
   const [summary, setSummary] = useState(exampleSummary);
   const [body, setBody] = useState(exampleBody);
   const [name, setName] = useState("Team Incredible");
@@ -39,7 +41,7 @@ const NewReviewForm = ({ reviewsMeta, setCreateMode, togglePostedReview, product
 
     let formData = new FormData(e.target);
     const formObj = Object.fromEntries(formData.entries());
-    console.log("formObj", formObj);
+    // console.log("formObj", formObj);
 
     const characteristics = Object.keys(formObj).reduce((accumulator, currentKey) => {
       if (currentKey.includes('factor-')) {
@@ -65,6 +67,7 @@ const NewReviewForm = ({ reviewsMeta, setCreateMode, togglePostedReview, product
     }
 
     if (invalidInput.length > 0) {
+      // TODO: better error message
       alert(invalidInput.join('\n'));
       return;
     }
@@ -82,7 +85,7 @@ const NewReviewForm = ({ reviewsMeta, setCreateMode, togglePostedReview, product
       "characteristics": characteristics
     }
 
-    console.log("newReview", newReview);
+    // console.log("newReview", newReview);
 
     axios.post('/reviews', newReview)
       .then((response) => {
@@ -95,19 +98,18 @@ const NewReviewForm = ({ reviewsMeta, setCreateMode, togglePostedReview, product
 
   return (
     <form className="form-new-review" onSubmit={handleSubmit}>
-      <h3>Write Your Review</h3>
-      <h4>  about the {productName} </h4>
+      <h3>Write Your Review <small> about the {productName}</small></h3>
       <hr />
 
 
       <div className='form-row'>
-        <label htmlFor='new-rating'>How would you rate it? *</label>
-        <StarRating rating={rating} handler={handleClickStar} size={24} />
+        <label htmlFor='new-rating'>How would you rate it?*</label>
+        <StarRating rating={rating} handler={handleClickStar} size={30} />
         <i>{ratings[rating]}</i>
       </div>
 
       <div className='form-row'>
-        <label >Do you recommend this product? *</label>
+        <label >Do you recommend this product?*</label>
 
         <div>
           <label>
@@ -123,7 +125,7 @@ const NewReviewForm = ({ reviewsMeta, setCreateMode, togglePostedReview, product
 
 
       <div className="form-group">
-        <h4>Characteristics *</h4>
+        <h4>Characteristics*</h4>
         {Object.keys(reviewsMeta.characteristics).map((factor, idx) => {
           // console.log('factor', factor)
           let id = reviewsMeta.characteristics[factor].id;
@@ -135,14 +137,14 @@ const NewReviewForm = ({ reviewsMeta, setCreateMode, togglePostedReview, product
 
       <hr />
       <div className="form-row">
-        <label htmlFor="name"> Name * </label>
+        <label htmlFor="name"> Name* </label>
         <input type="text" name="name" required
         value={name} onChange={(e) => { setName(e.target.value) }}/>
         <div></div>
       </div>
 
       <div className="form-row">
-        <label htmlFor="email"> Email * </label>
+        <label htmlFor="email"> Email* </label>
         <input type="email" name="email" required
         value={email} onChange={(e) => { setEmail(e.target.value)  }}/>
         <div></div>
@@ -159,7 +161,7 @@ const NewReviewForm = ({ reviewsMeta, setCreateMode, togglePostedReview, product
       </div>
 
       <div className="form-row-main">
-        <label htmlFor="body">Body *</label>
+        <label htmlFor="body">Body*</label>
         <textarea name="body" row={5} col={50}
           placeholder="Why did you like the product or not?" required
           pattern={/^.{50,}$/} title="Please enter at least 50 characters"

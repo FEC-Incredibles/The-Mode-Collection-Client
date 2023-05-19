@@ -48,10 +48,11 @@ const Reviews = ({ reviewsMeta, productName }) => {
     }
 
     const displayTwoMoreReviews = () => {
-        let currentLength = currentDisplay.length;
-        if (filteredReviews.length > currentLength) {
-            setCurrentDisplay(filteredReviews.slice(0, currentLength + 2));
-        }
+        // let currentLength = currentDisplay.length;
+        // if (filteredReviews.length > currentLength) {
+        //     setCurrentDisplay(filteredReviews.slice(0, currentLength + 2));
+        // }
+        setCurrentDisplay(filteredReviews);
     }
 
     const togglePostedReview = () => {
@@ -76,11 +77,6 @@ const Reviews = ({ reviewsMeta, productName }) => {
 
     useEffect(() => {
         updateFilteredReviews(orderedReviews);
-        // TODO: while filters change, update the Reviews state will not work since
-        // undoing the filters can not go back to the original lists of reviews
-        // update the CurrentDisplay state will not work as well since
-        // clicking add more reviews after having filters will clear the existing filters
-        // solution: more states?
     }, [filters])
 
     useEffect(() => {

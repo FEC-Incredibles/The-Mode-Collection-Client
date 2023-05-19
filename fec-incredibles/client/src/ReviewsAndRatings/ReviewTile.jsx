@@ -41,12 +41,10 @@ const ReviewTile = ({ review, removeReview }) => {
     setVoted(false);
   }, [review])
 
-  // console.log('Single Review', review)
 
   const handleClickHelpful = () => {
     axios.put(`/reviews/${review.review_id}/helpful`)
       .then(() => {
-        // console.log('Voted helpful for review: 🤩 ', review.review_id)
         setHelpfulness(helpfulness + 1);
         setVoted(true);
       })
@@ -59,7 +57,6 @@ const ReviewTile = ({ review, removeReview }) => {
   const handleClickReport = () => {
     axios.put(`/reviews/${review.review_id}/report`)
       .then(() => {
-        // console.log('Reported review: 👎 ', review.review_id)
         removeReview(review.review_id);
       })
       .catch(error => {
@@ -78,7 +75,6 @@ const ReviewTile = ({ review, removeReview }) => {
 
       <div className="review-tile-header">
 
-        {/* <StarRating rating={review.rating} color={"#453f3d"} /> */}
         <StarRating rating={review.rating} size={24} />
 
         {/* TODO: verified users */}
