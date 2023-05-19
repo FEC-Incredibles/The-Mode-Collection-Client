@@ -62,10 +62,10 @@ const AnswersList = ({question, questionHelpful, setQuestionHelpful}) => {
         <div className='questionHelpful'>
           <p className='question'>Q: {question.question_body} </p>
           <div className='helpfulAddAnswer'>
-            <div className='addanswerbtn' onClick={handleAddAnswer}>Add Answer</div>
+            <div className='addanswerbtn' onClick={handleAddAnswer}><p>Add Answer</p></div>
             <div>
-            {!questionVoted ? <div className='helpful' onClick={() => {handleQHelpful(question.question_id)}}>Helpful? Yes {question.question_helpfulness}</div>
-            : <div className='helpful'>Helpful? Yes {question.question_helpfulness}</div>}
+            {!questionVoted ? <div className='helpful' onClick={() => {handleQHelpful(question.question_id)}}><p>Helpful? Yes {question.question_helpfulness}</p></div>
+            : <div className='helpful'><p>Helpful? Yes {question.question_helpfulness}</p></div>}
             </div>
           </div>
         </div>

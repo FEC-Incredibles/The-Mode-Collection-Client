@@ -45,12 +45,12 @@ const Answers = ({answer, helpfulAnswer, setHelpfulAnswer}) => {
 
   return (
     <div className='answerModule'>
-      <div>A: {answer.body}</div>
+      <p>A: {answer.body}</p>
       <div className='answerInfo'>
-        <div className='userDate'>by: {answer.answerer_name} on {format(parseISO(answer.date), 'MMMM dd, yyyy')}  |</div>
+        <div className='userDate'> <p> by: {answer.answerer_name} on {format(parseISO(answer.date), 'MMMM dd, yyyy')} |</p></div>
         {!answerVoted ? <div className='answerHelpful' onClick={handleAnswerHelpful}>Helpful? yes ({answer.helpfulness})</div>
-         : <div className='answerHelpful'>Helpful? yes ({answer.helpfulness})</div>}
-        <div className='answerReport' onClick={handleAReport}>| {reportButtonText}</div>
+         : <div className='answerHelpful'><p>Helpful? yes ({answer.helpfulness})</p></div>}
+        <div className='answerReport' onClick={handleAReport}><p>| {reportButtonText}</p></div>
       </div>
     </div>
   )

@@ -18,15 +18,19 @@
     flex-flow: row nowrap; }
   #QA .pageTitle {
     margin: 8px; }
+  #QA ::placeholder {
+    color: #e8e6e3; }
   #QA .searchBar {
     align-self: center;
     width: 400px;
-    height: 30px; }
+    height: 30px;
+    background-color: #646464;
+    color: #e8e6e3; }
   #QA .question {
     margin: 5px;
     font-weight: bold;
     height: auto;
-    max-width: 725px; }
+    max-width: 710px; }
   #QA .oneQuestion {
     padding: 5px;
     margin: 5px;
@@ -54,10 +58,12 @@
     cursor: pointer; }
   #QA .moreAnsweredBtn {
     width: 250px;
-    cursor: pointer; }
+    cursor: pointer;
+    background-color: #E5707E; }
   #QA .addQuestionBtn {
     width: 250px;
-    cursor: pointer; }
+    cursor: pointer;
+    background-color: #E5707E; }
   #QA .userDate {
     font-size: 13px;
     margin: 2px; }
