@@ -163,7 +163,7 @@
 .images-extra.selected{
   border: 3px solid #E5707E
 }
-.modal {
+.expanded-image-modal {
   position: fixed;
   z-index: 50;
   left: 0;
@@ -183,7 +183,7 @@
   align-items: center;
 
 
-  .modal-content {
+  .expanded-image-modal-content {
     margin: auto;
     // max-width: 90%;
     // max-height: 90%;

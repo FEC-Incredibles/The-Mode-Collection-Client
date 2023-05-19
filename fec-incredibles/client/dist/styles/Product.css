@@ -151,7 +151,7 @@
 .images-extra.selected {
   border: 3px solid #E5707E; }
 
-.modal {
+.expanded-image-modal {
   position: fixed;
   z-index: 50;
   left: 0;
@@ -168,15 +168,15 @@
   display: flex;
   justify-content: center;
   align-items: center; }
-  .modal .modal-content {
+  .expanded-image-modal .expanded-image-modal-content {
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; }
-    .modal .modal-content button {
+    .expanded-image-modal .expanded-image-modal-content button {
       align-self: flex-end;
       background-color: transparent; }
-    .modal .modal-content img {
+    .expanded-image-modal .expanded-image-modal-content img {
       max-width: 100%;
       max-height: 100%; }

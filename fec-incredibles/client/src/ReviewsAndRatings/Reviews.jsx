@@ -8,7 +8,7 @@ import ReviewList from './ReviewList.jsx';
 
 import { getTotalNumOfReviews } from './helper.js';
 
-const Reviews = ({ reviewsMeta }) => {
+const Reviews = ({ reviewsMeta, productName }) => {
 
     /**
      * States
@@ -48,10 +48,11 @@ const Reviews = ({ reviewsMeta }) => {
     }
 
     const displayTwoMoreReviews = () => {
-        let currentLength = currentDisplay.length;
-        if (filteredReviews.length > currentLength) {
-            setCurrentDisplay(filteredReviews.slice(0, currentLength + 2));
-        }
+        // let currentLength = currentDisplay.length;
+        // if (filteredReviews.length > currentLength) {
+        //     setCurrentDisplay(filteredReviews.slice(0, currentLength + 2));
+        // }
+        setCurrentDisplay(filteredReviews);
     }
 
     const togglePostedReview = () => {
@@ -76,11 +77,6 @@ const Reviews = ({ reviewsMeta }) => {
 
     useEffect(() => {
         updateFilteredReviews(orderedReviews);
-        // TODO: while filters change, update the Reviews state will not work since
-        // undoing the filters can not go back to the original lists of reviews
-        // update the CurrentDisplay state will not work as well since
-        // clicking add more reviews after having filters will clear the existing filters
-        // solution: more states?
     }, [filters])
 
     useEffect(() => {
@@ -95,7 +91,8 @@ const Reviews = ({ reviewsMeta }) => {
 
     return (
         <div className="widget" id="review-module" data-testid="review-module">
-            <h3>RATINGS & REVIEWS </h3>
+            <h1>RATINGS & REVIEWS </h1>
+            <br />
 
             <div className="col-25">
                 <RatingBreakdown filters={filters}
@@ -115,7 +112,8 @@ const Reviews = ({ reviewsMeta }) => {
                     handleClickMoreReview={displayTwoMoreReviews}
                     characteristics={reviewsMeta.characteristics}
                     reviewsMeta={reviewsMeta}
-                    togglePostedReview={togglePostedReview} />
+                    togglePostedReview={togglePostedReview}
+                    productName={productName} />
             </div>
         </div>
     )

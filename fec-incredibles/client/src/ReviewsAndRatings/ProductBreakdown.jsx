@@ -16,7 +16,7 @@ const ProductBreakdown = ({ characteristics }) => {
       {Object.keys(characteristics).map((factor, idx) => {
         return (
           <div className="breakdown-by-factor" key={idx}>
-            <div>{factor}</div>
+            <a href="#">{factor}</a>
 
             <div className="breakdown-bar">
               {breakdownByFactor(factor) >= 0 &&

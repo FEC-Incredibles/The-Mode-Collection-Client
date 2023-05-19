@@ -41,30 +41,27 @@ const ReviewTile = ({ review, removeReview }) => {
     setVoted(false);
   }, [review])
 
-  // console.log('Single Review', review)
 
   const handleClickHelpful = () => {
     axios.put(`/reviews/${review.review_id}/helpful`)
-    .then(() => {
-      // console.log('Voted helpful for review: 🤩 ', review.review_id)
-      setHelpfulness(helpfulness + 1);
-      setVoted(true);
-    })
-    .catch(error => {
-      console.log('Error voting helpful for review: ', review.review_id)
-    })
+      .then(() => {
+        setHelpfulness(helpfulness + 1);
+        setVoted(true);
+      })
+      .catch(error => {
+        console.log('Error voting helpful for review: ', review.review_id)
+      })
 
   }
 
   const handleClickReport = () => {
     axios.put(`/reviews/${review.review_id}/report`)
-    .then(() => {
-      // console.log('Reported review: 👎 ', review.review_id)
-      removeReview(review.review_id);
-    })
-    .catch(error => {
-      console.log('Error reporting review: ', review.review_id, error)
-    })
+      .then(() => {
+        removeReview(review.review_id);
+      })
+      .catch(error => {
+        console.log('Error reporting review: ', review.review_id, error)
+      })
 
   }
 
@@ -78,8 +75,7 @@ const ReviewTile = ({ review, removeReview }) => {
 
       <div className="review-tile-header">
 
-        {/* <StarRating rating={review.rating} color={"#453f3d"} /> */}
-        <StarRating rating={review.rating} />
+        <StarRating rating={review.rating} size={24} />
 
         {/* TODO: verified users */}
         <i>{review.reviewer_name}</i>
@@ -87,29 +83,29 @@ const ReviewTile = ({ review, removeReview }) => {
       </div>
 
 
-      {truncatedSummary[1]  ? (
-        <div className="review-tile-title">
+      {truncatedSummary[1] ? (
+        <p className="review-tile-title">
           {truncatedSummary[0]}
-          <div className="review-tile-title-capped">{truncatedSummary[1]}</div>
-        </div>
+          <p className="review-tile-title-capped">{truncatedSummary[1]}</p>
+        </p>
       ) : (
-        <div className="review-tile-title">
+        <p className="review-tile-title">
           {truncatedSummary[0]}
-        </div>
+        </p>
       )}
 
       {truncatedBody[1] ? (
         <div className="review-tile-body">
-          <div data-testid="review-body">
+          <p data-testid="review-body">
             {expandBody ? review.body : truncatedBody[0]}
-          </div>
+          </p>
           {expandBody || <i id="btn-show-more" onClick={handleExpandBody} >Show more</i>}
           {expandBody && <i onClick={handleExpandBody} >Show less</i>}
         </div>
       ) : (
-        <div className="review-tile-body">
+        <p className="review-tile-body">
           {review.body}
-        </div>
+        </p>
       )}
 
       <div className="review-tile-thumbnail">
@@ -121,7 +117,10 @@ const ReviewTile = ({ review, removeReview }) => {
       </div>
 
       {review.recommend && (
-        <div className="review-tile-recommend">✔️ I recommended this product.</div>
+        <div className="review-tile-recommend">
+          <i className="fa-solid fa-circle-check"></i>
+          I recommended this product.
+        </div>
       )}
 
       {review.response && (
@@ -135,7 +134,7 @@ const ReviewTile = ({ review, removeReview }) => {
       <div className="review-tile-footer" data-testid="review-footer">
         Helpful?
         {voted || <i onClick={handleClickHelpful} data-testid="markHelpful">YES</i>}
-        {voted && <i className="voted">Thanks, we ❤️ feedback!</i>}
+        {voted && <i className="voted">Thanks, we <span className="fa-solid fa-heart"></span> feedback!</i>}
         ({helpfulness})  |
         <i onClick={handleClickReport}> REPORT </i>
       </div>
