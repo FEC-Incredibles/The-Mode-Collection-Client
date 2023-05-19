@@ -17,12 +17,10 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
     getPercentage(reviewsMeta.recommended.true, numOfReviews);
 
   const handleToggleFilter = (rating) => {
-    // console.log("Clicked ", rating)
     rating = Number(rating)
 
     if (filters.indexOf(rating) === -1) {
       setFilters([...filters, rating])
-      // setFilters(filters.push(rating))
     } else {
       setFilters(filters.filter(x => x != rating));
     }
@@ -39,11 +37,11 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
         <h1 className="breakdown-heading" data-testid="avg-rating">
           {Number(avgRating).toFixed(1)}
         </h1>
-        <StarRating rating={avgRating} />
+        <StarRating rating={avgRating} size={34}/>
       </div>
 
       <br />
-      <div data-testid="recommended">
+      <div className="breakdown-recommended" data-testid="recommended">
         {percentRecommended()}% of reviews recommend this product
       </div>
 

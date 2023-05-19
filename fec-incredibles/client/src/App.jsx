@@ -67,7 +67,7 @@ const App = () => {
         <Related currentItemID={currentItemID} type={'Related'}/>
         <Questions currentItemID={currentItemID}/>
       </div>
-      {currentReviewsMeta && <Reviews reviewsMeta={currentReviewsMeta}/>}
+      {currentReviewsMeta && <Reviews reviewsMeta={currentReviewsMeta} productName={currentItem.name}/>}
       <NavBar currentItemID={currentItemID} setCurrentItemID={setCurrentItemID} typedID={typedID} setTypedID={setTypedID}/>
     </div>
   );
