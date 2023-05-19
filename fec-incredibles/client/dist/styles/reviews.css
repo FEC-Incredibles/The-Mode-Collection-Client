@@ -1,10 +1,26 @@
 #review-module {
+  cursor: default;
+  color: #ffffff;
   width: 100%;
   height: auto;
-  padding: 8px;
-  /* Clear floats after the columns */ }
+  padding: 8px; }
   #review-module input[type="radio"] {
-    -webkit-appearance: radio; }
+    -webkit-appearance: radio;
+    accent-color: #F9D949; }
+  #review-module button {
+    padding: 10px;
+    margin: 5px 10px;
+    font-family: "Cousine", monospace;
+    background-color: #E5707E; }
+  #review-module input,
+  #review-module textarea {
+    background-color: #646464;
+    color: #e8e6e3;
+    padding: 5px; }
+  #review-module input::-webkit-outer-spin-button,
+  #review-module input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
   #review-module .col-25 {
     float: left;
     width: 26%; }
@@ -12,13 +28,28 @@
     float: right;
     width: 73%; }
   #review-module select {
-    display: inline-block; }
-  #review-module #review-list .scrollable-list {
-    max-height: 70vh;
-    overflow-y: auto;
-    transition-property: all; }
-    #review-module #review-list .scrollable-list h6 {
-      text-align: center; }
+    display: inline-block;
+    background-color: #E5707E;
+    padding: 2px 5px 1px 5px;
+    margin: 0 5px;
+    font-family: "Cousine", monospace; }
+  #review-module .sort-option {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif; }
+  #review-module #review-list {
+    /* Handle */ }
+    #review-module #review-list .scrollable-list {
+      max-height: 75vh;
+      overflow-y: auto;
+      transition-property: all; }
+      #review-module #review-list .scrollable-list h6 {
+        text-align: center; }
+    #review-module #review-list ::-webkit-scrollbar {
+      width: 8px; }
+    #review-module #review-list ::-webkit-scrollbar-track {
+      background: #323638; }
+    #review-module #review-list ::-webkit-scrollbar-thumb {
+      background: #E5707E;
+      border-radius: 10px; }
   #review-module .modal {
     position: fixed;
     z-index: 10;
@@ -36,29 +67,53 @@
     justify-content: center;
     align-items: center; }
     #review-module .modal .modal-content {
-      min-height: 60vh;
-      min-width: 80vh;
       margin: auto;
+      width: 60%;
+      height: 90%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center; }
-      #review-module .modal .modal-content button {
+      #review-module .modal .modal-content button.btn-close {
         align-self: flex-end;
-        background-color: transparent; }
+        background-color: transparent;
+        color: #E5707E;
+        background-color: #434545; }
       #review-module .modal .modal-content img {
-        max-width: 90vw;
-        max-height: 90vh; }
+        max-width: 90%;
+        max-height: 90%; }
   #review-module .form-new-review {
-    min-height: 60vh;
-    min-width: 80vh;
+    min-height: 80%;
+    min-width: 90%;
     margin: 0 1rem 1rem 1rem 1rem;
     padding: 2rem;
-    background: #b2a4ff;
-    box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    /* Clear floats after the columns */ }
+    background-color: #707374;
+    box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
+    overflow-y: auto; }
+    #review-module .form-new-review h3 {
+      font-family: "Baloo 2", cursive;
+      font-size: 3rem;
+      text-align: center; }
+      #review-module .form-new-review h3 small {
+        font-size: 1.5rem; }
+    #review-module .form-new-review h4 {
+      font-family: "Baloo 2", cursive;
+      font-size: 1.5rem;
+      text-align: start;
+      display: inline;
+      margin: 10px 0; }
+    #review-module .form-new-review label {
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif; }
+    #review-module .form-new-review i {
+      color: #e8e6e3;
+      font-size: 0.8rem;
+      font-family: "Oswald", sans-serif; }
+    #review-module .form-new-review input {
+      height: 15px;
+      height: 1.5rem; }
+    #review-module .form-new-review button {
+      display: flex;
+      margin: auto; }
     #review-module .form-new-review .form-row {
       margin: 5px 0;
       padding: 5px;
@@ -73,26 +128,39 @@
         flex: 3; }
       #review-module .form-new-review .form-row i {
         flex: 2; }
-    #review-module .form-new-review .form-group .form-row {
+    #review-module .form-new-review .form-group {
+      margin: 15px 0; }
+      #review-module .form-new-review .form-group .form-row {
+        margin: 5px 0;
+        padding: 2px 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around; }
+      #review-module .form-new-review .form-group label {
+        padding-left: 5px;
+        flex: 1.5; }
+      #review-module .form-new-review .form-group div {
+        flex: 3; }
+      #review-module .form-new-review .form-group i {
+        flex: 2; }
+    #review-module .form-new-review .form-row-main {
       margin: 5px 0;
       padding: 5px;
       display: flex;
       flex-direction: row;
       justify-content: space-around; }
-    #review-module .form-new-review .form-group label {
-      flex: 1.5; }
-    #review-module .form-new-review .form-group div {
-      flex: 4; }
-    #review-module .form-new-review .form-group i {
-      flex: 2; }
+      #review-module .form-new-review .form-row-main label {
+        flex: 1; }
+      #review-module .form-new-review .form-row-main input, #review-module .form-new-review .form-row-main textarea {
+        flex: 5; }
   #review-module .review-tile {
     display: flex;
     flex-flow: column nowrap;
     padding: 20px 4px 10px 10px;
-    margin: 10px 0;
-    border: 1.5px outset #96a0c4;
+    margin: 10px 10px 10px 0;
+    border: 1.5px outset #323638;
     border-radius: 10px;
-    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4); }
+    box-shadow: 0 10px 20px -10px #323638; }
     #review-module .review-tile .review-tile-header {
       display: flex;
       flex-flow: row nowrap; }
@@ -100,17 +168,21 @@
         flex: 6; }
       #review-module .review-tile .review-tile-header i {
         font-size: 0.8rem;
-        margin: 0 5px 0 5px; }
+        margin: 0 5px 0 5px;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif; }
     #review-module .review-tile .review-tile-title {
-      font-size: 1.05rem;
-      font-weight: bold;
-      margin: 10px 0 8px 0; }
+      font-size: 1.1rem;
+      font-weight: bolder;
+      margin: 10px 0 8px 0;
+      letter-spacing: -1px; }
       #review-module .review-tile .review-tile-title .review-tile-title-capped {
         font-size: 1rem;
         font-weight: 100;
         margin: 5px 0 0 0; }
     #review-module .review-tile .review-tile-body {
-      margin: 10px 0 8px 0; }
+      margin: 10px 0 8px 0;
+      font-family: "Cousine", monospace;
+      line-height: 1.2; }
       #review-module .review-tile .review-tile-body i {
         font-weight: 200;
         text-decoration: underline;
@@ -121,12 +193,14 @@
       object-fit: cover;
       margin: 5px; }
     #review-module .review-tile .review-tile-recommend {
-      margin: 8px 0;
-      font-size: 0.9rem; }
+      margin: 8px 0; }
+      #review-module .review-tile .review-tile-recommend i {
+        margin: 0 5px; }
     #review-module .review-tile .review-tile-response {
       margin: 8px 0;
       padding: 8px 5px;
-      background-color: #8c888814; }
+      background-color: #323638;
+      border-radius: 10px; }
       #review-module .review-tile .review-tile-response b {
         font-weight: bold;
         margin: 5px 0; }
@@ -134,32 +208,34 @@
         margin: 10px 0 5px 0; }
     #review-module .review-tile .review-tile-footer {
       font-size: 0.85rem;
-      margin: 8px 0 0 0; }
+      margin: 8px 0 0 0;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif; }
       #review-module .review-tile .review-tile-footer i {
         font-weight: lighter;
         margin: 0 5px 0 10px;
         text-decoration: underline; }
+        #review-module .review-tile .review-tile-footer i span {
+          color: #E5707E; }
       #review-module .review-tile .review-tile-footer i:hover {
         background-color: #8c888825; }
       #review-module .review-tile .review-tile-footer .voted {
         text-decoration: none; }
   #review-module #rating-breakdown {
     display: flex;
-    flex-flow: column nowrap;
-    margin: 10px 0; }
+    flex-flow: column nowrap; }
     #review-module #rating-breakdown .breakdown-summary {
       display: inline-flex; }
-      #review-module #rating-breakdown .breakdown-summary .breakdown-heading {
-        font-size: 3rem;
+      #review-module #rating-breakdown .breakdown-summary h1 {
         margin-right: 8px; }
+    #review-module #rating-breakdown .breakdown-recommended {
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif; }
     #review-module #rating-breakdown .breakdown-by-star {
-      margin: 3px 0; }
+      margin: 5px 0; }
       #review-module #rating-breakdown .breakdown-by-star i {
-        text-decoration: underline;
-        font-size: smaller; }
+        text-decoration: underline; }
       #review-module #rating-breakdown .breakdown-by-star .breakdown-bar {
-        width: 60%;
-        height: 10px;
+        width: 70%;
+        height: 12px;
         display: inline-block;
         margin: 0 5px;
         border: 1px solid #fff;
@@ -168,36 +244,34 @@
         #review-module #rating-breakdown .breakdown-by-star .breakdown-bar .bar {
           width: 0%;
           height: 100%;
-          background: green; }
+          background: #E5707E; }
     #review-module #rating-breakdown .breakdown-by-star:hover {
       background-color: #aaaaaa59; }
     #review-module #rating-breakdown .filters-container {
-      font-size: small;
       font-weight: bold; }
       #review-module #rating-breakdown .filters-container i {
-        display: inline-block;
         margin: 0 5px;
-        background-color: #8c888814; }
+        background-color: #646464; }
       #review-module #rating-breakdown .filters-container button {
         display: block;
-        margin: 0 5px;
-        padding: 2px;
-        text-decoration: underline;
-        background-color: transparent; }
+        padding: 5px 2px;
+        margin: 5px 0; }
   #review-module #product-breakdown {
     display: flex;
     flex-flow: column nowrap;
     margin: 40px 0; }
     #review-module #product-breakdown .breakdown-by-factor {
-      margin: 5px 0; }
+      margin: 10px; }
       #review-module #product-breakdown .breakdown-by-factor .breakdown-bar {
         width: 95%;
         height: 8px;
         display: inline-block;
-        background-color: #aaaaaa59; }
+        background-color: #646464; }
         #review-module #product-breakdown .breakdown-by-factor .breakdown-bar i {
-          position: relative; }
+          position: relative;
+          color: #F0F0F0; }
       #review-module #product-breakdown .breakdown-by-factor .factor-labels {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
         width: 95%;
         display: flex;
         font-size: 0.7rem;

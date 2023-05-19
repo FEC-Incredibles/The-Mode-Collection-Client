@@ -4,6 +4,7 @@ import Product from './ProductOverview/Product.jsx'
 import Questions from './QuestionsAndAnswers/Questions.jsx'
 import Related from './RelatedItems/Related.jsx'
 import Reviews from './ReviewsAndRatings/Reviews.jsx'
+import NavBar from './NavBar.jsx';
 
 import { getTotalNumOfReviews, getAvgRating, emptyMeta } from './ReviewsAndRatings/helper.js';
 
@@ -59,47 +60,15 @@ const App = () => {
         </div>
       </div>
       <div id="productRelated">
-        <Product currentItem={currentItem} averageRating={currentAvgRating} outfit={outfit} setOutfit={setOutfit}/>
+        <Product currentItem={currentItem} averageRating={currentAvgRating} outfit={outfit} setOutfit={setOutfit} reviews={numOfReviews}/>
         <Related currentItemID={currentItemID} type={'Outfit'} outfit={outfit} setOutfit={setOutfit} setCurrentItemID={setCurrentItemID}/>
       </div>
       <div id="questionsOutfit">
         <Related currentItemID={currentItemID} type={'Related'} outfit={outfit} setOutfit={setOutfit} setCurrentItemID={setCurrentItemID}/>
         <Questions currentItemID={currentItemID}/>
       </div>
-      {currentReviewsMeta && <Reviews reviewsMeta={currentReviewsMeta}/>}
-      <nav style={{ display: "flex" }}>
-        <h1>current item id {currentItemID}:exploding_head:</h1>
-        <button
-          type="button"
-          onClick={() => {
-            setCurrentItemID(currentItemID - 1);
-          }}
-        >
-          previous
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            setCurrentItemID(Number(currentItemID) + 1);
-          }}
-        >
-          next
-        </button>
-        <input
-          type="text"
-          onChange={(e) => {
-            setTypedID(e.target.value);
-          }}
-        ></input>
-        <button
-          type="button"
-          onClick={() => {
-            setCurrentItemID(typedID);
-          }}
-        >
-          enter specific id
-        </button>
-      </nav>
+      {currentReviewsMeta && <Reviews reviewsMeta={currentReviewsMeta} productName={currentItem.name}/>}
+      <NavBar currentItemID={currentItemID} setCurrentItemID={setCurrentItemID} typedID={typedID} setTypedID={setTypedID}/>
     </div>
   );
 };

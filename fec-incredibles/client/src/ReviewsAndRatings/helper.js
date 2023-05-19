@@ -16,6 +16,10 @@ const getTotalNumOfReviews = (reviewsMeta) => {
  * returns the average rating as a number with two decimal places
  */
 const getAvgRating = (reviewsMeta) => {
+  if (!reviewsMeta || !reviewsMeta.ratings) {
+    return 0;
+  }
+
   let ratings = reviewsMeta.ratings;
   let { sum, count } = Object.keys(ratings).reduce(
     (accumulator, currentKey) => {

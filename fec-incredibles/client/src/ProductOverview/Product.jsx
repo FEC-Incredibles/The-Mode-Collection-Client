@@ -47,16 +47,12 @@ const Product = ({ currentItem, averageRating, outfit, setOutfit, reviews}) => {
 					<ProductDetails productDetails={currentItem} selectedStyleData={selectedStyle} />
 					<div className="product-style-container">
 						<h3 data-testid='style'>STYLE →{selectedStyle.name}</h3>
-						<StylePicker
-							selectedStyleData={selectedStyle}
-							styles={styles}
-							setter={setSelectedStyle}
-							/>
-						<AddToOutfit selectedStyleData={selectedStyle} outfit={outfit} setOutfit={setOutfit}/>
+						<StylePicker selectedStyleData={selectedStyle} styles={styles} setter={setSelectedStyle} />
+						<AddToOutfit selectedStyleData={selectedStyle} outfit={outfit} setOutfit={setOutfit} currentItem={currentItem}/>
 						<ul className="flex-row">
-								<li className="share"><a className="share-icon" href="http://twitter.com/share?text=[title]"><i className="fa-brands fa-twitter"></i></a></li>
-								<li className="share"><a className="share-icon" href="http://www.facebook.com/sharer.php?u=/node/[nid]&p=[title]"><i className="fa-brands fa-facebook"></i></a></li>
-								<li className="share"><a className="share-icon" href="http://pinterest.com/pin/create/button/?url=/node/[nid]&description=[title]"><i className="fa-brands fa-pinterest"></i></a></li>
+							<li className="share"><a className="share-icon" href="http://twitter.com/share?text=[title]"><i className="fa-brands fa-twitter"></i></a></li>
+							<li className="share"><a className="share-icon" href="http://www.facebook.com/sharer.php?u=/node/[nid]&p=[title]"><i className="fa-brands fa-facebook"></i></a></li>
+							<li className="share"><a className="share-icon" href="http://pinterest.com/pin/create/button/?url=/node/[nid]&description=[title]"><i className="fa-brands fa-pinterest"></i></a></li>
 						</ul>
 					</div>
 				</div>

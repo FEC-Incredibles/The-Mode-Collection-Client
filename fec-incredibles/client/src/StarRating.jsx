@@ -10,7 +10,7 @@ import React from 'react';
 const StarRating = ({ rating, size, color, handler }) => {
 
   const starSize = size || 18;
-  const starColor = color || "#fbd323";
+  const starColor = color || "#F9D949";
   const handleClick = handler || function(){};
 
   /**
@@ -45,8 +45,8 @@ const StarRating = ({ rating, size, color, handler }) => {
             <linearGradient id={`grad-${percent}-${starColor}`}>
               <stop offset="0%" stopColor={starColor} />
               <stop offset={`${percent}%`} stopColor={starColor} />
-              <stop offset={`${percent}%`} stopColor="white" />
-              <stop offset="100%" stopColor="white" />
+              <stop offset={`${percent}%`} stopColor="#e8e6e3" />
+              <stop offset="100%" stopColor="#e8e6e3" />
             </linearGradient>
           </defs>
           <path

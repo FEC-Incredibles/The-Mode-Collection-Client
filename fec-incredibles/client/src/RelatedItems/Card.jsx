@@ -36,8 +36,8 @@ export default function Card({
         )
       ) : (
         <i
-          class="fa-solid fa-x starred"
-          style="color: #e8e6e3;"
+          className="fa-solid fa-x starred"
+          style={{ color: "#e8e6e3" }}
           onClick={() => {
             let newOutfit = outfit;
             let deleteIndex = outfit.indexOf(item.id);
