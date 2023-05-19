@@ -17,20 +17,11 @@ const ProductDetails = ({ productDetails, selectedStyleData }) => {
 			{stylePrice ? (
 				salePrice ? (
 					<>
-						<h3 style={{
-							'textDecoration': 'line-through',
-
-					}}>product price {defaultPrice}</h3>
-						<h3 style={{
-							'color' : 'red'
-						}}>sale price {salePrice}</h3>
+						<h3 style={{ 'textDecoration': 'line-through', }}>product price {defaultPrice}</h3>
+						<h3 style={{ 'color' : 'red' }}>sale price {salePrice}</h3>
 					</>
-				) : (
-					<h3>style price {stylePrice} </h3>
-				)
-			) : (
-				<h3> product price {defaultPrice} </h3>
-			)}
+				) : (<h3>style price {stylePrice} </h3>)
+			) : (<h3> product price {defaultPrice} </h3>)}
 
 			<br />
 		</div>
