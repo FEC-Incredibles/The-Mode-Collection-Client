@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import DropDownList from "./DropDownList.jsx";
 import axios from "axios";
 
-const AddToOutfit = ({ selectedStyleData, outfit, setOutfit }) => {
+const AddToOutfit = ({ selectedStyleData, outfit, setOutfit, currentItem }) => {
   const [skus, setSkus] = useState();
   const [skuId, setSkuId] = useState();
   const [selectedSize, setSelectedSize] = useState();
@@ -77,7 +77,8 @@ const AddToOutfit = ({ selectedStyleData, outfit, setOutfit }) => {
       {selectedQuantity && selectedSize && (
 				<div className="add-to-outfit-button"
 				onClick={() => {
-					outfit.includes(skuId) ? null : setOutfit([...outfit, skuId]);
+          console.log(currentItem['id'])
+					outfit.includes(skuId) ? null : setOutfit([...outfit, currentItem['id']]);
 				}}
         >
         <h3>add to outfit</h3>
