@@ -43,7 +43,7 @@ const RatingBreakdown = ({ reviewsMeta, filters, setFilters }) => {
       </div>
 
       <br />
-      <div data-testid="recommended">
+      <div className="breakdown-recommended" data-testid="recommended">
         {percentRecommended()}% of reviews recommend this product
       </div>
 

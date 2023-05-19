@@ -1,5 +1,6 @@
 #review-module {
   cursor: default;
+  color: #ffffff;
 
   // undo reset
   input[type="radio"] {
@@ -8,7 +9,8 @@
 
   button {
     padding: 5px;
-    margin: 0 10px;
+    margin: 5px 10px;
+    font-family: 'Cousine', monospace;
   }
 
   // basic setting
@@ -36,17 +38,16 @@
     width: 73%;
   }
 
-  /* Clear floats after the columns */
-  // ::after {
-  //   content: "";
-  //   // display: table;
-  //   clear: both;
-  // }
-
   select {
     display: inline-block;
     background-color: buttonface;
-    padding: 2px 5px;
+    padding: 2px 5px 1px 5px;
+    margin: 0 5px;
+    font-family: 'Cousine', monospace;
+  }
+
+  .sort-option {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
 
@@ -57,6 +58,7 @@
   // Review List
   //
   #review-list {
+
 
     .scrollable-list {
       max-height: 70vh;
@@ -142,9 +144,9 @@
     padding: 2rem;
     background: #7e8182;
     // box-shadow: 20px 20px lightgrey, inset  20px 20px lightgrey, inset -4px -4px #ffdeb4, 4px 4px #fdf7c3;
-    box-shadow: rgb(100,100,100) 20px 20px, rgb(100,100,100) 20px 20px inset, #E5707E -4px -4px inset,  #F9D949 4px 4px;
+    box-shadow: rgb(100, 100, 100) 20px 20px, rgb(100, 100, 100) 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
     // backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    // -webkit-backdrop-filter: blur(8px);
 
     .form-row {
       margin: 5px 0;
@@ -222,13 +224,14 @@
   .review-tile {
     display: flex;
     flex-flow: column nowrap;
+    // background-color: rgb(50, 54, 56);
 
     padding: 20px 4px 10px 10px;
     margin: 10px 10px 10px 0;
 
-    border: 1.5px outset #96a0c4;
+    border: 1.5px outset rgb(50, 54, 56);
     border-radius: 10px;
-    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 20px -10px rgb(50, 54, 56);
 
     .review-tile-header {
       display: flex;
@@ -284,7 +287,11 @@
 
     .review-tile-recommend {
       margin: 8px 0;
-      font-size: 0.9rem;
+      // font-size: 0.9rem;
+
+      i {
+        margin: 0 5px;
+      }
     }
 
     .review-tile-response {
@@ -310,6 +317,10 @@
         font-weight: lighter;
         margin: 0 5px 0 10px;
         text-decoration: underline;
+
+        span {
+          color: #E5707E;
+        }
       }
 
       i:hover {
@@ -334,11 +345,17 @@
     .breakdown-summary {
       display: inline-flex;
 
-      .breakdown-heading {
-        font-size: 3rem;
+      // .breakdown-heading {
+      //   margin-right: 8px;
+      // }
+
+      h1 {
         margin-right: 8px;
-        font-weight: 300;
       }
+    }
+
+    .breakdown-recommended {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
     .breakdown-by-star {
@@ -351,7 +368,7 @@
 
       .breakdown-bar {
         width: 70%;
-        height: 10px;
+        height: 12px;
         display: inline-block;
         margin: 0 5px;
         border: 1px solid #fff;
@@ -361,7 +378,7 @@
         .bar {
           width: 0%;
           height: 100%;
-          background: green;
+          background: #E5707E;
         }
       }
     }
@@ -371,21 +388,19 @@
     }
 
     .filters-container {
-      font-size: small;
+      // font-size: small;
       font-weight: bold;
 
       i {
-        display: inline-block;
+        // display: inline-block;
         margin: 0 5px;
-        background-color: #8c888814;
+        background-color: #646464;
       }
 
       button {
         display: block;
-        margin: 0 5px;
-        padding: 2px;
-        text-decoration: underline;
-        background-color: transparent;
+        padding: 5px 2px;
+        margin: 5px 0;
       }
     }
 
@@ -400,17 +415,17 @@
     margin: 40px 0;
 
     .breakdown-by-factor {
-      margin: 5px 0;
+      margin: 10px;
 
       .breakdown-bar {
         width: 95%;
         height: 8px;
         display: inline-block;
-        background-color: #aaaaaa59;
+        background-color: rgb(50, 54, 56);
 
         i {
           position: relative;
-          color:#F0F0F0;
+          color: #F0F0F0;
         }
       }
 

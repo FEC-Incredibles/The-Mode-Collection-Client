@@ -1,14 +1,15 @@
 #review-module {
   cursor: default;
+  color: #ffffff;
   width: 100%;
   height: auto;
-  padding: 8px;
-  /* Clear floats after the columns */ }
+  padding: 8px; }
   #review-module input[type="radio"] {
     -webkit-appearance: radio; }
   #review-module button {
     padding: 5px;
-    margin: 0 10px; }
+    margin: 5px 10px;
+    font-family: 'Cousine', monospace; }
   #review-module .col-25 {
     float: left;
     width: 26%; }
@@ -18,7 +19,11 @@
   #review-module select {
     display: inline-block;
     background-color: buttonface;
-    padding: 2px 5px; }
+    padding: 2px 5px 1px 5px;
+    margin: 0 5px;
+    font-family: 'Cousine', monospace; }
+  #review-module .sort-option {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
   #review-module #review-list {
     /* Handle */ }
     #review-module #review-list .scrollable-list {
@@ -71,7 +76,6 @@
     padding: 2rem;
     background: #7e8182;
     box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
-    -webkit-backdrop-filter: blur(8px);
     /* Clear floats after the columns */ }
     #review-module .form-new-review .form-row {
       margin: 5px 0;
@@ -104,9 +108,9 @@
     flex-flow: column nowrap;
     padding: 20px 4px 10px 10px;
     margin: 10px 10px 10px 0;
-    border: 1.5px outset #96a0c4;
+    border: 1.5px outset #323638;
     border-radius: 10px;
-    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4); }
+    box-shadow: 0 10px 20px -10px #323638; }
     #review-module .review-tile .review-tile-header {
       display: flex;
       flex-flow: row nowrap; }
@@ -138,8 +142,9 @@
       object-fit: cover;
       margin: 5px; }
     #review-module .review-tile .review-tile-recommend {
-      margin: 8px 0;
-      font-size: 0.9rem; }
+      margin: 8px 0; }
+      #review-module .review-tile .review-tile-recommend i {
+        margin: 0 5px; }
     #review-module .review-tile .review-tile-response {
       margin: 8px 0;
       padding: 8px 5px;
@@ -156,6 +161,8 @@
         font-weight: lighter;
         margin: 0 5px 0 10px;
         text-decoration: underline; }
+        #review-module .review-tile .review-tile-footer i span {
+          color: #E5707E; }
       #review-module .review-tile .review-tile-footer i:hover {
         background-color: #8c888825; }
       #review-module .review-tile .review-tile-footer .voted {
@@ -165,17 +172,17 @@
     flex-flow: column nowrap; }
     #review-module #rating-breakdown .breakdown-summary {
       display: inline-flex; }
-      #review-module #rating-breakdown .breakdown-summary .breakdown-heading {
-        font-size: 3rem;
-        margin-right: 8px;
-        font-weight: 300; }
+      #review-module #rating-breakdown .breakdown-summary h1 {
+        margin-right: 8px; }
+    #review-module #rating-breakdown .breakdown-recommended {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; }
     #review-module #rating-breakdown .breakdown-by-star {
       margin: 5px 0; }
       #review-module #rating-breakdown .breakdown-by-star i {
         text-decoration: underline; }
       #review-module #rating-breakdown .breakdown-by-star .breakdown-bar {
         width: 70%;
-        height: 10px;
+        height: 12px;
         display: inline-block;
         margin: 0 5px;
         border: 1px solid #fff;
@@ -184,33 +191,29 @@
         #review-module #rating-breakdown .breakdown-by-star .breakdown-bar .bar {
           width: 0%;
           height: 100%;
-          background: green; }
+          background: #E5707E; }
     #review-module #rating-breakdown .breakdown-by-star:hover {
       background-color: #aaaaaa59; }
     #review-module #rating-breakdown .filters-container {
-      font-size: small;
       font-weight: bold; }
       #review-module #rating-breakdown .filters-container i {
-        display: inline-block;
         margin: 0 5px;
-        background-color: #8c888814; }
+        background-color: #646464; }
       #review-module #rating-breakdown .filters-container button {
         display: block;
-        margin: 0 5px;
-        padding: 2px;
-        text-decoration: underline;
-        background-color: transparent; }
+        padding: 5px 2px;
+        margin: 5px 0; }
   #review-module #product-breakdown {
     display: flex;
     flex-flow: column nowrap;
     margin: 40px 0; }
     #review-module #product-breakdown .breakdown-by-factor {
-      margin: 5px 0; }
+      margin: 10px; }
       #review-module #product-breakdown .breakdown-by-factor .breakdown-bar {
         width: 95%;
         height: 8px;
         display: inline-block;
-        background-color: #aaaaaa59; }
+        background-color: #323638; }
         #review-module #product-breakdown .breakdown-by-factor .breakdown-bar i {
           position: relative;
           color: #F0F0F0; }

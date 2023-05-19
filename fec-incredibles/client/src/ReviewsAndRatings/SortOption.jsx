@@ -7,7 +7,7 @@ const SortOption = ({ totalLength, currentLength, sort, setSort }) => {
   }
 
   return (
-    <div className="">
+    <div className="sort-option">
 
       <label>
         Currently displaying {currentLength} out of {totalLength} reviews, sorted by
