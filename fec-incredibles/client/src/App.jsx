@@ -61,10 +61,10 @@ const App = () => {
       </div>
       <div id="productRelated">
         <Product currentItem={currentItem} averageRating={currentAvgRating} outfit={outfit} setOutfit={setOutfit} reviews={numOfReviews}/>
-        <Related currentItemID={currentItemID} type={'Outfit'} outfit={outfit} setOutfit={setOutfit}/>
+        <Related currentItemID={currentItemID} type={'Outfit'} outfit={outfit} setOutfit={setOutfit} setCurrentItemID={setCurrentItemID}/>
       </div>
       <div id="questionsOutfit">
-        <Related currentItemID={currentItemID} type={'Related'}/>
+        <Related currentItemID={currentItemID} type={'Related'} outfit={outfit} setOutfit={setOutfit} setCurrentItemID={setCurrentItemID}/>
         <Questions currentItemID={currentItemID}/>
       </div>
       {currentReviewsMeta && <Reviews reviewsMeta={currentReviewsMeta} productName={currentItem.name}/>}

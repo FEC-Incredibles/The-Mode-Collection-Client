@@ -1,20 +1,56 @@
 import React, { useState, useEffect } from "react";
-import MoreDetails from "./MoreDetails.jsx"
-import StarRating from "../StarRating.jsx"
+import StarRating from "../StarRating.jsx";
 
-export default function Card({ item }) {
-  let filledStar = "☆";
-  let emptyStar = "★";
+export default function Card({
+  item,
+  setCurrentItemID,
+  type,
+  setOutfit,
+  outfit,
+  setdetailsId
+}) {
+  const [star, setStar] = useState(item.starred);
   return (
     <div className="Card">
-      {item.starred ? (
-        <p className="starred">⭐️</p>
+      {type === "Related" ? (
+        star ? (
+          <i
+            className="fa-regular fa-star starred"
+            onClick={() => {
+              setStar(!star);
+            }}
+          ></i>
+        ) : (
+          <i
+            className="fa-solid fa-star starred"
+            style={{ color: "#f9d949" }}
+            onClick={() => {
+              setStar(!star);
+            }}
+          ></i>
+        )
       ) : (
-        <p className="starred">★</p>
+        <i
+          className="fa-solid fa-x starred"
+          style={{ color: "#e8e6e3" }}
+          onClick={() => {
+            let newOutfit = outfit.slice();
+            let deleteIndex = outfit.indexOf(item.id);
+            newOutfit[deleteIndex] = null;
+            newOutfit.push(null);
+            setOutfit(newOutfit);
+            console.log(outfit);
+          }}
+        ></i>
       )}
-      <img src={item.imgURL} />
+      <img
+        src={item.imgURL}
+        onClick={() => {
+          setCurrentItemID(item.id);
+        }}
+      />
       <div className="info">
-        <h2 style={{"fontSize": "28px"}}>{item.category}</h2>
+        <h2 style={{ fontSize: "28px" }} onClick={() => {setdetailsId(item.id)}}>{item.category}</h2>
         <p>{item.productData}</p>
         <h3>{item.price}</h3>
         <div className="stars">
@@ -23,7 +59,6 @@ export default function Card({ item }) {
           </h3>
         </div>
       </div>
-      {/* <MoreDetails ComparedFeatures={item.comparedFeatures}/> */}
     </div>
   );
 }

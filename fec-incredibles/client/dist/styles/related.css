@@ -5,6 +5,32 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center; }
+  .brianWidget .moreDetails {
+    position: absolute;
+    box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
+    background-color: #6c6e6f;
+    width: 600px;
+    height: 400px;
+    z-index: 100;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    justify-content: center;
+    padding: 2em;
+    transition: transform 0.5s;
+    transform: perspective(500px) translate3d(-600px, 0, 0px); }
+    .brianWidget .moreDetails i {
+      position: absolute;
+      align-self: end;
+      top: 100px; }
+    .brianWidget .moreDetails h4 {
+      text-decoration: underline; }
+    .brianWidget .moreDetails .row {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between; }
   .brianWidget .carouselItems {
     display: flex;
     flex-flow: column nowrap;
@@ -47,18 +73,6 @@
           max-width: 200px;
           aspect-ratio: 1 / 1;
           object-fit: cover; }
-      .brianWidget .relatedCarousel .viewPort .moreDetails {
-        z-index: 1;
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: start;
-        justify-content: center;
-        padding: 2em; }
-        .brianWidget .relatedCarousel .viewPort .moreDetails .row {
-          display: flex;
-          flex-flow: row nowrap;
-          align-items: center;
-          justify-content: space-between; }
       .brianWidget .relatedCarousel .viewPort .starred {
         padding: 10px;
         position: absolute;
