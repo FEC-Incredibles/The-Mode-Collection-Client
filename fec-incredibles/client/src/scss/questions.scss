@@ -28,10 +28,17 @@
     margin: 8px;
   }
 
+  ::placeholder {
+    color:#e8e6e3;
+  }
+
   .searchBar {
     align-self: center;
     width: 400px;
     height: 30px;
+    background-color: #646464;
+    color:#e8e6e3;
+
   }
 
   .question {
@@ -78,11 +85,13 @@
   .moreAnsweredBtn {
     width: 250px;
     cursor: pointer;
+    background-color: #E5707E;
   }
 
   .addQuestionBtn {
     width: 250px;
     cursor: pointer;
+    background-color: #E5707E;
   }
 
   .userDate {

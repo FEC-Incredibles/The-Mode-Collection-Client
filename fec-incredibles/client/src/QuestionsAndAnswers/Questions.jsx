@@ -18,7 +18,7 @@ const Questions = ({currentItemID}) => {
 
 
   useEffect(() => {
-      axios.get(`/qa/questions/?product_id=${currentItemID}&count=25`)
+      axios.get(`/qa/questions/?product_id=${currentItemID}&count=18`)
       .then((response) => {
         setQuestionList(response.data.results)
       })
