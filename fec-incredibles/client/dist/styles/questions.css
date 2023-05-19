@@ -3,7 +3,7 @@
   flex-flow: column nowrap;
   max-height: 800px;
   width: 1000px;
-  min-height: 500px;
+  min-height: 600px;
   cursor: default; }
   #QA .questionContainer {
     overflow-y: auto;
@@ -96,24 +96,31 @@
     font-weight: bold;
     text-decoration: underline; }
   #QA .answerModal {
-    position: fixed;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
     z-index: 10;
-    left: 0;
-    top: 0;
     outline: solid;
     outline-color: black;
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: white;
-    /* Fallback color */
-    /* Black w/ opacity */
-    display: flex; }
+    width: 800px;
+    height: 400px;
+    align-self: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto; }
   #QA .answerForm {
-    min-height: 30vh;
-    min-width: 80vh;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    position: 50%;
     margin: 0 1rem 1rem 1rem 1rem;
     padding: 2rem;
-    background: #323638;
+    background: #7e8182;
     box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px); }
@@ -151,23 +158,34 @@
     float: left; }
   #QA .questionModal {
     position: fixed;
+    justify-content: center;
+    align-items: center;
     z-index: 10;
-    left: 0;
-    top: 0;
     outline: solid;
     outline-color: black;
+    width: 800px;
+    height: 400px;
+    align-self: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     overflow: auto;
     /* Enable scroll if needed */
-    background-color: white;
     /* Fallback color */
     /* Black w/ opacity */
     display: flex; }
   #QA .questionForm {
-    min-height: 30vh;
-    min-width: 80vh;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    position: 50%;
     margin: 0 1rem 1rem 1rem 1rem;
     padding: 2rem;
-    background: #323638;
+    background: #7e8182;
     box-shadow: #646464 20px 20px, #646464 20px 20px inset, #E5707E -4px -4px inset, #F9D949 4px 4px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px); }
