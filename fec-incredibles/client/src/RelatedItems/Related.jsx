@@ -5,7 +5,7 @@ import testData from "./ExampleData/relatedProducts.json";
 import DownArrowIcon from "../SVGs/DownArrowIcon.jsx"
 import UpArrowIcon from "../SVGs/UpArrowIcon.jsx"
 
-const Related = ({ currentItemID, type, outfit, setOutfit }) => {
+const Related = ({ currentItemID, type, outfit, setOutfit, setCurrentItemID }) => {
   const [activeItem, setActiveItem] = useState(0);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
@@ -52,7 +52,7 @@ const Related = ({ currentItemID, type, outfit, setOutfit }) => {
           console.log(err);
         });
     }
-  }, [currentItemID]);
+  }, [currentItemID, outfit]);
 
   const updateItem = (newItem) => {
     if (newItem < 0) {
@@ -91,7 +91,7 @@ const Related = ({ currentItemID, type, outfit, setOutfit }) => {
             style={{ transform: `translateY(-${activeItem * 40}%)` }}
           >
             {relatedProducts.map((item, index) => {
-              return <Card item={item} key={index} />;
+              return <Card item={item} key={index} setCurrentItemID={setCurrentItemID}/>;
             })}
           </div>
         </div>

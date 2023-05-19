@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import MoreDetails from "./MoreDetails.jsx"
 import StarRating from "../StarRating.jsx"
 
-export default function Card({ item }) {
+export default function Card({ item , setCurrentItemID}) {
   let filledStar = "☆";
   let emptyStar = "★";
   return (
-    <div className="Card">
+    <div className="Card" onClick={() => {
+      setCurrentItemID(item.id);
+    }}>
       {item.starred ? (
         <p className="starred">⭐️</p>
       ) : (
@@ -14,7 +16,7 @@ export default function Card({ item }) {
       )}
       <img src={item.imgURL} />
       <div className="info">
-        <h2 style={{"fontSize": "28px"}}>{item.category}</h2>
+        <h2 style={{"fontSize": "20px"}}>{item.category}</h2>
         <p>{item.productData}</p>
         <h3>{item.price}</h3>
         <div className="stars">
