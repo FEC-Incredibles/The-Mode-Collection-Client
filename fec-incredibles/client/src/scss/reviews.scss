@@ -17,10 +17,13 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
   cursor: default;
   color: $color-text-white;
 
+
+
   // undo reset
   input[type="radio"] {
     -webkit-appearance: radio;
     accent-color: $color-accent-yellow;
+    cursor: pointer;
   }
 
   button {
@@ -28,6 +31,7 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
     margin: 5px 10px;
     font-family: $font-base;
     background-color: $color-accent-red;
+    cursor: pointer;
   }
 
   input,
@@ -35,6 +39,7 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
     background-color: #646464;
     color: #e8e6e3;
     padding: 5px;
+    cursor: text;
   }
 
   input::-webkit-outer-spin-button,
@@ -66,6 +71,11 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
     padding: 2px 5px 1px 5px;
     margin: 0 5px;
     font-family: $font-base;
+    cursor: pointer;
+
+    option {
+      cursor: pointer;
+    }
   }
 
   .sort-option {
@@ -144,11 +154,13 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
         background-color: transparent;
         color: $color-accent-red;
         background-color: #434545;
+        cursor: pointer;
       }
 
       img {
         max-width: 90%;
         max-height: 90%;
+        cursor: pointer;
       }
     }
 
@@ -225,6 +237,10 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
       i {
         flex: 2;
       }
+
+      svg {
+        cursor: pointer;
+      }
     }
 
     .form-group {
@@ -265,6 +281,7 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
 
       input, textarea {
         flex: 5;
+        cursor: text;
       }
     }
 
@@ -326,6 +343,7 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
         font-weight: 200;
         text-decoration: underline;
         margin: 0 5px;
+        cursor: pointer;
       }
     }
 
@@ -335,6 +353,7 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
         height: 100px;
         object-fit: cover;
         margin: 5px;
+        cursor: pointer;
       }
     }
 
@@ -372,6 +391,7 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
         font-weight: lighter;
         margin: 0 5px 0 10px;
         text-decoration: underline;
+        cursor: pointer;
 
         span {
           color: $color-accent-red;
@@ -415,6 +435,7 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
 
     .breakdown-by-star {
       margin: 5px 0;
+      cursor: pointer;
 
       i {
         text-decoration: underline;
@@ -450,12 +471,14 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
         // display: inline-block;
         margin: 0 5px;
         background-color: #646464;
+        cursor: pointer;
       }
 
       button {
         display: block;
         padding: 5px 2px;
         margin: 5px 0;
+        cursor: pointer;
       }
     }
 
@@ -498,4 +521,5 @@ $font-footer: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida San
     }
 
   }
+
 }

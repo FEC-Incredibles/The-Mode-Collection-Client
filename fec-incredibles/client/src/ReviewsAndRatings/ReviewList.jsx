@@ -56,7 +56,7 @@ const ReviewList = (props) => {
         <div className="modal" data-testid="modal">
           <div className="modal-content">
             <button className="btn-close" onClick={toggleCreateMode}>
-            <i class="fa-solid fa-xmark fa-2xl"></i></button>
+            <i className="fa-solid fa-xmark fa-2xl"></i></button>
             <NewReviewForm
               reviewsMeta={reviewsMeta}
               setCreateMode={setCreateMode}

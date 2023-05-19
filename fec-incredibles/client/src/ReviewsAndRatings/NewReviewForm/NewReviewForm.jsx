@@ -104,7 +104,7 @@ const NewReviewForm = ({ reviewsMeta, setCreateMode, togglePostedReview, product
 
       <div className='form-row'>
         <label htmlFor='new-rating'>How would you rate it?*</label>
-        <StarRating rating={rating} handler={handleClickStar} size={30} />
+        <StarRating rating={rating} handler={handleClickStar} size={30}/>
         <i>{ratings[rating]}</i>
       </div>
 
