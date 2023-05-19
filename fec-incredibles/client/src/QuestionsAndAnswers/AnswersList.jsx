@@ -58,6 +58,7 @@ const AnswersList = ({question, questionHelpful, setQuestionHelpful}) => {
 
     return (
       <div className='oneQuestion'>
+        {addAnswer && (<AddAnswer currentQuestion={question} setAnswerList={setAnswerList} setAddAnswer={setAddAnswer} addAnswer={addAnswer}/>)}
         <div className='questionHelpful'>
           <p className='question'>Q: {question.question_body} </p>
           <div className='helpfulAddAnswer'>
@@ -68,7 +69,7 @@ const AnswersList = ({question, questionHelpful, setQuestionHelpful}) => {
             </div>
           </div>
         </div>
-        {addAnswer && (<AddAnswer currentQuestion={question} setAnswerList={setAnswerList} setAddAnswer={setAddAnswer} addAnswer={addAnswer}/>)}
+
         <div className='answerContainer'>{answerDisplay.map((answer, index) => {
           return (<Answers answer={answer} key={index} helpfulAnswer={helpfulAnswer} setHelpfulAnswer={setHelpfulAnswer} />)
         })}</div>
