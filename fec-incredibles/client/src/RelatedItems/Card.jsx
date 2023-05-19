@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import MoreDetails from "./MoreDetails.jsx";
 import StarRating from "../StarRating.jsx";
 
 export default function Card({
@@ -8,6 +7,7 @@ export default function Card({
   type,
   setOutfit,
   outfit,
+  setdetailsId
 }) {
   const [star, setStar] = useState(item.starred);
   return (
@@ -50,7 +50,7 @@ export default function Card({
         }}
       />
       <div className="info">
-        <h2 style={{ fontSize: "28px" }}>{item.category}</h2>
+        <h2 style={{ fontSize: "28px" }} onClick={() => {setdetailsId(item.id)}}>{item.category}</h2>
         <p>{item.productData}</p>
         <h3>{item.price}</h3>
         <div className="stars">
@@ -59,7 +59,6 @@ export default function Card({
           </h3>
         </div>
       </div>
-      {/* <MoreDetails ComparedFeatures={item.comparedFeatures}/> */}
     </div>
   );
 }

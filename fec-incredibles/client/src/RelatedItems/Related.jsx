@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card.jsx";
 import axios from "axios";
+import MoreDetails from "./MoreDetails.jsx";
 import testData from "./ExampleData/relatedProducts.json";
 import DownArrowIcon from "../SVGs/DownArrowIcon.jsx";
 import UpArrowIcon from "../SVGs/UpArrowIcon.jsx";
@@ -14,6 +15,7 @@ const Related = ({
 }) => {
   const [activeItem, setActiveItem] = useState(0);
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const [detailsId, setdetailsId] = useState(0);
   if (type === "Related") {
     useEffect(() => {
       let related;
@@ -94,6 +96,7 @@ const Related = ({
   return (
     <div className="widget brianWidget" id={module}>
       <h1>{type} Products</h1>
+      {detailsId > 0 && <MoreDetails detailId={detailsId} relatedProducts={relatedProducts} setdetailsId={setdetailsId}/>}
       <div className="carouselItems">
         {activeItem > 0 ? (
           <div
@@ -128,6 +131,7 @@ const Related = ({
                   type={type}
                   setOutfit={setOutfit}
                   outfit={outfit}
+                  setdetailsId={setdetailsId}
                 />
               );
             })}

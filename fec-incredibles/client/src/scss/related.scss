@@ -5,6 +5,36 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  .moreDetails {
+    position: absolute;
+    box-shadow: rgb(100,100,100) 20px 20px, rgb(100,100,100) 20px 20px inset, #E5707E -4px -4px inset,  #F9D949 4px 4px;
+    background-color: rgb(108,110,111);
+    width: 600px;
+    height: 400px;
+    z-index: 100;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    justify-content: center;
+    padding: 2em;
+    transition: transform 0.5s;
+    transform: perspective(500px) translate3d(-600px, 0, 0px);
+    i {
+      position: absolute;
+      align-self: end;
+      top: 100px
+    }
+    h4 {
+      text-decoration: underline;
+    }
+    .row {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
   .carouselItems {
     display: flex;
     flex-flow: column nowrap;
@@ -51,20 +81,6 @@
           max-width: 200px;
           aspect-ratio: 1 / 1;
           object-fit: cover;
-        }
-      }
-      .moreDetails {
-        z-index: 1;
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: start;
-        justify-content: center;
-        padding: 2em;
-        .row {
-          display: flex;
-          flex-flow: row nowrap;
-          align-items: center;
-          justify-content: space-between;
         }
       }
       .starred {
