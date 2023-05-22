@@ -44,7 +44,7 @@
    ```
 3. To start the project
    ```sh
-   npm run client-dev
+   npm run build
    npm start
    ```
 
