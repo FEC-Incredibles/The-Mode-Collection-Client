@@ -1,114 +1,117 @@
-const express = require('express');
-const path = require('path');
-const store = require('./StoreAPI.js');
-const {getAvgRating} = require("../client/src/ReviewsAndRatings/helper.js")
+const express = require("express");
+const path = require("path");
+const store = require("./StoreAPI.js");
+const { getAvgRating } = require("../client/src/ReviewsAndRatings/helper.js");
 
 let app = express();
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../client/dist')))
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
+app.get("/products/:id", (req, res) => {
+  store
+    .getProductInfo(req.params.id)
+    .then((response) => {
+      // console.log('product info => ', response.data)
+      res.status(200).json(response.data);
+    })
+    .catch((err) => {
+      console.log("error getting product data => ", err);
+      res.sendStatus(500);
+    });
+});
 
-app.get('/products/:id', (req, res) => {
-  store.getProductInfo(req.params.id)
-  .then((response) => {
-    // console.log('product info => ', response.data)
-    res.status(200).json(response.data);
-  })
-  .catch((err) => {
-    console.log('error getting product data => ', err)
-    res.sendStatus(500);
-  })
-})
+app.get("/products/:id/styles", (req, res) => {
+  store
+    .getProductStyles(req.params.id)
+    .then((response) => {
+      // console.log('product styles => ', response.data)
+      res.status(200).json(response.data);
+    })
+    .catch((err) => {
+      console.log("error getting product styles => ", err);
+      res.sendStatus(500);
+    });
+});
 
-app.get('/products/:id/styles', (req, res) => {
-  store.getProductStyles(req.params.id)
-  .then((response) => {
-    // console.log('product styles => ', response.data)
-    res.status(200).json(response.data);
-  })
-  .catch((err) => {
-    console.log('error getting product styles => ', err)
-    res.sendStatus(500)
-  })
-})
+app.get("/products/:id/related", (req, res) => {
+  store
+    .getRelatedProductsID(req.params.id)
+    .then((response) => {
+      // console.log('product styles => ', response.data)
+      res.status(200).json(response.data);
+    })
+    .catch((err) => {
+      console.log("error getting product ids => ", err);
+      res.sendStatus(500);
+    });
+});
 
-app.get('/products/:id/related', (req, res) => {
-  store.getRelatedProductsID(req.params.id)
-  .then((response) => {
-    // console.log('product styles => ', response.data)
-    res.status(200).json(response.data);
-  })
-  .catch((err) => {
-    console.log('error getting product ids => ', err)
-    res.sendStatus(500)
-  })
-})
-
-app.get('/relatedItems', (req, res) => {
+app.get("/relatedItems", (req, res) => {
   let sortedData = [];
   let relatedIDs = JSON.parse(req.query.relatedIDs);
-  let currentFeatures = JSON.parse(req.query.currentFeatures)
+  let currentFeatures = JSON.parse(req.query.currentFeatures);
   let finish = () => {
     setTimeout(() => {
       res.json(sortedData);
     }, 400);
-  }
+  };
   relatedIDs.forEach((itemID, index) => {
     let id = itemID;
     let starred = false;
     let comparedFeatures = {};
     let category, productData, price, stars, primaryPhotoURL;
-    store.getProductStyles(itemID)
-    .then((element) => {
-      let primaryPhotos = element.data.results.filter(style => style['default?'] === true)
-      if (primaryPhotos.length === 1) {
-        primaryPhotoURL = primaryPhotos[0].photos[0].thumbnail_url;
-        return store.getProductInfo(itemID);
-      } else {
-        throw "There is not a default photo for this product" + itemID
-      }
-    })
-    .then((element) => {
-      category = element.data.category;
-      productData = element.data.slogan;
-      price = element.data.default_price;
-      let incomingFeatures = element.data.features;
-      for (var i = 0; i < incomingFeatures.length; i++) {
-        comparedFeatures[incomingFeatures[i]["feature"]] = [false, incomingFeatures[i].value];
-      }
-      for (var key in currentFeatures) {
-        if (comparedFeatures[key] === undefined) {
-          comparedFeatures[key] = [currentFeatures[key], false];
+    store
+      .getProductStyles(itemID)
+      .then((element) => {
+        let primaryPhotos = element.data.results.filter((style) => style["default?"] === true);
+        if (primaryPhotos.length === 1) {
+          primaryPhotoURL = primaryPhotos[0].photos[0].thumbnail_url;
+          return store.getProductInfo(itemID);
         } else {
-          comparedFeatures[key][0] = currentFeatures[key]
+          throw "There is not a default photo for this product" + itemID;
         }
-      }
-      return store.getReviewMeta(itemID);
-    })
-    .then((element) => {
-      stars = getAvgRating(element.data)
-      if (category && productData && price && stars && primaryPhotoURL) {
-        sortedData.push({
-          "id": itemID,
-          "starred": true,
-          "imgURL": primaryPhotoURL,
-          "category": category,
-          "productData": productData,
-          "price": ('$' + String(price)),
-          "stars": String(stars),
-          "comparedFeatures": comparedFeatures
-        })
-      }
-      if (index === relatedIDs.length - 1) {
-        finish()
-      }
-    })
-    .catch ((err) => {
-      //console.log('Error:', err);
-    })
-  })
-})
+      })
+      .then((element) => {
+        category = element.data.category;
+        productData = element.data.slogan;
+        price = element.data.default_price;
+        let incomingFeatures = element.data.features;
+        for (var i = 0; i < incomingFeatures.length; i++) {
+          comparedFeatures[incomingFeatures[i]["feature"]] = [false, incomingFeatures[i].value];
+        }
+        for (var key in currentFeatures) {
+          if (comparedFeatures[key] === undefined) {
+            comparedFeatures[key] = [currentFeatures[key], false];
+          } else {
+            comparedFeatures[key][0] = currentFeatures[key];
+          }
+        }
+        return store.getReviewMeta(itemID);
+      })
+      .then((element) => {
+        stars = getAvgRating(element.data);
+        if (category && productData && price && stars && primaryPhotoURL) {
+          sortedData.push({
+            id: itemID,
+            starred: true,
+            imgURL: primaryPhotoURL,
+            category: category,
+            productData: productData,
+            price: "$" + String(price),
+            stars: String(stars),
+            comparedFeatures: comparedFeatures,
+          });
+        }
+        if (index === relatedIDs.length - 1) {
+          finish();
+        }
+      })
+      .catch((err) => {
+        //console.log('Error:', err);
+      });
+  });
+});
 
 // app.get('/qa/questions/:id', (req, res) => {
 //   //console.log('this is param ', req.params.id);
@@ -136,14 +139,13 @@ app.get('/relatedItems', (req, res) => {
 // app.get('/qa/questions/:id', (req, res) => {
 // })
 
-app.all('/qa/questions*', store.questions);
+app.all("/qa/questions*", store.questions);
 
-app.all('/qa/answers*', store.answers);
+app.all("/qa/answers*", store.answers);
 
+app.all("/reviews*", store.reviews);
 
-app.all('/reviews*', store.reviews);
-
-let port = 3000;
-app.listen(port, function() {
+const port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0", function () {
   console.log(`listening on port ${port}`);
 });
