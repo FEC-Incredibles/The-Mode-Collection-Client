@@ -1,7 +1,7 @@
 # The Mode Collection
 
 <!-- TABLE OF CONTENTS -->
-<details open="open">
+<details open="open" id="top">
   <summary> Table of Contents</summary>
   <ol>
     <li>
@@ -135,7 +135,7 @@ The Ratings & Reviews module offers users an interactive and user-friendly inter
 
 <p>
  <span style="padding-right: 10px;">Jason Quintana</span>
- <a href="hhttps://www.linkedin.com/in/quintanajason/">
+ <a href="https://www.linkedin.com/in/quintanajason/">
  <img src="https://img.shields.io/badge/Jason-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" style="margin-bottom: -8px; padding-right: 8px;">
  </a>
  <a href="https://github.com/IamMrUnicorn">
