@@ -42,8 +42,7 @@ The Mode Collection is a collaborative project focused on revamping an e-commerc
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
 
    <img src="https://img.shields.io/badge/javascript-%23563D7C.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
-   <img src="https://img.shields.io/badge/scss-%23DB7093.svg?style=for-the-badge&logo=css3&logoColor=white
-   ">
+   <img src="https://img.shields.io/badge/scss-%23DB7093.svg?style=for-the-badge&logo=css3&logoColor=white">
 </div>
 
 ##### Backend
